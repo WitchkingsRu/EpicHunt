@@ -1,0 +1,46 @@
+package net.epichunt.entity.client.render;
+
+import com.mojang.blaze3d.vertex.PoseStack;
+import net.epichunt.EpicHunt;
+import net.epichunt.entity.animals.DeerEntity;
+import net.epichunt.entity.animals.DoeEntity;
+import net.epichunt.entity.client.ModModels;
+import net.epichunt.entity.client.model.DeerModel;
+import net.epichunt.entity.client.model.DoeModel;
+import net.minecraft.client.renderer.MultiBufferSource;
+import net.minecraft.client.renderer.entity.EntityRendererProvider;
+import net.minecraft.resources.ResourceLocation;
+import com.mojang.blaze3d.vertex.PoseStack;
+import net.epichunt.EpicHunt;
+import net.epichunt.entity.animals.DeerEntity;
+import net.epichunt.entity.client.model.DeerModel;
+import net.epichunt.entity.client.ModModels;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
+import net.minecraft.client.renderer.MultiBufferSource;
+import net.minecraft.client.renderer.entity.EntityRendererProvider;
+import net.minecraft.client.renderer.entity.MobRenderer;
+import net.minecraft.resources.ResourceLocation;
+
+@Environment(EnvType.CLIENT)
+public class DoeRender extends MobRenderer<DoeEntity, DoeModel<DoeEntity>> {
+    private static final ResourceLocation DOE_LOCATION = new ResourceLocation(EpicHunt.MOD_ID,"textures/entity/deer/doe.png");
+    public DoeRender(EntityRendererProvider.Context context) {
+        super(context,new DoeModel<>(context.bakeLayer(ModModels.DOE_LAYER_LOCATION)), 0.6f);
+    }
+
+    @Override
+    public ResourceLocation getTextureLocation(DoeEntity entity) {
+        return DOE_LOCATION;
+    }
+
+    @Override
+    public void render(DoeEntity mob, float f, float g, PoseStack poseStack, MultiBufferSource multiBufferSource, int i) {
+
+        if(mob.isBaby()) {
+            poseStack.scale(0.5f, 0.5f, 0.5f);
+        }
+
+        super.render(mob, f, g, poseStack, multiBufferSource, i);
+    }
+}

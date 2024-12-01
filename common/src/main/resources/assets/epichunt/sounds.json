@@ -1,0 +1,27 @@
+{
+  "deer_ambient": {
+    "subtitles": "sounds.epichunt.deer_ambient",
+    "sounds": [
+      "epichunt:ambient",
+      "epichunt:deer_ambient"
+    ]
+  },
+  "deer_hurt": {
+    "subtitles": "sounds.epichunt.deer_ambient",
+    "sounds": [
+      "epichunt:hurt"
+    ]
+  },
+  "deer_death": {
+    "subtitles": "sounds.epichunt.deer_ambient",
+    "sounds": [
+      "epichunt:death"
+    ]
+  },
+  "deer_eat": {
+    "subtitles": "sounds.epichunt.deer_ambient",
+    "sounds": [
+      "epichunt:eat"
+    ]
+  }
+}
