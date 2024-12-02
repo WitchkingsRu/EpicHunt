@@ -68,7 +68,7 @@ public class DuckModel<T extends Entity> extends HierarchicalModel<T> {
 		this.root().getAllParts().forEach(ModelPart::resetPose);
 		this.applyHeadRotation(netHeadYaw, headPitch, ageInTicks);
 		this.animateWalk(DuckAnimation.walk, limbSwing, limbSwingAmount, 2f, 2.5f);
-		this.animate(((DuckEntity) entity).flyAnimationState, DuckAnimation.fly, ageInTicks, 1f);
+		//this.animate(((DuckEntity) entity).flyAnimationState, DuckAnimation.fly, ageInTicks, 1f);
 	}
 	private void applyHeadRotation(float pNetHeadYaw, float pHeadPitch, float pAgeInTicks) {
 		pNetHeadYaw = Mth.clamp(pNetHeadYaw, -30.0F, 30.0F);
