@@ -26,11 +26,9 @@ public class SurfaceSwimGoal extends Goal {
     @Override
     public void tick() {
         double surfaceY = mob.getFluidHeight(FluidTags.WATER) + mob.getBlockY();
-        // Если моб ниже поверхности воды, плавно поднимаем его
         if (mob.getY() < surfaceY) {
             Vec3 currentMovement = mob.getDeltaMovement();
-            double verticalSpeed = Math.min(0.1, surfaceY - mob.getY()); // Плавный подъём
-            // Устанавливаем только вертикальную скорость, оставляя горизонтальную неизменной
+            double verticalSpeed = Math.min(0.1, surfaceY - mob.getY());
             mob.setDeltaMovement(currentMovement.x, verticalSpeed, currentMovement.z);
         }
     }
