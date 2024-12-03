@@ -18,7 +18,7 @@ import net.minecraft.resources.ResourceLocation;
 public class DuckRender extends MobRenderer<DuckEntity, DuckModel<DuckEntity>> {
     private static final ResourceLocation DUCK_LOCATION = new ResourceLocation(EpicHunt.MOD_ID,"textures/entity/duck/duck.png");
     public DuckRender(EntityRendererProvider.Context context) {
-        super(context,new DuckModel<>(context.bakeLayer(ModModels.DUCK_LAYER_LOCATION)), 0.6f);
+        super(context,new DuckModel<>(context.bakeLayer(ModModels.DUCK_LAYER_LOCATION)), 0.3f);
     }
 
     @Override

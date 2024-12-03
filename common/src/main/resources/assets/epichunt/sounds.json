@@ -2,26 +2,43 @@
   "deer_ambient": {
     "subtitles": "sounds.epichunt.deer_ambient",
     "sounds": [
-      "epichunt:ambient",
       "epichunt:deer_ambient"
     ]
   },
   "deer_hurt": {
     "subtitles": "sounds.epichunt.deer_ambient",
     "sounds": [
-      "epichunt:hurt"
+      "epichunt:deer_hurt"
     ]
   },
   "deer_death": {
     "subtitles": "sounds.epichunt.deer_ambient",
     "sounds": [
-      "epichunt:death"
+      "epichunt:deer_death"
     ]
   },
   "deer_eat": {
     "subtitles": "sounds.epichunt.deer_ambient",
     "sounds": [
-      "epichunt:eat"
+      "epichunt:deer_eat"
+    ]
+  },
+  "duck_ambient": {
+    "subtitles": "sounds.epichunt.duck_ambient",
+    "sounds": [
+      "epichunt:duck_ambient"
+    ]
+  },
+  "duck_hurt": {
+    "subtitles": "sounds.epichunt.duck_ambient",
+    "sounds": [
+      "epichunt:duck_hurt"
+    ]
+  },
+  "duck_death": {
+    "subtitles": "sounds.epichunt.duck_ambient",
+    "sounds": [
+      "epichunt:duck_death"
     ]
   }
 }

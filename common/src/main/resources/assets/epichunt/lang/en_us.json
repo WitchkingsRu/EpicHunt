@@ -3,6 +3,12 @@
   "item.epichunt.cooked_venison": "Cooked Venison",
   "item.epichunt.deer_spawn_egg": "Deer Spawn Egg",
   "item.epichunt.doe_spawn_egg": "Doe Spawn Egg",
+  "item.epichunt.roe_deer_spawn_egg": "Roe Deer Spawn Egg",
+  "item.epichunt.caribou_spawn_egg": "Caribou Spawn Egg",
+  "item.epichunt.duck_spawn_egg": "Duck Spawn Egg",
   "entity.epichunt.deer": "Deer",
-  "entity.epichunt.doe": "Doe"
+  "entity.epichunt.doe": "Doe",
+  "entity.epichunt.roe_deer": "Roe Deer",
+  "entity.epichunt.caribou": "Caribou",
+  "entity.epichunt.duck": "Duck"
 }

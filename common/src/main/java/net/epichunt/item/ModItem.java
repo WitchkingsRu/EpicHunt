@@ -4,10 +4,7 @@ import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
 import net.epichunt.EpicHunt;
 import net.epichunt.entity.ModEntities;
-import net.epichunt.entity.animals.CaribouEntity;
-import net.epichunt.entity.animals.DeerEntity;
-import net.epichunt.entity.animals.DoeEntity;
-import net.epichunt.entity.animals.RoeDeerEntity;
+import net.epichunt.entity.animals.*;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.item.FoodOnAStickItem;
 import net.minecraft.world.item.Item;
@@ -27,6 +24,10 @@ public class ModItem {
 
     public static final RegistrySupplier<Item> ROE_DEER_SPAWN_EGG = ITEMS.register("roe_deer_spawn_egg", () -> new SpawnEggItem(RoeDeerEntity.ROE_DEER.get(),0x8F6B47, 0xBF9266,
             new Item.Properties()));
+
+    public static final RegistrySupplier<Item> DUCK_SPAWN_EGG = ITEMS.register("duck_spawn_egg", () -> new SpawnEggItem(DuckEntity.DUCK.get(),0x483822, 0x6F5B3F,
+            new Item.Properties()));
+
 
     public static final RegistrySupplier<Item> VENISON = ITEMS.register("raw_venison", ()-> new Item(new Item.Properties().food(ModFood.VENISON)));
 

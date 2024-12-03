@@ -11,6 +11,7 @@ import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.tags.EntityTypeTags;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.DifficultyInstance;
@@ -35,6 +36,7 @@ import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.level.pathfinder.BlockPathTypes;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.Nullable;
@@ -44,6 +46,15 @@ import java.util.function.Supplier;
 public class DuckEntity extends Animal {
     private static final EntityDataAccessor<Boolean> IS_SWIMMING;
     public static final Ingredient FOOD_ITEMS;
+    public float flap;
+    public float flapSpeed;
+    public float oFlapSpeed;
+    public float oFlap;
+    public float flapping = 1.0F;
+    private float nextFlap = 1.0F;
+    public int eggTime = 9999;
+    private boolean isGliding = false;
+
     public DuckEntity(EntityType<? extends Animal> entityType, Level level) {
         super(entityType, level);
         this.setPathfindingMalus(BlockPathTypes.WATER, 0.0F);
@@ -52,6 +63,7 @@ public class DuckEntity extends Animal {
         this.setPathfindingMalus(BlockPathTypes.DOOR_OPEN, -1.0F);
         this.moveControl = new DuckMoveControl(this);
         this.setMaxUpStep(1.0F);
+
     }
 
     public static final Supplier<EntityType<DuckEntity>> DUCK = Suppliers.memoize(() -> EntityType.Builder.of(DuckEntity::new, MobCategory.CREATURE)
@@ -67,6 +79,32 @@ public class DuckEntity extends Animal {
         }
         this.walkAnimation.update(f, 0.4f);
     }
+
+    @Override
+    public void tick() {
+        super.tick();
+        if(!this.isInWater()&&!this.onGround()) {
+            this.resetFallDistance();
+        }
+        if(this.level().isClientSide()) {
+            this.setupAnimationStates();
+        }
+    }
+
+    public final AnimationState flyAnimationState = new AnimationState();
+
+    private void setupAnimationStates() {
+        if (!this.isInWater() && !this.onGround()) {
+            if (!isGliding) { // Запускаем анимацию только при начале планирования
+                this.flyAnimationState.start(this.tickCount);
+                isGliding = true;
+            }
+        } else if (this.isInWater() || this.onGround()) {
+            this.flyAnimationState.stop();
+            isGliding = false;
+        }
+    }
+
     public boolean isSwimming() {
         return this.entityData.get(IS_SWIMMING);
     }
@@ -93,6 +131,17 @@ public class DuckEntity extends Animal {
         this.setSwimming(tag.getBoolean("IsSwimming"));
     }
 
+    @Override
+    protected void registerGoals() {
+        this.goalSelector.addGoal(1, new PanicGoal(this, 1.7));
+        this.goalSelector.addGoal(2, new FollowParentGoal(this, 1.1D));
+        this.goalSelector.addGoal(4, new SurfaceSwimGoal(this));
+        this.goalSelector.addGoal(5, new RandomStrollGoal(this, 1f, 100));
+        this.goalSelector.addGoal(7, new LookAtPlayerGoal(this, Player.class, 3f));
+        this.goalSelector.addGoal(8, new RandomLookAroundGoal(this));
+    }
+
+
     @Nullable
     @Override
     public SpawnGroupData finalizeSpawn(ServerLevelAccessor levelAccessor, DifficultyInstance difficulty, MobSpawnType spawnType, @Nullable SpawnGroupData spawnData, @Nullable CompoundTag dataTag) {
@@ -102,15 +151,7 @@ public class DuckEntity extends Animal {
     public static boolean checkDuckSpawnRules(EntityType<DuckEntity> type, LevelAccessor levelAccessor, MobSpawnType spawnType, BlockPos pos, RandomSource random) {
         return pos.getY() > levelAccessor.getSeaLevel() - 4 && isBrightEnoughToSpawn(levelAccessor, pos);
     }
-    @Override
-    protected void registerGoals() {
-        this.goalSelector.addGoal(1, new PanicGoal(this, 1.7));
-        this.goalSelector.addGoal(2, new FollowParentGoal(this, 1.1D));
-        this.goalSelector.addGoal(4, new SurfaceSwimGoal(this));
-        this.goalSelector.addGoal(5, new RandomStrollGoal(this, 1f, 10));
-        this.goalSelector.addGoal(7, new LookAtPlayerGoal(this, Player.class, 3f));
-        this.goalSelector.addGoal(8, new RandomLookAroundGoal(this));
-    }
+
 
     protected PathNavigation createNavigation(Level arg) {
         return new DuckNavigation(this, arg);
@@ -125,16 +166,15 @@ public class DuckEntity extends Animal {
     public boolean isPushedByFluid() {
         return false;
     }
-
     @Override
     public boolean canBreatheUnderwater() {
         return false; // Утки могут плавать, но дышат воздухом
     }
-
     @Override
     public MobType getMobType() {
         return MobType.WATER;
     }
+
 
     private static class DuckNavigation extends AmphibiousPathNavigation {
         DuckNavigation(Mob mob, Level level) {
@@ -151,42 +191,6 @@ public class DuckEntity extends Animal {
         }
     }
 
-    @Nullable
-    @Override
-    public AgeableMob getBreedOffspring(ServerLevel serverLevel, AgeableMob ageableMob) {
-        return DUCK.get().create(serverLevel);
-    }
-
-    @Override
-    public SoundEvent getEatingSound(ItemStack itemStack) {
-        return Sounds.DEER_EAT.get();
-    }
-
-    @Nullable
-    @Override
-    protected SoundEvent getAmbientSound() {
-        return Sounds.DEER_AMBIENT.get();
-    }
-
-    @Nullable
-    @Override
-    protected SoundEvent getHurtSound(DamageSource damageSource) {
-        return Sounds.DEER_HURT.get();
-    }
-
-    @Nullable
-    @Override
-    protected SoundEvent getDeathSound() {
-        return Sounds.DEER_DEATH.get();
-    }
-
-    protected void playStepSound(BlockPos blockPos, BlockState blockState) {
-        this.playSound(SoundEvents.CHICKEN_STEP, 0.15F, 1.0F);
-    }
-
-    protected float getSoundVolume() {
-        return 0.3F;
-    }
 
     @Override
     public void travel(Vec3 travelVector) {
@@ -198,12 +202,32 @@ public class DuckEntity extends Animal {
             super.travel(travelVector);
         }
     }
+    @Override
+    public void aiStep() {
+        super.aiStep();
+        this.oFlap = this.flap;
+        this.oFlapSpeed = this.flapSpeed;
+        this.flapSpeed += (this.onGround() ? -1.0F : 4.0F) * 0.3F;
+        this.flapSpeed = Mth.clamp(this.flapSpeed, 0.0F, 1.0F);
+        if (!this.onGround() && this.flapping < 1.0F) {
+            this.flapping = 1.0F;
+        }
+        this.flapping *= 0.9F;
+        Vec3 vec3 = this.getDeltaMovement();
 
-    static {
-        IS_SWIMMING = SynchedEntityData.defineId(DuckEntity.class, EntityDataSerializers.BOOLEAN);
-        FOOD_ITEMS = Ingredient.of(Items.WHEAT_SEEDS);
+        if (!this.onGround() && !this.isInWater() && vec3.y < 0.0) {
+            this.setDeltaMovement(vec3.x, vec3.y * 0.6, vec3.z);
+        }
+
+        this.flap += this.flapping * 2.0F;
+
+        if (!this.level().isClientSide && this.isAlive() && !this.isInWater() && !this.isBaby() && --this.eggTime <= 0) {
+            this.playSound(SoundEvents.CHICKEN_EGG, 1.0F, (this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1.0F);
+            this.spawnAtLocation(Items.EGG);
+            this.gameEvent(GameEvent.ENTITY_PLACE);
+            this.eggTime = this.random.nextInt(6000) + 6000;
+        }
     }
-
     private static class DuckMoveControl extends MoveControl {
         private final DuckEntity duck;
 
@@ -219,5 +243,42 @@ public class DuckEntity extends Animal {
             }
             super.tick();
         }
+    }
+
+    @Nullable
+    @Override
+    public AgeableMob getBreedOffspring(ServerLevel serverLevel, AgeableMob ageableMob) {
+        return DUCK.get().create(serverLevel);
+    }
+
+    @Nullable
+    @Override
+    protected SoundEvent getAmbientSound() {
+        return Sounds.DUCK_AMBIENT.get();
+    }
+
+    @Nullable
+    @Override
+    protected SoundEvent getHurtSound(DamageSource damageSource) {
+        return Sounds.DUCK_HURT.get();
+    }
+
+    @Nullable
+    @Override
+    protected SoundEvent getDeathSound() {
+        return Sounds.DUCK_DEATH.get();
+    }
+
+    protected void playStepSound(BlockPos blockPos, BlockState blockState) {
+        this.playSound(SoundEvents.CHICKEN_STEP, 0.15F, 1.0F);
+    }
+
+    protected float getSoundVolume() {
+        return 0.3F;
+    }
+
+    static {
+        IS_SWIMMING = SynchedEntityData.defineId(DuckEntity.class, EntityDataSerializers.BOOLEAN);
+        FOOD_ITEMS = Ingredient.of(Items.WHEAT_SEEDS);
     }
 }
