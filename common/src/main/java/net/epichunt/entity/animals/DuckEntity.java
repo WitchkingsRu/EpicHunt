@@ -2,6 +2,7 @@ package net.epichunt.entity.animals;
 
 import com.google.common.base.Suppliers;
 import net.epichunt.entity.SurfaceSwimGoal;
+import net.epichunt.item.ModItem;
 import net.epichunt.sound.Sounds;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
@@ -59,6 +60,7 @@ public class DuckEntity extends Animal {
         this.setMaxUpStep(1.0F);
 
     }
+
 
     public static final Supplier<EntityType<DuckEntity>> DUCK = Suppliers.memoize(() -> EntityType.Builder.of(DuckEntity::new, MobCategory.CREATURE)
             .sized(0.7f, 0.7f).build("duck"));
@@ -217,7 +219,7 @@ public class DuckEntity extends Animal {
 
         if (!this.level().isClientSide && this.isAlive() && !this.isInWater() && !this.isBaby() && --this.eggTime <= 0) {
             this.playSound(SoundEvents.CHICKEN_EGG, 1.0F, (this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1.0F);
-            this.spawnAtLocation(Items.EGG);
+            this.spawnAtLocation(ModItem.DUCK_EGG.get());
             this.gameEvent(GameEvent.ENTITY_PLACE);
             this.eggTime = this.random.nextInt(6000) + 6000;
         }

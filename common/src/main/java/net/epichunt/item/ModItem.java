@@ -6,6 +6,7 @@ import net.epichunt.EpicHunt;
 import net.epichunt.entity.ModEntities;
 import net.epichunt.entity.animals.*;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.world.item.EggItem;
 import net.minecraft.world.item.FoodOnAStickItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.SpawnEggItem;
@@ -35,4 +36,11 @@ public class ModItem {
     public static final RegistrySupplier<Item> VENISON = ITEMS.register("raw_venison", ()-> new Item(new Item.Properties().food(ModFood.VENISON)));
 
     public static final RegistrySupplier<Item> COOKED_VENISON = ITEMS.register("cooked_venison", ()-> new Item(new Item.Properties().food(ModFood.COOKED_VENISON)));
+
+    public static final RegistrySupplier<Item> DUCK = ITEMS.register("raw_duck", ()-> new Item(new Item.Properties().food(ModFood.DUCK)));
+
+    public static final RegistrySupplier<Item> COOKED_DUCK = ITEMS.register("cooked_duck", ()-> new Item(new Item.Properties().food(ModFood.COOKED_DUCK)));
+
+
+    public static final RegistrySupplier<Item> DUCK_EGG = ITEMS.register("duck_egg", () -> new DuckEggItem(new Item.Properties().stacksTo(16)));
 }

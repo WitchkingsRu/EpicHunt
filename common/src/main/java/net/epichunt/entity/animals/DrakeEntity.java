@@ -74,6 +74,7 @@ public class DrakeEntity extends Animal {
         this.walkAnimation.update(f, 0.4f);
     }
 
+
     @Override
     public void tick() {
         super.tick();
@@ -214,13 +215,6 @@ public class DrakeEntity extends Animal {
         }
 
         this.flap += this.flapping * 2.0F;
-
-        if (!this.level().isClientSide && this.isAlive() && !this.isInWater() && !this.isBaby() && --this.eggTime <= 0) {
-            this.playSound(SoundEvents.CHICKEN_EGG, 1.0F, (this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1.0F);
-            this.spawnAtLocation(Items.EGG);
-            this.gameEvent(GameEvent.ENTITY_PLACE);
-            this.eggTime = this.random.nextInt(6000) + 6000;
-        }
     }
     private static class DuckMoveControl extends MoveControl {
         private final DrakeEntity duck;

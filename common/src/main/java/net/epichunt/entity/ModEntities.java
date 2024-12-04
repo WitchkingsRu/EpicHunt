@@ -10,6 +10,9 @@ import dev.architectury.registry.registries.RegistrySupplier;
 import net.epichunt.EpicHunt;
 import net.epichunt.entity.animals.*;
 import net.epichunt.entity.client.render.*;
+import net.epichunt.item.ThrownDuckEgg;
+import net.minecraft.client.renderer.entity.EntityRenderer;
+import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.tags.BiomeTags;
@@ -17,6 +20,7 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.entity.SpawnPlacements;
 import net.minecraft.world.entity.animal.Animal;
+import net.minecraft.world.entity.projectile.ThrownEgg;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.levelgen.Heightmap;
 import dev.architectury.registry.level.biome.BiomeModifications;
@@ -38,6 +42,15 @@ public class ModEntities {
     public static final RegistrySupplier<EntityType<DuckEntity>> DUCK_ENTITY = ENTITY_TYPES.register("duck", DuckEntity.DUCK);
     public static final RegistrySupplier<EntityType<DrakeEntity>> DRAKE_ENTITY = ENTITY_TYPES.register("drake", DrakeEntity.DRAKE);
 
+    public static final RegistrySupplier<EntityType<ThrownDuckEgg>> THROWN_DUCK_EGG = ENTITY_TYPES.register(
+            "thrown_duck_egg",
+            () -> EntityType.Builder.<ThrownDuckEgg>of(ThrownDuckEgg::new, MobCategory.MISC)
+                    .sized(0.25F, 0.25F) // Размер сущности
+                    .clientTrackingRange(4) // Радиус отслеживания клиентом
+                    .updateInterval(10) // Интервал обновления
+                    .build("thrown_duck_egg")
+    );
+
     public static void renderRegistry() {
         EntityRendererRegistry.register(DEER_ENTITY, DeerRender::new);
         EntityRendererRegistry.register(DOE_ENTITY, DoeRender::new);
@@ -45,5 +58,6 @@ public class ModEntities {
         EntityRendererRegistry.register(ROE_DEER_ENTITY, RoeDeerRender::new);
         EntityRendererRegistry.register(DUCK_ENTITY, DuckRender::new);
         EntityRendererRegistry.register(DRAKE_ENTITY, DrakeRender::new);
+        EntityRendererRegistry.register(THROWN_DUCK_EGG, ThrownItemRenderer::new);
     }
 }
