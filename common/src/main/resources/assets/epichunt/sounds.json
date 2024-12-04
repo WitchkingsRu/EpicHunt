@@ -2,7 +2,8 @@
   "deer_ambient": {
     "subtitles": "sounds.epichunt.deer_ambient",
     "sounds": [
-      "epichunt:deer_ambient"
+      "epichunt:deer_ambient_1",
+      "epichunt:deer_ambient_2"
     ]
   },
   "deer_hurt": {
@@ -26,7 +27,9 @@
   "duck_ambient": {
     "subtitles": "sounds.epichunt.duck_ambient",
     "sounds": [
-      "epichunt:duck_ambient"
+      "epichunt:duck_ambient_1",
+      "epichunt:duck_ambient_2",
+      "epichunt:duck_ambient_3"
     ]
   },
   "duck_hurt": {
