@@ -2,10 +2,9 @@ package net.epichunt.entity.client.model;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
-import net.epichunt.EpicHunt;
-import net.epichunt.entity.animals.DoeEntity;
+import net.epichunt.entity.animals.DrakeEntity;
 import net.epichunt.entity.animals.DuckEntity;
-import net.epichunt.entity.animations.DoeAnimation;
+import net.epichunt.entity.animations.DrakeAnimation;
 import net.epichunt.entity.animations.DuckAnimation;
 import net.minecraft.client.model.HierarchicalModel;
 import net.minecraft.client.model.geom.ModelPart;
@@ -14,7 +13,7 @@ import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
 
-public class DuckModel<T extends Entity> extends HierarchicalModel<T> {
+public class DrakeModel<T extends Entity> extends HierarchicalModel<T> {
 	private final ModelPart duck;
 	private final ModelPart head;
 	private final ModelPart body;
@@ -23,7 +22,7 @@ public class DuckModel<T extends Entity> extends HierarchicalModel<T> {
 	private final ModelPart leftleg;
 	private final ModelPart rightleg;
 
-	public DuckModel(ModelPart root) {
+	public DrakeModel(ModelPart root) {
 		this.duck = root.getChild("duck");
 		this.head = this.duck.getChild("head");
 		this.body = this.duck.getChild("body");
@@ -67,8 +66,8 @@ public class DuckModel<T extends Entity> extends HierarchicalModel<T> {
 	public void setupAnim(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
 		this.root().getAllParts().forEach(ModelPart::resetPose);
 		this.applyHeadRotation(netHeadYaw, headPitch, ageInTicks);
-		this.animateWalk(DuckAnimation.walk, limbSwing, limbSwingAmount, 2f, 2.5f);
-		this.animate(((DuckEntity) entity).flyAnimationState, DuckAnimation.fly, ageInTicks, 1f);
+		this.animateWalk(DrakeAnimation.walk, limbSwing, limbSwingAmount, 2f, 2.5f);
+		this.animate(((DrakeEntity) entity).flyAnimationState, DuckAnimation.fly, ageInTicks, 1f);
 	}
 	private void applyHeadRotation(float pNetHeadYaw, float pHeadPitch, float pAgeInTicks) {
 		pNetHeadYaw = Mth.clamp(pNetHeadYaw, -30.0F, 30.0F);

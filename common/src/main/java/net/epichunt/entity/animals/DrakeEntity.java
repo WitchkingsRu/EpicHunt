@@ -38,7 +38,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.function.Supplier;
 
-public class DuckEntity extends Animal {
+public class DrakeEntity extends Animal {
     private static final EntityDataAccessor<Boolean> IS_SWIMMING;
     public static final Ingredient FOOD_ITEMS;
     public float flap;
@@ -49,7 +49,7 @@ public class DuckEntity extends Animal {
     public int eggTime = 9999;
     private boolean isGliding = false;
 
-    public DuckEntity(EntityType<? extends Animal> entityType, Level level) {
+    public DrakeEntity(EntityType<? extends Animal> entityType, Level level) {
         super(entityType, level);
         this.setPathfindingMalus(BlockPathTypes.WATER, 0.0F);
         this.setPathfindingMalus(BlockPathTypes.DOOR_IRON_CLOSED, -1.0F);
@@ -60,8 +60,8 @@ public class DuckEntity extends Animal {
 
     }
 
-    public static final Supplier<EntityType<DuckEntity>> DUCK = Suppliers.memoize(() -> EntityType.Builder.of(DuckEntity::new, MobCategory.CREATURE)
-            .sized(0.7f, 0.7f).build("duck"));
+    public static final Supplier<EntityType<DrakeEntity>> DRAKE = Suppliers.memoize(() -> EntityType.Builder.of(DrakeEntity::new, MobCategory.CREATURE)
+            .sized(0.7f, 0.7f).build("drake"));
 
     @Override
     protected void updateWalkAnimation(float partialTick) {
@@ -142,7 +142,7 @@ public class DuckEntity extends Animal {
         return super.finalizeSpawn(levelAccessor, difficulty, spawnType, spawnData, dataTag);
     }
 
-    public static boolean checkDuckSpawnRules(EntityType<DuckEntity> type, LevelAccessor levelAccessor, MobSpawnType spawnType, BlockPos pos, RandomSource random) {
+    public static boolean checkDuckSpawnRules(EntityType<DrakeEntity> type, LevelAccessor levelAccessor, MobSpawnType spawnType, BlockPos pos, RandomSource random) {
         return pos.getY() > levelAccessor.getSeaLevel() - 4 && isBrightEnoughToSpawn(levelAccessor, pos);
     }
 
@@ -223,9 +223,9 @@ public class DuckEntity extends Animal {
         }
     }
     private static class DuckMoveControl extends MoveControl {
-        private final DuckEntity duck;
+        private final DrakeEntity duck;
 
-        DuckMoveControl(DuckEntity duck) {
+        DuckMoveControl(DrakeEntity duck) {
             super(duck);
             this.duck = duck;
         }
@@ -242,7 +242,7 @@ public class DuckEntity extends Animal {
     @Nullable
     @Override
     public AgeableMob getBreedOffspring(ServerLevel serverLevel, AgeableMob ageableMob) {
-        return DUCK.get().create(serverLevel);
+        return DRAKE.get().create(serverLevel);
     }
 
     @Nullable
@@ -272,7 +272,8 @@ public class DuckEntity extends Animal {
     }
 
     static {
-        IS_SWIMMING = SynchedEntityData.defineId(DuckEntity.class, EntityDataSerializers.BOOLEAN);
+        IS_SWIMMING = SynchedEntityData.defineId(DrakeEntity.class, EntityDataSerializers.BOOLEAN);
         FOOD_ITEMS = Ingredient.of(Items.WHEAT_SEEDS);
     }
 }
+

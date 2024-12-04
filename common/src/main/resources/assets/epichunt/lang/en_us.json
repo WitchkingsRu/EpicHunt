@@ -6,9 +6,11 @@
   "item.epichunt.roe_deer_spawn_egg": "Roe Deer Spawn Egg",
   "item.epichunt.caribou_spawn_egg": "Caribou Spawn Egg",
   "item.epichunt.duck_spawn_egg": "Duck Spawn Egg",
+  "item.epichunt.drake_spawn_egg": "Drake Spawn Egg",
   "entity.epichunt.deer": "Deer",
   "entity.epichunt.doe": "Doe",
   "entity.epichunt.roe_deer": "Roe Deer",
   "entity.epichunt.caribou": "Caribou",
-  "entity.epichunt.duck": "Duck"
+  "entity.epichunt.duck": "Duck",
+  "entity.epichunt.drake": "Drake"
 }

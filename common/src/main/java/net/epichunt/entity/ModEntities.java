@@ -34,7 +34,9 @@ public class ModEntities {
     public static final RegistrySupplier<EntityType<CaribouEntity>> CARIBOU_ENTITY = ENTITY_TYPES.register("caribou", CaribouEntity.CARIBOU);
     public static final RegistrySupplier<EntityType<RoeDeerEntity>> ROE_DEER_ENTITY = ENTITY_TYPES.register("roe_deer", RoeDeerEntity.ROE_DEER);
 
+
     public static final RegistrySupplier<EntityType<DuckEntity>> DUCK_ENTITY = ENTITY_TYPES.register("duck", DuckEntity.DUCK);
+    public static final RegistrySupplier<EntityType<DrakeEntity>> DRAKE_ENTITY = ENTITY_TYPES.register("drake", DrakeEntity.DRAKE);
 
     public static void renderRegistry() {
         EntityRendererRegistry.register(DEER_ENTITY, DeerRender::new);
@@ -42,5 +44,6 @@ public class ModEntities {
         EntityRendererRegistry.register(CARIBOU_ENTITY, CaribouRender::new);
         EntityRendererRegistry.register(ROE_DEER_ENTITY, RoeDeerRender::new);
         EntityRendererRegistry.register(DUCK_ENTITY, DuckRender::new);
+        EntityRendererRegistry.register(DRAKE_ENTITY, DrakeRender::new);
     }
 }

@@ -28,6 +28,9 @@ public class ModItem {
     public static final RegistrySupplier<Item> DUCK_SPAWN_EGG = ITEMS.register("duck_spawn_egg", () -> new SpawnEggItem(DuckEntity.DUCK.get(),0x483822, 0x6F5B3F,
             new Item.Properties()));
 
+    public static final RegistrySupplier<Item> DRAKE_SPAWN_EGG = ITEMS.register("drake_spawn_egg", () -> new SpawnEggItem(DrakeEntity.DRAKE.get(),0xD8D8D8, 0x274C32,
+            new Item.Properties()));
+
 
     public static final RegistrySupplier<Item> VENISON = ITEMS.register("raw_venison", ()-> new Item(new Item.Properties().food(ModFood.VENISON)));
 

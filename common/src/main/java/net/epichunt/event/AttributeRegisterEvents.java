@@ -13,6 +13,7 @@ public class AttributeRegisterEvents {
         EntityAttributeRegistry.register(CARIBOU_ENTITY, CaribouEntity::createAttributes);
         EntityAttributeRegistry.register(ROE_DEER_ENTITY, RoeDeerEntity::createAttributes);
         EntityAttributeRegistry.register(DUCK_ENTITY, DuckEntity::createAttributes);
+        EntityAttributeRegistry.register(DRAKE_ENTITY, DuckEntity::createAttributes);
     }
 
 }
