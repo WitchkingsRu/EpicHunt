@@ -14,13 +14,12 @@ public class SurfaceSwimGoal extends Goal {
 
     @Override
     public boolean canUse() {
-        // Цель активируется, если моб в воде
         return mob.isInWater() && mob.getFluidHeight(FluidTags.WATER) > mob.getFluidJumpThreshold();
     }
 
     @Override
     public boolean requiresUpdateEveryTick() {
-        return true; // Обновляем каждый тик
+        return true;
     }
 
     @Override

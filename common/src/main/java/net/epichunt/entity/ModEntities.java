@@ -41,6 +41,7 @@ public class ModEntities {
 
     public static final RegistrySupplier<EntityType<DuckEntity>> DUCK_ENTITY = ENTITY_TYPES.register("duck", DuckEntity.DUCK);
     public static final RegistrySupplier<EntityType<DrakeEntity>> DRAKE_ENTITY = ENTITY_TYPES.register("drake", DrakeEntity.DRAKE);
+    public static final RegistrySupplier<EntityType<GooseEntity>> GOOSE_ENTITY = ENTITY_TYPES.register("goose", GooseEntity.GOOSE);
 
     public static final RegistrySupplier<EntityType<ThrownDuckEgg>> THROWN_DUCK_EGG = ENTITY_TYPES.register(
             "thrown_duck_egg",
@@ -59,5 +60,6 @@ public class ModEntities {
         EntityRendererRegistry.register(DUCK_ENTITY, DuckRender::new);
         EntityRendererRegistry.register(DRAKE_ENTITY, DrakeRender::new);
         EntityRendererRegistry.register(THROWN_DUCK_EGG, ThrownItemRenderer::new);
+        EntityRendererRegistry.register(GOOSE_ENTITY, GooseRender::new);
     }
 }

@@ -15,7 +15,7 @@ public class ModModels {
 
     public static final ModelLayerLocation DUCK_LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(EpicHunt.MOD_ID, "duck"), "main");
     public static final ModelLayerLocation DRAKE_LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(EpicHunt.MOD_ID, "drake"), "main");
-
+    public static final ModelLayerLocation GOOSE_LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(EpicHunt.MOD_ID, "goose"), "main");
 
     public static void registerLayers() {
         EntityModelLayerRegistry.register(ModModels.DEER_LAYER_LOCATION, DeerModel::createBodyLayer);
@@ -24,6 +24,7 @@ public class ModModels {
         EntityModelLayerRegistry.register(ModModels.ROE_DEER_LAYER_LOCATION, RoeDeerModel::createBodyLayer);
         EntityModelLayerRegistry.register(ModModels.DUCK_LAYER_LOCATION, DuckModel::createBodyLayer);
         EntityModelLayerRegistry.register(ModModels.DRAKE_LAYER_LOCATION, DrakeModel::createBodyLayer);
+        EntityModelLayerRegistry.register(ModModels.GOOSE_LAYER_LOCATION, GooseModel::createBodyLayer);
     }
 
 }
