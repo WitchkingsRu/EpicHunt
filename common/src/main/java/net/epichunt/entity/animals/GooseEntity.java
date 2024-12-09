@@ -54,7 +54,6 @@ public class GooseEntity extends Animal implements NeutralMob{
     public float oFlapSpeed;
     public float oFlap;
     public float flapping = 1.0F;
-    public int eggTime = 9999;
     private boolean isGliding = false;
     private int warningSoundTicks;
     private static final UniformInt PERSISTENT_ANGER_TIME;
@@ -156,6 +155,8 @@ public class GooseEntity extends Animal implements NeutralMob{
         if (this.isAttacking() && attackAnimationTimeout <= 0) {
             attackAnimationTimeout = 10;
             attackAnimationState.start(this.tickCount);
+        } else {
+            --this.attackAnimationTimeout;
         }
         if(!this.isAttacking()) {
             attackAnimationState.stop();
@@ -201,7 +202,7 @@ public class GooseEntity extends Animal implements NeutralMob{
     protected void registerGoals() {
         this.goalSelector.addGoal(1, new PanicGoal(this, 1.7));
         this.goalSelector.addGoal(2, new FollowParentGoal(this, 1.1D));
-        this.goalSelector.addGoal(1, new GooseMeleeAttackGoal());
+        this.goalSelector.addGoal(1, new GooseMeleeAttackGoal(this, 1.0D, true));
         this.goalSelector.addGoal(4, new SurfaceSwimGoal(this));
         this.goalSelector.addGoal(5, new RandomStrollGoal(this, 1f, 100));
         this.goalSelector.addGoal(7, new LookAtPlayerGoal(this, Player.class, 3f));
@@ -336,38 +337,83 @@ public class GooseEntity extends Animal implements NeutralMob{
     }
 
     class GooseMeleeAttackGoal extends MeleeAttackGoal {
-        public GooseMeleeAttackGoal() {
-            super(GooseEntity.this, 1.25, true);
+        private final GooseEntity entity;
+        private int attackDelay = 5;
+        private int ticksUntilNextAttack = 10;
+        private boolean shouldCountTillNextAttack = false;
+
+        public GooseMeleeAttackGoal(PathfinderMob pMob, double pSpeedModifier, boolean pFollowingTargetEvenIfNotSeen) {
+            super(pMob, pSpeedModifier, pFollowingTargetEvenIfNotSeen);
+            entity = ((GooseEntity) pMob);
         }
 
         @Override
-        protected void checkAndPerformAttack(LivingEntity livingEntity, double distanceToTarget) {
-            double attackReachSqr = this.getAttackReachSqr(livingEntity);
-            if (distanceToTarget <= attackReachSqr && this.isTimeToAttack()) {
-                this.resetAttackCooldown();
-                this.mob.doHurtTarget(livingEntity);
-            } else if (distanceToTarget <= attackReachSqr * 2.0) {
-                // Игнорируем, если цель далеко
-                if (this.isTimeToAttack()) {
-                    this.resetAttackCooldown();
+        public void start() {
+            super.start();
+            attackDelay = 5;
+            ticksUntilNextAttack = 10;
+        }
+
+        @Override
+        protected void checkAndPerformAttack(LivingEntity pEnemy, double pDistToEnemySqr) {
+            if (isEnemyWithinAttackDistance(pEnemy, pDistToEnemySqr)) {
+                shouldCountTillNextAttack = true;
+
+                if(isTimeToStartAttackAnimation()) {
+                    entity.setAttacking(true);
                 }
 
-                if (this.getTicksUntilNextAttack() <= 10) {
-                    GooseEntity.this.playWarningSound();
+                if(isTimeToAttack()) {
+                    this.mob.getLookControl().setLookAt(pEnemy.getX(), pEnemy.getEyeY(), pEnemy.getZ());
+                    performAttack(pEnemy);
                 }
             } else {
-                this.resetAttackCooldown();
+                resetAttackCooldown();
+                shouldCountTillNextAttack = false;
+                entity.setAttacking(false);
+                entity.attackAnimationTimeout = 0;
+            }
+        }
+
+        private boolean isEnemyWithinAttackDistance(LivingEntity pEnemy, double pDistToEnemySqr) {
+            return pDistToEnemySqr <= this.getAttackReachSqr(pEnemy);
+        }
+
+        protected void resetAttackCooldown() {
+            this.ticksUntilNextAttack = this.adjustedTickDelay(attackDelay * 2);
+        }
+
+        protected boolean isTimeToAttack() {
+            return this.ticksUntilNextAttack <= 0;
+        }
+
+        protected boolean isTimeToStartAttackAnimation() {
+            return this.ticksUntilNextAttack <= attackDelay;
+        }
+
+        protected int getTicksUntilNextAttack() {
+            return this.ticksUntilNextAttack;
+        }
+
+
+        protected void performAttack(LivingEntity pEnemy) {
+            this.resetAttackCooldown();
+//            this.mob.swing(InteractionHand.MAIN_HAND);
+            this.mob.doHurtTarget(pEnemy);
+        }
+
+        @Override
+        public void tick() {
+            super.tick();
+            if(shouldCountTillNextAttack) {
+                this.ticksUntilNextAttack = Math.max(this.ticksUntilNextAttack - 1, 0);
             }
         }
 
         @Override
         public void stop() {
+            entity.setAttacking(false);
             super.stop();
-        }
-
-        @Override
-        protected double getAttackReachSqr(LivingEntity livingEntity) {
-            return (double) (1.0F + livingEntity.getBbWidth());
         }
     }
 
