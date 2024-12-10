@@ -43,5 +43,34 @@
     "sounds": [
       "epichunt:duck_death"
     ]
+  },
+  "goose_ambient": {
+    "subtitles": "sounds.epichunt.goose_ambient",
+    "sounds": [
+      "epichunt:goose_ambient_1",
+      "epichunt:goose_ambient_2",
+      "epichunt:goose_ambient_3",
+      "epichunt:goose_ambient_4",
+      "epichunt:goose_ambient_5",
+      "epichunt:goose_ambient_6"
+    ]
+  },
+  "goose_hurt": {
+    "subtitles": "sounds.epichunt.goose_ambient",
+    "sounds": [
+      "epichunt:goose_hurt"
+    ]
+  },
+  "goose_death": {
+    "subtitles": "sounds.epichunt.goose_ambient",
+    "sounds": [
+      "epichunt:goose_death"
+    ]
+  },
+  "goose_warn": {
+    "subtitles": "sounds.epichunt.goose_ambient",
+    "sounds": [
+      "epichunt:goose_warning"
+    ]
   }
 }

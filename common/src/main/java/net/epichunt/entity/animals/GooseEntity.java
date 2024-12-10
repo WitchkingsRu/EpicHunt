@@ -114,6 +114,7 @@ public class GooseEntity extends Animal implements NeutralMob{
     private void becomeAggressive(Player target) {
         this.setPersistentAngerTarget(target.getUUID());
         this.startPersistentAngerTimer();
+        this.playWarningSound();
     }
 
 
@@ -456,19 +457,19 @@ public class GooseEntity extends Animal implements NeutralMob{
     @Nullable
     @Override
     protected SoundEvent getAmbientSound() {
-        return Sounds.DUCK_AMBIENT.get();
+        return Sounds.GOOSE_AMBIENT.get();
     }
 
     @Nullable
     @Override
     protected SoundEvent getHurtSound(DamageSource damageSource) {
-        return Sounds.DUCK_HURT.get();
+        return Sounds.GOOSE_HURT.get();
     }
 
     @Nullable
     @Override
     protected SoundEvent getDeathSound() {
-        return Sounds.DUCK_DEATH.get();
+        return Sounds.GOOSE_DEATH.get();
     }
 
     protected void playStepSound(BlockPos blockPos, BlockState blockState) {
@@ -476,11 +477,7 @@ public class GooseEntity extends Animal implements NeutralMob{
     }
 
     protected void playWarningSound() {
-        if (this.warningSoundTicks <= 0) {
-            this.playSound(SoundEvents.POLAR_BEAR_WARNING, 1.0F, this.getVoicePitch());
-            this.warningSoundTicks = 40;
-        }
-
+        this.playSound(Sounds.GOOSE_WARN.get(), 1.0F, this.getVoicePitch());
     }
     protected float getSoundVolume() {
         return 0.3F;

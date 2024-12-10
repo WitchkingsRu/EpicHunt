@@ -26,9 +26,9 @@ public class GooseRender extends MobRenderer<GooseEntity, GooseModel<GooseEntity
 
     @Override
     public void render(GooseEntity mob, float f, float g, PoseStack poseStack, MultiBufferSource multiBufferSource, int i) {
-        poseStack.scale(1.1f, 1.1f, 1.1f);
+        poseStack.scale(1.5f, 1.5f, 1.5f);
         if(mob.isBaby()) {
-            poseStack.scale(0.5f, 0.5f, 0.5f);
+            poseStack.scale(0.7f, 0.7f, 0.7f);
         }
 
         super.render(mob, f, g, poseStack, multiBufferSource, i);

@@ -23,6 +23,11 @@ public class Sounds {
     public static final RegistrySupplier<SoundEvent> DUCK_AMBIENT = registerSound("duck_ambient");
     public static final RegistrySupplier<SoundEvent> DUCK_HURT = registerSound("duck_hurt");
     public static final RegistrySupplier<SoundEvent> DUCK_DEATH = registerSound("duck_death");
+    public static final RegistrySupplier<SoundEvent> GOOSE_AMBIENT = registerSound("goose_ambient");
+    public static final RegistrySupplier<SoundEvent> GOOSE_HURT = registerSound("goose_hurt");
+    public static final RegistrySupplier<SoundEvent> GOOSE_DEATH = registerSound("goose_death");
+    public static final RegistrySupplier<SoundEvent> GOOSE_WARN = registerSound("goose_warn");
+
 
     private static RegistrySupplier<SoundEvent> registerSound(String name) {
         return SOUNDS.register(name, ()-> SoundEvent.createVariableRangeEvent(new ResourceLocation(EpicHunt.MOD_ID, name)));
