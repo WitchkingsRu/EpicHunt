@@ -2,6 +2,7 @@ package net.epichunt.entity.animals;
 
 import com.google.common.base.Suppliers;
 import net.epichunt.entity.SurfaceSwimGoal;
+import net.epichunt.item.ModItem;
 import net.epichunt.sound.Sounds;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
@@ -27,6 +28,7 @@ import net.minecraft.world.entity.ai.navigation.AmphibiousPathNavigation;
 import net.minecraft.world.entity.ai.navigation.PathNavigation;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
@@ -34,6 +36,7 @@ import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.level.pathfinder.BlockPathTypes;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.Nullable;
@@ -62,6 +65,7 @@ public class GooseEntity extends Animal implements NeutralMob{
     private UUID persistentAngerTarget;
     private static final int AGGRESSION_RADIUS = 5;
     private static final int AGGRESSION_THRESHOLD = 100;
+    public int eggTime = 9999;
     public static boolean isAngry = false;
 
     private int proximityTimer = 0;
@@ -114,7 +118,6 @@ public class GooseEntity extends Animal implements NeutralMob{
     private void becomeAggressive(Player target) {
         this.setPersistentAngerTarget(target.getUUID());
         this.startPersistentAngerTimer();
-        this.playWarningSound();
     }
 
 
@@ -139,6 +142,7 @@ public class GooseEntity extends Animal implements NeutralMob{
 
     public final AnimationState flyAnimationState = new AnimationState();
     public final AnimationState attackAnimationState = new AnimationState();
+    public final AnimationState swimAnimationState = new AnimationState();
     private int attackAnimationTimeout = 0;
 
 
@@ -161,6 +165,12 @@ public class GooseEntity extends Animal implements NeutralMob{
         }
         if(!this.isAttacking()) {
             attackAnimationState.stop();
+        }
+        if (this.isInWater()) {
+            this.swimAnimationState.start(this.tickCount);
+        }
+        else {
+            this.swimAnimationState.stop();
         }
     }
 
@@ -208,6 +218,8 @@ public class GooseEntity extends Animal implements NeutralMob{
         this.goalSelector.addGoal(5, new RandomStrollGoal(this, 1f, 100));
         this.goalSelector.addGoal(7, new LookAtPlayerGoal(this, Player.class, 3f));
         this.goalSelector.addGoal(8, new RandomLookAroundGoal(this));
+        this.goalSelector.addGoal(3, new TemptGoal(this, 2f, Ingredient.of(Items.WHEAT_SEEDS), false));
+        this.goalSelector.addGoal(4, new BreedGoal(this, 1.0));
         this.targetSelector.addGoal(1, new GooseAttackPlayersGoal());
         this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, 5, true, false, this::isAngryAt));
     }
@@ -298,6 +310,12 @@ public class GooseEntity extends Animal implements NeutralMob{
         }
 
         this.flap += this.flapping * 2.0F;
+        if (!this.level().isClientSide && this.isAlive() && !this.isInWater() && !this.isBaby() && --this.eggTime <= 0) {
+            this.playSound(SoundEvents.CHICKEN_EGG, 1.0F, (this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1.0F);
+            this.spawnAtLocation(ModItem.GOOSE_EGG.get());
+            this.gameEvent(GameEvent.ENTITY_PLACE);
+            this.eggTime = this.random.nextInt(6000) + 6000;
+        }
     }
     private static class DuckMoveControl extends MoveControl {
         private final GooseEntity goose;
@@ -476,13 +494,13 @@ public class GooseEntity extends Animal implements NeutralMob{
         this.playSound(SoundEvents.CHICKEN_STEP, 0.15F, 1.0F);
     }
 
-    protected void playWarningSound() {
-        this.playSound(Sounds.GOOSE_WARN.get(), 1.0F, this.getVoicePitch());
-    }
     protected float getSoundVolume() {
         return 0.3F;
     }
-
+    @Override
+    public boolean isFood(ItemStack itemStack) {
+        return itemStack.is(Items.WHEAT_SEEDS);
+    }
     static {
         IS_SWIMMING = SynchedEntityData.defineId(GooseEntity.class, EntityDataSerializers.BOOLEAN);
         FOOD_ITEMS = Ingredient.of(Items.WHEAT_SEEDS);

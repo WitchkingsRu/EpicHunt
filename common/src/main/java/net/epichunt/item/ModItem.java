@@ -44,6 +44,13 @@ public class ModItem {
 
     public static final RegistrySupplier<Item> COOKED_DUCK = ITEMS.register("cooked_duck", ()-> new Item(new Item.Properties().food(ModFood.COOKED_DUCK)));
 
+    public static final RegistrySupplier<Item> GOOSE = ITEMS.register("raw_goose", ()-> new Item(new Item.Properties().food(ModFood.GOOSE)));
+
+    public static final RegistrySupplier<Item> COOKED_GOOSE = ITEMS.register("cooked_goose", ()-> new Item(new Item.Properties().food(ModFood.COOKED_GOOSE)));
+
+
 
     public static final RegistrySupplier<Item> DUCK_EGG = ITEMS.register("duck_egg", () -> new DuckEggItem(new Item.Properties().stacksTo(16)));
+    public static final RegistrySupplier<Item> GOOSE_EGG = ITEMS.register("goose_egg", () -> new GooseEggItem(new Item.Properties().stacksTo(16)));
+
 }

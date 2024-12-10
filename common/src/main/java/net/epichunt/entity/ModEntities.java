@@ -11,6 +11,7 @@ import net.epichunt.EpicHunt;
 import net.epichunt.entity.animals.*;
 import net.epichunt.entity.client.render.*;
 import net.epichunt.item.ThrownDuckEgg;
+import net.epichunt.item.ThrownGooseEgg;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.minecraft.core.Holder;
@@ -46,10 +47,18 @@ public class ModEntities {
     public static final RegistrySupplier<EntityType<ThrownDuckEgg>> THROWN_DUCK_EGG = ENTITY_TYPES.register(
             "thrown_duck_egg",
             () -> EntityType.Builder.<ThrownDuckEgg>of(ThrownDuckEgg::new, MobCategory.MISC)
-                    .sized(0.25F, 0.25F) // Размер сущности
-                    .clientTrackingRange(4) // Радиус отслеживания клиентом
-                    .updateInterval(10) // Интервал обновления
+                    .sized(0.25F, 0.25F)
+                    .clientTrackingRange(4)
+                    .updateInterval(10)
                     .build("thrown_duck_egg")
+    );
+    public static final RegistrySupplier<EntityType<ThrownGooseEgg>> THROWN_GOOSE_EGG = ENTITY_TYPES.register(
+            "thrown_goose_egg",
+            () -> EntityType.Builder.<ThrownGooseEgg>of(ThrownGooseEgg::new, MobCategory.MISC)
+                    .sized(0.25F, 0.25F)
+                    .clientTrackingRange(4)
+                    .updateInterval(10)
+                    .build("thrown_goose_egg")
     );
 
     public static void renderRegistry() {
@@ -61,5 +70,6 @@ public class ModEntities {
         EntityRendererRegistry.register(DRAKE_ENTITY, DrakeRender::new);
         EntityRendererRegistry.register(THROWN_DUCK_EGG, ThrownItemRenderer::new);
         EntityRendererRegistry.register(GOOSE_ENTITY, GooseRender::new);
+        EntityRendererRegistry.register(THROWN_GOOSE_EGG, ThrownItemRenderer::new);
     }
 }

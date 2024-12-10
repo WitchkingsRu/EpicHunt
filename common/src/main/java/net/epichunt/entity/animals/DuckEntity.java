@@ -88,7 +88,7 @@ public class DuckEntity extends Animal {
     }
 
     public final AnimationState flyAnimationState = new AnimationState();
-
+    public final AnimationState swimAnimationState = new AnimationState();
     private void setupAnimationStates() {
         if (!this.isInWater() && !this.onGround()) {
             if (!isGliding) {
@@ -98,6 +98,13 @@ public class DuckEntity extends Animal {
         } else if (this.isInWater() || this.onGround()) {
             this.flyAnimationState.stop();
             isGliding = false;
+
+        }
+        if (this.isInWater()) {
+            this.swimAnimationState.start(this.tickCount);
+        }
+        else {
+            this.swimAnimationState.stop();
         }
     }
 

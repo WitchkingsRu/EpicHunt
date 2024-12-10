@@ -16,4 +16,10 @@ public class ModFood {
     public static final FoodProperties COOKED_DUCK = new FoodProperties.Builder().meat().nutrition(7).saturationMod(0.6f)
             .build();
 
+    public static final FoodProperties GOOSE = (new FoodProperties.Builder()).nutrition(4).saturationMod(0.3F).effect(new MobEffectInstance(MobEffects.HUNGER, 600, 0), 0.3F).meat().build();
+
+    public static final FoodProperties COOKED_GOOSE = new FoodProperties.Builder().meat().nutrition(7).saturationMod(0.6f)
+            .build();
+
 }
+
