@@ -12,6 +12,7 @@ import net.epichunt.entity.animals.*;
 import net.epichunt.entity.client.render.*;
 import net.epichunt.item.ThrownDuckEgg;
 import net.epichunt.item.ThrownGooseEgg;
+import net.epichunt.item.ThrownPheasantEgg;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.minecraft.core.Holder;
@@ -43,6 +44,7 @@ public class ModEntities {
     public static final RegistrySupplier<EntityType<DuckEntity>> DUCK_ENTITY = ENTITY_TYPES.register("duck", DuckEntity.DUCK);
     public static final RegistrySupplier<EntityType<DrakeEntity>> DRAKE_ENTITY = ENTITY_TYPES.register("drake", DrakeEntity.DRAKE);
     public static final RegistrySupplier<EntityType<GooseEntity>> GOOSE_ENTITY = ENTITY_TYPES.register("goose", GooseEntity.GOOSE);
+    public static final RegistrySupplier<EntityType<PheasantEntity>> PHEASANT_ENTITY = ENTITY_TYPES.register("pheasant", PheasantEntity.PHEASANT);
 
     public static final RegistrySupplier<EntityType<ThrownDuckEgg>> THROWN_DUCK_EGG = ENTITY_TYPES.register(
             "thrown_duck_egg",
@@ -60,6 +62,14 @@ public class ModEntities {
                     .updateInterval(10)
                     .build("thrown_goose_egg")
     );
+    public static final RegistrySupplier<EntityType<ThrownPheasantEgg>> THROWN_PHEASANT_EGG = ENTITY_TYPES.register(
+            "thrown_pheasant_egg",
+            () -> EntityType.Builder.<ThrownPheasantEgg>of(ThrownPheasantEgg::new, MobCategory.MISC)
+                    .sized(0.25F, 0.25F)
+                    .clientTrackingRange(4)
+                    .updateInterval(10)
+                    .build("thrown_pheasant_egg")
+    );
 
     public static void renderRegistry() {
         EntityRendererRegistry.register(DEER_ENTITY, DeerRender::new);
@@ -71,5 +81,7 @@ public class ModEntities {
         EntityRendererRegistry.register(THROWN_DUCK_EGG, ThrownItemRenderer::new);
         EntityRendererRegistry.register(GOOSE_ENTITY, GooseRender::new);
         EntityRendererRegistry.register(THROWN_GOOSE_EGG, ThrownItemRenderer::new);
+        EntityRendererRegistry.register(PHEASANT_ENTITY, PheasantRender::new);
+        EntityRendererRegistry.register(THROWN_PHEASANT_EGG, ThrownItemRenderer::new);
     }
 }

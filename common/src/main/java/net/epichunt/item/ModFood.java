@@ -21,5 +21,9 @@ public class ModFood {
     public static final FoodProperties COOKED_GOOSE = new FoodProperties.Builder().meat().nutrition(7).saturationMod(0.6f)
             .build();
 
+    public static final FoodProperties PHEASANT = (new FoodProperties.Builder()).nutrition(3).saturationMod(0.3F).effect(new MobEffectInstance(MobEffects.HUNGER, 600, 0), 0.3F).meat().build();
+
+    public static final FoodProperties COOKED_PHEASANT = new FoodProperties.Builder().meat().nutrition(6).saturationMod(0.5f)
+            .build();
 }
 

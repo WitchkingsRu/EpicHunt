@@ -72,5 +72,25 @@
     "sounds": [
       "epichunt:goose_warning"
     ]
+  },
+  "pheasant_ambient": {
+    "subtitles": "sounds.epichunt.pheasant_ambient",
+    "sounds": [
+      "epichunt:pheasant_ambient_1",
+      "epichunt:pheasant_ambient_2",
+      "epichunt:pheasant_ambient_3"
+    ]
+  },
+  "pheasant_hurt": {
+    "subtitles": "sounds.epichunt.pheasant_ambient",
+    "sounds": [
+      "epichunt:pheasant_hurt"
+    ]
+  },
+  "pheasant_death": {
+    "subtitles": "sounds.epichunt.pheasant_ambient",
+    "sounds": [
+      "epichunt:pheasant_death"
+    ]
   }
 }
