@@ -118,7 +118,7 @@ public class QuailEntity extends Animal {
 
         if (!this.level().isClientSide && this.isAlive() && !this.isInWater() && !this.isBaby() && --this.eggTime <= 0) {
             this.playSound(SoundEvents.CHICKEN_EGG, 1.0F, (this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1.0F);
-            this.spawnAtLocation(ModItem.PHEASANT_EGG.get());
+            this.spawnAtLocation(ModItem.QUAIL_EGG.get());
             this.gameEvent(GameEvent.ENTITY_PLACE);
             this.eggTime = this.random.nextInt(6000) + 6000;
         }
@@ -133,19 +133,19 @@ public class QuailEntity extends Animal {
     @Nullable
     @Override
     protected SoundEvent getAmbientSound() {
-        return Sounds.PHEASANT_AMBIENT.get();
+        return Sounds.QUAIL_AMBIENT.get();
     }
 
     @Nullable
     @Override
     protected SoundEvent getHurtSound(DamageSource damageSource) {
-        return Sounds.PHEASANT_HURT.get();
+        return Sounds.QUAIL_HURT.get();
     }
 
     @Nullable
     @Override
     protected SoundEvent getDeathSound() {
-        return Sounds.PHEASANT_DEATH.get();
+        return Sounds.QUAIL_HURT.get();
     }
 
     protected void playStepSound(BlockPos blockPos, BlockState blockState) {

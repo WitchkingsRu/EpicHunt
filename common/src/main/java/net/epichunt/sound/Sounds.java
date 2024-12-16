@@ -30,7 +30,8 @@ public class Sounds {
     public static final RegistrySupplier<SoundEvent> PHEASANT_AMBIENT = registerSound("pheasant_ambient");
     public static final RegistrySupplier<SoundEvent> PHEASANT_HURT = registerSound("pheasant_hurt");
     public static final RegistrySupplier<SoundEvent> PHEASANT_DEATH = registerSound("pheasant_death");
-
+    public static final RegistrySupplier<SoundEvent> QUAIL_AMBIENT = registerSound("quail_ambient");
+    public static final RegistrySupplier<SoundEvent> QUAIL_HURT = registerSound("quail_hurt");
 
     private static RegistrySupplier<SoundEvent> registerSound(String name) {
         return SOUNDS.register(name, ()-> SoundEvent.createVariableRangeEvent(new ResourceLocation(EpicHunt.MOD_ID, name)));

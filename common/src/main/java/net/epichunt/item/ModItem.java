@@ -38,6 +38,9 @@ public class ModItem {
     public static final RegistrySupplier<Item> PHEASANT_SPAWN_EGG = ITEMS.register("pheasant_spawn_egg", () -> new SpawnEggItem(PheasantEntity.PHEASANT.get(),0x6F3521, 0x002E4A,
             new Item.Properties()));
 
+    public static final RegistrySupplier<Item> QUAIL_SPAWN_EGG = ITEMS.register("quail_spawn_egg", () -> new SpawnEggItem(QuailEntity.QUAIL.get(),0x584434, 0x180C09,
+            new Item.Properties()));
+
 
     public static final RegistrySupplier<Item> VENISON = ITEMS.register("raw_venison", ()-> new Item(new Item.Properties().food(ModFood.VENISON)));
 
@@ -55,8 +58,14 @@ public class ModItem {
 
     public static final RegistrySupplier<Item> COOKED_PHEASANT = ITEMS.register("cooked_pheasant", ()-> new Item(new Item.Properties().food(ModFood.COOKED_PHEASANT)));
 
+    public static final RegistrySupplier<Item> QUAIL = ITEMS.register("raw_quail", ()-> new Item(new Item.Properties().food(ModFood.QUAIL)));
+
+    public static final RegistrySupplier<Item> COOKED_QUAIL = ITEMS.register("cooked_quail", ()-> new Item(new Item.Properties().food(ModFood.COOKED_QUAIL)));
+
 
     public static final RegistrySupplier<Item> DUCK_EGG = ITEMS.register("duck_egg", () -> new DuckEggItem(new Item.Properties().stacksTo(16)));
     public static final RegistrySupplier<Item> GOOSE_EGG = ITEMS.register("goose_egg", () -> new GooseEggItem(new Item.Properties().stacksTo(16)));
     public static final RegistrySupplier<Item> PHEASANT_EGG = ITEMS.register("pheasant_egg", () -> new PheasantEggItem(new Item.Properties().stacksTo(16)));
+    public static final RegistrySupplier<Item> QUAIL_EGG = ITEMS.register("quail_egg", () -> new QuailEggItem(new Item.Properties().stacksTo(16)));
+
 }

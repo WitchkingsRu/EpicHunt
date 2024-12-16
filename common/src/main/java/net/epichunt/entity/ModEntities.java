@@ -13,6 +13,7 @@ import net.epichunt.entity.client.render.*;
 import net.epichunt.item.ThrownDuckEgg;
 import net.epichunt.item.ThrownGooseEgg;
 import net.epichunt.item.ThrownPheasantEgg;
+import net.epichunt.item.ThrownQuailEgg;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.minecraft.core.Holder;
@@ -49,6 +50,7 @@ public class ModEntities {
     public static final RegistrySupplier<EntityType<ThrownDuckEgg>> THROWN_DUCK_EGG = ENTITY_TYPES.register("thrown_duck_egg", ThrownDuckEgg.THROWN_DUCK_EGG);
     public static final RegistrySupplier<EntityType<ThrownGooseEgg>> THROWN_GOOSE_EGG = ENTITY_TYPES.register("thrown_goose_egg", ThrownGooseEgg.THROWN_GOOSE_EGG);
     public static final RegistrySupplier<EntityType<ThrownPheasantEgg>> THROWN_PHEASANT_EGG = ENTITY_TYPES.register("thrown_pheasant_egg", ThrownPheasantEgg.THROWN_PHEASANT_EGG);
+    public static final RegistrySupplier<EntityType<ThrownQuailEgg>> THROWN_QUAIL_EGG = ENTITY_TYPES.register("thrown_quail_egg", ThrownQuailEgg.THROWN_QUAIL_EGG);
 
     public static void renderRegistry() {
         EntityRendererRegistry.register(DEER_ENTITY, DeerRender::new);
@@ -63,5 +65,7 @@ public class ModEntities {
         EntityRendererRegistry.register(PHEASANT_ENTITY, PheasantRender::new);
         EntityRendererRegistry.register(THROWN_PHEASANT_EGG, ThrownItemRenderer::new);
         EntityRendererRegistry.register(QUAIL_ENTITY, QuailRender::new);
+        EntityRendererRegistry.register(THROWN_QUAIL_EGG, ThrownItemRenderer::new);
+
     }
 }

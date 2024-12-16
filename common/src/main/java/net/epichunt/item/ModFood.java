@@ -25,5 +25,10 @@ public class ModFood {
 
     public static final FoodProperties COOKED_PHEASANT = new FoodProperties.Builder().meat().nutrition(6).saturationMod(0.5f)
             .build();
+
+    public static final FoodProperties QUAIL = (new FoodProperties.Builder()).nutrition(1).saturationMod(0.1F).effect(new MobEffectInstance(MobEffects.HUNGER, 600, 0), 0.3F).meat().build();
+
+    public static final FoodProperties COOKED_QUAIL = new FoodProperties.Builder().meat().nutrition(3).saturationMod(0.3f)
+            .build();
 }
 

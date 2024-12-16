@@ -92,5 +92,18 @@
     "sounds": [
       "epichunt:pheasant_death"
     ]
+  },
+  "quail_ambient": {
+    "subtitles": "sounds.epichunt.quail_ambient",
+    "sounds": [
+      "epichunt:quail_ambient_1",
+      "epichunt:quail_ambient_2"
+    ]
+  },
+  "quail_hurt": {
+    "subtitles": "sounds.epichunt.quail_ambient",
+    "sounds": [
+      "epichunt:quail_hurt"
+    ]
   }
 }

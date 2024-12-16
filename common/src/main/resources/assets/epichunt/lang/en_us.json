@@ -7,6 +7,8 @@
   "item.epichunt.cooked_goose": "Cooked Goose",
   "item.epichunt.raw_pheasant": "Raw Pheasant",
   "item.epichunt.cooked_pheasant": "Cooked Pheasant",
+  "item.epichunt.raw_quail": "Raw Quail",
+  "item.epichunt.cooked_quail": "Cooked Quail",
 
   "item.epichunt.deer_spawn_egg": "Deer Spawn Egg",
   "item.epichunt.doe_spawn_egg": "Doe Spawn Egg",
@@ -15,10 +17,12 @@
   "item.epichunt.duck_spawn_egg": "Duck Spawn Egg",
   "item.epichunt.drake_spawn_egg": "Drake Spawn Egg",
   "item.epichunt.pheasant_spawn_egg": "Pheasant Spawn Egg",
+  "item.epichunt.quail_spawn_egg": "Quail Spawn Egg",
   "item.epichunt.goose_spawn_egg": "Goose Spawn Egg",
 
   "item.epichunt.goose_egg": "Goose Egg",
   "item.epichunt.duck_egg": "Duck Egg",
+  "item.epichunt.quail_egg": "Quail Egg",
   "item.epichunt.pheasant_egg": "Pheasant Egg",
 
   "entity.epichunt.deer": "Deer",
@@ -28,5 +32,6 @@
   "entity.epichunt.duck": "Duck",
   "entity.epichunt.drake": "Drake",
   "entity.epichunt.goose": "Goose",
-  "entity.epichunt.pheasant": "Pheasant"
+  "entity.epichunt.pheasant": "Pheasant",
+  "entity.epichunt.quail": "Quail"
 }
