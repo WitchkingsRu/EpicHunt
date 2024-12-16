@@ -45,15 +45,9 @@ public class ModEntities {
     public static final RegistrySupplier<EntityType<DrakeEntity>> DRAKE_ENTITY = ENTITY_TYPES.register("drake", DrakeEntity.DRAKE);
     public static final RegistrySupplier<EntityType<GooseEntity>> GOOSE_ENTITY = ENTITY_TYPES.register("goose", GooseEntity.GOOSE);
     public static final RegistrySupplier<EntityType<PheasantEntity>> PHEASANT_ENTITY = ENTITY_TYPES.register("pheasant", PheasantEntity.PHEASANT);
+    public static final RegistrySupplier<EntityType<QuailEntity>> QUAIL_ENTITY = ENTITY_TYPES.register("quail", QuailEntity.QUAIL);
+    public static final RegistrySupplier<EntityType<ThrownDuckEgg>> THROWN_DUCK_EGG = ENTITY_TYPES.register("thrown_duck_egg", ThrownDuckEgg.THROWN_DUCK_EGG);
 
-    public static final RegistrySupplier<EntityType<ThrownDuckEgg>> THROWN_DUCK_EGG = ENTITY_TYPES.register(
-            "thrown_duck_egg",
-            () -> EntityType.Builder.<ThrownDuckEgg>of(ThrownDuckEgg::new, MobCategory.MISC)
-                    .sized(0.25F, 0.25F)
-                    .clientTrackingRange(4)
-                    .updateInterval(10)
-                    .build("thrown_duck_egg")
-    );
     public static final RegistrySupplier<EntityType<ThrownGooseEgg>> THROWN_GOOSE_EGG = ENTITY_TYPES.register(
             "thrown_goose_egg",
             () -> EntityType.Builder.<ThrownGooseEgg>of(ThrownGooseEgg::new, MobCategory.MISC)
@@ -83,5 +77,6 @@ public class ModEntities {
         EntityRendererRegistry.register(THROWN_GOOSE_EGG, ThrownItemRenderer::new);
         EntityRendererRegistry.register(PHEASANT_ENTITY, PheasantRender::new);
         EntityRendererRegistry.register(THROWN_PHEASANT_EGG, ThrownItemRenderer::new);
+        EntityRendererRegistry.register(QUAIL_ENTITY, QuailRender::new);
     }
 }

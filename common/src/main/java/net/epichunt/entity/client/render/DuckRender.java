@@ -28,9 +28,9 @@ public class DuckRender extends MobRenderer<DuckEntity, DuckModel<DuckEntity>> {
 
     @Override
     public void render(DuckEntity mob, float f, float g, PoseStack poseStack, MultiBufferSource multiBufferSource, int i) {
-        poseStack.scale(1.2f, 1.2f, 1.2f);
+        poseStack.scale(1.0f, 1.0f, 1.0f);
         if(mob.isBaby()) {
-            poseStack.scale(0.7f, 0.7f, 0.7f);
+            poseStack.scale(0.6f, 0.6f, 0.6f);
         }
 
         super.render(mob, f, g, poseStack, multiBufferSource, i);

@@ -1,6 +1,7 @@
 package net.epichunt.item;
 
 import com.google.common.base.Suppliers;
+import dev.architectury.registry.registries.RegistrySupplier;
 import net.epichunt.entity.ModEntities;
 import net.epichunt.entity.animals.DuckEntity;
 import net.minecraft.core.particles.ItemParticleOption;
@@ -22,13 +23,18 @@ public class ThrownDuckEgg extends ThrowableItemProjectile {
     public ThrownDuckEgg(EntityType<? extends ThrownDuckEgg> entityType, Level level) {
         super(entityType, level);
     }
-
+    public static final Supplier<EntityType<ThrownDuckEgg>> THROWN_DUCK_EGG = Suppliers.memoize(() -> EntityType.Builder.<ThrownDuckEgg>of(ThrownDuckEgg::new, MobCategory.MISC)
+                    .sized(0.25F, 0.25F)
+                    .clientTrackingRange(4)
+                    .updateInterval(10)
+                    .build("thrown_duck_egg")
+    );
     public ThrownDuckEgg(Level level, LivingEntity livingEntity) {
-        super(ModEntities.THROWN_DUCK_EGG.get(), livingEntity, level); // Замените EntityType.SNOWBALL на ваше зарегистрированное EntityType для утиного яйца.
+        super(THROWN_DUCK_EGG.get(), livingEntity, level); // Замените EntityType.SNOWBALL на ваше зарегистрированное EntityType для утиного яйца.
     }
 
     public ThrownDuckEgg(Level level, double x, double y, double z) {
-        super(ModEntities.THROWN_DUCK_EGG.get(), x, y, z, level); // Замените EntityType.SNOWBALL на ваше EntityType.
+        super(THROWN_DUCK_EGG.get(), x, y, z, level); // Замените EntityType.SNOWBALL на ваше EntityType.
     }
 
     @Override
