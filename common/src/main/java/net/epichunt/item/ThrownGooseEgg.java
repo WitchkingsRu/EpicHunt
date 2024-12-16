@@ -1,5 +1,6 @@
 package net.epichunt.item;
 
+import com.google.common.base.Suppliers;
 import net.epichunt.entity.ModEntities;
 import net.epichunt.entity.animals.DuckEntity;
 import net.epichunt.entity.animals.GooseEntity;
@@ -7,11 +8,14 @@ import net.minecraft.core.particles.ItemParticleOption;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.entity.projectile.ThrowableItemProjectile;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.EntityHitResult;
 import net.minecraft.world.phys.HitResult;
+
+import java.util.function.Supplier;
 
 public class ThrownGooseEgg extends ThrowableItemProjectile {
     public ThrownGooseEgg(EntityType<? extends ThrownGooseEgg> entityType, Level level) {
@@ -25,7 +29,11 @@ public class ThrownGooseEgg extends ThrowableItemProjectile {
     public ThrownGooseEgg(Level level, double x, double y, double z) {
         super(ModEntities.THROWN_GOOSE_EGG.get(), x, y, z, level); 
     }
-
+    public static final Supplier<EntityType<ThrownGooseEgg>> THROWN_GOOSE_EGG = Suppliers.memoize(() -> EntityType.Builder.<ThrownGooseEgg>of(net.epichunt.item.ThrownGooseEgg::new, MobCategory.MISC)
+                    .sized(0.25F, 0.25F)
+                    .clientTrackingRange(4)
+                    .updateInterval(10)
+                    .build("thrown_goose_egg"));
     @Override
     protected void onHitEntity(EntityHitResult entityHitResult) {
         super.onHitEntity(entityHitResult);
