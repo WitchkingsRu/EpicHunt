@@ -105,5 +105,26 @@
     "sounds": [
       "epichunt:quail_hurt"
     ]
+  },
+  "yak_ambient": {
+    "subtitles": "sounds.epichunt.yak_ambient",
+    "sounds": [
+      "epichunt:yak_ambient_1",
+      "epichunt:yak_ambient_3",
+      "epichunt:yak_ambient_4",
+      "epichunt:yak_ambient_5"
+    ]
+  },
+  "yak_hurt": {
+    "subtitles": "sounds.epichunt.yak_ambient",
+    "sounds": [
+      "epichunt:yak_hurt"
+    ]
+  },
+  "yak_death": {
+    "subtitles": "sounds.epichunt.yak_ambient",
+    "sounds": [
+      "epichunt:yak_death"
+    ]
   }
 }

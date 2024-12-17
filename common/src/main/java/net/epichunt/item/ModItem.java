@@ -41,6 +41,9 @@ public class ModItem {
     public static final RegistrySupplier<Item> QUAIL_SPAWN_EGG = ITEMS.register("quail_spawn_egg", () -> new SpawnEggItem(QuailEntity.QUAIL.get(),0x584434, 0x180C09,
             new Item.Properties()));
 
+    public static final RegistrySupplier<Item> YAK_SPAWN_EGG = ITEMS.register("yak_spawn_egg", () -> new SpawnEggItem(YakEntity.YAK.get(),0x171007, 0x150E06,
+            new Item.Properties()));
+
 
     public static final RegistrySupplier<Item> VENISON = ITEMS.register("raw_venison", ()-> new Item(new Item.Properties().food(ModFood.VENISON)));
 
