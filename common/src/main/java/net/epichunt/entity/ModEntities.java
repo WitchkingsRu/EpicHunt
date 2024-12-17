@@ -53,6 +53,8 @@ public class ModEntities {
     public static final RegistrySupplier<EntityType<ThrownQuailEgg>> THROWN_QUAIL_EGG = ENTITY_TYPES.register("thrown_quail_egg", ThrownQuailEgg.THROWN_QUAIL_EGG);
 
     public static final RegistrySupplier<EntityType<YakEntity>> YAK_ENTITY = ENTITY_TYPES.register("yak", YakEntity.YAK);
+    public static final RegistrySupplier<EntityType<HighlandCowEntity>> HIGHLAND_COW_ENTITY = ENTITY_TYPES.register("highland_cow", HighlandCowEntity.HIGHLAND_COW);
+
 
     public static void renderRegistry() {
         EntityRendererRegistry.register(DEER_ENTITY, DeerRender::new);
@@ -69,6 +71,7 @@ public class ModEntities {
         EntityRendererRegistry.register(QUAIL_ENTITY, QuailRender::new);
         EntityRendererRegistry.register(THROWN_QUAIL_EGG, ThrownItemRenderer::new);
         EntityRendererRegistry.register(YAK_ENTITY, YakRender::new);
+        EntityRendererRegistry.register(HIGHLAND_COW_ENTITY, HighlandCowRender::new);
 
     }
 }

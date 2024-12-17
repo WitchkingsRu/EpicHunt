@@ -43,6 +43,7 @@ public class MobSpawns {
         addEntitySpawns(context -> ((context.hasTag(BiomeTags.IS_FOREST)) || (context.hasTag(BiomeTags.HAS_VILLAGE_PLAINS))), MobCategory.CREATURE, PHEASANT_ENTITY::get, 10, 1, 3);
         addEntitySpawns(context -> ((context.hasTag(BiomeTags.IS_FOREST)) || (context.hasTag(BiomeTags.HAS_VILLAGE_PLAINS))), MobCategory.CREATURE, QUAIL_ENTITY::get, 10, 2, 4);
         addEntitySpawns(context -> ((context.hasTag(BiomeTags.HAS_IGLOO)) || (context.hasTag(BiomeTags.IS_TAIGA))), MobCategory.CREATURE, YAK_ENTITY::get, 10, 1, 3);
+        addEntitySpawns(context -> ((context.hasTag(BiomeTags.IS_HILL)) || (context.hasTag(BiomeTags.IS_TAIGA))), MobCategory.CREATURE, HIGHLAND_COW_ENTITY::get, 8, 1, 3);
 
     }
 
@@ -57,6 +58,7 @@ public class MobSpawns {
         SpawnPlacementsRegistry.register(PHEASANT_ENTITY, SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Animal::checkAnimalSpawnRules);
         SpawnPlacementsRegistry.register(QUAIL_ENTITY, SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Animal::checkAnimalSpawnRules);
         SpawnPlacementsRegistry.register(YAK_ENTITY, SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Animal::checkAnimalSpawnRules);
+        SpawnPlacementsRegistry.register(HIGHLAND_COW_ENTITY, SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Animal::checkAnimalSpawnRules);
 
     }
 }

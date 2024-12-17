@@ -26,7 +26,7 @@ public class YakRender extends MobRenderer<YakEntity, YakModel<YakEntity>> {
 
     @Override
     public void render(YakEntity mob, float f, float g, PoseStack poseStack, MultiBufferSource multiBufferSource, int i) {
-        poseStack.scale(1.2f, 1.2f, 1.2f);
+        poseStack.scale(1.1f, 1.1f, 1.1f);
         if(mob.isBaby()) {
             poseStack.scale(0.5f, 0.5f, 0.5f);
         }

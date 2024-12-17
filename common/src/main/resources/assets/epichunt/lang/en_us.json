@@ -20,6 +20,7 @@
   "item.epichunt.quail_spawn_egg": "Quail Spawn Egg",
   "item.epichunt.goose_spawn_egg": "Goose Spawn Egg",
   "item.epichunt.yak_spawn_egg": "Yak Spawn Egg",
+  "item.epichunt.highland_cow_spawn_egg": "Highland Cow Spawn Egg",
 
   "item.epichunt.goose_egg": "Goose Egg",
   "item.epichunt.duck_egg": "Duck Egg",
@@ -35,5 +36,6 @@
   "entity.epichunt.goose": "Goose",
   "entity.epichunt.pheasant": "Pheasant",
   "entity.epichunt.quail": "Quail",
-  "entity.epichunt.yak": "Yak"
+  "entity.epichunt.yak": "Yak",
+  "entity.epichunt.highland_cow": "Highland Cow"
 }

@@ -18,6 +18,7 @@ public class AttributeRegisterEvents {
         EntityAttributeRegistry.register(PHEASANT_ENTITY, PheasantEntity::createAttributes);
         EntityAttributeRegistry.register(QUAIL_ENTITY, QuailEntity::createAttributes);
         EntityAttributeRegistry.register(YAK_ENTITY, YakEntity::createAttributes);
+        EntityAttributeRegistry.register(HIGHLAND_COW_ENTITY, HighlandCowEntity::createAttributes);
     }
 
 }
