@@ -11,6 +11,8 @@ import net.minecraft.world.item.FoodOnAStickItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.SpawnEggItem;
 
+import java.util.Set;
+
 public class ModItem {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(EpicHunt.MOD_ID, Registries.ITEM);
 
@@ -69,11 +71,25 @@ public class ModItem {
     public static final RegistrySupplier<Item> COOKED_QUAIL = ITEMS.register("cooked_quail", ()-> new Item(new Item.Properties().food(ModFood.COOKED_QUAIL)));
 
     public static final RegistrySupplier<Item> YAK_CARPET_WHITE = ITEMS.register("white_yak_carpet", () -> new YakCarpetItem(0, "white_carpet", new Item.Properties().stacksTo(1)));
-
+    public static final RegistrySupplier<Item> YAK_CARPET_BLACK = ITEMS.register("black_yak_carpet", () -> new YakCarpetItem(0, "black_carpet", new Item.Properties().stacksTo(1)));
+    public static final RegistrySupplier<Item> YAK_CARPET_BLUE = ITEMS.register("blue_yak_carpet", () -> new YakCarpetItem(0, "blue_carpet", new Item.Properties().stacksTo(1)));
+    public static final RegistrySupplier<Item> YAK_CARPET_BROWN = ITEMS.register("brown_yak_carpet", () -> new YakCarpetItem(0, "brown_carpet", new Item.Properties().stacksTo(1)));
+    public static final RegistrySupplier<Item> YAK_CARPET_CYAN = ITEMS.register("cyan_yak_carpet", () -> new YakCarpetItem(0, "cyan_carpet", new Item.Properties().stacksTo(1)));
+    public static final RegistrySupplier<Item> YAK_CARPET_GRAY = ITEMS.register("gray_yak_carpet", () -> new YakCarpetItem(0, "gray_carpet", new Item.Properties().stacksTo(1)));
+    public static final RegistrySupplier<Item> YAK_CARPET_GREEN = ITEMS.register("green_yak_carpet", () -> new YakCarpetItem(0, "green_carpet", new Item.Properties().stacksTo(1)));
+    public static final RegistrySupplier<Item> YAK_CARPET_LIGHT_BLUE = ITEMS.register("light_blue_yak_carpet", () -> new YakCarpetItem(0, "light_blue_carpet", new Item.Properties().stacksTo(1)));
+    public static final RegistrySupplier<Item> YAK_CARPET_LIGHT_GRAY = ITEMS.register("light_gray_yak_carpet", () -> new YakCarpetItem(0, "light_gray_carpet", new Item.Properties().stacksTo(1)));
+    public static final RegistrySupplier<Item> YAK_CARPET_LIME = ITEMS.register("lime_yak_carpet", () -> new YakCarpetItem(0, "lime_carpet", new Item.Properties().stacksTo(1)));
+    public static final RegistrySupplier<Item> YAK_CARPET_MAGENTA = ITEMS.register("magenta_yak_carpet", () -> new YakCarpetItem(0, "magenta_carpet", new Item.Properties().stacksTo(1)));
+    public static final RegistrySupplier<Item> YAK_CARPET_ORANGE = ITEMS.register("orange_yak_carpet", () -> new YakCarpetItem(0, "orange_carpet", new Item.Properties().stacksTo(1)));
+    public static final RegistrySupplier<Item> YAK_CARPET_PINK = ITEMS.register("pink_yak_carpet", () -> new YakCarpetItem(0, "pink_carpet", new Item.Properties().stacksTo(1)));
+    public static final RegistrySupplier<Item> YAK_CARPET_PURPLE = ITEMS.register("purple_yak_carpet", () -> new YakCarpetItem(0, "purple_carpet", new Item.Properties().stacksTo(1)));
+    public static final RegistrySupplier<Item> YAK_CARPET_RED = ITEMS.register("red_yak_carpet", () -> new YakCarpetItem(0, "red_carpet", new Item.Properties().stacksTo(1)));
+    public static final RegistrySupplier<Item> YAK_CARPET_YELLOW = ITEMS.register("yellow_yak_carpet", () -> new YakCarpetItem(0, "yellow_carpet", new Item.Properties().stacksTo(1)));
+    public static final RegistrySupplier<Item> YAK_CARPET_VILLAGER = ITEMS.register("villager_yak_carpet", () -> new YakCarpetItem(0, "villager_carpet", new Item.Properties().stacksTo(1)));
 
     public static final RegistrySupplier<Item> DUCK_EGG = ITEMS.register("duck_egg", () -> new DuckEggItem(new Item.Properties().stacksTo(16)));
     public static final RegistrySupplier<Item> GOOSE_EGG = ITEMS.register("goose_egg", () -> new GooseEggItem(new Item.Properties().stacksTo(16)));
     public static final RegistrySupplier<Item> PHEASANT_EGG = ITEMS.register("pheasant_egg", () -> new PheasantEggItem(new Item.Properties().stacksTo(16)));
     public static final RegistrySupplier<Item> QUAIL_EGG = ITEMS.register("quail_egg", () -> new QuailEggItem(new Item.Properties().stacksTo(16)));
-
 }

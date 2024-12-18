@@ -21,6 +21,7 @@ import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.vehicle.DismountHelper;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -35,7 +36,10 @@ import net.minecraft.world.phys.Vec2;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.Set;
 import java.util.function.Supplier;
+
+import static net.epichunt.item.ModItem.*;
 
 public class YakEntity extends Animal implements Saddleable {
     private static final EntityDataAccessor<Boolean> SADDLED = SynchedEntityData.defineId(YakEntity.class, EntityDataSerializers.BOOLEAN);
@@ -94,11 +98,35 @@ public class YakEntity extends Animal implements Saddleable {
     }
 
 
+    public boolean isCarpet(ItemStack itemStack) {
+        Set<Item> carpets = Set.of(
+                YAK_CARPET_WHITE.get(),
+                YAK_CARPET_BLUE.get(),
+                YAK_CARPET_RED.get(),
+                YAK_CARPET_BLACK.get(),
+                YAK_CARPET_GREEN.get(),
+                YAK_CARPET_YELLOW.get(),
+                YAK_CARPET_ORANGE.get(),
+                YAK_CARPET_PURPLE.get(),
+                YAK_CARPET_CYAN.get(),
+                YAK_CARPET_MAGENTA.get(),
+                YAK_CARPET_LIGHT_BLUE.get(),
+                YAK_CARPET_LIGHT_GRAY.get(),
+                YAK_CARPET_BROWN.get(),
+                YAK_CARPET_PINK.get(),
+                YAK_CARPET_LIME.get(),
+                YAK_CARPET_GRAY.get(),
+                YAK_CARPET_VILLAGER.get()
+        );
+
+        return carpets.contains(itemStack.getItem());
+    }
+
     @Override
     public InteractionResult mobInteract(Player player, InteractionHand hand) {
         ItemStack itemstack = player.getItemInHand(hand);
 
-        if (itemstack.is(ModItem.YAK_CARPET_WHITE.get()) && !this.isSaddled()) {
+        if (isCarpet(itemstack) && !this.isSaddled()) {
             if (!player.getAbilities().instabuild) {
                 itemstack.shrink(1);
             }

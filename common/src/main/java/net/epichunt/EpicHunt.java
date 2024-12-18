@@ -19,17 +19,14 @@ import static net.epichunt.sound.Sounds.SOUNDS;
 
 public class EpicHunt {
     public static final String MOD_ID = "epichunt";
-
-
-
     public static void init() {
-        SOUNDS.register();
-        ENTITY_TYPES.register();
-        MobSpawns.placementRegistry();
         ITEMS.register();
+        SOUNDS.register();
+        MobSpawns.placementRegistry();
         TABS.register();
         CreativeTabs.init();
         AttributeRegisterEvents.init();
+        ENTITY_TYPES.register();
         System.out.println(ExpectPlatform.getConfigDirectory().toAbsolutePath().normalize().toString());
     }
     @Environment(EnvType.CLIENT)
