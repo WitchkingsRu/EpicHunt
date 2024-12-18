@@ -2,6 +2,7 @@ package net.epichunt.entity.animals;
 
 import com.google.common.base.Suppliers;
 import com.google.common.collect.UnmodifiableIterator;
+import net.epichunt.item.ModItem;
 import net.epichunt.sound.Sounds;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -11,8 +12,7 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.Mth;
-import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
+import net.minecraft.world.*;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
@@ -24,6 +24,7 @@ import net.minecraft.world.entity.vehicle.DismountHelper;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -38,10 +39,13 @@ import java.util.function.Supplier;
 
 public class YakEntity extends Animal implements Saddleable {
     private static final EntityDataAccessor<Boolean> SADDLED = SynchedEntityData.defineId(YakEntity.class, EntityDataSerializers.BOOLEAN);
+    private static final EntityDataAccessor<ItemStack> CARPET = SynchedEntityData.defineId(YakEntity.class, EntityDataSerializers.ITEM_STACK);
+    private SimpleContainer inventory;
 
     public YakEntity(EntityType<? extends Animal> entityType, Level level) {
         super(entityType, level);
         this.setMaxUpStep(1.0F);
+        this.inventory = new SimpleContainer(1);
     }
 
     public static final Supplier<EntityType<YakEntity>> YAK = Suppliers.memoize(() -> EntityType.Builder.of(YakEntity::new, MobCategory.CREATURE)
@@ -81,6 +85,7 @@ public class YakEntity extends Animal implements Saddleable {
     protected void defineSynchedData() {
         super.defineSynchedData();
         this.entityData.define(SADDLED, false); // Состояние седла
+        this.entityData.define(CARPET, ItemStack.EMPTY);
     }
 
     protected void doPlayerRide(Player player) {
@@ -92,19 +97,21 @@ public class YakEntity extends Animal implements Saddleable {
 
     }
 
+
     @Override
     public InteractionResult mobInteract(Player player, InteractionHand hand) {
         ItemStack itemstack = player.getItemInHand(hand);
 
-        if (itemstack.is(Items.SADDLE) && !this.isSaddled()) {
+        if (itemstack.is(ModItem.YAK_CARPET_WHITE.get()) && !this.isSaddled()) {
             if (!player.getAbilities().instabuild) {
-                itemstack.shrink(1); // Уменьшаем количество седел в руках игрока
+                itemstack.shrink(1);
             }
+            this.setCarpet(itemstack);
+            this.entityData.set(CARPET, this.inventory.getItem(0));
             this.equipSaddle(SoundSource.NEUTRAL);
             return InteractionResult.SUCCESS;
         } else if (this.isSaddled() && !this.isVehicle()) {
             this.doPlayerRide(player);
-//            player.startRiding(this);
             return InteractionResult.SUCCESS;
         }
 
@@ -121,9 +128,15 @@ public class YakEntity extends Animal implements Saddleable {
         return this.entityData.get(SADDLED);
     }
 
+
+    public ItemStack isCarpetted() {
+        return this.entityData.get(CARPET);
+    }
+
+
     @Override
     public void equipSaddle(@Nullable SoundSource soundSource) {
-        this.entityData.set(SADDLED, true); // Устанавливаем состояние
+        this.entityData.set(SADDLED, true);
         if (soundSource != null) {
             this.level().playSound(null, this.blockPosition(), SoundEvents.HORSE_SADDLE, soundSource, 1.0F, 1.0F);
         }
@@ -132,13 +145,35 @@ public class YakEntity extends Animal implements Saddleable {
     @Override
     public void addAdditionalSaveData(CompoundTag compoundTag) {
         super.addAdditionalSaveData(compoundTag);
-        compoundTag.putBoolean("Saddled", this.isSaddled()); // Сохраняем состояние осёдланности
+        compoundTag.putBoolean("Saddled", this.isSaddled());
+        compoundTag.put("Carpet", this.isCarpetted().save(new CompoundTag()));
+
+        CompoundTag inventoryTag = new CompoundTag();
+        ItemStack stack = this.inventory.getItem(0);
+        if (!stack.isEmpty()) {
+            inventoryTag.put("Slot0", stack.save(new CompoundTag()));
+        }
+        compoundTag.put("Inventory", inventoryTag);
+
+        System.out.println("Carpet:" + this.entityData.get(CARPET));
+        System.out.println("Inventory:" + this.inventory.getItem(0));
+
     }
 
     @Override
     public void readAdditionalSaveData(CompoundTag compoundTag) {
         super.readAdditionalSaveData(compoundTag);
-        this.entityData.set(SADDLED, compoundTag.getBoolean("Saddled")); // Загружаем состояние осёдланности
+        this.entityData.set(SADDLED, compoundTag.getBoolean("Saddled"));
+        this.entityData.set(CARPET, ItemStack.of(compoundTag.getCompound("Carpet")));
+
+        if (compoundTag.contains("Inventory")) {
+            CompoundTag inventoryTag = compoundTag.getCompound("Inventory");
+            if (inventoryTag.contains("Slot0")) {
+                this.inventory.setItem(0, ItemStack.of(inventoryTag.getCompound("Slot0")));
+            }
+        }
+        System.out.println("Carpet:" + this.entityData.get(CARPET));
+        System.out.println("Inventory:" + this.inventory.getItem(0));
     }
 
     @Nullable
@@ -193,6 +228,15 @@ public class YakEntity extends Animal implements Saddleable {
         }
     }
 
+    public ItemStack getCarpet() {
+        return this.getItemBySlot(EquipmentSlot.CHEST);
+    }
+
+    private void setCarpet(ItemStack itemStack) {
+        this.setItemSlot(EquipmentSlot.CHEST, itemStack);
+        this.setDropChance(EquipmentSlot.CHEST, 0.0F);
+    }
+
     @Nullable
     private Vec3 getDismountLocationInDirection(Vec3 vec3, LivingEntity livingEntity) {
         double d = this.getX() + vec3.x;
@@ -241,6 +285,7 @@ public class YakEntity extends Animal implements Saddleable {
             Vec3 vec34 = this.getDismountLocationInDirection(vec33, livingEntity);
             return vec34 != null ? vec34 : this.position();
         }
+
     }
 
     protected void tickRidden(Player player, Vec3 vec3) {
@@ -269,15 +314,25 @@ public class YakEntity extends Animal implements Saddleable {
 
     protected void positionRider(Entity entity, Entity.MoveFunction moveFunction) {
         super.positionRider(entity, moveFunction);
-        float i = 0.3F; // Сдвиг вниз по оси Y
+        float i = 0.3F;
         moveFunction.accept(entity,
-                this.getX(), // Сдвигаем назад по оси X
-                this.getY() + this.getPassengersRidingOffset() + entity.getMyRidingOffset() - (double)i, // Сдвигаем вниз по оси Y
+                this.getX(),
+                this.getY() + this.getPassengersRidingOffset() + entity.getMyRidingOffset() - (double)i,
                 this.getZ()
         );
         if (entity instanceof LivingEntity) {
-            ((LivingEntity) entity).yBodyRot = this.yBodyRot; // Устанавливаем угол для тела
+            ((LivingEntity) entity).yBodyRot = this.yBodyRot;
         }
 
     }
+
+
+    @Override
+    public void die(DamageSource damageSource) {
+        super.die(damageSource);
+        if (!this.inventory.isEmpty()) {
+            this.spawnAtLocation(this.inventory.getItem(0));
+        }
+    }
+
 }

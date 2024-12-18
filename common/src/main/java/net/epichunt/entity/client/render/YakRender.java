@@ -10,6 +10,7 @@ import net.fabricmc.api.Environment;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
+import net.minecraft.client.renderer.entity.layers.HorseArmorLayer;
 import net.minecraft.resources.ResourceLocation;
 
 @Environment(EnvType.CLIENT)
@@ -17,6 +18,7 @@ public class YakRender extends MobRenderer<YakEntity, YakModel<YakEntity>> {
     private static final ResourceLocation YAK_LOCATION = new ResourceLocation(EpicHunt.MOD_ID,"textures/entity/yak/yak.png");
     public YakRender(EntityRendererProvider.Context context) {
         super(context,new YakModel<>(context.bakeLayer(ModModels.YAK_LAYER_LOCATION)), 0.6f);
+        this.addLayer(new YakCarpetLayer(this, context.getModelSet()));
     }
 
     @Override

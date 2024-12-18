@@ -16,7 +16,7 @@ import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
 
-public class GooseModel<T extends Entity> extends HierarchicalModel<T> {
+public class GooseModel<T extends GooseEntity> extends HierarchicalModel<T> {
 	private final ModelPart goose;
 	private final ModelPart rightleg;
 	private final ModelPart leftleg;
@@ -72,10 +72,10 @@ public class GooseModel<T extends Entity> extends HierarchicalModel<T> {
 	}
 
 	@Override
-	public void setupAnim(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+	public void setupAnim(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
 		this.root().getAllParts().forEach(ModelPart::resetPose);
 		this.applyHeadRotation(netHeadYaw, headPitch, ageInTicks);
-		if (GooseEntity.isAngry) {
+		if (entity.isAngry) {
 			this.animateWalk(GooseAnimation.WalkAngry, limbSwing, limbSwingAmount, 2f, 2.5f);
 		} else {
 			this.animateWalk(GooseAnimation.Walk, limbSwing, limbSwingAmount, 2f, 2.5f);
