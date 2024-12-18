@@ -39,13 +39,10 @@ import java.util.function.Supplier;
 
 public class YakEntity extends Animal implements Saddleable {
     private static final EntityDataAccessor<Boolean> SADDLED = SynchedEntityData.defineId(YakEntity.class, EntityDataSerializers.BOOLEAN);
-    private static final EntityDataAccessor<ItemStack> CARPET = SynchedEntityData.defineId(YakEntity.class, EntityDataSerializers.ITEM_STACK);
-    private SimpleContainer inventory;
 
     public YakEntity(EntityType<? extends Animal> entityType, Level level) {
         super(entityType, level);
         this.setMaxUpStep(1.0F);
-        this.inventory = new SimpleContainer(1);
     }
 
     public static final Supplier<EntityType<YakEntity>> YAK = Suppliers.memoize(() -> EntityType.Builder.of(YakEntity::new, MobCategory.CREATURE)
@@ -85,7 +82,6 @@ public class YakEntity extends Animal implements Saddleable {
     protected void defineSynchedData() {
         super.defineSynchedData();
         this.entityData.define(SADDLED, false); // Состояние седла
-        this.entityData.define(CARPET, ItemStack.EMPTY);
     }
 
     protected void doPlayerRide(Player player) {
@@ -107,7 +103,6 @@ public class YakEntity extends Animal implements Saddleable {
                 itemstack.shrink(1);
             }
             this.setCarpet(itemstack);
-            this.entityData.set(CARPET, this.inventory.getItem(0));
             this.equipSaddle(SoundSource.NEUTRAL);
             return InteractionResult.SUCCESS;
         } else if (this.isSaddled() && !this.isVehicle()) {
@@ -129,11 +124,6 @@ public class YakEntity extends Animal implements Saddleable {
     }
 
 
-    public ItemStack isCarpetted() {
-        return this.entityData.get(CARPET);
-    }
-
-
     @Override
     public void equipSaddle(@Nullable SoundSource soundSource) {
         this.entityData.set(SADDLED, true);
@@ -146,17 +136,6 @@ public class YakEntity extends Animal implements Saddleable {
     public void addAdditionalSaveData(CompoundTag compoundTag) {
         super.addAdditionalSaveData(compoundTag);
         compoundTag.putBoolean("Saddled", this.isSaddled());
-        compoundTag.put("Carpet", this.isCarpetted().save(new CompoundTag()));
-
-        CompoundTag inventoryTag = new CompoundTag();
-        ItemStack stack = this.inventory.getItem(0);
-        if (!stack.isEmpty()) {
-            inventoryTag.put("Slot0", stack.save(new CompoundTag()));
-        }
-        compoundTag.put("Inventory", inventoryTag);
-
-        System.out.println("Carpet:" + this.entityData.get(CARPET));
-        System.out.println("Inventory:" + this.inventory.getItem(0));
 
     }
 
@@ -164,16 +143,6 @@ public class YakEntity extends Animal implements Saddleable {
     public void readAdditionalSaveData(CompoundTag compoundTag) {
         super.readAdditionalSaveData(compoundTag);
         this.entityData.set(SADDLED, compoundTag.getBoolean("Saddled"));
-        this.entityData.set(CARPET, ItemStack.of(compoundTag.getCompound("Carpet")));
-
-        if (compoundTag.contains("Inventory")) {
-            CompoundTag inventoryTag = compoundTag.getCompound("Inventory");
-            if (inventoryTag.contains("Slot0")) {
-                this.inventory.setItem(0, ItemStack.of(inventoryTag.getCompound("Slot0")));
-            }
-        }
-        System.out.println("Carpet:" + this.entityData.get(CARPET));
-        System.out.println("Inventory:" + this.inventory.getItem(0));
     }
 
     @Nullable
@@ -234,7 +203,7 @@ public class YakEntity extends Animal implements Saddleable {
 
     private void setCarpet(ItemStack itemStack) {
         this.setItemSlot(EquipmentSlot.CHEST, itemStack);
-        this.setDropChance(EquipmentSlot.CHEST, 0.0F);
+        this.setDropChance(EquipmentSlot.CHEST, 100.0F);
     }
 
     @Nullable
@@ -326,13 +295,5 @@ public class YakEntity extends Animal implements Saddleable {
 
     }
 
-
-    @Override
-    public void die(DamageSource damageSource) {
-        super.die(damageSource);
-        if (!this.inventory.isEmpty()) {
-            this.spawnAtLocation(this.inventory.getItem(0));
-        }
-    }
 
 }
