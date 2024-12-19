@@ -47,7 +47,7 @@ public class YakModel<T extends YakEntity> extends HierarchicalModel<T> {
 		PartDefinition yak = partdefinition.addOrReplaceChild("yak", CubeListBuilder.create(), PartPose.offset(0.0F, 24.0F, 0.0F));
 
 		PartDefinition carpet = yak.addOrReplaceChild("carpet", CubeListBuilder.create().texOffs(88, 48).addBox(-4.0F, -23.0F, -8.0F, 8.0F, 0.0F, 8.0F, new CubeDeformation(0.0F))
-				.texOffs(90, 48).addBox(-4.0F, -21.5F, 0.0F, 8.0F, 0.0F, 6.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 0.0F, 0.0F));
+				.texOffs(90, 42).addBox(-4.0F, -21.5F, 0.0F, 8.0F, 0.0F, 6.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 0.0F, 0.0F));
 
 		PartDefinition cube_r1 = carpet.addOrReplaceChild("cube_r1", CubeListBuilder.create().texOffs(66, 22).mirror().addBox(-0.977F, -10.3F, -1.021F, 0.0F, 11.0F, 4.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(4.1602F, -12.8153F, -8.976F, 0.0F, 1.5708F, -0.1745F));
 
@@ -55,7 +55,7 @@ public class YakModel<T extends YakEntity> extends HierarchicalModel<T> {
 
 		PartDefinition cube_r3 = carpet.addOrReplaceChild("cube_r3", CubeListBuilder.create().texOffs(98, 43).addBox(0.84F, -7.0F, -1.0F, 0.0F, 7.0F, 14.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(6.3883F, -12.4974F, -7.0F, 0.0F, 0.0F, -0.1745F));
 
-		PartDefinition cube_r4 = carpet.addOrReplaceChild("cube_r4", CubeListBuilder.create().texOffs(96, 53).addBox(-7.0F, -2.0F, -0.99F, 8.0F, 2.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(3.0F, -21.4633F, 1.6228F, 0.3491F, 0.0F, 0.0F));
+		PartDefinition cube_r4 = carpet.addOrReplaceChild("cube_r4", CubeListBuilder.create().texOffs(112, 43).addBox(-7.0F, -2.0F, -0.99F, 8.0F, 2.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(3.0F, -21.4633F, 1.6228F, 0.3491F, 0.0F, 0.0F));
 
 		PartDefinition cube_r5 = carpet.addOrReplaceChild("cube_r5", CubeListBuilder.create().texOffs(104, 48).mirror().addBox(-1.0F, -1.0F, -0.991F, 4.0F, 1.0F, 8.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-4.634F, -19.9029F, -7.0F, 0.0F, 0.0F, -1.0472F));
 
@@ -63,9 +63,9 @@ public class YakModel<T extends YakEntity> extends HierarchicalModel<T> {
 
 		PartDefinition cube_r7 = carpet.addOrReplaceChild("cube_r7", CubeListBuilder.create().texOffs(66, 22).addBox(0.977F, -10.3F, -1.021F, 0.0F, 11.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-4.1602F, -12.8153F, -8.976F, 0.0F, -1.5708F, 0.1745F));
 
-		PartDefinition cube_r8 = carpet.addOrReplaceChild("cube_r8", CubeListBuilder.create().texOffs(107, 50).mirror().addBox(-1.0F, 0.0F, -1.0F, 3.0F, 0.0F, 6.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-5.2922F, -20.2433F, 1.0F, 0.0F, 0.0F, -0.7854F));
+		PartDefinition cube_r8 = carpet.addOrReplaceChild("cube_r8", CubeListBuilder.create().texOffs(116, 50).mirror().addBox(-1.0F, 0.0F, -1.0F, 3.0F, 0.0F, 6.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-5.2922F, -20.2433F, 1.0F, 0.0F, 0.0F, -0.7854F));
 
-		PartDefinition cube_r9 = carpet.addOrReplaceChild("cube_r9", CubeListBuilder.create().texOffs(107, 50).addBox(-2.0F, 0.0F, -1.0F, 3.0F, 0.0F, 6.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(5.2922F, -20.2433F, 1.0F, 0.0F, 0.0F, 0.7854F));
+		PartDefinition cube_r9 = carpet.addOrReplaceChild("cube_r9", CubeListBuilder.create().texOffs(116, 50).addBox(-2.0F, 0.0F, -1.0F, 3.0F, 0.0F, 6.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(5.2922F, -20.2433F, 1.0F, 0.0F, 0.0F, 0.7854F));
 
 		PartDefinition cube_r10 = carpet.addOrReplaceChild("cube_r10", CubeListBuilder.create().texOffs(104, 48).addBox(-3.0F, -1.0F, -0.991F, 4.0F, 1.0F, 8.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(4.634F, -19.9029F, -7.0F, 0.0F, 0.0F, 1.0472F));
 
