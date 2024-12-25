@@ -23,6 +23,7 @@ public class ModModels {
     public static final ModelLayerLocation YAK_CARPET_LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(EpicHunt.MOD_ID, "yak"), "carpet");
 
     public static final ModelLayerLocation HIGHLAND_COW_LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(EpicHunt.MOD_ID, "highland_cow"), "main");
+    public static final ModelLayerLocation WISENT_LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(EpicHunt.MOD_ID, "wisent"), "main");
 
     public static void registerLayers() {
         EntityModelLayerRegistry.register(ModModels.DEER_LAYER_LOCATION, DeerModel::createBodyLayer);
@@ -37,6 +38,7 @@ public class ModModels {
         EntityModelLayerRegistry.register(ModModels.YAK_LAYER_LOCATION, YakModel::createBodyLayer);
         EntityModelLayerRegistry.register(ModModels.YAK_CARPET_LAYER_LOCATION, YakModel::createBodyLayer);
         EntityModelLayerRegistry.register(ModModels.HIGHLAND_COW_LAYER_LOCATION, HighlandCowModel::createBodyLayer);
+        EntityModelLayerRegistry.register(ModModels.WISENT_LAYER_LOCATION, WisentModel::createBodyLayer);
     }
 
 }
