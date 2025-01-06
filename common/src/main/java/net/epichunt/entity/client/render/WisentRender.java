@@ -26,9 +26,9 @@ public class WisentRender extends MobRenderer<WisentEntity, WisentModel<WisentEn
 
     @Override
     public void render(WisentEntity mob, float f, float g, PoseStack poseStack, MultiBufferSource multiBufferSource, int i) {
-        poseStack.scale(1.2f, 1.2f, 1.2f);
+        poseStack.scale(1.5f, 1.5f, 1.5f);
         if(mob.isBaby()) {
-            poseStack.scale(0.5f, 0.5f, 0.5f);
+            poseStack.scale(0.8f, 0.8f, 0.8f);
         }
 
         super.render(mob, f, g, poseStack, multiBufferSource, i);

@@ -24,7 +24,12 @@ public class ModModels {
 
     public static final ModelLayerLocation HIGHLAND_COW_LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(EpicHunt.MOD_ID, "highland_cow"), "main");
     public static final ModelLayerLocation WISENT_LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(EpicHunt.MOD_ID, "wisent"), "main");
+
     public static final ModelLayerLocation GOAT_LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(EpicHunt.MOD_ID, "goat"), "main");
+
+    public static final ModelLayerLocation MOOSE_LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(EpicHunt.MOD_ID, "moose"), "main");
+    public static final ModelLayerLocation BOAR_LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(EpicHunt.MOD_ID, "boar"), "main");
+    public static final ModelLayerLocation BADGER_LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(EpicHunt.MOD_ID, "badger"), "main");
 
     public static void registerLayers() {
         EntityModelLayerRegistry.register(ModModels.DEER_LAYER_LOCATION, DeerModel::createBodyLayer);
@@ -41,6 +46,9 @@ public class ModModels {
         EntityModelLayerRegistry.register(ModModels.HIGHLAND_COW_LAYER_LOCATION, HighlandCowModel::createBodyLayer);
         EntityModelLayerRegistry.register(ModModels.WISENT_LAYER_LOCATION, WisentModel::createBodyLayer);
         EntityModelLayerRegistry.register(ModModels.GOAT_LAYER_LOCATION, GoatModel::createBodyLayer);
+        EntityModelLayerRegistry.register(ModModels.MOOSE_LAYER_LOCATION, MooseModel::createBodyLayer);
+        EntityModelLayerRegistry.register(ModModels.BOAR_LAYER_LOCATION, BoarModel::createBodyLayer);
+        EntityModelLayerRegistry.register(ModModels.BADGER_LAYER_LOCATION, BadgerModel::createBodyLayer);
     }
 
 }
