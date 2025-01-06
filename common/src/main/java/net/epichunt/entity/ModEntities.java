@@ -61,6 +61,10 @@ public class ModEntities {
     public static final RegistrySupplier<EntityType<BadgerEntity>> BADGER_ENTITY = ENTITY_TYPES.register("badger", BadgerEntity.BADGER);
     public static final RegistrySupplier<EntityType<BoarEntity>> BOAR_ENTITY = ENTITY_TYPES.register("boar", BoarEntity.BOAR);
 
+    public static final RegistrySupplier<EntityType<LynxEntity>> LYNX_ENTITY = ENTITY_TYPES.register("lynx", LynxEntity.LYNX);
+    public static final RegistrySupplier<EntityType<BearEntity>> BEAR_ENTITY = ENTITY_TYPES.register("bear", BearEntity.BEAR);
+    public static final RegistrySupplier<EntityType<WolfEntity>> WOLF_ENTITY = ENTITY_TYPES.register("wolf", WolfEntity.WOLF);
+
     public static void renderRegistry() {
         EntityRendererRegistry.register(DEER_ENTITY, DeerRender::new);
         EntityRendererRegistry.register(DOE_ENTITY, DoeRender::new);
@@ -82,6 +86,8 @@ public class ModEntities {
         EntityRendererRegistry.register(MOOSE_ENTITY, MooseRender::new);
         EntityRendererRegistry.register(BADGER_ENTITY, BadgerRender::new);
         EntityRendererRegistry.register(BOAR_ENTITY, BoarRender::new);
-
+        EntityRendererRegistry.register(LYNX_ENTITY, LynxRender::new);
+        EntityRendererRegistry.register(BEAR_ENTITY, BearRender::new);
+        EntityRendererRegistry.register(WOLF_ENTITY, WolfRender::new);
     }
 }

@@ -2,9 +2,15 @@ package net.epichunt.entity.client;
 
 import dev.architectury.platform.Mod;
 import dev.architectury.registry.client.level.entity.EntityModelLayerRegistry;
+import dev.architectury.registry.client.level.entity.EntityRendererRegistry;
 import net.epichunt.EpicHunt;
 import net.epichunt.entity.client.model.*;
+import net.minecraft.client.model.OcelotModel;
+import net.minecraft.client.model.PolarBearModel;
+import net.epichunt.entity.client.model.WolfModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
+import net.minecraft.client.model.geom.builders.CubeDeformation;
+import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.resources.ResourceLocation;
 
 public class ModModels {
@@ -31,6 +37,12 @@ public class ModModels {
     public static final ModelLayerLocation BOAR_LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(EpicHunt.MOD_ID, "boar"), "main");
     public static final ModelLayerLocation BADGER_LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(EpicHunt.MOD_ID, "badger"), "main");
 
+    public static final ModelLayerLocation LYNX_LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(EpicHunt.MOD_ID, "lynx"), "main");
+    public static final ModelLayerLocation BEAR_LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(EpicHunt.MOD_ID, "bear"), "main");
+    public static final ModelLayerLocation WOLF_LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(EpicHunt.MOD_ID, "wolf"), "main");
+
+
+
     public static void registerLayers() {
         EntityModelLayerRegistry.register(ModModels.DEER_LAYER_LOCATION, DeerModel::createBodyLayer);
         EntityModelLayerRegistry.register(ModModels.DOE_LAYER_LOCATION, DoeModel::createBodyLayer);
@@ -49,6 +61,9 @@ public class ModModels {
         EntityModelLayerRegistry.register(ModModels.MOOSE_LAYER_LOCATION, MooseModel::createBodyLayer);
         EntityModelLayerRegistry.register(ModModels.BOAR_LAYER_LOCATION, BoarModel::createBodyLayer);
         EntityModelLayerRegistry.register(ModModels.BADGER_LAYER_LOCATION, BadgerModel::createBodyLayer);
+        EntityModelLayerRegistry.register(ModModels.LYNX_LAYER_LOCATION, () -> LayerDefinition.create(OcelotModel.createBodyMesh(CubeDeformation.NONE), 64, 32));
+        EntityModelLayerRegistry.register(ModModels.BEAR_LAYER_LOCATION, PolarBearModel::createBodyLayer);
+        EntityModelLayerRegistry.register(ModModels.WOLF_LAYER_LOCATION, WolfModel::createBodyLayer);
     }
 
 }
