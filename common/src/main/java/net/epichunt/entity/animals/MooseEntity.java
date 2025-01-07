@@ -91,19 +91,19 @@ public class MooseEntity extends Animal {
     @Nullable
     @Override
     protected SoundEvent getAmbientSound() {
-        return Sounds.DEER_AMBIENT.get();
+        return Sounds.MOOSE_AMBIENT.get();
     }
 
     @Nullable
     @Override
     protected SoundEvent getHurtSound(DamageSource damageSource) {
-        return Sounds.DEER_HURT.get();
+        return Sounds.MOOSE_HURT.get();
     }
 
     @Nullable
     @Override
     protected SoundEvent getDeathSound() {
-        return Sounds.DEER_DEATH.get();
+        return Sounds.MOOSE_DEATH.get();
     }
 
     protected void playStepSound(BlockPos blockPos, BlockState blockState) {

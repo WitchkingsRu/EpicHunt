@@ -1,6 +1,7 @@
 package net.epichunt.entity.animals;
 
 import com.google.common.base.Suppliers;
+import net.epichunt.sound.Sounds;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -75,20 +76,20 @@ public class WolfEntity extends Monster implements Enemy {
     }
 
     protected SoundEvent getAmbientSound() {
-        return SoundEvents.COW_AMBIENT;
+        return Sounds.WOLF_AMBIENT.get();
     }
 
     protected SoundEvent getHurtSound(DamageSource damageSource) {
-        return SoundEvents.COW_HURT;
+        return Sounds.WOLF_HURT.get();
     }
 
     protected SoundEvent getDeathSound() {
-        return SoundEvents.COW_DEATH;
+        return SoundEvents.WOLF_DEATH;
     }
 
-    protected void playStepSound(BlockPos blockPos, BlockState blockState) {
-        this.playSound(SoundEvents.COW_STEP, 0.15F, 1.0F);
-    }
+//    protected void playStepSound(BlockPos blockPos, BlockState blockState) {
+//        this.playSound(SoundEvents.COW_STEP, 0.15F, 1.0F);
+//    }
 
     protected float getSoundVolume() {
         return 0.4F;

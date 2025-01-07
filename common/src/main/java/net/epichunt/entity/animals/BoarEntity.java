@@ -308,19 +308,18 @@ public class BoarEntity extends Animal implements NeutralMob{
     @Nullable
     @Override
     protected SoundEvent getAmbientSound() {
-        return Sounds.GOOSE_AMBIENT.get();
+        return Sounds.BOAR_AMBIENT.get();
     }
 
     @Nullable
     @Override
     protected SoundEvent getHurtSound(DamageSource damageSource) {
-        return Sounds.GOOSE_HURT.get();
+        return Sounds.BOAR_HURT.get();
     }
 
-    @Nullable
-    @Override
+    @Nullable    @Override
     protected SoundEvent getDeathSound() {
-        return Sounds.GOOSE_DEATH.get();
+        return SoundEvents.PIG_DEATH;
     }
 
     protected void playStepSound(BlockPos blockPos, BlockState blockState) {

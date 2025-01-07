@@ -28,7 +28,7 @@ public class CaribouRender extends MobRenderer<CaribouEntity, CaribouModel<Carib
 
     @Override
     public void render(CaribouEntity mob, float f, float g, PoseStack poseStack, MultiBufferSource multiBufferSource, int i) {
-        poseStack.scale(1.2f, 1.2f, 1.2f);
+        poseStack.scale(0.85f, 0.85f, 0.85f);
         if(mob.isBaby()) {
             poseStack.scale(0.5f, 0.5f, 0.5f);
         }

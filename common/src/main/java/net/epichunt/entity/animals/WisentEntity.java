@@ -323,19 +323,19 @@ public class WisentEntity extends Animal implements NeutralMob{
     @Nullable
     @Override
     protected SoundEvent getAmbientSound() {
-        return Sounds.GOOSE_AMBIENT.get();
+        return Sounds.WISENT_AMBIENT.get();
     }
 
     @Nullable
     @Override
     protected SoundEvent getHurtSound(DamageSource damageSource) {
-        return Sounds.GOOSE_HURT.get();
+        return Sounds.WISENT_HURT.get();
     }
 
     @Nullable
     @Override
     protected SoundEvent getDeathSound() {
-        return Sounds.GOOSE_DEATH.get();
+        return Sounds.WISENT_DEATH.get();
     }
 
     protected void playStepSound(BlockPos blockPos, BlockState blockState) {

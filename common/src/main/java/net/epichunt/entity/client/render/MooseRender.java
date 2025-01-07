@@ -28,7 +28,7 @@ public class MooseRender extends MobRenderer<MooseEntity, MooseModel<MooseEntity
 
     @Override
     public void render(MooseEntity mob, float f, float g, PoseStack poseStack, MultiBufferSource multiBufferSource, int i) {
-        poseStack.scale(1.2f, 1.2f, 1.2f);
+        //poseStack.scale(1f, 1f, 1f);
         if(mob.isBaby()) {
             poseStack.scale(0.5f, 0.5f, 0.5f);
         }

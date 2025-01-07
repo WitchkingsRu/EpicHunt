@@ -28,9 +28,9 @@ public class RoeDeerRender extends MobRenderer<RoeDeerEntity, RoeDeerModel<RoeDe
 
     @Override
     public void render(RoeDeerEntity mob, float f, float g, PoseStack poseStack, MultiBufferSource multiBufferSource, int i) {
-        poseStack.scale(0.75f, 0.75f, 0.75f);
+        poseStack.scale(0.65f, 0.65f, 0.65f);
         if(mob.isBaby()) {
-            poseStack.scale(0.5f, 0.5f, 0.5f);
+            poseStack.scale(0.4f, 0.4f, 0.4f);
         }
 
         super.render(mob, f, g, poseStack, multiBufferSource, i);

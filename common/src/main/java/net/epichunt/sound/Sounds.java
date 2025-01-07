@@ -26,7 +26,6 @@ public class Sounds {
     public static final RegistrySupplier<SoundEvent> GOOSE_AMBIENT = registerSound("goose_ambient");
     public static final RegistrySupplier<SoundEvent> GOOSE_HURT = registerSound("goose_hurt");
     public static final RegistrySupplier<SoundEvent> GOOSE_DEATH = registerSound("goose_death");
-    public static final RegistrySupplier<SoundEvent> GOOSE_WARN = registerSound("goose_warn");
     public static final RegistrySupplier<SoundEvent> PHEASANT_AMBIENT = registerSound("pheasant_ambient");
     public static final RegistrySupplier<SoundEvent> PHEASANT_HURT = registerSound("pheasant_hurt");
     public static final RegistrySupplier<SoundEvent> PHEASANT_DEATH = registerSound("pheasant_death");
@@ -35,6 +34,21 @@ public class Sounds {
     public static final RegistrySupplier<SoundEvent> YAK_AMBIENT = registerSound("yak_ambient");
     public static final RegistrySupplier<SoundEvent> YAK_HURT = registerSound("yak_hurt");
     public static final RegistrySupplier<SoundEvent> YAK_DEATH = registerSound("yak_death");
+    public static final RegistrySupplier<SoundEvent> WISENT_AMBIENT = registerSound("wisent_ambient");
+    public static final RegistrySupplier<SoundEvent> WISENT_HURT = registerSound("wisent_hurt");
+    public static final RegistrySupplier<SoundEvent> WISENT_DEATH = registerSound("wisent_death");
+    public static final RegistrySupplier<SoundEvent> BOAR_AMBIENT = registerSound("boar_ambient");
+    public static final RegistrySupplier<SoundEvent> BOAR_HURT = registerSound("boar_hurt");
+    public static final RegistrySupplier<SoundEvent> BOAR_DEATH = registerSound("boar_death");
+    public static final RegistrySupplier<SoundEvent> BADGER_AMBIENT = registerSound("badger_ambient");
+    public static final RegistrySupplier<SoundEvent> BADGER_HURT = registerSound("badger_hurt");
+    public static final RegistrySupplier<SoundEvent> BADGER_DEATH = registerSound("badger_death");
+    public static final RegistrySupplier<SoundEvent> WOLF_AMBIENT = registerSound("wolf_ambient");
+    public static final RegistrySupplier<SoundEvent> WOLF_HURT = registerSound("wolf_hurt");
+    public static final RegistrySupplier<SoundEvent> WOLF_DEATH = registerSound("wolf_death");
+    public static final RegistrySupplier<SoundEvent> MOOSE_AMBIENT = registerSound("moose_ambient");
+    public static final RegistrySupplier<SoundEvent> MOOSE_HURT = registerSound("moose_hurt");
+    public static final RegistrySupplier<SoundEvent> MOOSE_DEATH = registerSound("moose_death");
 
     private static RegistrySupplier<SoundEvent> registerSound(String name) {
         return SOUNDS.register(name, ()-> SoundEvent.createVariableRangeEvent(new ResourceLocation(EpicHunt.MOD_ID, name)));

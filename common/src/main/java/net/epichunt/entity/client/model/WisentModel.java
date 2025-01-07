@@ -48,19 +48,19 @@ public class WisentModel<T extends WisentEntity> extends HierarchicalModel<T> {
 
 		PartDefinition wisent = partdefinition.addOrReplaceChild("wisent", CubeListBuilder.create(), PartPose.offset(0.0F, 24.0F, 0.0F));
 
-		PartDefinition leg3 = wisent.addOrReplaceChild("leg3", CubeListBuilder.create().texOffs(48, 22).addBox(-1.99F, 0.0F, -1.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(-4.0F, -12.0F, -6.0F));
+		PartDefinition leg3 = wisent.addOrReplaceChild("leg3", CubeListBuilder.create().texOffs(48, 24).addBox(-1.99F, 2.0F, -1.0F, 4.0F, 10.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(-4.0F, -12.0F, -6.0F));
 
-		PartDefinition leg2 = wisent.addOrReplaceChild("leg2", CubeListBuilder.create().texOffs(48, 22).addBox(-2.01F, 0.0F, -1.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(4.0F, -12.0F, -6.0F));
+		PartDefinition leg2 = wisent.addOrReplaceChild("leg2", CubeListBuilder.create().texOffs(48, 24).addBox(-2.01F, 2.0F, -1.0F, 4.0F, 10.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(4.0F, -12.0F, -6.0F));
 
-		PartDefinition leg1 = wisent.addOrReplaceChild("leg1", CubeListBuilder.create().texOffs(48, 22).addBox(-1.99F, 0.0F, 0.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(-4.0F, -12.0F, 7.0F));
+		PartDefinition leg1 = wisent.addOrReplaceChild("leg1", CubeListBuilder.create().texOffs(48, 24).addBox(-1.99F, 2.0F, 0.0F, 4.0F, 10.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(-4.0F, -12.0F, 7.0F));
 
-		PartDefinition leg0 = wisent.addOrReplaceChild("leg0", CubeListBuilder.create().texOffs(48, 22).addBox(-2.01F, 0.0F, 0.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(4.0F, -12.0F, 7.0F));
+		PartDefinition leg0 = wisent.addOrReplaceChild("leg0", CubeListBuilder.create().texOffs(48, 24).addBox(-2.01F, 2.0F, 0.0F, 4.0F, 10.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(4.0F, -12.0F, 7.0F));
 
 		PartDefinition body = wisent.addOrReplaceChild("body", CubeListBuilder.create().texOffs(4, 35).addBox(-5.5F, -2.0F, -9.99F, 11.0F, 9.0F, 20.0F, new CubeDeformation(0.0F))
-		.texOffs(0, 22).mirror().addBox(-4.0F, -4.0F, -10.0F, 8.0F, 4.0F, 8.0F, new CubeDeformation(0.0F)).mirror(false)
-		.texOffs(69, 25).mirror().addBox(-3.5F, -3.0F, -2.0F, 7.0F, 3.0F, 7.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(0.0F, -18.0F, 2.0F));
+				.texOffs(0, 22).mirror().addBox(-4.0F, -4.0F, -10.0F, 8.0F, 4.0F, 8.0F, new CubeDeformation(0.0F)).mirror(false)
+				.texOffs(69, 25).mirror().addBox(-3.5F, -3.0F, -2.0F, 7.0F, 3.0F, 7.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(0.0F, -16.0F, 2.0F));
 
-		PartDefinition head = wisent.addOrReplaceChild("head", CubeListBuilder.create().texOffs(0, 0).addBox(-3.5F, -1.3F, -7.0F, 7.0F, 7.0F, 7.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -20.0F, -8.0F));
+		PartDefinition head = wisent.addOrReplaceChild("head", CubeListBuilder.create().texOffs(0, 0).addBox(-3.5F, -1.3F, -7.0F, 7.0F, 7.0F, 7.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -18.0F, -8.0F));
 
 		PartDefinition cube_r1 = head.addOrReplaceChild("cube_r1", CubeListBuilder.create().texOffs(46, 4).addBox(-3.5F, -5.5F, -1.0F, 5.0F, 5.0F, 6.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(1.0F, 7.0F, -7.0F, 0.1309F, 0.0F, 0.0F));
 

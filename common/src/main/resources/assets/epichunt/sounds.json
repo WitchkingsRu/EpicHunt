@@ -126,5 +126,96 @@
     "sounds": [
       "epichunt:yak_death"
     ]
+  },
+  "wisent_ambient": {
+    "subtitles": "sounds.epichunt.wisent_ambient",
+    "sounds": [
+      "epichunt:wisent_ambient_1",
+      "epichunt:wisent_ambient_2"
+    ]
+  },
+  "wisent_hurt": {
+    "subtitles": "sounds.epichunt.wisent_ambient",
+    "sounds": [
+      "epichunt:wisent_hurt"
+    ]
+  },
+  "wisent_death": {
+    "subtitles": "sounds.epichunt.wisent_ambient",
+    "sounds": [
+      "epichunt:wisent_death"
+    ]
+  },
+  "boar_ambient": {
+    "subtitles": "sounds.epichunt.boar_ambient",
+    "sounds": [
+      "epichunt:boar_ambient_1",
+      "epichunt:boar_ambient_3",
+      "epichunt:boar_ambient_4",
+      "epichunt:boar_ambient_2"
+    ]
+  },
+  "boar_hurt": {
+    "subtitles": "sounds.epichunt.boar_ambient",
+    "sounds": [
+      "epichunt:boar_hurt"
+    ]
+  },
+  "wolf_ambient": {
+    "subtitles": "sounds.epichunt.wolf_ambient",
+    "sounds": [
+      "epichunt:wolf_ambient_1",
+      "epichunt:wolf_ambient_2",
+      "epichunt:wolf_ambient_3",
+      "epichunt:wolf_ambient_4",
+      "epichunt:wolf_ambient_5"
+    ]
+  },
+  "wolf_hurt": {
+    "subtitles": "sounds.epichunt.wolf_ambient",
+    "sounds": [
+      "epichunt:wolf_hurt"
+    ]
+  },
+  "badger_ambient": {
+    "subtitles": "sounds.epichunt.badger_ambient",
+    "sounds": [
+      "epichunt:badger_ambient_1",
+      "epichunt:badger_ambient_3",
+      "epichunt:badger_ambient_4",
+      "epichunt:badger_ambient_2"
+    ]
+  },
+  "badger_hurt": {
+    "subtitles": "sounds.epichunt.badger_ambient",
+    "sounds": [
+      "epichunt:badger_hurt"
+    ]
+  },
+  "badger_death": {
+    "subtitles": "sounds.epichunt.badger_ambient",
+    "sounds": [
+      "epichunt:badger_death"
+    ]
+  },
+  "moose_ambient": {
+    "subtitles": "sounds.epichunt.moose_ambient",
+    "sounds": [
+      "epichunt:moose_ambient_1",
+      "epichunt:moose_ambient_3",
+      "epichunt:moose_ambient_2"
+    ]
+  },
+  "moose_hurt": {
+    "subtitles": "sounds.epichunt.moose_ambient",
+    "sounds": [
+      "epichunt:moose_hurt"
+    ]
+  },
+  "moose_death": {
+    "subtitles": "sounds.epichunt.moose_ambient",
+    "sounds": [
+      "epichunt:moose_death"
+    ]
   }
 }

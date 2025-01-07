@@ -26,7 +26,7 @@ public class DeerRender extends MobRenderer<DeerEntity, DeerModel<DeerEntity>> {
 
     @Override
     public void render(DeerEntity mob, float f, float g, PoseStack poseStack, MultiBufferSource multiBufferSource, int i) {
-
+        poseStack.scale(0.75f, 0.75f, 0.75f);
         if(mob.isBaby()) {
             poseStack.scale(0.5f, 0.5f, 0.5f);
         }

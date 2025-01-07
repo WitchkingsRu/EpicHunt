@@ -36,7 +36,7 @@ public class DoeRender extends MobRenderer<DoeEntity, DoeModel<DoeEntity>> {
 
     @Override
     public void render(DoeEntity mob, float f, float g, PoseStack poseStack, MultiBufferSource multiBufferSource, int i) {
-
+        poseStack.scale(0.75f, 0.75f, 0.75f);
         if(mob.isBaby()) {
             poseStack.scale(0.5f, 0.5f, 0.5f);
         }
