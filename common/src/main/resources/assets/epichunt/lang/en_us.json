@@ -39,6 +39,14 @@
   "item.epichunt.goose_spawn_egg": "Goose Spawn Egg",
   "item.epichunt.yak_spawn_egg": "Yak Spawn Egg",
   "item.epichunt.highland_cow_spawn_egg": "Highland Cow Spawn Egg",
+  "item.epichunt.wisent_spawn_egg": "Wisent Spawn Egg",
+  "item.epichunt.wolf_spawn_egg": "Wild Wolf Spawn Egg",
+  "item.epichunt.goat_spawn_egg": "Short-haired Goat Spawn Egg",
+  "item.epichunt.bear_spawn_egg": "Brown Bear Spawn Egg",
+  "item.epichunt.lynx_spawn_egg": "Lynx Spawn Egg",
+  "item.epichunt.badger_spawn_egg": "Badger Spawn Egg",
+  "item.epichunt.moose_spawn_egg": "Moose Spawn Egg",
+  "item.epichunt.boar_spawn_egg": "Boar Spawn Egg",
 
   "item.epichunt.goose_egg": "Goose Egg",
   "item.epichunt.duck_egg": "Duck Egg",
@@ -55,5 +63,13 @@
   "entity.epichunt.pheasant": "Pheasant",
   "entity.epichunt.quail": "Quail",
   "entity.epichunt.yak": "Yak",
-  "entity.epichunt.highland_cow": "Highland Cow"
+  "entity.epichunt.highland_cow": "Highland Cow",
+  "entity.epichunt.wisent": "Wisent",
+  "entity.epichunt.wolf": "Wild Wolf",
+  "entity.epichunt.lynx": "Lynx",
+  "entity.epichunt.goat": "Short-haired Goat",
+  "entity.epichunt.badger": "Badger",
+  "entity.epichunt.boar": "Boar",
+  "entity.epichunt.moose": "Moose",
+  "entity.epichunt.bear": "Brown Bear"
 }

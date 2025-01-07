@@ -49,6 +49,30 @@ public class ModItem {
     public static final RegistrySupplier<Item> HIGHLAND_COW_SPAWN_EGG = ITEMS.register("highland_cow_spawn_egg", () -> new SpawnEggItem(HighlandCowEntity.HIGHLAND_COW.get(),0x543218, 0x472A14,
             new Item.Properties()));
 
+    public static final RegistrySupplier<Item> WISENT_SPAWN_EGG = ITEMS.register("wisent_spawn_egg", () -> new SpawnEggItem(WisentEntity.WISENT.get(),0x2C1C11, 0x1E140C,
+            new Item.Properties()));
+
+    public static final RegistrySupplier<Item> MOOSE_SPAWN_EGG = ITEMS.register("moose_spawn_egg", () -> new SpawnEggItem(MooseEntity.MOOSE.get(),0x39280D, 0x302008,
+            new Item.Properties()));
+
+    public static final RegistrySupplier<Item> WOLF_SPAWN_EGG = ITEMS.register("wolf_spawn_egg", () -> new SpawnEggItem(WolfEntity.WOLF.get(),0x6E6F6F, 0x494A4A,
+            new Item.Properties()));
+
+    public static final RegistrySupplier<Item> LYNX_SPAWN_EGG = ITEMS.register("lynx_spawn_egg", () -> new SpawnEggItem(LynxEntity.LYNX.get(),0xB88E67, 0x523C1E,
+            new Item.Properties()));
+
+    public static final RegistrySupplier<Item> BOAR_SPAWN_EGG = ITEMS.register("boar_spawn_egg", () -> new SpawnEggItem(BoarEntity.BOAR.get(),0x211708, 0x040000,
+            new Item.Properties()));
+
+    public static final RegistrySupplier<Item> GOAT_SPAWN_EGG = ITEMS.register("goat_spawn_egg", () -> new SpawnEggItem(GoatEntity.GOAT.get(),0xE9E8E7, 0xF5F5F5,
+            new Item.Properties()));
+
+    public static final RegistrySupplier<Item> BADGER_SPAWN_EGG = ITEMS.register("badger_spawn_egg", () -> new SpawnEggItem(BadgerEntity.BADGER.get(),0x3D3D3D, 0xC8C8C8,
+            new Item.Properties()));
+
+    public static final RegistrySupplier<Item> BEAR_SPAWN_EGG = ITEMS.register("bear_spawn_egg", () -> new SpawnEggItem(BearEntity.BEAR.get(),0x120700, 0x312616,
+            new Item.Properties()));
+
 
     public static final RegistrySupplier<Item> VENISON = ITEMS.register("raw_venison", ()-> new Item(new Item.Properties().food(ModFood.VENISON)));
 
