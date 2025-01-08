@@ -55,8 +55,8 @@ public class WisentEntity extends Animal implements NeutralMob{
     private int remainingPersistentAngerTime;
     @Nullable
     private UUID persistentAngerTarget;
-    private static final int AGGRESSION_RADIUS = 5;
-    private static final int AGGRESSION_THRESHOLD = 500;
+    private static final int AGGRESSION_RADIUS = 10;
+    private static final int AGGRESSION_THRESHOLD = 50;
     public static boolean isAngry = false;
 
     private int proximityTimer = 0;
@@ -178,7 +178,7 @@ public class WisentEntity extends Animal implements NeutralMob{
     }
 
     public static AttributeSupplier.Builder createAttributes() {
-        return Animal.createLivingAttributes().add(Attributes.MAX_HEALTH, 40D).add(Attributes.MOVEMENT_SPEED, 0.3000000298023224)
+        return Animal.createLivingAttributes().add(Attributes.MAX_HEALTH, 45D).add(Attributes.MOVEMENT_SPEED, 0.3000000298023224)
                 .add(Attributes.FOLLOW_RANGE, 25D).add(Attributes.ATTACK_DAMAGE, 10D).add(Attributes.ATTACK_KNOCKBACK, 2);
     }
 

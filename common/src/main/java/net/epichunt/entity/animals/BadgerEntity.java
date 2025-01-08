@@ -46,7 +46,7 @@ public class BadgerEntity extends Animal implements NeutralMob {
         super(entityType, level);
     }
     public static final Supplier<EntityType<BadgerEntity>> BADGER = Suppliers.memoize(() -> EntityType.Builder.of(BadgerEntity::new, MobCategory.CREATURE)
-            .sized(1f, 2f).build("badger"));
+            .sized(1f, 1f).build("badger"));
 
     @Override
     protected void updateWalkAnimation(float partialTick) {

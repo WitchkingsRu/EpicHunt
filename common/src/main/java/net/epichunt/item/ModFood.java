@@ -30,5 +30,20 @@ public class ModFood {
 
     public static final FoodProperties COOKED_QUAIL = new FoodProperties.Builder().meat().nutrition(3).saturationMod(0.3f)
             .build();
+
+    public static final FoodProperties WOLF = (new FoodProperties.Builder()).nutrition(3).saturationMod(0.1F).effect(new MobEffectInstance(MobEffects.HUNGER, 600, 0), 0.3F).meat().build();
+
+    public static final FoodProperties COOKED_WOLF = new FoodProperties.Builder().meat().nutrition(5).saturationMod(0.3f)
+            .build();
+
+    public static final FoodProperties BEAR = (new FoodProperties.Builder()).nutrition(3).saturationMod(0.1F).effect(new MobEffectInstance(MobEffects.POISON, 600, 0), 0.3F).meat().build();
+
+    public static final FoodProperties COOKED_BEAR = new FoodProperties.Builder().meat().nutrition(6).saturationMod(0.3f)
+            .build();
+
+    public static final FoodProperties BADGER = (new FoodProperties.Builder()).nutrition(2).saturationMod(0.1F).effect(new MobEffectInstance(MobEffects.HUNGER, 600, 0), 0.3F).meat().build();
+
+    public static final FoodProperties COOKED_BADGER = new FoodProperties.Builder().meat().nutrition(4).saturationMod(0.4f)
+            .build();
 }
 

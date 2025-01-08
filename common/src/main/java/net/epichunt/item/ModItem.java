@@ -94,6 +94,19 @@ public class ModItem {
 
     public static final RegistrySupplier<Item> COOKED_QUAIL = ITEMS.register("cooked_quail", ()-> new Item(new Item.Properties().food(ModFood.COOKED_QUAIL)));
 
+    public static final RegistrySupplier<Item> WOLF = ITEMS.register("raw_wolf", ()-> new Item(new Item.Properties().food(ModFood.WOLF)));
+
+    public static final RegistrySupplier<Item> COOKED_WOLF = ITEMS.register("cooked_wolf", ()-> new Item(new Item.Properties().food(ModFood.COOKED_WOLF)));
+
+    public static final RegistrySupplier<Item> BEAR = ITEMS.register("raw_bear", ()-> new Item(new Item.Properties().food(ModFood.BEAR)));
+
+    public static final RegistrySupplier<Item> COOKED_BEAR = ITEMS.register("cooked_bear", ()-> new Item(new Item.Properties().food(ModFood.COOKED_BEAR)));
+
+    public static final RegistrySupplier<Item> BADGER = ITEMS.register("raw_badger", ()-> new Item(new Item.Properties().food(ModFood.BADGER)));
+
+    public static final RegistrySupplier<Item> COOKED_BADGER = ITEMS.register("cooked_badger", ()-> new Item(new Item.Properties().food(ModFood.COOKED_BADGER)));
+
+
     public static final RegistrySupplier<Item> YAK_CARPET_WHITE = ITEMS.register("white_yak_carpet", () -> new YakCarpetItem(0, "white_carpet", new Item.Properties().stacksTo(1)));
     public static final RegistrySupplier<Item> YAK_CARPET_BLACK = ITEMS.register("black_yak_carpet", () -> new YakCarpetItem(0, "black_carpet", new Item.Properties().stacksTo(1)));
     public static final RegistrySupplier<Item> YAK_CARPET_BLUE = ITEMS.register("blue_yak_carpet", () -> new YakCarpetItem(0, "blue_carpet", new Item.Properties().stacksTo(1)));

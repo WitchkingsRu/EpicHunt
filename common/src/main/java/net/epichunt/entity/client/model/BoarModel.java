@@ -3,10 +3,13 @@ package net.epichunt.entity.client.model;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.epichunt.EpicHunt;
+import net.epichunt.entity.animals.BoarEntity;
 import net.epichunt.entity.animals.CaribouEntity;
+import net.epichunt.entity.animals.MooseEntity;
 import net.epichunt.entity.animations.BoarAnimation;
 import net.epichunt.entity.animations.CaribouAnimation;
 import net.epichunt.entity.animations.HighlandCowAnimation;
+import net.epichunt.entity.animations.MooseAnimation;
 import net.minecraft.client.model.HierarchicalModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;
@@ -69,6 +72,7 @@ public class BoarModel<T extends Entity> extends HierarchicalModel<T> {
 		this.root().getAllParts().forEach(ModelPart::resetPose);
 		this.applyHeadRotation(netHeadYaw, headPitch, ageInTicks);
 		this.animateWalk(BoarAnimation.walk, limbSwing, limbSwingAmount, 2f, 2.5f);
+		this.animate(((BoarEntity) entity).attackAnimationState, BoarAnimation.attack, ageInTicks, 1f);
 	}
 	private void applyHeadRotation(float pNetHeadYaw, float pHeadPitch, float pAgeInTicks) {
 		pNetHeadYaw = Mth.clamp(pNetHeadYaw, -30.0F, 30.0F);

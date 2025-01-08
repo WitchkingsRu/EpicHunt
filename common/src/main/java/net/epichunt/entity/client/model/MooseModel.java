@@ -5,8 +5,10 @@ import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.epichunt.EpicHunt;
 import net.epichunt.entity.animals.CaribouEntity;
 import net.epichunt.entity.animals.MooseEntity;
+import net.epichunt.entity.animals.WisentEntity;
 import net.epichunt.entity.animations.CaribouAnimation;
 import net.epichunt.entity.animations.MooseAnimation;
+import net.epichunt.entity.animations.WisentAnimation;
 import net.minecraft.client.model.HierarchicalModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
@@ -14,7 +16,7 @@ import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
 
-public class MooseModel<T extends Entity> extends HierarchicalModel<T> {
+public class MooseModel<T extends MooseEntity> extends HierarchicalModel<T> {
 	// This layer location should be baked with EntityRendererProvider.Context in the entity renderer and passed into this model's constructor
 
 	private final ModelPart moose;
@@ -112,10 +114,15 @@ public class MooseModel<T extends Entity> extends HierarchicalModel<T> {
 	}
 
 	@Override
-	public void setupAnim(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+	public void setupAnim(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
 		this.root().getAllParts().forEach(ModelPart::resetPose);
 		this.applyHeadRotation(netHeadYaw, headPitch, ageInTicks);
-		this.animateWalk(MooseAnimation.Walk, limbSwing, limbSwingAmount, 2f, 2.5f);
+		if (entity.isAngry) {
+			this.animateWalk(MooseAnimation.Walk_Angry, limbSwing, limbSwingAmount, 2f, 2.5f);
+		} else {
+			this.animateWalk(MooseAnimation.Walk, limbSwing, limbSwingAmount, 2f, 2.5f);
+		}
+		this.animate(((MooseEntity) entity).attackAnimationState, MooseAnimation.Attack, ageInTicks, 1f);
 		this.animate(((MooseEntity) entity).idleAnimationState, MooseAnimation.Idle, ageInTicks, 1f);
 	}
 	private void applyHeadRotation(float pNetHeadYaw, float pHeadPitch, float pAgeInTicks) {

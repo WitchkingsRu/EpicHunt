@@ -10,7 +10,7 @@ import net.minecraft.world.level.Level;
 import java.util.function.Supplier;
 
 public class BearEntity extends PolarBear {
-    public static final Supplier<EntityType<BearEntity>> BEAR = Suppliers.memoize(() -> EntityType.Builder.of(BearEntity::new, MobCategory.MISC).sized(0.98F, 0.7F).clientTrackingRange(8).build("lynx"));
+    public static final Supplier<EntityType<BearEntity>> BEAR = Suppliers.memoize(() -> EntityType.Builder.of(BearEntity::new, MobCategory.MISC).sized(1.5F, 1.5F).clientTrackingRange(8).build("bear"));
     public BearEntity(EntityType<? extends PolarBear> entityType, Level level) {
         super(entityType, level);
     }

@@ -40,8 +40,8 @@ public class BoarEntity extends Animal implements NeutralMob{
     private int remainingPersistentAngerTime;
     @Nullable
     private UUID persistentAngerTarget;
-    private static final int AGGRESSION_RADIUS = 5;
-    private static final int AGGRESSION_THRESHOLD = 500;
+    private static final int AGGRESSION_RADIUS = 10;
+    private static final int AGGRESSION_THRESHOLD = 200;
     public static boolean isAngry = false;
 
     private int proximityTimer = 0;
