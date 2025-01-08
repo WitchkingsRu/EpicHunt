@@ -18,6 +18,7 @@ import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
+import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.player.Player;
@@ -144,6 +145,7 @@ public class BoarEntity extends Animal implements NeutralMob{
         this.goalSelector.addGoal(5, new RandomStrollGoal(this, 1f, 100));
         this.goalSelector.addGoal(7, new LookAtPlayerGoal(this, Player.class, 3f));
         this.goalSelector.addGoal(8, new RandomLookAroundGoal(this));
+        this.targetSelector.addGoal(1, new HurtByTargetGoal(this, new Class[0]));
         this.targetSelector.addGoal(1, new WisentAttackPlayersGoal());
         this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, 5, true, false, this::isAngryAt));
     }
@@ -163,8 +165,8 @@ public class BoarEntity extends Animal implements NeutralMob{
     }
 
     public static AttributeSupplier.Builder createAttributes() {
-        return Animal.createLivingAttributes().add(Attributes.MAX_HEALTH, 40D).add(Attributes.MOVEMENT_SPEED, 0.3000000298023224)
-                .add(Attributes.FOLLOW_RANGE, 25D).add(Attributes.ATTACK_DAMAGE, 10D).add(Attributes.ATTACK_KNOCKBACK, 2);
+        return Animal.createLivingAttributes().add(Attributes.MAX_HEALTH, 20D).add(Attributes.MOVEMENT_SPEED, 0.3000000298023224)
+                .add(Attributes.FOLLOW_RANGE, 25D).add(Attributes.ATTACK_DAMAGE, 6D).add(Attributes.ATTACK_KNOCKBACK, 1.5);
     }
 
     public void startPersistentAngerTimer() {

@@ -41,7 +41,7 @@ public class WolfEntity extends Monster implements Enemy {
         this.xpReward = 5;
     }
     public static final Supplier<EntityType<WolfEntity>> WOLF = Suppliers.memoize(() -> EntityType.Builder.of(WolfEntity::new, MobCategory.CREATURE)
-            .sized(1f, 2f).build("badger"));
+            .sized(1f, 1f).build("wolf"));
 
     @Override
     protected void updateWalkAnimation(float partialTick) {
@@ -59,7 +59,7 @@ public class WolfEntity extends Monster implements Enemy {
     @Override
     protected void registerGoals() {
         this.goalSelector.addGoal(1, new FloatGoal(this));
-        this.goalSelector.addGoal(3, new LeapAtTargetGoal(this, 0.4F));
+        this.goalSelector.addGoal(3, new LeapAtTargetGoal(this, 0.2F));
         this.goalSelector.addGoal(4, new MeleeAttackGoal(this, 1.0, true));
         this.goalSelector.addGoal(5, new WaterAvoidingRandomStrollGoal(this, 0.8));
         this.goalSelector.addGoal(6, new LookAtPlayerGoal(this, Player.class, 8.0F));
@@ -110,8 +110,7 @@ public class WolfEntity extends Monster implements Enemy {
         }
 
         public boolean canUse() {
-            float f = this.mob.getLightLevelDependentMagicValue();
-            return f >= 0.5F ? false : super.canUse();
+            return super.canUse();
         }
     }
 

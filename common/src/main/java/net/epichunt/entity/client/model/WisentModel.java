@@ -87,11 +87,7 @@ public class WisentModel<T extends WisentEntity> extends HierarchicalModel<T> {
 	public void setupAnim(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
 		this.root().getAllParts().forEach(ModelPart::resetPose);
 		this.applyHeadRotation(netHeadYaw, headPitch, ageInTicks);
-		if (entity.isAngry) {
-			this.animateWalk(WisentAnimation.walk_angry, limbSwing, limbSwingAmount, 2f, 2.5f);
-		} else {
-			this.animateWalk(WisentAnimation.walk, limbSwing, limbSwingAmount, 2f, 2.5f);
-		}
+		this.animateWalk(WisentAnimation.walk, limbSwing, limbSwingAmount, 2f, 2.5f);
 		this.animate(((WisentEntity) entity).attackAnimationState, WisentAnimation.attack, ageInTicks, 1f);
 	}
 	private void applyHeadRotation(float pNetHeadYaw, float pHeadPitch, float pAgeInTicks) {

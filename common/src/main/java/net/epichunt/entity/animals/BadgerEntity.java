@@ -19,6 +19,7 @@ import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
+import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.ResetUniversalAngerTargetGoal;
 import net.minecraft.world.entity.animal.Animal;
@@ -70,7 +71,7 @@ public class BadgerEntity extends Animal implements NeutralMob {
         this.goalSelector.addGoal(5, new WaterAvoidingRandomStrollGoal(this, 0.9D));
         this.goalSelector.addGoal(6, new LookAtPlayerGoal(this, Player.class, 3f));
         this.goalSelector.addGoal(7, new RandomLookAroundGoal(this));
-
+        this.targetSelector.addGoal(1, new HurtByTargetGoal(this, new Class[0]));
         this.goalSelector.addGoal(3, new LeapAtTargetGoal(this, 0.4F));
         this.goalSelector.addGoal(4, new MeleeAttackGoal(this, 1.0, true));
         this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, 5, true, false, this::isAngryAt));
