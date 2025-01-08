@@ -10,7 +10,7 @@ import net.minecraft.world.level.Level;
 import java.util.function.Supplier;
 
 public class LynxEntity extends Ocelot {
-    public static final Supplier<EntityType<LynxEntity>> LYNX = Suppliers.memoize(() -> EntityType.Builder.of(LynxEntity::new, MobCategory.MISC).sized(0.98F, 0.7F).clientTrackingRange(8).build("lynx"));
+    public static final Supplier<EntityType<LynxEntity>> LYNX = Suppliers.memoize(() -> EntityType.Builder.of(LynxEntity::new, MobCategory.CREATURE).sized(0.98F, 0.7F).clientTrackingRange(8).build("lynx"));
     public LynxEntity(EntityType<? extends Ocelot> entityType, Level level) {
         super(entityType, level);
     }

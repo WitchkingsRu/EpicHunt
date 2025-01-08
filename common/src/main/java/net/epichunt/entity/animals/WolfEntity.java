@@ -40,7 +40,7 @@ public class WolfEntity extends Monster implements Enemy {
         super(entityType, level);
         this.xpReward = 5;
     }
-    public static final Supplier<EntityType<WolfEntity>> WOLF = Suppliers.memoize(() -> EntityType.Builder.of(WolfEntity::new, MobCategory.CREATURE)
+    public static final Supplier<EntityType<WolfEntity>> WOLF = Suppliers.memoize(() -> EntityType.Builder.of(WolfEntity::new, MobCategory.MONSTER)
             .sized(1f, 1f).build("wolf"));
 
     @Override
