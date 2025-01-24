@@ -1,11 +1,25 @@
-// Made with Blockbench 4.12.2
+package net.epichunt.entity.client.model;// Made with Blockbench 4.12.2
 // Exported for Minecraft version 1.17 or later with Mojang mappings
 // Paste this class into your mod and generate all required imports
 
 
-public class Eel<T extends Entity> extends EntityModel<T> {
-	// This layer location should be baked with EntityRendererProvider.Context in the entity renderer and passed into this model's constructor
-	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation("modid", "eel"), "main");
+import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.blaze3d.vertex.VertexConsumer;
+import net.epichunt.EpicHunt;
+import net.epichunt.entity.animals.BoarEntity;
+import net.epichunt.entity.animals.fish.BassEntity;
+import net.epichunt.entity.animals.fish.EelEntity;
+import net.epichunt.entity.animations.BassAnimation;
+import net.epichunt.entity.animations.BoarAnimation;
+import net.epichunt.entity.animations.EelAnimation;
+import net.minecraft.client.model.HierarchicalModel;
+import net.minecraft.client.model.geom.ModelPart;
+import net.minecraft.client.model.geom.PartPose;
+import net.minecraft.client.model.geom.builders.*;
+import net.minecraft.util.Mth;
+import net.minecraft.world.entity.Entity;
+
+public class EelModel<T extends Entity> extends HierarchicalModel<T> {
 	private final ModelPart eel;
 	private final ModelPart body5;
 	private final ModelPart tail2;
@@ -16,7 +30,7 @@ public class Eel<T extends Entity> extends EntityModel<T> {
 	private final ModelPart body1;
 	private final ModelPart head;
 
-	public Eel(ModelPart root) {
+	public EelModel(ModelPart root) {
 		this.eel = root.getChild("eel");
 		this.body5 = this.eel.getChild("body5");
 		this.tail2 = this.eel.getChild("tail2");
@@ -72,11 +86,22 @@ public class Eel<T extends Entity> extends EntityModel<T> {
 
 	@Override
 	public void setupAnim(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
-
+		this.root().getAllParts().forEach(ModelPart::resetPose);
+		this.animate(((EelEntity) entity).idleAnimationState, EelAnimation.swim, ageInTicks, 1f);
+		if (!entity.isInWater()) {
+			this.eel.zRot = (float) Math.toRadians(90.0);
+			this.body2.yRot = (float) Math.sin(ageInTicks * 1.5F) * 0.1F;
+			this.tail.yRot = (float) Math.sin(ageInTicks * 1.5F) * 0.1F;
+		}
 	}
 
 	@Override
 	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
 		eel.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+	}
+
+	@Override
+	public ModelPart root() {
+		return eel;
 	}
 }

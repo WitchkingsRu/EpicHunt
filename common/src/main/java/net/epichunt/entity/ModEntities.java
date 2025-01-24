@@ -9,7 +9,7 @@ import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
 import net.epichunt.EpicHunt;
 import net.epichunt.entity.animals.*;
-import net.epichunt.entity.animals.fish.BassEntity;
+import net.epichunt.entity.animals.fish.*;
 import net.epichunt.entity.client.render.*;
 import net.epichunt.item.ThrownDuckEgg;
 import net.epichunt.item.ThrownGooseEgg;
@@ -67,6 +67,21 @@ public class ModEntities {
     public static final RegistrySupplier<EntityType<WolfEntity>> WOLF_ENTITY = ENTITY_TYPES.register("wolf", WolfEntity.WOLF);
 
     public static final RegistrySupplier<EntityType<BassEntity>> BASS_ENTITY = ENTITY_TYPES.register("bass", BassEntity.BASS);
+    public static final RegistrySupplier<EntityType<CarpEntity>> CARP_ENTITY = ENTITY_TYPES.register("carp", CarpEntity.CARP);
+    public static final RegistrySupplier<EntityType<CatfishEntity>> CATFISH_ENTITY = ENTITY_TYPES.register("catfish", CatfishEntity.CATFISH);
+    public static final RegistrySupplier<EntityType<EelEntity>> EEL_ENTITY = ENTITY_TYPES.register("eel", EelEntity.EEL);
+    public static final RegistrySupplier<EntityType<HalibutEntity>> HALIBUT_ENTITY = ENTITY_TYPES.register("halibut", HalibutEntity.HALIBUT);
+    public static final RegistrySupplier<EntityType<HerringEntity>> HERRING_ENTITY = ENTITY_TYPES.register("herring", HerringEntity.HERRING);
+    public static final RegistrySupplier<EntityType<MackerelEntity>> MACKEREL_ENTITY = ENTITY_TYPES.register("mackerel", MackerelEntity.MACKEREL);
+    public static final RegistrySupplier<EntityType<PerchesEntity>> PERCHES_ENTITY = ENTITY_TYPES.register("perches", PerchesEntity.PERCHES);
+    public static final RegistrySupplier<EntityType<PikefishEntity>> PIKEFISH_ENTITY = ENTITY_TYPES.register("pikefish", PikefishEntity.PIKEFISH);
+    public static final RegistrySupplier<EntityType<PollockEntity>> POLLOCK_ENTITY = ENTITY_TYPES.register("pollock", PollockEntity.POLLOCK);
+    public static final RegistrySupplier<EntityType<RoachEntity>> ROACH_ENTITY = ENTITY_TYPES.register("roach", RoachEntity.ROACH);
+    public static final RegistrySupplier<EntityType<SardineEntity>> SARDINE_ENTITY = ENTITY_TYPES.register("sardine", SardineEntity.SARDINE);
+    public static final RegistrySupplier<EntityType<SturgeonEntity>> STURGEON_ENTITY = ENTITY_TYPES.register("sturgeon", SturgeonEntity.STURGEON);
+    public static final RegistrySupplier<EntityType<TroutEntity>> TROUT_ENTITY = ENTITY_TYPES.register("trout", TroutEntity.TROUT);
+    public static final RegistrySupplier<EntityType<ZanderEntity>> ZANDER_ENTITY = ENTITY_TYPES.register("zander", ZanderEntity.ZANDER);
+
 
     public static void renderRegistry() {
         EntityRendererRegistry.register(DEER_ENTITY, DeerRender::new);
@@ -94,5 +109,19 @@ public class ModEntities {
         EntityRendererRegistry.register(WOLF_ENTITY, WolfRender::new);
 
         EntityRendererRegistry.register(BASS_ENTITY, BassRender::new);
+        EntityRendererRegistry.register(CARP_ENTITY, CarpRender::new);
+        EntityRendererRegistry.register(CATFISH_ENTITY, CatfishRender::new);
+        EntityRendererRegistry.register(EEL_ENTITY, EelRender::new);
+        EntityRendererRegistry.register(HALIBUT_ENTITY, HalibutRender::new);
+        EntityRendererRegistry.register(HERRING_ENTITY, HerringRender::new);
+        EntityRendererRegistry.register(MACKEREL_ENTITY, MackerelRender::new);
+        EntityRendererRegistry.register(PERCHES_ENTITY, PerchesRender::new);
+        EntityRendererRegistry.register(PIKEFISH_ENTITY, PikefishRender::new);
+        EntityRendererRegistry.register(POLLOCK_ENTITY, PollockRender::new);
+        EntityRendererRegistry.register(ROACH_ENTITY, RoachRender::new);
+        EntityRendererRegistry.register(SARDINE_ENTITY, SardineRender::new);
+        EntityRendererRegistry.register(STURGEON_ENTITY, SturgeonRender::new);
+        EntityRendererRegistry.register(TROUT_ENTITY, TroutRender::new);
+        EntityRendererRegistry.register(ZANDER_ENTITY, ZanderRender::new);
     }
 }

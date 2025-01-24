@@ -1,11 +1,25 @@
-// Made with Blockbench 4.12.2
+package net.epichunt.entity.client.model;// Made with Blockbench 4.12.2
 // Exported for Minecraft version 1.17 or later with Mojang mappings
 // Paste this class into your mod and generate all required imports
 
 
-public class Catfish<T extends Entity> extends EntityModel<T> {
-	// This layer location should be baked with EntityRendererProvider.Context in the entity renderer and passed into this model's constructor
-	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation("modid", "catfish"), "main");
+import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.blaze3d.vertex.VertexConsumer;
+import net.epichunt.EpicHunt;
+import net.epichunt.entity.animals.BoarEntity;
+import net.epichunt.entity.animals.fish.BassEntity;
+import net.epichunt.entity.animals.fish.CatfishEntity;
+import net.epichunt.entity.animations.BassAnimation;
+import net.epichunt.entity.animations.BoarAnimation;
+import net.epichunt.entity.animations.CatfishAnimation;
+import net.minecraft.client.model.HierarchicalModel;
+import net.minecraft.client.model.geom.ModelPart;
+import net.minecraft.client.model.geom.PartPose;
+import net.minecraft.client.model.geom.builders.*;
+import net.minecraft.util.Mth;
+import net.minecraft.world.entity.Entity;
+
+public class CatfishModel<T extends Entity> extends HierarchicalModel<T> {
 	private final ModelPart catfish;
 	private final ModelPart head;
 	private final ModelPart jaw;
@@ -18,7 +32,7 @@ public class Catfish<T extends Entity> extends EntityModel<T> {
 	private final ModelPart tail2;
 	private final ModelPart tail3;
 
-	public Catfish(ModelPart root) {
+	public CatfishModel(ModelPart root) {
 		this.catfish = root.getChild("catfish");
 		this.head = this.catfish.getChild("head");
 		this.jaw = this.head.getChild("jaw");
@@ -84,11 +98,20 @@ public class Catfish<T extends Entity> extends EntityModel<T> {
 
 	@Override
 	public void setupAnim(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
-
+		this.root().getAllParts().forEach(ModelPart::resetPose);
+		this.animate(((CatfishEntity) entity).idleAnimationState, CatfishAnimation.swim, ageInTicks, 1f);
+		if (!entity.isInWater()) {
+			this.catfish.zRot = (float) Math.toRadians(90.0);
+		}
 	}
 
 	@Override
 	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
 		catfish.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+	}
+
+	@Override
+	public ModelPart root() {
+		return catfish;
 	}
 }

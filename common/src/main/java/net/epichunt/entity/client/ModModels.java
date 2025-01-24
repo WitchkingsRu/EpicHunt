@@ -42,6 +42,22 @@ public class ModModels {
     public static final ModelLayerLocation WOLF_LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(EpicHunt.MOD_ID, "wolf"), "main");
 
     public static final ModelLayerLocation BASS_LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(EpicHunt.MOD_ID, "bass"), "main");
+    public static final ModelLayerLocation CARP_LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(EpicHunt.MOD_ID, "carp"), "main");
+    public static final ModelLayerLocation CATFISH_LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(EpicHunt.MOD_ID, "catfish"), "main");
+    public static final ModelLayerLocation EEL_LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(EpicHunt.MOD_ID, "eel"), "main");
+    public static final ModelLayerLocation HALIBUT_LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(EpicHunt.MOD_ID, "halibut"), "main");
+    public static final ModelLayerLocation HERRING_LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(EpicHunt.MOD_ID, "herring"), "main");
+    public static final ModelLayerLocation MACKEREL_LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(EpicHunt.MOD_ID, "mackerel"), "main");
+    public static final ModelLayerLocation PERCHES_LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(EpicHunt.MOD_ID, "perches"), "main");
+    public static final ModelLayerLocation PIKEFISH_LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(EpicHunt.MOD_ID, "pikefish"), "main");
+    public static final ModelLayerLocation POLLOCK_LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(EpicHunt.MOD_ID, "pollock"), "main");
+    public static final ModelLayerLocation ROACH_LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(EpicHunt.MOD_ID, "roach"), "main");
+    public static final ModelLayerLocation SARDINE_LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(EpicHunt.MOD_ID, "sardine"), "main");
+    public static final ModelLayerLocation STURGEON_LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(EpicHunt.MOD_ID, "sturgeon"), "main");
+    public static final ModelLayerLocation TROUT_LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(EpicHunt.MOD_ID, "trout"), "main");
+    public static final ModelLayerLocation ZANDER_LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(EpicHunt.MOD_ID, "zander"), "main");
+
+
 
     public static void registerLayers() {
         EntityModelLayerRegistry.register(ModModels.DEER_LAYER_LOCATION, DeerModel::createBodyLayer);
@@ -64,7 +80,23 @@ public class ModModels {
         EntityModelLayerRegistry.register(ModModels.LYNX_LAYER_LOCATION, () -> LayerDefinition.create(OcelotModel.createBodyMesh(CubeDeformation.NONE), 64, 32));
         EntityModelLayerRegistry.register(ModModels.BEAR_LAYER_LOCATION, PolarBearModel::createBodyLayer);
         EntityModelLayerRegistry.register(ModModels.WOLF_LAYER_LOCATION, WolfModel::createBodyLayer);
+        
         EntityModelLayerRegistry.register(ModModels.BASS_LAYER_LOCATION, BassModel::createBodyLayer);
+        EntityModelLayerRegistry.register(ModModels.CARP_LAYER_LOCATION, CarpModel::createBodyLayer);
+        EntityModelLayerRegistry.register(ModModels.CATFISH_LAYER_LOCATION, CatfishModel::createBodyLayer);
+        EntityModelLayerRegistry.register(ModModels.EEL_LAYER_LOCATION, EelModel::createBodyLayer);
+        EntityModelLayerRegistry.register(ModModels.HALIBUT_LAYER_LOCATION, HalibutModel::createBodyLayer);
+        EntityModelLayerRegistry.register(ModModels.HERRING_LAYER_LOCATION, HerringModel::createBodyLayer);
+        EntityModelLayerRegistry.register(ModModels.MACKEREL_LAYER_LOCATION, MackerelModel::createBodyLayer);
+        EntityModelLayerRegistry.register(ModModels.PERCHES_LAYER_LOCATION, PerchesModel::createBodyLayer);
+        EntityModelLayerRegistry.register(ModModels.PIKEFISH_LAYER_LOCATION, PikefishModel::createBodyLayer);
+        EntityModelLayerRegistry.register(ModModels.POLLOCK_LAYER_LOCATION, PollockModel::createBodyLayer);
+        EntityModelLayerRegistry.register(ModModels.ROACH_LAYER_LOCATION, RoachModel::createBodyLayer);
+        EntityModelLayerRegistry.register(ModModels.SARDINE_LAYER_LOCATION, SardineModel::createBodyLayer);
+        EntityModelLayerRegistry.register(ModModels.STURGEON_LAYER_LOCATION, SturgeonModel::createBodyLayer);
+        EntityModelLayerRegistry.register(ModModels.TROUT_LAYER_LOCATION, TroutModel::createBodyLayer);
+        EntityModelLayerRegistry.register(ModModels.ZANDER_LAYER_LOCATION, ZanderModel::createBodyLayer);
+        
     }
 
 }

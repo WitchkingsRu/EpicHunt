@@ -1,11 +1,26 @@
-// Made with Blockbench 4.12.2
+package net.epichunt.entity.client.model;// Made with Blockbench 4.12.2
 // Exported for Minecraft version 1.17 or later with Mojang mappings
 // Paste this class into your mod and generate all required imports
 
 
-public class Pollock<T extends Entity> extends EntityModel<T> {
+import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.blaze3d.vertex.VertexConsumer;
+import net.epichunt.EpicHunt;
+import net.epichunt.entity.animals.BoarEntity;
+import net.epichunt.entity.animals.fish.BassEntity;
+import net.epichunt.entity.animals.fish.RoachEntity;
+import net.epichunt.entity.animations.BassAnimation;
+import net.epichunt.entity.animations.BoarAnimation;
+import net.epichunt.entity.animations.RoachAnimation;
+import net.minecraft.client.model.HierarchicalModel;
+import net.minecraft.client.model.geom.ModelPart;
+import net.minecraft.client.model.geom.PartPose;
+import net.minecraft.client.model.geom.builders.*;
+import net.minecraft.util.Mth;
+import net.minecraft.world.entity.Entity;
+
+public class RoachModel<T extends Entity> extends HierarchicalModel<T> {
 	// This layer location should be baked with EntityRendererProvider.Context in the entity renderer and passed into this model's constructor
-	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation("modid", "pollock"), "main");
 	private final ModelPart roach;
 	private final ModelPart head;
 	private final ModelPart body1;
@@ -13,7 +28,7 @@ public class Pollock<T extends Entity> extends EntityModel<T> {
 	private final ModelPart body2;
 	private final ModelPart tail;
 
-	public Pollock(ModelPart root) {
+	public RoachModel(ModelPart root) {
 		this.roach = root.getChild("roach");
 		this.head = this.roach.getChild("head");
 		this.body1 = this.roach.getChild("body1");
@@ -53,11 +68,22 @@ public class Pollock<T extends Entity> extends EntityModel<T> {
 
 	@Override
 	public void setupAnim(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
-
+		this.root().getAllParts().forEach(ModelPart::resetPose);
+		this.animate(((RoachEntity) entity).idleAnimationState, RoachAnimation.swim, ageInTicks, 1f);
+		if (!entity.isInWater()) {
+			this.roach.zRot = (float) Math.toRadians(90.0);
+			this.body2.yRot = (float) Math.sin(ageInTicks * 1.5F) * 0.1F;
+			this.tail.yRot = (float) Math.sin(ageInTicks * 1.5F) * 0.1F;
+		}
 	}
 
 	@Override
 	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
 		roach.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+	}
+
+	@Override
+	public ModelPart root() {
+		return roach;
 	}
 }

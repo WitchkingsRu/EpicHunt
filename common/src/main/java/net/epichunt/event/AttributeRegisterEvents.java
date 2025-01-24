@@ -1,9 +1,11 @@
 package net.epichunt.event;
 
 
+import dev.architectury.registry.client.level.entity.EntityRendererRegistry;
 import dev.architectury.registry.level.entity.EntityAttributeRegistry;
 import net.epichunt.entity.animals.*;
-import net.epichunt.entity.animals.fish.BassEntity;
+import net.epichunt.entity.animals.fish.*;
+import net.epichunt.entity.client.render.*;
 
 import static net.epichunt.entity.ModEntities.*;
 
@@ -28,7 +30,22 @@ public class AttributeRegisterEvents {
         EntityAttributeRegistry.register(LYNX_ENTITY, LynxEntity::createAttributes);
         EntityAttributeRegistry.register(BEAR_ENTITY, BearEntity::createAttributes);
         EntityAttributeRegistry.register(WOLF_ENTITY, WolfEntity::createAttributes);
+        
         EntityAttributeRegistry.register(BASS_ENTITY, BassEntity::createAttributes);
+        EntityAttributeRegistry.register(CARP_ENTITY, CarpEntity::createAttributes);
+        EntityAttributeRegistry.register(CATFISH_ENTITY, CatfishEntity::createAttributes);
+        EntityAttributeRegistry.register(EEL_ENTITY, EelEntity::createAttributes);
+        EntityAttributeRegistry.register(HALIBUT_ENTITY, HalibutEntity::createAttributes);
+        EntityAttributeRegistry.register(HERRING_ENTITY, HerringEntity::createAttributes);
+        EntityAttributeRegistry.register(MACKEREL_ENTITY, MackerelEntity::createAttributes);
+        EntityAttributeRegistry.register(PERCHES_ENTITY, PerchesEntity::createAttributes);
+        EntityAttributeRegistry.register(PIKEFISH_ENTITY, PikefishEntity::createAttributes);
+        EntityAttributeRegistry.register(POLLOCK_ENTITY, PollockEntity::createAttributes);
+        EntityAttributeRegistry.register(ROACH_ENTITY, RoachEntity::createAttributes);
+        EntityAttributeRegistry.register(SARDINE_ENTITY, SardineEntity::createAttributes);
+        EntityAttributeRegistry.register(STURGEON_ENTITY, SturgeonEntity::createAttributes);
+        EntityAttributeRegistry.register(TROUT_ENTITY, TroutEntity::createAttributes);
+        EntityAttributeRegistry.register(ZANDER_ENTITY, ZanderEntity::createAttributes);
     }
 
 }
