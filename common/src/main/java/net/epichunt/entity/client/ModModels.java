@@ -41,7 +41,7 @@ public class ModModels {
     public static final ModelLayerLocation BEAR_LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(EpicHunt.MOD_ID, "bear"), "main");
     public static final ModelLayerLocation WOLF_LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(EpicHunt.MOD_ID, "wolf"), "main");
 
-
+    public static final ModelLayerLocation BASS_LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(EpicHunt.MOD_ID, "bass"), "main");
 
     public static void registerLayers() {
         EntityModelLayerRegistry.register(ModModels.DEER_LAYER_LOCATION, DeerModel::createBodyLayer);
@@ -64,6 +64,7 @@ public class ModModels {
         EntityModelLayerRegistry.register(ModModels.LYNX_LAYER_LOCATION, () -> LayerDefinition.create(OcelotModel.createBodyMesh(CubeDeformation.NONE), 64, 32));
         EntityModelLayerRegistry.register(ModModels.BEAR_LAYER_LOCATION, PolarBearModel::createBodyLayer);
         EntityModelLayerRegistry.register(ModModels.WOLF_LAYER_LOCATION, WolfModel::createBodyLayer);
+        EntityModelLayerRegistry.register(ModModels.BASS_LAYER_LOCATION, BassModel::createBodyLayer);
     }
 
 }

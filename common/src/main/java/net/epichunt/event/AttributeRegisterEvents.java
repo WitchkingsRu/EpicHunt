@@ -3,6 +3,7 @@ package net.epichunt.event;
 
 import dev.architectury.registry.level.entity.EntityAttributeRegistry;
 import net.epichunt.entity.animals.*;
+import net.epichunt.entity.animals.fish.BassEntity;
 
 import static net.epichunt.entity.ModEntities.*;
 
@@ -27,6 +28,7 @@ public class AttributeRegisterEvents {
         EntityAttributeRegistry.register(LYNX_ENTITY, LynxEntity::createAttributes);
         EntityAttributeRegistry.register(BEAR_ENTITY, BearEntity::createAttributes);
         EntityAttributeRegistry.register(WOLF_ENTITY, WolfEntity::createAttributes);
+        EntityAttributeRegistry.register(BASS_ENTITY, BassEntity::createAttributes);
     }
 
 }

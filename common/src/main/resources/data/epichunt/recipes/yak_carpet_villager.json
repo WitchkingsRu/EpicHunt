@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "bc",
+    "a "
+  ],
+  "key": {
+    "a": {
+      "item": "minecraft:saddle"
+    },
+    "b": {
+      "item": "minecraft:blue_carpet"
+    },
+	"c": {
+      "item": "minecraft:emerald"
+    }
+  },
+  "result": {
+    "item": "epichunt:villager_yak_carpet",
+    "count": 1
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "b",
+    "a"
+  ],
+  "key": {
+    "a": {
+      "item": "minecraft:saddle"
+    },
+    "b": {
+      "item": "minecraft:blue_carpet"
+    }
+  },
+  "result": {
+    "item": "epichunt:blue_yak_carpet",
+    "count": 1
+  }
+}
