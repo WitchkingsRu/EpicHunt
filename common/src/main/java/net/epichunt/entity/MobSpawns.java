@@ -17,7 +17,6 @@ import net.minecraft.world.level.levelgen.Heightmap;
 
 import java.util.function.Supplier;
 
-import static com.mojang.text2speech.Narrator.LOGGER;
 import static net.epichunt.entity.ModEntities.*;
 
 

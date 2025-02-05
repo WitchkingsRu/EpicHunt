@@ -14,7 +14,7 @@ import net.minecraft.resources.ResourceLocation;
 
 @Environment(EnvType.CLIENT)
 public class HighlandCowRender extends MobRenderer<HighlandCowEntity, HighlandCowModel<HighlandCowEntity>> {
-    private static final ResourceLocation HIGHLAND_LOCATION = new ResourceLocation(EpicHunt.MOD_ID,"textures/entity/highland_cow/highland_cow.png");
+    private static final ResourceLocation HIGHLAND_LOCATION = new ResourceLocation(EpicHunt.MOD_ID,"textures/entity/highland_cow/highland_cow_1.png");
     public HighlandCowRender(EntityRendererProvider.Context context) {
         super(context,new HighlandCowModel<>(context.bakeLayer(ModModels.HIGHLAND_COW_LAYER_LOCATION)), 0.6f);
     }
