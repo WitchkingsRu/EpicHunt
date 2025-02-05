@@ -21,13 +21,13 @@ public class EpicHunt {
     public static final String MOD_ID = "epichunt";
     public static void init() {
         ENTITY_TYPES.register();
-        ITEMS.register();
         SOUNDS.register();
+        ITEMS.register();
         MobSpawns.placementRegistry();
         TABS.register();
         CreativeTabs.init();
         AttributeRegisterEvents.init();
-        System.out.println(ExpectPlatform.getConfigDirectory().toAbsolutePath().normalize().toString());
+        //System.out.println(ExpectPlatform.getConfigDirectory().toAbsolutePath().normalize().toString());
     }
     @Environment(EnvType.CLIENT)
     public static class Client {

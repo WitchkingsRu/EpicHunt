@@ -2,6 +2,7 @@ package net.epichunt.entity.animals.fish;
 
 import com.google.common.base.Suppliers;
 import net.epichunt.entity.animals.BadgerEntity;
+import net.epichunt.item.ModItem;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
@@ -48,7 +49,7 @@ public class BassEntity extends AbstractSchoolingFish {
     }
 
     public ItemStack getBucketItemStack() {
-        return new ItemStack(Items.COD_BUCKET);
+        return new ItemStack(ModItem.BASS_BUCKET.get());
     }
 
     protected SoundEvent getAmbientSound() {

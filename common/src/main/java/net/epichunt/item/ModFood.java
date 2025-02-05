@@ -45,5 +45,65 @@ public class ModFood {
 
     public static final FoodProperties COOKED_BADGER = new FoodProperties.Builder().meat().nutrition(4).saturationMod(0.4f)
             .build();
+
+    public static final FoodProperties BASS = (new FoodProperties.Builder()).nutrition(2).saturationMod(0.1F).effect(new MobEffectInstance(MobEffects.HUNGER, 600, 0), 0.3F).meat().build();
+
+    public static final FoodProperties COOKED_BASS = new FoodProperties.Builder().meat().nutrition(4).saturationMod(0.4f)
+            .build();
+
+    public static final FoodProperties CARP = (new FoodProperties.Builder()).nutrition(2).saturationMod(0.1F).effect(new MobEffectInstance(MobEffects.HUNGER, 600, 0), 0.3F).meat().build();
+
+    public static final FoodProperties COOKED_CARP = new FoodProperties.Builder().meat().nutrition(4).saturationMod(0.4f)
+            .build();
+
+    public static final FoodProperties HALIBUT = (new FoodProperties.Builder()).nutrition(2).saturationMod(0.1F).effect(new MobEffectInstance(MobEffects.HUNGER, 600, 0), 0.3F).meat().build();
+
+    public static final FoodProperties COOKED_HALIBUT = new FoodProperties.Builder().meat().nutrition(4).saturationMod(0.4f)
+            .build();
+
+    public static final FoodProperties HERRING = (new FoodProperties.Builder()).nutrition(2).saturationMod(0.1F).effect(new MobEffectInstance(MobEffects.HUNGER, 600, 0), 0.3F).meat().build();
+
+    public static final FoodProperties COOKED_HERRING = new FoodProperties.Builder().meat().nutrition(4).saturationMod(0.4f)
+            .build();
+
+    public static final FoodProperties MACKEREL = (new FoodProperties.Builder()).nutrition(2).saturationMod(0.1F).effect(new MobEffectInstance(MobEffects.HUNGER, 600, 0), 0.3F).meat().build();
+
+    public static final FoodProperties COOKED_MACKEREL = new FoodProperties.Builder().meat().nutrition(4).saturationMod(0.4f)
+            .build();
+
+    public static final FoodProperties PERCHES = (new FoodProperties.Builder()).nutrition(2).saturationMod(0.1F).effect(new MobEffectInstance(MobEffects.HUNGER, 600, 0), 0.3F).meat().build();
+
+    public static final FoodProperties COOKED_PERCHES = new FoodProperties.Builder().meat().nutrition(4).saturationMod(0.4f)
+            .build();
+
+    public static final FoodProperties PIKEFISH = (new FoodProperties.Builder()).nutrition(2).saturationMod(0.1F).effect(new MobEffectInstance(MobEffects.HUNGER, 600, 0), 0.3F).meat().build();
+
+    public static final FoodProperties COOKED_PIKEFISH = new FoodProperties.Builder().meat().nutrition(4).saturationMod(0.4f)
+            .build();
+
+    public static final FoodProperties POLLOCK = (new FoodProperties.Builder()).nutrition(2).saturationMod(0.1F).effect(new MobEffectInstance(MobEffects.HUNGER, 600, 0), 0.3F).meat().build();
+
+    public static final FoodProperties COOKED_POLLOCK = new FoodProperties.Builder().meat().nutrition(4).saturationMod(0.4f)
+            .build();
+
+    public static final FoodProperties ROACH = (new FoodProperties.Builder()).nutrition(2).saturationMod(0.1F).effect(new MobEffectInstance(MobEffects.HUNGER, 600, 0), 0.3F).meat().build();
+
+    public static final FoodProperties COOKED_ROACH = new FoodProperties.Builder().meat().nutrition(4).saturationMod(0.4f)
+            .build();
+
+    public static final FoodProperties SARDINE = (new FoodProperties.Builder()).nutrition(2).saturationMod(0.1F).effect(new MobEffectInstance(MobEffects.HUNGER, 600, 0), 0.3F).meat().build();
+
+    public static final FoodProperties COOKED_SARDINE = new FoodProperties.Builder().meat().nutrition(4).saturationMod(0.4f)
+            .build();
+
+    public static final FoodProperties TROUT = (new FoodProperties.Builder()).nutrition(2).saturationMod(0.1F).effect(new MobEffectInstance(MobEffects.HUNGER, 600, 0), 0.3F).meat().build();
+
+    public static final FoodProperties COOKED_TROUT = new FoodProperties.Builder().meat().nutrition(4).saturationMod(0.4f)
+            .build();
+
+    public static final FoodProperties ZANDER = (new FoodProperties.Builder()).nutrition(2).saturationMod(0.1F).effect(new MobEffectInstance(MobEffects.HUNGER, 600, 0), 0.3F).meat().build();
+
+    public static final FoodProperties COOKED_ZANDER = new FoodProperties.Builder().meat().nutrition(4).saturationMod(0.4f)
+            .build();
 }
 

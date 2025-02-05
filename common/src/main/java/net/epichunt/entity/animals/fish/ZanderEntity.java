@@ -1,6 +1,7 @@
 package net.epichunt.entity.animals.fish;
 
 import com.google.common.base.Suppliers;
+import net.epichunt.item.ModItem;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.damagesource.DamageSource;
@@ -43,7 +44,7 @@ public class ZanderEntity extends AbstractSchoolingFish {
     }
 
     public ItemStack getBucketItemStack() {
-        return new ItemStack(Items.COD_BUCKET);
+        return new ItemStack(ModItem.ZANDER_BUCKET.get());
     }
 
     protected SoundEvent getAmbientSound() {

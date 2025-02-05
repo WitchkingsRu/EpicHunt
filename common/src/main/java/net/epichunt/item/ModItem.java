@@ -5,11 +5,12 @@ import dev.architectury.registry.registries.RegistrySupplier;
 import net.epichunt.EpicHunt;
 import net.epichunt.entity.ModEntities;
 import net.epichunt.entity.animals.*;
+import net.epichunt.entity.animals.fish.*;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.world.item.EggItem;
-import net.minecraft.world.item.FoodOnAStickItem;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.SpawnEggItem;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.item.*;
+import net.minecraft.world.level.material.Fluids;
 
 import java.util.Set;
 
@@ -105,6 +106,84 @@ public class ModItem {
     public static final RegistrySupplier<Item> BADGER = ITEMS.register("raw_badger", ()-> new Item(new Item.Properties().food(ModFood.BADGER)));
 
     public static final RegistrySupplier<Item> COOKED_BADGER = ITEMS.register("cooked_badger", ()-> new Item(new Item.Properties().food(ModFood.COOKED_BADGER)));
+
+
+
+    public static final RegistrySupplier<Item> BASS = ITEMS.register("raw_bass", ()-> new Item(new Item.Properties().food(ModFood.BASS)));
+
+    public static final RegistrySupplier<Item> COOKED_BASS = ITEMS.register("cooked_bass", ()-> new Item(new Item.Properties().food(ModFood.COOKED_BASS)));
+
+    public static final RegistrySupplier<Item> CARP = ITEMS.register("raw_carp", ()-> new Item(new Item.Properties().food(ModFood.CARP)));
+
+    public static final RegistrySupplier<Item> COOKED_CARP = ITEMS.register("cooked_carp", ()-> new Item(new Item.Properties().food(ModFood.COOKED_CARP)));
+
+    public static final RegistrySupplier<Item> HALIBUT = ITEMS.register("raw_halibut", ()-> new Item(new Item.Properties().food(ModFood.HALIBUT)));
+
+    public static final RegistrySupplier<Item> COOKED_HALIBUT = ITEMS.register("cooked_halibut", ()-> new Item(new Item.Properties().food(ModFood.COOKED_HALIBUT)));
+
+    public static final RegistrySupplier<Item> HERRING = ITEMS.register("raw_herring", ()-> new Item(new Item.Properties().food(ModFood.HERRING)));
+
+    public static final RegistrySupplier<Item> COOKED_HERRING = ITEMS.register("cooked_herring", ()-> new Item(new Item.Properties().food(ModFood.COOKED_HERRING)));
+
+    public static final RegistrySupplier<Item> MACKEREL = ITEMS.register("raw_mackerel", ()-> new Item(new Item.Properties().food(ModFood.MACKEREL)));
+
+    public static final RegistrySupplier<Item> COOKED_MACKEREL = ITEMS.register("cooked_mackerel", ()-> new Item(new Item.Properties().food(ModFood.COOKED_MACKEREL)));
+
+    public static final RegistrySupplier<Item> PERCHES = ITEMS.register("raw_perches", ()-> new Item(new Item.Properties().food(ModFood.PERCHES)));
+
+    public static final RegistrySupplier<Item> COOKED_PERCHES = ITEMS.register("cooked_perches", ()-> new Item(new Item.Properties().food(ModFood.COOKED_PERCHES)));
+
+    public static final RegistrySupplier<Item> PIKEFISH = ITEMS.register("raw_pikefish", ()-> new Item(new Item.Properties().food(ModFood.PIKEFISH)));
+
+    public static final RegistrySupplier<Item> COOKED_PIKEFISH = ITEMS.register("cooked_pikefish", ()-> new Item(new Item.Properties().food(ModFood.COOKED_PIKEFISH)));
+
+    public static final RegistrySupplier<Item> POLLOCK = ITEMS.register("raw_pollock", ()-> new Item(new Item.Properties().food(ModFood.POLLOCK)));
+
+    public static final RegistrySupplier<Item> COOKED_POLLOCK = ITEMS.register("cooked_pollock", ()-> new Item(new Item.Properties().food(ModFood.COOKED_POLLOCK)));
+
+    public static final RegistrySupplier<Item> ROACH = ITEMS.register("raw_roach", ()-> new Item(new Item.Properties().food(ModFood.ROACH)));
+
+    public static final RegistrySupplier<Item> COOKED_ROACH = ITEMS.register("cooked_roach", ()-> new Item(new Item.Properties().food(ModFood.COOKED_ROACH)));
+
+    public static final RegistrySupplier<Item> SARDINE = ITEMS.register("raw_sardine", ()-> new Item(new Item.Properties().food(ModFood.SARDINE)));
+
+    public static final RegistrySupplier<Item> COOKED_SARDINE = ITEMS.register("cooked_sardine", ()-> new Item(new Item.Properties().food(ModFood.COOKED_SARDINE)));
+
+    public static final RegistrySupplier<Item> TROUT = ITEMS.register("raw_trout", ()-> new Item(new Item.Properties().food(ModFood.TROUT)));
+
+    public static final RegistrySupplier<Item> COOKED_TROUT = ITEMS.register("cooked_trout", ()-> new Item(new Item.Properties().food(ModFood.COOKED_TROUT)));
+
+    public static final RegistrySupplier<Item> ZANDER = ITEMS.register("raw_zander", ()-> new Item(new Item.Properties().food(ModFood.ZANDER)));
+
+    public static final RegistrySupplier<Item> COOKED_ZANDER = ITEMS.register("cooked_zander", ()-> new Item(new Item.Properties().food(ModFood.COOKED_ZANDER)));
+
+
+
+    public static final RegistrySupplier<Item> BASS_BUCKET = ITEMS.register("bass_bucket", () -> new MobBucketItem(BassEntity.BASS.get(), Fluids.WATER, SoundEvents.BUCKET_EMPTY_FISH, (new Item.Properties()).stacksTo(1)));
+
+    public static final RegistrySupplier<Item> CARP_BUCKET = ITEMS.register("carp_bucket", () -> new MobBucketItem(CarpEntity.CARP.get(), Fluids.WATER, SoundEvents.BUCKET_EMPTY_FISH, (new Item.Properties()).stacksTo(1)));
+
+    public static final RegistrySupplier<Item> HALIBUT_BUCKET = ITEMS.register("halibut_bucket", () -> new MobBucketItem(HalibutEntity.HALIBUT.get(), Fluids.WATER, SoundEvents.BUCKET_EMPTY_FISH, (new Item.Properties()).stacksTo(1)));
+
+    public static final RegistrySupplier<Item> HERRING_BUCKET = ITEMS.register("herring_bucket", () -> new MobBucketItem(HerringEntity.HERRING.get(), Fluids.WATER, SoundEvents.BUCKET_EMPTY_FISH, (new Item.Properties()).stacksTo(1)));
+
+    public static final RegistrySupplier<Item> MACKEREL_BUCKET = ITEMS.register("mackerel_bucket", () -> new MobBucketItem(MackerelEntity.MACKEREL.get(), Fluids.WATER, SoundEvents.BUCKET_EMPTY_FISH, (new Item.Properties()).stacksTo(1)));
+
+    public static final RegistrySupplier<Item> PERCHES_BUCKET = ITEMS.register("perches_bucket", () -> new MobBucketItem(PerchesEntity.PERCHES.get(), Fluids.WATER, SoundEvents.BUCKET_EMPTY_FISH, (new Item.Properties()).stacksTo(1)));
+
+    public static final RegistrySupplier<Item> PIKEFISH_BUCKET = ITEMS.register("pikefish_bucket", () -> new MobBucketItem(PikefishEntity.PIKEFISH.get(), Fluids.WATER, SoundEvents.BUCKET_EMPTY_FISH, (new Item.Properties()).stacksTo(1)));
+
+    public static final RegistrySupplier<Item> POLLOCK_BUCKET = ITEMS.register("pollock_bucket", () -> new MobBucketItem(PollockEntity.POLLOCK.get(), Fluids.WATER, SoundEvents.BUCKET_EMPTY_FISH, (new Item.Properties()).stacksTo(1)));
+
+    public static final RegistrySupplier<Item> ROACH_BUCKET = ITEMS.register("roach_bucket", () -> new MobBucketItem(RoachEntity.ROACH.get(), Fluids.WATER, SoundEvents.BUCKET_EMPTY_FISH, (new Item.Properties()).stacksTo(1)));
+
+    public static final RegistrySupplier<Item> SARDINE_BUCKET = ITEMS.register("sardine_bucket", () -> new MobBucketItem(SardineEntity.SARDINE.get(), Fluids.WATER, SoundEvents.BUCKET_EMPTY_FISH, (new Item.Properties()).stacksTo(1)));
+
+    public static final RegistrySupplier<Item> TROUT_BUCKET = ITEMS.register("trout_bucket", () -> new MobBucketItem(TroutEntity.TROUT.get(), Fluids.WATER, SoundEvents.BUCKET_EMPTY_FISH, (new Item.Properties()).stacksTo(1)));
+
+    public static final RegistrySupplier<Item> ZANDER_BUCKET = ITEMS.register("zander_bucket", () -> new MobBucketItem(ZanderEntity.ZANDER.get(), Fluids.WATER, SoundEvents.BUCKET_EMPTY_FISH, (new Item.Properties()).stacksTo(1)));
+
+
 
 
     public static final RegistrySupplier<Item> YAK_CARPET_WHITE = ITEMS.register("white_yak_carpet", () -> new YakCarpetItem(0, "white_carpet", new Item.Properties().stacksTo(1)));
