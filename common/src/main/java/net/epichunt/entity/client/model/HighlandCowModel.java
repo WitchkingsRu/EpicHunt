@@ -40,18 +40,18 @@ public class HighlandCowModel<T extends Entity> extends HierarchicalModel<T> {
 		MeshDefinition meshdefinition = new MeshDefinition();
 		PartDefinition partdefinition = meshdefinition.getRoot();
 
-		PartDefinition highland_cow = partdefinition.addOrReplaceChild("highland_cow", CubeListBuilder.create(), PartPose.offset(0.0F, 24.0F, 0.0F));
+		PartDefinition highland = partdefinition.addOrReplaceChild("highland_cow", CubeListBuilder.create(), PartPose.offset(0.0F, 24.0F, 0.0F));
 
-		PartDefinition leg3 = highland_cow.addOrReplaceChild("leg3", CubeListBuilder.create().texOffs(48, 22).addBox(-1.99F, 0.0F, -1.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(-4.0F, -12.0F, -6.0F));
+		PartDefinition leg3 = highland.addOrReplaceChild("leg3", CubeListBuilder.create().texOffs(48, 22).addBox(-1.99F, 0.0F, -1.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(-4.0F, -12.0F, -6.0F));
 
-		PartDefinition leg2 = highland_cow.addOrReplaceChild("leg2", CubeListBuilder.create().texOffs(48, 22).addBox(-2.01F, 0.0F, -1.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(4.0F, -12.0F, -6.0F));
+		PartDefinition leg2 = highland.addOrReplaceChild("leg2", CubeListBuilder.create().texOffs(48, 22).addBox(-2.01F, 0.0F, -1.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(4.0F, -12.0F, -6.0F));
 
-		PartDefinition leg1 = highland_cow.addOrReplaceChild("leg1", CubeListBuilder.create().texOffs(48, 22).addBox(-1.99F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(-4.0F, -12.0F, 7.0F));
+		PartDefinition leg1 = highland.addOrReplaceChild("leg1", CubeListBuilder.create().texOffs(48, 22).addBox(-1.99F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(-4.0F, -12.0F, 7.0F));
 
-		PartDefinition leg0 = highland_cow.addOrReplaceChild("leg0", CubeListBuilder.create().texOffs(48, 22).addBox(-2.01F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(4.0F, -12.0F, 7.0F));
+		PartDefinition leg0 = highland.addOrReplaceChild("leg0", CubeListBuilder.create().texOffs(48, 22).addBox(-2.01F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(4.0F, -12.0F, 7.0F));
 
-		PartDefinition body = highland_cow.addOrReplaceChild("body", CubeListBuilder.create().texOffs(6, 37).addBox(-5.5F, -2.0F, -10.0F, 11.0F, 9.0F, 18.0F, new CubeDeformation(0.0F))
-		.texOffs(3, 28).mirror().addBox(-2.5F, 6.0F, -1.0F, 5.0F, 2.0F, 6.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(0.0F, -18.0F, 2.0F));
+		PartDefinition body = highland.addOrReplaceChild("body", CubeListBuilder.create().texOffs(6, 37).addBox(-5.5F, -2.0F, -10.0F, 11.0F, 9.0F, 18.0F, new CubeDeformation(0.0F))
+				.texOffs(3, 28).mirror().addBox(-2.5F, 6.0F, -1.0F, 5.0F, 2.0F, 6.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(0.0F, -18.0F, 2.0F));
 
 		PartDefinition hair = body.addOrReplaceChild("hair", CubeListBuilder.create().texOffs(88, 22).addBox(-5.5F, -20.3F, -5.0F, 11.0F, 0.0F, 18.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 18.0F, -5.0F));
 
@@ -65,7 +65,7 @@ public class HighlandCowModel<T extends Entity> extends HierarchicalModel<T> {
 
 		PartDefinition cube_r5 = hair.addOrReplaceChild("cube_r5", CubeListBuilder.create().texOffs(92, -11).addBox(1.0F, -10.3F, -1.0F, 0.0F, 11.0F, 18.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-8.0F, -10.0F, -4.0F, 0.0F, 0.0F, 0.1309F));
 
-		PartDefinition head = highland_cow.addOrReplaceChild("head", CubeListBuilder.create().texOffs(0, 0).addBox(-3.5F, -3.0F, -7.0F, 7.0F, 7.0F, 7.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -20.0F, -8.0F));
+		PartDefinition head = highland.addOrReplaceChild("head", CubeListBuilder.create().texOffs(0, 0).addBox(-3.5F, -3.0F, -7.0F, 7.0F, 7.0F, 7.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -20.0F, -8.0F));
 
 		PartDefinition horns = head.addOrReplaceChild("horns", CubeListBuilder.create(), PartPose.offset(0.0F, 20.0F, 7.0F));
 
@@ -77,7 +77,7 @@ public class HighlandCowModel<T extends Entity> extends HierarchicalModel<T> {
 
 		PartDefinition cube_r9 = horns.addOrReplaceChild("cube_r9", CubeListBuilder.create().texOffs(39, 6).addBox(0.0F, -4.0F, -1.0F, 1.0F, 4.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-3.0F, -22.0F, -9.0F, 0.6109F, 0.8727F, -0.3054F));
 
-		PartDefinition hair2 = head.addOrReplaceChild("hair2", CubeListBuilder.create().texOffs(53, 0).addBox(-3.5F, -3.05F, -7.0F, 7.0F, 0.0F, 7.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 0.0F, 0.0F));
+		PartDefinition hair2 = head.addOrReplaceChild("hair2", CubeListBuilder.create().texOffs(67, 0).addBox(-3.5F, -3.05F, -7.0F, 7.0F, 0.0F, 7.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 0.0F, 0.0F));
 
 		PartDefinition cube_r10 = hair2.addOrReplaceChild("cube_r10", CubeListBuilder.create().texOffs(60, -7).mirror().addBox(-1.9F, -7.0F, -1.0F, 0.0F, 7.0F, 7.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(6.0F, 4.0F, -6.0F, 0.0F, 0.0F, -0.0873F));
 
@@ -86,8 +86,6 @@ public class HighlandCowModel<T extends Entity> extends HierarchicalModel<T> {
 		PartDefinition cube_r12 = hair2.addOrReplaceChild("cube_r12", CubeListBuilder.create().texOffs(60, 0).addBox(-5.5F, -7.0F, -1.0F, 7.0F, 7.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(2.0F, 4.0F, 2.0F, 0.1309F, 0.0F, 0.0F));
 
 		PartDefinition cube_r13 = hair2.addOrReplaceChild("cube_r13", CubeListBuilder.create().texOffs(60, -7).addBox(1.9F, -7.0F, -1.0F, 0.0F, 7.0F, 7.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-6.0F, 4.0F, -6.0F, 0.0F, 0.0F, 0.0873F));
-
-		PartDefinition cube_r14 = hair2.addOrReplaceChild("cube_r14", CubeListBuilder.create().texOffs(53, 0).addBox(-5.5F, 1.4F, -1.0F, 7.0F, 0.0F, 7.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(2.0F, 3.0F, -5.0F, -0.0873F, 0.0F, 0.0F));
 
 		return LayerDefinition.create(meshdefinition, 128, 64);
 	}
