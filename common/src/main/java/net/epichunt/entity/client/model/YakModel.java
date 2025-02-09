@@ -99,7 +99,8 @@ public class YakModel<T extends YakEntity> extends HierarchicalModel<T> {
 
 		PartDefinition cube_r18 = hair.addOrReplaceChild("cube_r18", CubeListBuilder.create().texOffs(92, -11).addBox(1.1F, -10.08F, -1.0F, 0.0F, 11.0F, 18.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-8.0F, -10.0F, -4.0F, 0.0F, 0.0F, 0.1309F));
 
-		PartDefinition head = yak.addOrReplaceChild("head", CubeListBuilder.create().texOffs(0, 0).addBox(-3.5F, -3.0F, -7.0F, 7.0F, 7.0F, 7.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -20.0F, -8.0F));
+		PartDefinition head = yak.addOrReplaceChild("head", CubeListBuilder.create().texOffs(0, 0).addBox(-3.5F, -3.0F, -7.0F, 7.0F, 7.0F, 7.0F, new CubeDeformation(0.0F))
+				.texOffs(0, 15).addBox(-2.5F, 0.0F, -7.8F, 5.0F, 4.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -20.0F, -8.0F));
 
 		PartDefinition horns = head.addOrReplaceChild("horns", CubeListBuilder.create(), PartPose.offset(0.0F, 20.0F, 7.0F));
 
