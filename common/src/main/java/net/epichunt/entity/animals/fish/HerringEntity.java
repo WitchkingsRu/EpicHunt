@@ -20,7 +20,7 @@ public class HerringEntity extends AbstractSchoolingFish {
         super(entityType, level);
     }
 
-    public static final Supplier<EntityType<HerringEntity>> HERRING = Suppliers.memoize(() -> EntityType.Builder.of(HerringEntity::new, MobCategory.WATER_CREATURE)
+    public static final Supplier<EntityType<HerringEntity>> HERRING = Suppliers.memoize(() -> EntityType.Builder.of(HerringEntity::new, MobCategory.WATER_AMBIENT)
             .sized(1f, 1f).build("herring"));
 
     public final AnimationState idleAnimationState = new AnimationState();

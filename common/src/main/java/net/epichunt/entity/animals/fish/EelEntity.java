@@ -19,12 +19,12 @@ import net.minecraft.world.level.Level;
 
 import java.util.function.Supplier;
 
-public class EelEntity extends WaterAnimal {
+public class EelEntity extends AbstractFish {
     public EelEntity(EntityType<? extends EelEntity> entityType, Level level) {
         super(entityType, level);
     }
 
-    public static final Supplier<EntityType<EelEntity>> EEL = Suppliers.memoize(() -> EntityType.Builder.of(EelEntity::new, MobCategory.WATER_CREATURE)
+    public static final Supplier<EntityType<EelEntity>> EEL = Suppliers.memoize(() -> EntityType.Builder.of(EelEntity::new, MobCategory.WATER_AMBIENT)
             .sized(1f, 1f).build("eel"));
 
     public final AnimationState idleAnimationState = new AnimationState();
@@ -67,5 +67,10 @@ public class EelEntity extends WaterAnimal {
 
     protected SoundEvent getFlopSound() {
         return SoundEvents.COD_FLOP;
+    }
+
+    @Override
+    public ItemStack getBucketItemStack() {
+        return null;
     }
 }

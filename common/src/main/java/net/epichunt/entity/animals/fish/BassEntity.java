@@ -25,7 +25,7 @@ public class BassEntity extends AbstractSchoolingFish {
         super(entityType, level);
     }
 
-    public static final Supplier<EntityType<BassEntity>> BASS = Suppliers.memoize(() -> EntityType.Builder.of(BassEntity::new, MobCategory.WATER_CREATURE)
+    public static final Supplier<EntityType<BassEntity>> BASS = Suppliers.memoize(() -> EntityType.Builder.of(BassEntity::new, MobCategory.WATER_AMBIENT)
             .sized(1f, 1f).build("bass"));
 
     public final AnimationState idleAnimationState = new AnimationState();

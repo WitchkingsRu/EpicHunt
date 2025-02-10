@@ -20,7 +20,7 @@ public class ZanderEntity extends AbstractSchoolingFish {
         super(entityType, level);
     }
 
-    public static final Supplier<EntityType<ZanderEntity>> ZANDER = Suppliers.memoize(() -> EntityType.Builder.of(ZanderEntity::new, MobCategory.WATER_CREATURE)
+    public static final Supplier<EntityType<ZanderEntity>> ZANDER = Suppliers.memoize(() -> EntityType.Builder.of(ZanderEntity::new, MobCategory.WATER_AMBIENT)
             .sized(1f, 1f).build("zander"));
 
     public final AnimationState idleAnimationState = new AnimationState();

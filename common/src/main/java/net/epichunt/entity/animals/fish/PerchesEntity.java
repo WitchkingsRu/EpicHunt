@@ -20,7 +20,7 @@ public class PerchesEntity extends AbstractSchoolingFish {
         super(entityType, level);
     }
 
-    public static final Supplier<EntityType<PerchesEntity>> PERCHES = Suppliers.memoize(() -> EntityType.Builder.of(PerchesEntity::new, MobCategory.WATER_CREATURE)
+    public static final Supplier<EntityType<PerchesEntity>> PERCHES = Suppliers.memoize(() -> EntityType.Builder.of(PerchesEntity::new, MobCategory.WATER_AMBIENT)
             .sized(1f, 1f).build("perches"));
 
     public final AnimationState idleAnimationState = new AnimationState();

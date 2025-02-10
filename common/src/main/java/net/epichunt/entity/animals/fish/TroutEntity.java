@@ -20,7 +20,7 @@ public class TroutEntity extends AbstractSchoolingFish {
         super(entityType, level);
     }
 
-    public static final Supplier<EntityType<TroutEntity>> TROUT = Suppliers.memoize(() -> EntityType.Builder.of(TroutEntity::new, MobCategory.WATER_CREATURE)
+    public static final Supplier<EntityType<TroutEntity>> TROUT = Suppliers.memoize(() -> EntityType.Builder.of(TroutEntity::new, MobCategory.WATER_AMBIENT)
             .sized(1f, 1f).build("trout"));
 
     public final AnimationState idleAnimationState = new AnimationState();

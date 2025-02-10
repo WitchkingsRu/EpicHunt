@@ -20,7 +20,7 @@ public class PikefishEntity extends AbstractSchoolingFish {
         super(entityType, level);
     }
 
-    public static final Supplier<EntityType<PikefishEntity>> PIKEFISH = Suppliers.memoize(() -> EntityType.Builder.of(PikefishEntity::new, MobCategory.WATER_CREATURE)
+    public static final Supplier<EntityType<PikefishEntity>> PIKEFISH = Suppliers.memoize(() -> EntityType.Builder.of(PikefishEntity::new, MobCategory.WATER_AMBIENT)
             .sized(1f, 1f).build("pikefish"));
 
     public final AnimationState idleAnimationState = new AnimationState();

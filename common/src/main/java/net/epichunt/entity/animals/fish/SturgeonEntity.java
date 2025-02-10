@@ -19,12 +19,12 @@ import net.minecraft.world.level.Level;
 
 import java.util.function.Supplier;
 
-public class SturgeonEntity extends WaterAnimal {
+public class SturgeonEntity extends AbstractFish {
     public SturgeonEntity(EntityType<? extends SturgeonEntity> entityType, Level level) {
         super(entityType, level);
     }
 
-    public static final Supplier<EntityType<SturgeonEntity>> STURGEON = Suppliers.memoize(() -> EntityType.Builder.of(SturgeonEntity::new, MobCategory.WATER_CREATURE)
+    public static final Supplier<EntityType<SturgeonEntity>> STURGEON = Suppliers.memoize(() -> EntityType.Builder.of(SturgeonEntity::new, MobCategory.WATER_AMBIENT)
             .sized(1f, 1f).build("sturgeon"));
 
     public final AnimationState idleAnimationState = new AnimationState();
@@ -67,5 +67,10 @@ public class SturgeonEntity extends WaterAnimal {
 
     protected SoundEvent getFlopSound() {
         return SoundEvents.COD_FLOP;
+    }
+
+    @Override
+    public ItemStack getBucketItemStack() {
+        return null;
     }
 }

@@ -20,7 +20,7 @@ public class RoachEntity extends AbstractSchoolingFish {
         super(entityType, level);
     }
 
-    public static final Supplier<EntityType<RoachEntity>> ROACH = Suppliers.memoize(() -> EntityType.Builder.of(RoachEntity::new, MobCategory.WATER_CREATURE)
+    public static final Supplier<EntityType<RoachEntity>> ROACH = Suppliers.memoize(() -> EntityType.Builder.of(RoachEntity::new, MobCategory.WATER_AMBIENT)
             .sized(1f, 1f).build("roach"));
 
     public final AnimationState idleAnimationState = new AnimationState();

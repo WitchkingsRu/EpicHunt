@@ -20,7 +20,7 @@ public class MackerelEntity extends AbstractSchoolingFish {
         super(entityType, level);
     }
 
-    public static final Supplier<EntityType<MackerelEntity>> MACKEREL = Suppliers.memoize(() -> EntityType.Builder.of(MackerelEntity::new, MobCategory.WATER_CREATURE)
+    public static final Supplier<EntityType<MackerelEntity>> MACKEREL = Suppliers.memoize(() -> EntityType.Builder.of(MackerelEntity::new, MobCategory.WATER_AMBIENT)
             .sized(1f, 1f).build("mackerel"));
 
     public final AnimationState idleAnimationState = new AnimationState();

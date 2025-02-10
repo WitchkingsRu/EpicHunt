@@ -20,7 +20,7 @@ public class SardineEntity extends AbstractSchoolingFish {
         super(entityType, level);
     }
 
-    public static final Supplier<EntityType<SardineEntity>> SARDINE = Suppliers.memoize(() -> EntityType.Builder.of(SardineEntity::new, MobCategory.WATER_CREATURE)
+    public static final Supplier<EntityType<SardineEntity>> SARDINE = Suppliers.memoize(() -> EntityType.Builder.of(SardineEntity::new, MobCategory.WATER_AMBIENT)
             .sized(1f, 1f).build("sardine"));
 
     public final AnimationState idleAnimationState = new AnimationState();

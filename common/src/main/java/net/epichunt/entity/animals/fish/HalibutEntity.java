@@ -20,7 +20,7 @@ public class HalibutEntity extends AbstractSchoolingFish {
         super(entityType, level);
     }
 
-    public static final Supplier<EntityType<HalibutEntity>> HALIBUT = Suppliers.memoize(() -> EntityType.Builder.of(HalibutEntity::new, MobCategory.WATER_CREATURE)
+    public static final Supplier<EntityType<HalibutEntity>> HALIBUT = Suppliers.memoize(() -> EntityType.Builder.of(HalibutEntity::new, MobCategory.WATER_AMBIENT)
             .sized(1f, 1f).build("halibut"));
 
     public final AnimationState idleAnimationState = new AnimationState();

@@ -10,7 +10,9 @@ import net.minecraft.tags.BiomeTags;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.entity.SpawnPlacements;
+import net.minecraft.world.entity.animal.AbstractFish;
 import net.minecraft.world.entity.animal.Animal;
+import net.minecraft.world.entity.animal.WaterAnimal;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.biome.MobSpawnSettings;
 import net.minecraft.world.level.levelgen.Heightmap;
@@ -53,6 +55,30 @@ public class MobSpawns {
         addEntitySpawns(context -> ((context.hasTag(BiomeTags.IS_FOREST)) || (context.hasTag(BiomeTags.IS_TAIGA))), MobCategory.MONSTER, WOLF_ENTITY::get, 8, 1, 3);
         addEntitySpawns(context -> ((context.hasTag(BiomeTags.IS_FOREST)) || (context.hasTag(BiomeTags.HAS_VILLAGE_PLAINS))), MobCategory.CREATURE, BADGER_ENTITY::get, 8, 1, 1);
         addEntitySpawns(context -> ((context.hasTag(BiomeTags.IS_FOREST)) || (context.hasTag(BiomeTags.IS_TAIGA))), MobCategory.CREATURE, MOOSE_ENTITY::get, 4, 1, 3);
+
+        addEntitySpawns(context -> ((context.hasTag(BiomeTags.IS_OCEAN)) || (context.hasTag(BiomeTags.IS_DEEP_OCEAN)) || (context.hasTag(BiomeTags.HAS_OCEAN_MONUMENT)) || (context.hasTag(BiomeTags.HAS_OCEAN_RUIN_COLD) || (context.hasTag(BiomeTags.HAS_OCEAN_RUIN_WARM)))),
+                MobCategory.WATER_AMBIENT, BASS_ENTITY::get, 20, 3, 5);
+        addEntitySpawns(context -> ((context.hasTag(BiomeTags.IS_OCEAN)) || (context.hasTag(BiomeTags.IS_DEEP_OCEAN)) || (context.hasTag(BiomeTags.HAS_OCEAN_MONUMENT)) || (context.hasTag(BiomeTags.HAS_OCEAN_RUIN_COLD) || (context.hasTag(BiomeTags.HAS_OCEAN_RUIN_WARM)))),
+                MobCategory.WATER_AMBIENT, HALIBUT_ENTITY::get, 20, 3, 5);
+        addEntitySpawns(context -> ((context.hasTag(BiomeTags.IS_OCEAN)) || (context.hasTag(BiomeTags.IS_DEEP_OCEAN)) || (context.hasTag(BiomeTags.HAS_OCEAN_MONUMENT)) || (context.hasTag(BiomeTags.HAS_OCEAN_RUIN_COLD) || (context.hasTag(BiomeTags.HAS_OCEAN_RUIN_WARM)))),
+                MobCategory.WATER_AMBIENT, MACKEREL_ENTITY::get, 30, 3, 7);
+        addEntitySpawns(context -> ((context.hasTag(BiomeTags.IS_OCEAN)) || (context.hasTag(BiomeTags.IS_DEEP_OCEAN)) || (context.hasTag(BiomeTags.HAS_OCEAN_MONUMENT)) || (context.hasTag(BiomeTags.HAS_OCEAN_RUIN_COLD) || (context.hasTag(BiomeTags.HAS_OCEAN_RUIN_WARM)))),
+                MobCategory.WATER_AMBIENT, HERRING_ENTITY::get, 30, 3, 7);
+        addEntitySpawns(context -> ((context.hasTag(BiomeTags.IS_OCEAN)) || (context.hasTag(BiomeTags.IS_DEEP_OCEAN)) || (context.hasTag(BiomeTags.HAS_OCEAN_MONUMENT)) || (context.hasTag(BiomeTags.HAS_OCEAN_RUIN_COLD) || (context.hasTag(BiomeTags.HAS_OCEAN_RUIN_WARM)))),
+                MobCategory.WATER_AMBIENT, SARDINE_ENTITY::get, 30, 3, 7);
+        addEntitySpawns(context -> ((context.hasTag(BiomeTags.IS_OCEAN)) || (context.hasTag(BiomeTags.IS_DEEP_OCEAN)) || (context.hasTag(BiomeTags.HAS_OCEAN_MONUMENT)) || (context.hasTag(BiomeTags.HAS_OCEAN_RUIN_COLD) || (context.hasTag(BiomeTags.HAS_OCEAN_RUIN_WARM)))),
+                MobCategory.WATER_AMBIENT, POLLOCK_ENTITY::get, 20, 3, 5);
+        addEntitySpawns(context -> ((context.hasTag(BiomeTags.IS_OCEAN)) || (context.hasTag(BiomeTags.IS_DEEP_OCEAN)) || (context.hasTag(BiomeTags.HAS_OCEAN_MONUMENT)) || (context.hasTag(BiomeTags.HAS_OCEAN_RUIN_COLD) || (context.hasTag(BiomeTags.HAS_OCEAN_RUIN_WARM)))),
+                MobCategory.WATER_AMBIENT, STURGEON_ENTITY::get, 10, 1, 1);
+
+        addEntitySpawns(context -> ((context.hasTag(BiomeTags.IS_RIVER))), MobCategory.WATER_AMBIENT, CARP_ENTITY::get, 20, 3, 5);
+        addEntitySpawns(context -> ((context.hasTag(BiomeTags.IS_RIVER))), MobCategory.WATER_AMBIENT, EEL_ENTITY::get, 20, 1, 3);
+        addEntitySpawns(context -> ((context.hasTag(BiomeTags.IS_RIVER))), MobCategory.WATER_AMBIENT, PERCHES_ENTITY::get, 20, 3, 5);
+        addEntitySpawns(context -> ((context.hasTag(BiomeTags.IS_RIVER))), MobCategory.WATER_AMBIENT, PIKEFISH_ENTITY::get, 20, 3, 5);
+        addEntitySpawns(context -> ((context.hasTag(BiomeTags.IS_RIVER))), MobCategory.WATER_AMBIENT, ROACH_ENTITY::get, 20, 3, 5);
+        addEntitySpawns(context -> ((context.hasTag(BiomeTags.IS_RIVER))), MobCategory.WATER_AMBIENT, ZANDER_ENTITY::get, 20, 3, 5);
+        addEntitySpawns(context -> ((context.hasTag(BiomeTags.IS_RIVER))), MobCategory.WATER_AMBIENT, TROUT_ENTITY::get, 20, 3, 5);
+        addEntitySpawns(context -> ((context.hasTag(BiomeTags.IS_RIVER))), MobCategory.WATER_AMBIENT, CATFISH_ENTITY::get, 4, 1, 1);
     }
 
     public static void placementRegistry() {
@@ -75,5 +101,22 @@ public class MobSpawns {
         SpawnPlacementsRegistry.register(MOOSE_ENTITY, SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Animal::checkAnimalSpawnRules);
         SpawnPlacementsRegistry.register(BADGER_ENTITY, SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Animal::checkAnimalSpawnRules);
         SpawnPlacementsRegistry.register(WOLF_ENTITY, SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Monster::checkAnyLightMonsterSpawnRules);
+
+        SpawnPlacementsRegistry.register(BASS_ENTITY, SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING, AbstractFish::checkMobSpawnRules);
+        SpawnPlacementsRegistry.register(CARP_ENTITY, SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING, AbstractFish::checkMobSpawnRules);
+        SpawnPlacementsRegistry.register(CATFISH_ENTITY, SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING, WaterAnimal::checkMobSpawnRules);
+        SpawnPlacementsRegistry.register(EEL_ENTITY, SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING, AbstractFish::checkMobSpawnRules);
+        SpawnPlacementsRegistry.register(HALIBUT_ENTITY, SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING, AbstractFish::checkMobSpawnRules);
+        SpawnPlacementsRegistry.register(HERRING_ENTITY, SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING, AbstractFish::checkMobSpawnRules);
+        SpawnPlacementsRegistry.register(MACKEREL_ENTITY, SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING, AbstractFish::checkMobSpawnRules);
+        SpawnPlacementsRegistry.register(PERCHES_ENTITY, SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING, AbstractFish::checkMobSpawnRules);
+        SpawnPlacementsRegistry.register(PIKEFISH_ENTITY, SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING, AbstractFish::checkMobSpawnRules);
+        SpawnPlacementsRegistry.register(POLLOCK_ENTITY, SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING, AbstractFish::checkMobSpawnRules);
+        SpawnPlacementsRegistry.register(ROACH_ENTITY, SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING, AbstractFish::checkMobSpawnRules);
+        SpawnPlacementsRegistry.register(SARDINE_ENTITY, SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING, AbstractFish::checkMobSpawnRules);
+        SpawnPlacementsRegistry.register(STURGEON_ENTITY, SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING, WaterAnimal::checkMobSpawnRules);
+        SpawnPlacementsRegistry.register(TROUT_ENTITY, SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING, AbstractFish::checkMobSpawnRules);
+        SpawnPlacementsRegistry.register(ZANDER_ENTITY, SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING, AbstractFish::checkMobSpawnRules);
+
     }
 }

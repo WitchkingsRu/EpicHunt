@@ -20,7 +20,7 @@ public class CarpEntity extends AbstractSchoolingFish {
         super(entityType, level);
     }
 
-    public static final Supplier<EntityType<CarpEntity>> CARP = Suppliers.memoize(() -> EntityType.Builder.of(CarpEntity::new, MobCategory.WATER_CREATURE)
+    public static final Supplier<EntityType<CarpEntity>> CARP = Suppliers.memoize(() -> EntityType.Builder.of(CarpEntity::new, MobCategory.WATER_AMBIENT)
             .sized(1f, 1f).build("carp"));
 
     public final AnimationState idleAnimationState = new AnimationState();

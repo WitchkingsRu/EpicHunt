@@ -19,12 +19,12 @@ import net.minecraft.world.level.Level;
 
 import java.util.function.Supplier;
 
-public class CatfishEntity extends WaterAnimal {
+public class CatfishEntity extends AbstractFish {
     public CatfishEntity(EntityType<? extends CatfishEntity> entityType, Level level) {
         super(entityType, level);
     }
 
-    public static final Supplier<EntityType<CatfishEntity>> CATFISH = Suppliers.memoize(() -> EntityType.Builder.of(CatfishEntity::new, MobCategory.WATER_CREATURE)
+    public static final Supplier<EntityType<CatfishEntity>> CATFISH = Suppliers.memoize(() -> EntityType.Builder.of(CatfishEntity::new, MobCategory.WATER_AMBIENT)
             .sized(1f, 1f).build("catfish"));
 
     public final AnimationState idleAnimationState = new AnimationState();
@@ -67,5 +67,10 @@ public class CatfishEntity extends WaterAnimal {
 
     protected SoundEvent getFlopSound() {
         return SoundEvents.COD_FLOP;
+    }
+
+    @Override
+    public ItemStack getBucketItemStack() {
+        return null;
     }
 }
