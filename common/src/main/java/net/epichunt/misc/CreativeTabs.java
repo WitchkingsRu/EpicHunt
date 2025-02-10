@@ -22,7 +22,8 @@ public class CreativeTabs {
                 ModItem.CARIBOU_SPAWN_EGG, ModItem.MOOSE_SPAWN_EGG, ModItem.ROE_DEER_SPAWN_EGG, ModItem.DUCK_SPAWN_EGG, ModItem.DRAKE_SPAWN_EGG,
                 ModItem.GOOSE_SPAWN_EGG, ModItem.PHEASANT_SPAWN_EGG, ModItem.QUAIL_SPAWN_EGG, ModItem.YAK_SPAWN_EGG,
                 ModItem.HIGHLAND_COW_SPAWN_EGG, ModItem.WISENT_SPAWN_EGG, ModItem.WOLF_SPAWN_EGG, ModItem.BOAR_SPAWN_EGG,
-                ModItem.BEAR_SPAWN_EGG, ModItem.BADGER_SPAWN_EGG, ModItem.GOAT_SPAWN_EGG, ModItem.LYNX_SPAWN_EGG);
+                ModItem.BEAR_SPAWN_EGG, ModItem.BADGER_SPAWN_EGG, ModItem.GOAT_SPAWN_EGG, ModItem.LYNX_SPAWN_EGG, ModItem.STURGEON_SPAWN_EGG,
+                ModItem.CATFISH_SPAWN_EGG, ModItem.EEL_SPAWN_EGG);
         CreativeTabRegistry.append(FOOD_RESOURCE_KEY, ModItem.VENISON, ModItem.COOKED_VENISON, ModItem.WOLF, ModItem.COOKED_WOLF,
                 ModItem.BEAR, ModItem.COOKED_BEAR, ModItem.BADGER, ModItem.COOKED_BADGER, ModItem.DUCK,
                 ModItem.COOKED_DUCK, ModItem.GOOSE, ModItem.COOKED_GOOSE, ModItem.PHEASANT, ModItem.COOKED_PHEASANT,
@@ -31,7 +32,8 @@ public class CreativeTabs {
                 ModItem.HALIBUT, ModItem.COOKED_HALIBUT, ModItem.HERRING, ModItem.COOKED_HERRING, ModItem.MACKEREL,
                 ModItem.COOKED_MACKEREL, ModItem.PERCHES, ModItem.COOKED_PERCHES, ModItem.PIKEFISH, ModItem.COOKED_PIKEFISH,
                 ModItem.POLLOCK, ModItem.COOKED_POLLOCK, ModItem.ROACH, ModItem.COOKED_ROACH, ModItem.SARDINE, ModItem.COOKED_SARDINE,
-                ModItem.TROUT, ModItem.COOKED_TROUT, ModItem.ZANDER, ModItem.COOKED_ZANDER);
+                ModItem.TROUT, ModItem.COOKED_TROUT, ModItem.ZANDER, ModItem.COOKED_ZANDER, ModItem.EEL, ModItem.COOKED_EEL,
+                ModItem.STURGEON, ModItem.COOKED_STURGEON, ModItem.CATFISH, ModItem.COOKED_CATFISH);
         CreativeTabRegistry.append(COMBAT_RESOURCE_KEY, ModItem.YAK_CARPET_WHITE, ModItem.YAK_CARPET_BLACK, ModItem.YAK_CARPET_BLUE,
                 ModItem.YAK_CARPET_BROWN, ModItem.YAK_CARPET_CYAN, ModItem.YAK_CARPET_GRAY, ModItem.YAK_CARPET_GREEN,
                 ModItem.YAK_CARPET_LIGHT_BLUE, ModItem.YAK_CARPET_LIGHT_GRAY, ModItem.YAK_CARPET_LIME, ModItem.YAK_CARPET_MAGENTA,

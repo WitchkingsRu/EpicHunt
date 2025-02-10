@@ -74,6 +74,15 @@ public class ModItem {
     public static final RegistrySupplier<Item> BEAR_SPAWN_EGG = ITEMS.register("bear_spawn_egg", () -> new SpawnEggItem(BearEntity.BEAR.get(),0x120700, 0x312616,
             new Item.Properties()));
 
+    public static final RegistrySupplier<Item> STURGEON_SPAWN_EGG = ITEMS.register("sturgeon_spawn_egg", () -> new SpawnEggItem(SturgeonEntity.STURGEON.get(),0x3F3737, 0xDDD9DB,
+            new Item.Properties()));
+
+    public static final RegistrySupplier<Item> CATFISH_SPAWN_EGG = ITEMS.register("catfish_spawn_egg", () -> new SpawnEggItem(CatfishEntity.CATFISH.get(),0x1D1D1D, 0xDBDCB4,
+            new Item.Properties()));
+
+    public static final RegistrySupplier<Item> EEL_SPAWN_EGG = ITEMS.register("eel_spawn_egg", () -> new SpawnEggItem(EelEntity.EEL.get(),0x2C2C2C, 0x555555,
+            new Item.Properties()));
+
 
     public static final RegistrySupplier<Item> VENISON = ITEMS.register("raw_venison", ()-> new Item(new Item.Properties().food(ModFood.VENISON)));
 
@@ -156,6 +165,18 @@ public class ModItem {
     public static final RegistrySupplier<Item> ZANDER = ITEMS.register("raw_zander", ()-> new Item(new Item.Properties().food(ModFood.ZANDER)));
 
     public static final RegistrySupplier<Item> COOKED_ZANDER = ITEMS.register("cooked_zander", ()-> new Item(new Item.Properties().food(ModFood.COOKED_ZANDER)));
+
+    public static final RegistrySupplier<Item> STURGEON = ITEMS.register("raw_sturgeon", ()-> new Item(new Item.Properties().food(ModFood.STURGEON)));
+
+    public static final RegistrySupplier<Item> COOKED_STURGEON = ITEMS.register("cooked_sturgeon", ()-> new Item(new Item.Properties().food(ModFood.COOKED_STURGEON)));
+
+    public static final RegistrySupplier<Item> CATFISH = ITEMS.register("raw_catfish", ()-> new Item(new Item.Properties().food(ModFood.CATFISH)));
+
+    public static final RegistrySupplier<Item> COOKED_CATFISH = ITEMS.register("cooked_catfish", ()-> new Item(new Item.Properties().food(ModFood.COOKED_CATFISH)));
+
+    public static final RegistrySupplier<Item> EEL = ITEMS.register("raw_eel", ()-> new Item(new Item.Properties().food(ModFood.EEL)));
+
+    public static final RegistrySupplier<Item> COOKED_EEL = ITEMS.register("cooked_eel", ()-> new Item(new Item.Properties().food(ModFood.COOKED_EEL)));
 
 
 

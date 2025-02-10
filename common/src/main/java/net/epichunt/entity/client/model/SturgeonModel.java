@@ -100,9 +100,9 @@ public class SturgeonModel<T extends Entity> extends HierarchicalModel<T> {
 	public void setupAnim(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
 		this.root().getAllParts().forEach(ModelPart::resetPose);
 		this.animate(((SturgeonEntity) entity).idleAnimationState, SturgeonAnimation.swim, ageInTicks, 1f);
-		if (!entity.isInWater()) {
-			this.sturgeon.zRot = (float) Math.toRadians(90.0);
-		}
+//		if (!entity.isInWater()) {
+//			this.sturgeon.zRot = (float) Math.toRadians(90.0);
+//		}
 	}
 
 	@Override

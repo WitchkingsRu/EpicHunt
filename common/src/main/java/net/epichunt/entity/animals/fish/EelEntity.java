@@ -6,15 +6,20 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.AnimationState;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.MobCategory;
+import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.animal.AbstractFish;
 import net.minecraft.world.entity.animal.AbstractSchoolingFish;
+import net.minecraft.world.entity.animal.WaterAnimal;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 
 import java.util.function.Supplier;
 
-public class EelEntity extends AbstractSchoolingFish {
+public class EelEntity extends WaterAnimal {
     public EelEntity(EntityType<? extends EelEntity> entityType, Level level) {
         super(entityType, level);
     }
@@ -41,10 +46,12 @@ public class EelEntity extends AbstractSchoolingFish {
             --this.idleAnimTimeout;
         }
     }
-
-    public ItemStack getBucketItemStack() {
-        return new ItemStack(Items.COD_BUCKET);
+    public static AttributeSupplier.Builder createAttributes() {
+        return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 10.0);
     }
+//    public ItemStack getBucketItemStack() {
+//        return new ItemStack(Items.COD_BUCKET);
+//    }
 
     protected SoundEvent getAmbientSound() {
         return SoundEvents.COD_AMBIENT;
