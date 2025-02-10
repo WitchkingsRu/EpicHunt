@@ -1,0 +1,97 @@
+{
+  "type": "minecraft:fishing",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "epichunt:raw_bass",
+          "weight": 5
+        },
+        {
+          "type": "minecraft:item",
+          "name": "epichunt:raw_carp",
+          "weight": 6
+        },
+        {
+          "type": "minecraft:item",
+          "name": "epichunt:raw_eel",
+          "weight": 5
+        },
+        {
+          "type": "minecraft:item",
+          "name": "epichunt:raw_halibut",
+          "weight": 5
+        },
+        {
+          "type": "minecraft:item",
+          "name": "epichunt:raw_herring",
+          "weight": 10
+        },
+        {
+          "type": "minecraft:item",
+          "name": "epichunt:raw_mackerel",
+          "weight": 10
+        },
+        {
+          "type": "minecraft:item",
+          "name": "epichunt:raw_perches",
+          "weight": 5
+        },
+        {
+          "type": "minecraft:item",
+          "name": "epichunt:raw_pollock",
+          "weight": 5
+        },
+        {
+          "type": "minecraft:item",
+          "name": "epichunt:raw_roach",
+          "weight": 6
+        },
+        {
+          "type": "minecraft:item",
+          "name": "epichunt:raw_sardine",
+          "weight": 10
+        },
+        {
+          "type": "minecraft:item",
+          "name": "epichunt:raw_trout",
+          "weight": 5
+        },
+        {
+          "type": "minecraft:item",
+          "name": "epichunt:raw_zander",
+          "weight": 5
+        },
+        {
+          "type": "minecraft:item",
+          "name": "epichunt:raw_pikefish",
+          "weight": 5
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:cod",
+          "weight": 6
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:salmon",
+          "weight": 6
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:tropical_fish",
+          "weight": 1
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:pufferfish",
+          "weight": 5
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "minecraft:gameplay/fishing/fish"
+}
