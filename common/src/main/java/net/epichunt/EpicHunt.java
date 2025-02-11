@@ -29,19 +29,10 @@ public class EpicHunt {
         AttributeRegisterEvents.init();
         //System.out.println(ExpectPlatform.getConfigDirectory().toAbsolutePath().normalize().toString());
     }
-    @Environment(EnvType.CLIENT)
-    public static class Client {
-        @Environment(EnvType.CLIENT)
-        public static void clientInit() {
-            renderRegistry();
-            registerLayers();
-
-        }
-    }
-
     public static void spawnInit() {
         MobSpawns.spawnsInit();
 
     }
 
 }
+

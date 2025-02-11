@@ -17,6 +17,9 @@
   "entrypoints": {
     "main": [
       "net.epichunt.fabric.EpicHuntFabric"
+    ],
+    "client": [
+      "net.epichunt.fabric.client.EpicHuntFabricClient"
     ]
   },
   "depends": {
