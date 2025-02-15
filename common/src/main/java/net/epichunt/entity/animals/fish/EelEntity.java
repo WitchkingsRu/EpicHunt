@@ -1,6 +1,8 @@
 package net.epichunt.entity.animals.fish;
 
 import com.google.common.base.Suppliers;
+import net.epichunt.entity.AbstractBreedableFish;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.damagesource.DamageSource;
@@ -16,10 +18,11 @@ import net.minecraft.world.entity.animal.WaterAnimal;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.function.Supplier;
 
-public class EelEntity extends AbstractFish {
+public class EelEntity extends AbstractBreedableFish {
     public EelEntity(EntityType<? extends EelEntity> entityType, Level level) {
         super(entityType, level);
     }
@@ -36,6 +39,11 @@ public class EelEntity extends AbstractFish {
         if(this.level().isClientSide()) {
             this.setupAnimationStates();
         }
+    }
+
+    @Override
+    public @Nullable AbstractBreedableFish getBreedOffspring(ServerLevel serverLevel, AbstractBreedableFish ageableMob) {
+        return EEL.get().create(serverLevel);
     }
 
     private void setupAnimationStates() {

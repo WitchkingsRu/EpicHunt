@@ -130,6 +130,8 @@ public class DrakeEntity extends Animal {
     protected void registerGoals() {
         this.goalSelector.addGoal(1, new PanicGoal(this, 1.7));
         this.goalSelector.addGoal(2, new FollowParentGoal(this, 1.1D));
+        this.goalSelector.addGoal(2, new BreedGoal(this, 1.0));
+        this.goalSelector.addGoal(3, new TemptGoal(this, 1.25, Ingredient.of(Items.WHEAT_SEEDS), false));
         this.goalSelector.addGoal(4, new SurfaceSwimGoal(this));
         this.goalSelector.addGoal(5, new RandomStrollGoal(this, 1f, 100));
         this.goalSelector.addGoal(7, new LookAtPlayerGoal(this, Player.class, 3f));

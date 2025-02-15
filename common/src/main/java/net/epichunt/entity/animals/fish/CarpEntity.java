@@ -1,21 +1,29 @@
 package net.epichunt.entity.animals.fish;
 
 import com.google.common.base.Suppliers;
+import net.epichunt.entity.AbstractBreedableFish;
 import net.epichunt.item.ModItem;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.AnimationState;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
+import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.animal.AbstractSchoolingFish;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
+import org.jetbrains.annotations.Nullable;
 
+import java.util.UUID;
 import java.util.function.Supplier;
 
-public class CarpEntity extends AbstractSchoolingFish {
+public class CarpEntity extends AbstractBreedableFish {
+
     public CarpEntity(EntityType<? extends CarpEntity> entityType, Level level) {
         super(entityType, level);
     }
@@ -34,6 +42,11 @@ public class CarpEntity extends AbstractSchoolingFish {
         }
     }
 
+    @Override
+    public @Nullable AbstractBreedableFish getBreedOffspring(ServerLevel serverLevel, AbstractBreedableFish ageableMob) {
+        return CARP.get().create(serverLevel);
+    }
+
     private void setupAnimationStates() {
         if(this.idleAnimTimeout <= 0) {
             this.idleAnimTimeout = this.random.nextInt(400) + 1100;
@@ -41,6 +54,13 @@ public class CarpEntity extends AbstractSchoolingFish {
         } else {
             --this.idleAnimTimeout;
         }
+    }
+
+    @Override
+    protected void registerGoals() {
+        super.registerGoals();
+//        this.goalSelector.addGoal(2, new BreedGoal(this, 1.0));
+        this.goalSelector.addGoal(3, new TemptGoal(this, 1.25, Ingredient.of(Items.WHEAT_SEEDS), false));
     }
 
     public ItemStack getBucketItemStack() {

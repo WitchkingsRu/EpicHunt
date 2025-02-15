@@ -126,12 +126,24 @@ public class YakEntity extends Animal implements Saddleable {
     public InteractionResult mobInteract(Player player, InteractionHand hand) {
         ItemStack itemstack = player.getItemInHand(hand);
 
-        if (isCarpet(itemstack) && !this.isSaddled()) {
-            if (!player.getAbilities().instabuild) {
-                itemstack.shrink(1);
+        if (isCarpet(itemstack)) {
+            if (!this.level().isClientSide) { // Серверная логика
+                ItemStack oldCarpet = this.getCarpet();
+
+                // Дропаем или передаем старый ковер игроку
+                if (!oldCarpet.isEmpty()) {
+                    if (!player.getInventory().add(oldCarpet)) {
+                        this.spawnAtLocation(oldCarpet);
+                    }
+                }
+
+                // Устанавливаем новый ковер, используя split(1)
+                this.setCarpet(itemstack.split(1));
+
+                // Обновляем состояние седла
+                this.equipSaddle(SoundSource.NEUTRAL);
             }
-            this.setCarpet(itemstack);
-            this.equipSaddle(SoundSource.NEUTRAL);
+
             return InteractionResult.SUCCESS;
         } else if (this.isSaddled() && !this.isVehicle()) {
             this.doPlayerRide(player);
@@ -306,7 +318,7 @@ public class YakEntity extends Animal implements Saddleable {
         return new Vec3((double)f, 0.0, (double)g);
     }
     protected float getRiddenSpeed(Player player) {
-        return (float)this.getAttributeValue(Attributes.MOVEMENT_SPEED);
+        return (float)this.getAttributeValue(Attributes.MOVEMENT_SPEED) * 0.4F;
     }
 
     protected void positionRider(Entity entity, Entity.MoveFunction moveFunction) {
