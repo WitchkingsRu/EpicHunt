@@ -22,8 +22,8 @@ public class CreativeTabs {
                 ModItem.CARIBOU_SPAWN_EGG, ModItem.MOOSE_SPAWN_EGG, ModItem.ROE_DEER_SPAWN_EGG, ModItem.DUCK_SPAWN_EGG, ModItem.DRAKE_SPAWN_EGG,
                 ModItem.GOOSE_SPAWN_EGG, ModItem.PHEASANT_SPAWN_EGG, ModItem.QUAIL_SPAWN_EGG, ModItem.YAK_SPAWN_EGG,
                 ModItem.HIGHLAND_COW_SPAWN_EGG, ModItem.WISENT_SPAWN_EGG, ModItem.WOLF_SPAWN_EGG, ModItem.BOAR_SPAWN_EGG,
-                ModItem.BEAR_SPAWN_EGG, ModItem.BADGER_SPAWN_EGG, ModItem.GOAT_SPAWN_EGG, ModItem.LYNX_SPAWN_EGG, ModItem.STURGEON_SPAWN_EGG,
-                ModItem.CATFISH_SPAWN_EGG, ModItem.EEL_SPAWN_EGG);
+                ModItem.BEAR_SPAWN_EGG, ModItem.BADGER_SPAWN_EGG, ModItem.GOAT_SPAWN_EGG, ModItem.LYNX_SPAWN_EGG, ModItem.BEAVER_SPAWN_EGG,
+                ModItem.STURGEON_SPAWN_EGG, ModItem.CATFISH_SPAWN_EGG, ModItem.EEL_SPAWN_EGG);
         CreativeTabRegistry.append(FOOD_RESOURCE_KEY, ModItem.VENISON, ModItem.COOKED_VENISON, ModItem.WOLF, ModItem.COOKED_WOLF,
                 ModItem.BEAR, ModItem.COOKED_BEAR, ModItem.BADGER, ModItem.COOKED_BADGER, ModItem.DUCK,
                 ModItem.COOKED_DUCK, ModItem.GOOSE, ModItem.COOKED_GOOSE, ModItem.PHEASANT, ModItem.COOKED_PHEASANT,

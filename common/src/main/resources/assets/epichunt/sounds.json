@@ -224,5 +224,25 @@
     "sounds": [
       "epichunt:moose_death"
     ]
+  },
+  "beaver_ambient": {
+    "subtitles": "sounds.epichunt.beaver_ambient",
+    "sounds": [
+      "epichunt:beaver_ambient_1",
+      "epichunt:beaver_ambient_3",
+      "epichunt:beaver_ambient_2"
+    ]
+  },
+  "beaver_hurt": {
+    "subtitles": "sounds.epichunt.beaver_ambient",
+    "sounds": [
+      "epichunt:beaver_hurt"
+    ]
+  },
+  "beaver_death": {
+    "subtitles": "sounds.epichunt.beaver_ambient",
+    "sounds": [
+      "epichunt:beaver_death"
+    ]
   }
 }
