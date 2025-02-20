@@ -66,7 +66,7 @@ public class ModEntities {
     public static final RegistrySupplier<EntityType<BearEntity>> BEAR_ENTITY = ENTITY_TYPES.register("bear", BearEntity.BEAR);
     public static final RegistrySupplier<EntityType<WolfEntity>> WOLF_ENTITY = ENTITY_TYPES.register("wolf", WolfEntity.WOLF);
     public static final RegistrySupplier<EntityType<BeaverEntity>> BEAVER_ENTITY = ENTITY_TYPES.register("beaver", BeaverEntity.BEAVER);
-
+    public static final RegistrySupplier<EntityType<HareEntity>> HARE_ENTITY = ENTITY_TYPES.register("hare", HareEntity.HARE);
 
     public static final RegistrySupplier<EntityType<BassEntity>> BASS_ENTITY = ENTITY_TYPES.register("bass", BassEntity.BASS);
     public static final RegistrySupplier<EntityType<CarpEntity>> CARP_ENTITY = ENTITY_TYPES.register("carp", CarpEntity.CARP);
@@ -110,6 +110,7 @@ public class ModEntities {
         EntityRendererRegistry.register(BEAR_ENTITY, BearRender::new);
         EntityRendererRegistry.register(WOLF_ENTITY, WolfRender::new);
         EntityRendererRegistry.register(BEAVER_ENTITY, BeaverRender::new);
+        EntityRendererRegistry.register(HARE_ENTITY, HareRender::new);
 
         EntityRendererRegistry.register(BASS_ENTITY, BassRender::new);
         EntityRendererRegistry.register(CARP_ENTITY, CarpRender::new);

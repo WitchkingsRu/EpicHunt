@@ -8,6 +8,7 @@ import net.epichunt.entity.client.model.*;
 import net.minecraft.client.model.OcelotModel;
 import net.minecraft.client.model.PolarBearModel;
 import net.epichunt.entity.client.model.WolfModel;
+import net.minecraft.client.model.RabbitModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.builders.CubeDeformation;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
@@ -42,6 +43,7 @@ public class ModModels {
     public static final ModelLayerLocation WOLF_LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(EpicHunt.MOD_ID, "wolf"), "main");
 
     public static final ModelLayerLocation BEAVER_LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(EpicHunt.MOD_ID, "beaver"), "main");
+    public static final ModelLayerLocation HARE_LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(EpicHunt.MOD_ID, "hare"), "main");
 
 
     public static final ModelLayerLocation BASS_LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(EpicHunt.MOD_ID, "bass"), "main");
@@ -84,6 +86,7 @@ public class ModModels {
         EntityModelLayerRegistry.register(ModModels.BEAR_LAYER_LOCATION, PolarBearModel::createBodyLayer);
         EntityModelLayerRegistry.register(ModModels.WOLF_LAYER_LOCATION, WolfModel::createBodyLayer);
         EntityModelLayerRegistry.register(ModModels.BEAVER_LAYER_LOCATION, BeaverModel::createBodyLayer);
+        EntityModelLayerRegistry.register(ModModels.HARE_LAYER_LOCATION, RabbitModel::createBodyLayer);
 
         EntityModelLayerRegistry.register(ModModels.BASS_LAYER_LOCATION, BassModel::createBodyLayer);
         EntityModelLayerRegistry.register(ModModels.CARP_LAYER_LOCATION, CarpModel::createBodyLayer);

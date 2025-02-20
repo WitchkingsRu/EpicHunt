@@ -31,6 +31,7 @@ public class AttributeRegisterEvents {
         EntityAttributeRegistry.register(BEAR_ENTITY, BearEntity::createAttributes);
         EntityAttributeRegistry.register(WOLF_ENTITY, WolfEntity::createAttributes);
         EntityAttributeRegistry.register(BEAVER_ENTITY, BeaverEntity::createAttributes);
+        EntityAttributeRegistry.register(HARE_ENTITY, HareEntity::createAttributes);
         
         EntityAttributeRegistry.register(BASS_ENTITY, BassEntity::createAttributes);
         EntityAttributeRegistry.register(CARP_ENTITY, CarpEntity::createAttributes);

@@ -77,6 +77,9 @@ public class ModItem {
     public static final RegistrySupplier<Item> BEAVER_SPAWN_EGG = ITEMS.register("beaver_spawn_egg", () -> new SpawnEggItem(BeaverEntity.BEAVER.get(),0x3D3D3D, 0x312616,
             new Item.Properties()));
 
+    public static final RegistrySupplier<Item> HARE_SPAWN_EGG = ITEMS.register("hare_spawn_egg", () -> new SpawnEggItem(HareEntity.HARE.get(),0xAE9D86, 0x6C5F4B,
+            new Item.Properties()));
+
 
     public static final RegistrySupplier<Item> STURGEON_SPAWN_EGG = ITEMS.register("sturgeon_spawn_egg", () -> new SpawnEggItem(SturgeonEntity.STURGEON.get(),0x3F3737, 0xDDD9DB,
             new Item.Properties()));
