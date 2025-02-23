@@ -6,7 +6,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import static net.epichunt.entity.ModEntities.renderRegistry;
-import static net.epichunt.entity.client.ModModels.registerLayers;
+import static net.epichunt.client.ModModels.registerLayers;
 
 public class EpicHuntClient {
     private static final Logger LOGGER = LogManager.getLogger("EpicHunt");

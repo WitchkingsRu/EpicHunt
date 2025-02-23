@@ -3,6 +3,7 @@ package net.epichunt.item;
 import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
 import net.epichunt.EpicHunt;
+import net.epichunt.block.ModBlock;
 import net.epichunt.entity.ModEntities;
 import net.epichunt.entity.animals.*;
 import net.epichunt.entity.animals.fish.*;
@@ -236,4 +237,10 @@ public class ModItem {
     public static final RegistrySupplier<Item> GOOSE_EGG = ITEMS.register("goose_egg", () -> new GooseEggItem(new Item.Properties().stacksTo(16)));
     public static final RegistrySupplier<Item> PHEASANT_EGG = ITEMS.register("pheasant_egg", () -> new PheasantEggItem(new Item.Properties().stacksTo(16)));
     public static final RegistrySupplier<Item> QUAIL_EGG = ITEMS.register("quail_egg", () -> new QuailEggItem(new Item.Properties().stacksTo(16)));
+
+    public static final RegistrySupplier<Item> TEST_BLOCK_ITEM = ITEMS.register("small_antlers", () ->
+            new BlockItem(ModBlock.SMALL_ANTLERS.get(), new Item.Properties()));
+
+
+
 }

@@ -3,7 +3,7 @@ package net.epichunt.entity.client.render;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.epichunt.entity.animals.YakEntity;
-import net.epichunt.entity.client.ModModels;
+import net.epichunt.client.ModModels;
 import net.epichunt.entity.client.model.YakModel;
 import net.epichunt.item.YakCarpetItem;
 import net.fabricmc.api.EnvType;

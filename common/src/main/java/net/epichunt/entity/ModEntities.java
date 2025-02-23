@@ -2,12 +2,17 @@ package net.epichunt.entity;
 
 import com.google.common.base.Predicate;
 import com.google.common.base.Suppliers;
+import com.mojang.datafixers.types.Type;
 import dev.architectury.registry.client.level.entity.EntityRendererRegistry;
+import dev.architectury.registry.client.rendering.BlockEntityRendererRegistry;
 import dev.architectury.registry.level.biome.BiomeModifications;
 import dev.architectury.registry.level.entity.SpawnPlacementsRegistry;
 import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
 import net.epichunt.EpicHunt;
+import net.epichunt.block.AbstractAntlersBlockEntity;
+import net.epichunt.block.ModBlock;
+import net.epichunt.client.render.block.SmallAntlersRender;
 import net.epichunt.entity.animals.*;
 import net.epichunt.entity.animals.fish.*;
 import net.epichunt.entity.client.render.*;
@@ -15,27 +20,38 @@ import net.epichunt.item.ThrownDuckEgg;
 import net.epichunt.item.ThrownGooseEgg;
 import net.epichunt.item.ThrownPheasantEgg;
 import net.epichunt.item.ThrownQuailEgg;
+import net.minecraft.Util;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.minecraft.core.Holder;
+import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.tags.BiomeTags;
+import net.minecraft.util.datafix.fixes.References;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.entity.SpawnPlacements;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.projectile.ThrownEgg;
 import net.minecraft.world.level.biome.Biome;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.block.entity.FurnaceBlockEntity;
 import net.minecraft.world.level.levelgen.Heightmap;
 import dev.architectury.registry.level.biome.BiomeModifications;
 import net.minecraft.world.level.biome.MobSpawnSettings;
 
 import java.util.function.Supplier;
 
+import static com.mojang.text2speech.Narrator.LOGGER;
+import static net.epichunt.block.ModBlock.SMALL_ANTLERS;
 
 
 public class ModEntities {
     public static final DeferredRegister<EntityType<?>> ENTITY_TYPES = DeferredRegister.create(EpicHunt.MOD_ID, Registries.ENTITY_TYPE);
+    public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITY_TYPES = DeferredRegister.create(EpicHunt.MOD_ID, Registries.BLOCK_ENTITY_TYPE);
 
     public static final RegistrySupplier<EntityType<DeerEntity>> DEER_ENTITY = ENTITY_TYPES.register("deer", DeerEntity.DEER);
     public static final RegistrySupplier<EntityType<DoeEntity>> DOE_ENTITY = ENTITY_TYPES.register("doe", DoeEntity.DOE);
@@ -84,6 +100,8 @@ public class ModEntities {
     public static final RegistrySupplier<EntityType<TroutEntity>> TROUT_ENTITY = ENTITY_TYPES.register("trout", TroutEntity.TROUT);
     public static final RegistrySupplier<EntityType<ZanderEntity>> ZANDER_ENTITY = ENTITY_TYPES.register("zander", ZanderEntity.ZANDER);
 
+    public static final RegistrySupplier<BlockEntityType<AbstractAntlersBlockEntity>> SMALL_ANTLERS = BLOCK_ENTITY_TYPES.register("small_antlers", () -> BlockEntityType.Builder.of(AbstractAntlersBlockEntity::new, ModBlock.SMALL_ANTLERS.get()).build(null));
+
 
     public static void renderRegistry() {
         EntityRendererRegistry.register(DEER_ENTITY, DeerRender::new);
@@ -127,5 +145,8 @@ public class ModEntities {
         EntityRendererRegistry.register(STURGEON_ENTITY, SturgeonRender::new);
         EntityRendererRegistry.register(TROUT_ENTITY, TroutRender::new);
         EntityRendererRegistry.register(ZANDER_ENTITY, ZanderRender::new);
+
+        BlockEntityRendererRegistry.register(SMALL_ANTLERS.get(), SmallAntlersRender::new);
     }
+
 }

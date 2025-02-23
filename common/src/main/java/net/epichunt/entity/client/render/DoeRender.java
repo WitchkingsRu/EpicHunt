@@ -2,25 +2,15 @@ package net.epichunt.entity.client.render;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.epichunt.EpicHunt;
-import net.epichunt.entity.animals.DeerEntity;
 import net.epichunt.entity.animals.DoeEntity;
-import net.epichunt.entity.client.ModModels;
-import net.epichunt.entity.client.model.DeerModel;
+import net.epichunt.client.ModModels;
 import net.epichunt.entity.client.model.DoeModel;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.resources.ResourceLocation;
-import com.mojang.blaze3d.vertex.PoseStack;
-import net.epichunt.EpicHunt;
-import net.epichunt.entity.animals.DeerEntity;
-import net.epichunt.entity.client.model.DeerModel;
-import net.epichunt.entity.client.ModModels;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.minecraft.client.renderer.MultiBufferSource;
-import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
-import net.minecraft.resources.ResourceLocation;
 
 @Environment(EnvType.CLIENT)
 public class DoeRender extends MobRenderer<DoeEntity, DoeModel<DoeEntity>> {

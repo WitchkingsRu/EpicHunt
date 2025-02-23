@@ -2,10 +2,8 @@ package net.epichunt.entity.client.render;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.epichunt.EpicHunt;
-import net.epichunt.entity.animals.BadgerEntity;
 import net.epichunt.entity.animals.BoarEntity;
-import net.epichunt.entity.client.ModModels;
-import net.epichunt.entity.client.model.BadgerModel;
+import net.epichunt.client.ModModels;
 import net.epichunt.entity.client.model.BoarModel;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;

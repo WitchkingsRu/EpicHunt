@@ -3,7 +3,7 @@ package net.epichunt.entity.client.render;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.epichunt.EpicHunt;
 import net.epichunt.entity.animals.BeaverEntity;
-import net.epichunt.entity.client.ModModels;
+import net.epichunt.client.ModModels;
 import net.epichunt.entity.client.model.BeaverModel;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;

@@ -1,9 +1,11 @@
-package net.epichunt.entity.client;
+package net.epichunt.client;
 
 import dev.architectury.platform.Mod;
 import dev.architectury.registry.client.level.entity.EntityModelLayerRegistry;
-import dev.architectury.registry.client.level.entity.EntityRendererRegistry;
+import dev.architectury.registry.client.rendering.BlockEntityRendererRegistry;
 import net.epichunt.EpicHunt;
+import net.epichunt.block.AbstractAntlersBlock;
+import net.epichunt.client.model.block.SmallAntlersModel;
 import net.epichunt.entity.client.model.*;
 import net.minecraft.client.model.OcelotModel;
 import net.minecraft.client.model.PolarBearModel;
@@ -12,6 +14,7 @@ import net.minecraft.client.model.RabbitModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.builders.CubeDeformation;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
+import net.minecraft.client.renderer.block.model.BlockModelDefinition;
 import net.minecraft.resources.ResourceLocation;
 
 public class ModModels {
@@ -63,6 +66,10 @@ public class ModModels {
     public static final ModelLayerLocation ZANDER_LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(EpicHunt.MOD_ID, "zander"), "main");
 
 
+    public static final ModelLayerLocation SMALL_ANTLERS_LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(EpicHunt.MOD_ID, "small_antlers"), "main");
+
+
+
 
     public static void registerLayers() {
         EntityModelLayerRegistry.register(ModModels.DEER_LAYER_LOCATION, DeerModel::createBodyLayer);
@@ -103,7 +110,8 @@ public class ModModels {
         EntityModelLayerRegistry.register(ModModels.STURGEON_LAYER_LOCATION, SturgeonModel::createBodyLayer);
         EntityModelLayerRegistry.register(ModModels.TROUT_LAYER_LOCATION, TroutModel::createBodyLayer);
         EntityModelLayerRegistry.register(ModModels.ZANDER_LAYER_LOCATION, ZanderModel::createBodyLayer);
-        
+
+        EntityModelLayerRegistry.register(ModModels.SMALL_ANTLERS_LAYER_LOCATION, SmallAntlersModel::createBodyLayer);
     }
 
 }
