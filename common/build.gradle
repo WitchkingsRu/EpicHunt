@@ -5,6 +5,14 @@ architectury {
 repositories {
     maven { url 'https://maven.shedaniel.me/' }
     maven { url = 'https://maven.minecraftforge.net/' }
+
+}
+
+loom {
+    def at = file("src/main/resources/${archives_name}.accesswidener")
+    if(at.exists()){
+        accessWidenerPath.set(at)
+    }
 }
 
 dependencies {

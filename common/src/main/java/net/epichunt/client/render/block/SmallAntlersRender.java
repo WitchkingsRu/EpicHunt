@@ -51,8 +51,8 @@ public class SmallAntlersRender implements BlockEntityRenderer<AbstractAntlersBl
     public void render(AbstractAntlersBlockEntity blockEntity, float f, PoseStack poseStack, MultiBufferSource multiBufferSource, int i, int j) {
         BlockState blockstate = blockEntity.getBlockState();
         boolean flag = blockstate.getBlock() instanceof AbstractWallAntlersBlock;
-        Direction direction = flag ? (Direction)blockstate.getValue(AbstractWallAntlersBlock.FACING) : null;
-        int g = flag ? RotationSegment.convertToSegment(direction.getOpposite()) : (Integer)blockstate.getValue(AbstractAntlersBlock.ROTATION);
+        Direction direction = flag ? blockstate.getValue(AbstractWallAntlersBlock.FACING) : null;
+        int g = flag ? RotationSegment.convertToSegment(direction.getOpposite()) : blockstate.getValue(AbstractAntlersBlock.ROTATION);
         float f1 = RotationSegment.convertToDegrees(g);
         RenderType rendertype = RenderType.entityCutoutNoCullZOffset(SMALL_ANTLERS_LOCATION);
         renderAntlers(direction, f1, f, poseStack, multiBufferSource, j, base, rendertype);

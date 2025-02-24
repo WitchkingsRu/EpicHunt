@@ -1,11 +1,9 @@
 package net.epichunt.block;
 
 import com.mojang.logging.LogUtils;
-import dev.architectury.registry.client.rendering.BlockEntityRendererRegistry;
 import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
 import net.epichunt.EpicHunt;
-import net.epichunt.client.render.block.SmallAntlersRender;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import org.slf4j.Logger;
@@ -17,7 +15,6 @@ public class ModBlockEntities {
 
     public static void init() {
         BLOCK_ENTITY_TYPES.register();
-
     }
 
 

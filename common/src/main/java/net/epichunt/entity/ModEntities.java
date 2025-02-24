@@ -1,55 +1,16 @@
 package net.epichunt.entity;
 
-import com.google.common.base.Predicate;
-import com.google.common.base.Suppliers;
-import com.mojang.datafixers.types.Type;
-import dev.architectury.registry.client.level.entity.EntityRendererRegistry;
-import dev.architectury.registry.client.rendering.BlockEntityRendererRegistry;
-import dev.architectury.registry.level.biome.BiomeModifications;
-import dev.architectury.registry.level.entity.SpawnPlacementsRegistry;
 import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
 import net.epichunt.EpicHunt;
-import net.epichunt.block.AbstractAntlersBlockEntity;
-import net.epichunt.block.ModBlock;
-import net.epichunt.block.ModBlockEntities;
-import net.epichunt.client.render.block.SmallAntlersRender;
 import net.epichunt.entity.animals.*;
 import net.epichunt.entity.animals.fish.*;
-import net.epichunt.entity.client.render.*;
 import net.epichunt.item.ThrownDuckEgg;
 import net.epichunt.item.ThrownGooseEgg;
 import net.epichunt.item.ThrownPheasantEgg;
 import net.epichunt.item.ThrownQuailEgg;
-import net.minecraft.Util;
-import net.minecraft.client.renderer.entity.EntityRenderer;
-import net.minecraft.client.renderer.entity.ThrownItemRenderer;
-import net.minecraft.core.Holder;
-import net.minecraft.core.Registry;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
-import net.minecraft.tags.BiomeTags;
-import net.minecraft.util.datafix.fixes.References;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.MobCategory;
-import net.minecraft.world.entity.SpawnPlacements;
-import net.minecraft.world.entity.animal.Animal;
-import net.minecraft.world.entity.projectile.ThrownEgg;
-import net.minecraft.world.level.biome.Biome;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.block.entity.BlockEntityType;
-import net.minecraft.world.level.block.entity.FurnaceBlockEntity;
-import net.minecraft.world.level.levelgen.Heightmap;
-import dev.architectury.registry.level.biome.BiomeModifications;
-import net.minecraft.world.level.biome.MobSpawnSettings;
-
-import java.util.function.Supplier;
-
-import static com.mojang.text2speech.Narrator.LOGGER;
-import static net.epichunt.block.ModBlock.SMALL_ANTLERS;
-import static net.epichunt.block.ModBlockEntities.SMALL_ANTLERS_ENTITY;
-
 
 public class ModEntities {
     public static final DeferredRegister<EntityType<?>> ENTITY_TYPES = DeferredRegister.create(EpicHunt.MOD_ID, Registries.ENTITY_TYPE);
@@ -102,53 +63,4 @@ public class ModEntities {
     public static final RegistrySupplier<EntityType<ZanderEntity>> ZANDER_ENTITY = ENTITY_TYPES.register("zander", ZanderEntity.ZANDER);
 
 
-
-    public static void renderRegistry() {
-        EntityRendererRegistry.register(DEER_ENTITY, DeerRender::new);
-        EntityRendererRegistry.register(DOE_ENTITY, DoeRender::new);
-        EntityRendererRegistry.register(CARIBOU_ENTITY, CaribouRender::new);
-        EntityRendererRegistry.register(ROE_DEER_ENTITY, RoeDeerRender::new);
-        EntityRendererRegistry.register(DUCK_ENTITY, DuckRender::new);
-        EntityRendererRegistry.register(DRAKE_ENTITY, DrakeRender::new);
-        EntityRendererRegistry.register(THROWN_DUCK_EGG, ThrownItemRenderer::new);
-        EntityRendererRegistry.register(GOOSE_ENTITY, GooseRender::new);
-        EntityRendererRegistry.register(THROWN_GOOSE_EGG, ThrownItemRenderer::new);
-        EntityRendererRegistry.register(PHEASANT_ENTITY, PheasantRender::new);
-        EntityRendererRegistry.register(THROWN_PHEASANT_EGG, ThrownItemRenderer::new);
-        EntityRendererRegistry.register(QUAIL_ENTITY, QuailRender::new);
-        EntityRendererRegistry.register(THROWN_QUAIL_EGG, ThrownItemRenderer::new);
-        EntityRendererRegistry.register(YAK_ENTITY, YakRender::new);
-        EntityRendererRegistry.register(HIGHLAND_COW_ENTITY, HighlandCowRender::new);
-        EntityRendererRegistry.register(WISENT_ENTITY, WisentRender::new);
-        EntityRendererRegistry.register(GOAT_ENTITY, GoatRender::new);
-        EntityRendererRegistry.register(MOOSE_ENTITY, MooseRender::new);
-        EntityRendererRegistry.register(BADGER_ENTITY, BadgerRender::new);
-        EntityRendererRegistry.register(BOAR_ENTITY, BoarRender::new);
-        EntityRendererRegistry.register(LYNX_ENTITY, LynxRender::new);
-        EntityRendererRegistry.register(BEAR_ENTITY, BearRender::new);
-        EntityRendererRegistry.register(WOLF_ENTITY, WolfRender::new);
-        EntityRendererRegistry.register(BEAVER_ENTITY, BeaverRender::new);
-        EntityRendererRegistry.register(HARE_ENTITY, HareRender::new);
-
-        EntityRendererRegistry.register(BASS_ENTITY, BassRender::new);
-        EntityRendererRegistry.register(CARP_ENTITY, CarpRender::new);
-        EntityRendererRegistry.register(CATFISH_ENTITY, CatfishRender::new);
-        EntityRendererRegistry.register(EEL_ENTITY, EelRender::new);
-        EntityRendererRegistry.register(HALIBUT_ENTITY, HalibutRender::new);
-        EntityRendererRegistry.register(HERRING_ENTITY, HerringRender::new);
-        EntityRendererRegistry.register(MACKEREL_ENTITY, MackerelRender::new);
-        EntityRendererRegistry.register(PERCHES_ENTITY, PerchesRender::new);
-        EntityRendererRegistry.register(PIKEFISH_ENTITY, PikefishRender::new);
-        EntityRendererRegistry.register(POLLOCK_ENTITY, PollockRender::new);
-        EntityRendererRegistry.register(ROACH_ENTITY, RoachRender::new);
-        EntityRendererRegistry.register(SARDINE_ENTITY, SardineRender::new);
-        EntityRendererRegistry.register(STURGEON_ENTITY, SturgeonRender::new);
-        EntityRendererRegistry.register(TROUT_ENTITY, TroutRender::new);
-        EntityRendererRegistry.register(ZANDER_ENTITY, ZanderRender::new);
-
-//
-    }
-    public static void blockEntityRender() {
-        BlockEntityRendererRegistry.register(ModBlockEntities.SMALL_ANTLERS_ENTITY.get(), SmallAntlersRender::new);
-    }
 }

@@ -17,8 +17,9 @@ public class EpicHuntForge {
     public EpicHuntForge() {
         EventBuses.registerModEventBus(EpicHunt.MOD_ID, FMLJavaModLoadingContext.get().getModEventBus());
         EpicHunt.init();
-        if (Platform.getEnv() == Dist.CLIENT)
-            EpicHuntClient.clientInit();
+        if (Platform.getEnv() == Dist.CLIENT) {
+            EpicHuntClientForge.init(FMLJavaModLoadingContext.get().getModEventBus());
+        }
         EpicHunt.spawnInit();
     }
 

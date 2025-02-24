@@ -3,13 +3,11 @@ package net.epichunt;
 import com.mojang.logging.LogUtils;
 import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.serializer.GsonConfigSerializer;
-import net.epichunt.block.ModBlock;
 import net.epichunt.block.ModBlockEntities;
 import net.epichunt.config.ConfigMain;
 import net.epichunt.entity.MobSpawns;
 import net.epichunt.event.AttributeRegisterEvents;
 import net.epichunt.misc.CreativeTabs;
-import net.minecraft.world.level.block.Blocks;
 import org.slf4j.Logger;
 
 import static net.epichunt.block.ModBlock.BLOCKS;
