@@ -12,6 +12,7 @@ import dev.architectury.registry.registries.RegistrySupplier;
 import net.epichunt.EpicHunt;
 import net.epichunt.block.AbstractAntlersBlockEntity;
 import net.epichunt.block.ModBlock;
+import net.epichunt.block.ModBlockEntities;
 import net.epichunt.client.render.block.SmallAntlersRender;
 import net.epichunt.entity.animals.*;
 import net.epichunt.entity.animals.fish.*;
@@ -47,11 +48,11 @@ import java.util.function.Supplier;
 
 import static com.mojang.text2speech.Narrator.LOGGER;
 import static net.epichunt.block.ModBlock.SMALL_ANTLERS;
+import static net.epichunt.block.ModBlockEntities.SMALL_ANTLERS_ENTITY;
 
 
 public class ModEntities {
     public static final DeferredRegister<EntityType<?>> ENTITY_TYPES = DeferredRegister.create(EpicHunt.MOD_ID, Registries.ENTITY_TYPE);
-    public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITY_TYPES = DeferredRegister.create(EpicHunt.MOD_ID, Registries.BLOCK_ENTITY_TYPE);
 
     public static final RegistrySupplier<EntityType<DeerEntity>> DEER_ENTITY = ENTITY_TYPES.register("deer", DeerEntity.DEER);
     public static final RegistrySupplier<EntityType<DoeEntity>> DOE_ENTITY = ENTITY_TYPES.register("doe", DoeEntity.DOE);
@@ -100,7 +101,6 @@ public class ModEntities {
     public static final RegistrySupplier<EntityType<TroutEntity>> TROUT_ENTITY = ENTITY_TYPES.register("trout", TroutEntity.TROUT);
     public static final RegistrySupplier<EntityType<ZanderEntity>> ZANDER_ENTITY = ENTITY_TYPES.register("zander", ZanderEntity.ZANDER);
 
-    public static final RegistrySupplier<BlockEntityType<AbstractAntlersBlockEntity>> SMALL_ANTLERS = BLOCK_ENTITY_TYPES.register("small_antlers", () -> BlockEntityType.Builder.of(AbstractAntlersBlockEntity::new, ModBlock.SMALL_ANTLERS.get()).build(null));
 
 
     public static void renderRegistry() {
@@ -146,7 +146,9 @@ public class ModEntities {
         EntityRendererRegistry.register(TROUT_ENTITY, TroutRender::new);
         EntityRendererRegistry.register(ZANDER_ENTITY, ZanderRender::new);
 
-        BlockEntityRendererRegistry.register(SMALL_ANTLERS.get(), SmallAntlersRender::new);
+//
     }
-
+    public static void blockEntityRender() {
+        BlockEntityRendererRegistry.register(ModBlockEntities.SMALL_ANTLERS_ENTITY.get(), SmallAntlersRender::new);
+    }
 }

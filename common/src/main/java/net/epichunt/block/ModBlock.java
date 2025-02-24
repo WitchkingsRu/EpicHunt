@@ -30,5 +30,4 @@ public class ModBlock {
             new AbstractAntlersBlock(AbstractAntlersBlock.Types.ROE_DEER, BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.SNARE).strength(1.0F).pushReaction(PushReaction.DESTROY)));
 
 
-
 }
