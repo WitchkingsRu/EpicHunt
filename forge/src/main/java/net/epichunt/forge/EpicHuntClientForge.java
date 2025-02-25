@@ -25,6 +25,6 @@ public class EpicHuntClientForge {
 
     static void renderers(EntityRenderersEvent.RegisterRenderers event) {
         ModModels.renderRegistry();
-       // ModModels.blockEntityRender();
+        ModModels.blockEntityRender();
     }
 }

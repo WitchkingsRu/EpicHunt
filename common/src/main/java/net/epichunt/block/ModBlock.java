@@ -7,6 +7,7 @@ import net.epichunt.EpicHunt;
 import net.epichunt.entity.animals.BadgerEntity;
 import net.epichunt.entity.animals.fish.ZanderEntity;
 import net.minecraft.Util;
+import net.minecraft.client.renderer.ItemModelShaper;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
@@ -25,9 +26,11 @@ import net.minecraft.util.datafix.fixes.References;
 import java.util.function.Supplier;
 
 public class ModBlock {
+
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(EpicHunt.MOD_ID, Registries.BLOCK);
     public static final RegistrySupplier<Block> SMALL_ANTLERS = BLOCKS.register("small_antlers", () ->
-            new AbstractAntlersBlock(AbstractAntlersBlock.Types.ROE_DEER, BlockBehaviour.Properties.of().instrument(NoteBlockInstrument.SNARE).strength(1.0F).pushReaction(PushReaction.DESTROY)));
+            new AbstractAntlersBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).pushReaction(PushReaction.DESTROY)));
+
 
 
 }

@@ -1,5 +1,6 @@
 package net.epichunt.item;
 
+import dev.architectury.registry.item.ItemPropertiesRegistry;
 import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
 import net.epichunt.EpicHunt;
@@ -238,8 +239,9 @@ public class ModItem {
     public static final RegistrySupplier<Item> PHEASANT_EGG = ITEMS.register("pheasant_egg", () -> new PheasantEggItem(new Item.Properties().stacksTo(16)));
     public static final RegistrySupplier<Item> QUAIL_EGG = ITEMS.register("quail_egg", () -> new QuailEggItem(new Item.Properties().stacksTo(16)));
 
-    public static final RegistrySupplier<Item> TEST_BLOCK_ITEM = ITEMS.register("small_antlers", () ->
+    public static final RegistrySupplier<Item> SMALL_ANTLERS_BLOCK = ITEMS.register("small_antlers", () ->
             new BlockItem(ModBlock.SMALL_ANTLERS.get(), new Item.Properties()));
+
 
 
 

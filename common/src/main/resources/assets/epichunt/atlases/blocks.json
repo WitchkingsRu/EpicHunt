@@ -1,0 +1,13 @@
+{
+  "sources": [
+    {
+      "type": "single",
+      "resource": "epichunt:block/antlers/small_antlers"
+    },
+    {
+      "type": "directory",
+      "source": "block/antlers",
+      "prefix": "block/antlers/"
+    }
+  ]
+}

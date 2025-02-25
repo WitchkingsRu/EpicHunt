@@ -3,14 +3,18 @@ package net.epichunt.client;
 import dev.architectury.platform.Mod;
 import dev.architectury.registry.client.level.entity.EntityModelLayerRegistry;
 import dev.architectury.registry.client.rendering.BlockEntityRendererRegistry;
+import dev.architectury.registry.item.ItemPropertiesRegistry;
 import net.epichunt.EpicHunt;
 import net.epichunt.block.AbstractAntlersBlock;
 import net.epichunt.block.ModBlockEntities;
 import net.epichunt.client.model.block.SmallAntlersModel;
 import net.epichunt.client.render.block.SmallAntlersRender;
+import net.epichunt.client.render.item.SmallAntlersItemRender;
 import net.epichunt.entity.ModEntities;
 import net.epichunt.entity.client.model.*;
 import net.epichunt.entity.client.render.*;
+import net.epichunt.item.ModItem;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.OcelotModel;
 import net.minecraft.client.model.PolarBearModel;
 import net.epichunt.entity.client.model.WolfModel;
@@ -18,11 +22,20 @@ import net.minecraft.client.model.RabbitModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.builders.CubeDeformation;
 import net.minecraft.client.model.geom.builders.LayerDefinition;
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
+import net.minecraft.client.renderer.ItemModelShaper;
 import net.minecraft.client.renderer.block.model.BlockModelDefinition;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.minecraft.client.renderer.entity.EntityRenderers;
+import net.minecraft.client.renderer.entity.ItemEntityRenderer;
+import net.minecraft.client.renderer.entity.ItemRenderer;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
+import net.minecraft.client.renderer.item.ItemProperties;
+import net.minecraft.data.models.ItemModelGenerators;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
+import net.minecraft.client.renderer.blockentity.BlockEntityRenderDispatcher;
+import net.minecraft.client.model.geom.EntityModelSet;
 
 import java.util.function.BiConsumer;
 import java.util.function.Supplier;
@@ -166,6 +179,7 @@ public class ModModels {
         EntityRenderers.register(ModEntities.STURGEON_ENTITY.get(), SturgeonRender::new);
         EntityRenderers.register(ModEntities.TROUT_ENTITY.get(), TroutRender::new);
         EntityRenderers.register(ModEntities.ZANDER_ENTITY.get(), ZanderRender::new);
+
     }
 
     public static void blockEntityRender() {

@@ -1,0 +1,23 @@
+{
+  "parent": "builtin/entity",
+  "textures": {
+    "particle": "epichunt:block/antlers/antlers_small",
+    "head": "epichunt:block/antlers/antlers_small",
+    "inventory": "epichunt:block/antlers/antlers_small"
+  },
+  "elements": [
+    {
+      "name": "head",
+      "from": [4, 0, 4],
+      "to": [12, 8, 12],
+      "faces": {
+        "north": {"texture": "#head"},
+        "south": {"texture": "#head"},
+        "west": {"texture": "#head"},
+        "east": {"texture": "#head"},
+        "up": {"texture": "#head"},
+        "down": {"texture": "#head"}
+      }
+    }
+  ]
+}

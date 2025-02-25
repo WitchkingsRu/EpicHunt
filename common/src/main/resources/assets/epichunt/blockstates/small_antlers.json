@@ -1,0 +1,52 @@
+{
+  "variants": {
+    "rotation=0": {
+      "model": "epichunt:block/small_antlers"
+    },
+    "rotation=1": {
+      "model": "epichunt:block/small_antlers"
+    },
+    "rotation=2": {
+      "model": "epichunt:block/small_antlers"
+    },
+    "rotation=3": {
+      "model": "epichunt:block/small_antlers"
+    },
+    "rotation=4": {
+      "model": "epichunt:block/small_antlers"
+    },
+    "rotation=5": {
+      "model": "epichunt:block/small_antlers"
+    },
+    "rotation=6": {
+      "model": "epichunt:block/small_antlers"
+    },
+    "rotation=7": {
+      "model": "epichunt:block/small_antlers"
+    },
+    "rotation=8": {
+      "model": "epichunt:block/small_antlers"
+    },
+    "rotation=9": {
+      "model": "epichunt:block/small_antlers"
+    },
+    "rotation=10": {
+      "model": "epichunt:block/small_antlers"
+    },
+    "rotation=11": {
+      "model": "epichunt:block/small_antlers"
+    },
+    "rotation=12": {
+      "model": "epichunt:block/small_antlers"
+    },
+    "rotation=13": {
+      "model": "epichunt:block/small_antlers"
+    },
+    "rotation=14": {
+      "model": "epichunt:block/small_antlers"
+    },
+    "rotation=15": {
+      "model": "epichunt:block/small_antlers"
+    }
+  }
+}

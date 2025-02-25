@@ -8,6 +8,7 @@ import net.epichunt.config.ConfigMain;
 import net.epichunt.entity.MobSpawns;
 import net.epichunt.event.AttributeRegisterEvents;
 import net.epichunt.misc.CreativeTabs;
+import net.minecraft.client.renderer.ItemModelShaper;
 import org.slf4j.Logger;
 
 import static net.epichunt.block.ModBlock.BLOCKS;
@@ -34,6 +35,7 @@ public class EpicHunt {
         TABS.register();
         CreativeTabs.init();
         AttributeRegisterEvents.init();
+
     }
     public static void spawnInit() {
         MobSpawns.spawnsInit(CONFIG);
