@@ -242,6 +242,12 @@ public class ModItem {
     public static final RegistrySupplier<Item> SMALL_ANTLERS_BLOCK = ITEMS.register("small_antlers", () ->
             new BlockItem(ModBlock.SMALL_ANTLERS.get(), new Item.Properties()));
 
+    public static final RegistrySupplier<Item> MEDIUM_ANTLERS_BLOCK = ITEMS.register("medium_antlers", () ->
+            new BlockItem(ModBlock.MEDIUM_ANTLERS.get(), new Item.Properties()));
+
+    public static final RegistrySupplier<Item> LARGE_ANTLERS_BLOCK = ITEMS.register("large_antlers", () ->
+            new BlockItem(ModBlock.LARGE_ANTLERS.get(), new Item.Properties()));
+
 
 
 
