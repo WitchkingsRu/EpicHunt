@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "epichunt:item/sardine_bucket"
+    "layer0": "epichunt:item/medium_antlers"
   }
 }

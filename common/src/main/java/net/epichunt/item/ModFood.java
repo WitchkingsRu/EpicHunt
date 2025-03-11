@@ -46,6 +46,27 @@ public class ModFood {
     public static final FoodProperties COOKED_BADGER = new FoodProperties.Builder().meat().nutrition(4).saturationMod(0.4f)
             .build();
 
+    public static final FoodProperties BEAVER = (new FoodProperties.Builder()).nutrition(2).saturationMod(0.3F).effect(new MobEffectInstance(MobEffects.HUNGER, 600, 0), 0.3F).meat().build();
+
+    public static final FoodProperties COOKED_BEAVER = new FoodProperties.Builder().meat().nutrition(4).saturationMod(0.4f)
+            .build();
+
+    public static final FoodProperties EQUINE = (new FoodProperties.Builder()).nutrition(2).saturationMod(0.3F).meat().build();
+
+    public static final FoodProperties COOKED_EQUINE = new FoodProperties.Builder().meat().nutrition(6).saturationMod(0.8f)
+            .build();
+
+    public static final FoodProperties LLAMA = (new FoodProperties.Builder()).nutrition(2).saturationMod(0.3F).meat().build();
+
+    public static final FoodProperties COOKED_LLAMA = new FoodProperties.Builder().meat().nutrition(6).saturationMod(0.8f)
+            .build();
+
+    public static final FoodProperties CAMEL = (new FoodProperties.Builder()).nutrition(2).saturationMod(0.3F).meat().build();
+
+    public static final FoodProperties COOKED_CAMEL = new FoodProperties.Builder().meat().nutrition(6).saturationMod(0.8f)
+            .build();
+
+
     public static final FoodProperties BASS = (new FoodProperties.Builder()).nutrition(2).saturationMod(0.3F).meat().build();
 
     public static final FoodProperties COOKED_BASS = new FoodProperties.Builder().meat().nutrition(5).saturationMod(0.5f)
@@ -106,19 +127,25 @@ public class ModFood {
     public static final FoodProperties COOKED_ZANDER = new FoodProperties.Builder().meat().nutrition(5).saturationMod(0.5f)
             .build();
 
-    public static final FoodProperties STURGEON = (new FoodProperties.Builder()).nutrition(1).saturationMod(0.4F).meat().build();
+    public static final FoodProperties STURGEON = (new FoodProperties.Builder()).nutrition(1).saturationMod(0.4F).fast().meat().build();
 
-    public static final FoodProperties COOKED_STURGEON = new FoodProperties.Builder().meat().nutrition(2).saturationMod(0.7f)
+    public static final FoodProperties COOKED_STURGEON = new FoodProperties.Builder().fast().meat().nutrition(2).saturationMod(0.7f)
             .build();
 
-    public static final FoodProperties CATFISH = (new FoodProperties.Builder()).nutrition(1).saturationMod(0.4F).meat().build();
+    public static final FoodProperties CATFISH = (new FoodProperties.Builder()).nutrition(1).saturationMod(0.4F).fast().meat().build();
 
-    public static final FoodProperties COOKED_CATFISH = new FoodProperties.Builder().meat().nutrition(2).saturationMod(0.7f)
+    public static final FoodProperties COOKED_CATFISH = new FoodProperties.Builder().fast().meat().nutrition(2).saturationMod(0.7f)
             .build();
 
     public static final FoodProperties EEL = (new FoodProperties.Builder()).nutrition(2).saturationMod(0.3F).meat().build();
 
     public static final FoodProperties COOKED_EEL = new FoodProperties.Builder().meat().nutrition(5).saturationMod(0.5f)
             .build();
+
+    public static final FoodProperties CALAMARI = (new FoodProperties.Builder()).nutrition(2).saturationMod(0.3F).effect(new MobEffectInstance(MobEffects.HUNGER, 600, 0), 0.3F).meat().build();
+
+    public static final FoodProperties COOKED_CALAMARI = new FoodProperties.Builder().meat().nutrition(4).saturationMod(0.6f)
+            .build();
+
 }
 

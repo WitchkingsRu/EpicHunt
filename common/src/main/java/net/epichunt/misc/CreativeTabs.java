@@ -17,6 +17,8 @@ public class CreativeTabs {
     public static final ResourceKey<CreativeModeTab> FOOD_RESOURCE_KEY = CreativeModeTabs.FOOD_AND_DRINKS;
     public static final ResourceKey<CreativeModeTab> COMBAT_RESOURCE_KEY = CreativeModeTabs.COMBAT;
     public static final ResourceKey<CreativeModeTab> TOOLS_RESOURCE_KEY = CreativeModeTabs.TOOLS_AND_UTILITIES;
+    public static final ResourceKey<CreativeModeTab> NATURAL_RESOURCE_KEY = CreativeModeTabs.NATURAL_BLOCKS;
+    public static final ResourceKey<CreativeModeTab> INGREDIENTS_RESOURCE_KEY = CreativeModeTabs.INGREDIENTS;
     public static void init() {
         CreativeTabRegistry.append(SPAWN_EGGS_RESOURCE_KEY, ModItem.DEER_SPAWN_EGG, ModItem.DOE_SPAWN_EGG,
                 ModItem.CARIBOU_SPAWN_EGG, ModItem.MOOSE_SPAWN_EGG, ModItem.ROE_DEER_SPAWN_EGG, ModItem.DUCK_SPAWN_EGG, ModItem.DRAKE_SPAWN_EGG,
@@ -24,24 +26,29 @@ public class CreativeTabs {
                 ModItem.HIGHLAND_COW_SPAWN_EGG, ModItem.WISENT_SPAWN_EGG, ModItem.WOLF_SPAWN_EGG, ModItem.BOAR_SPAWN_EGG,
                 ModItem.BEAR_SPAWN_EGG, ModItem.BADGER_SPAWN_EGG, ModItem.GOAT_SPAWN_EGG, ModItem.LYNX_SPAWN_EGG, ModItem.BEAVER_SPAWN_EGG,
                 ModItem.HARE_SPAWN_EGG, ModItem.STURGEON_SPAWN_EGG, ModItem.CATFISH_SPAWN_EGG, ModItem.EEL_SPAWN_EGG);
-        CreativeTabRegistry.append(FOOD_RESOURCE_KEY, ModItem.VENISON, ModItem.COOKED_VENISON, ModItem.WOLF, ModItem.COOKED_WOLF,
-                ModItem.BEAR, ModItem.COOKED_BEAR, ModItem.BADGER, ModItem.COOKED_BADGER, ModItem.DUCK,
-                ModItem.COOKED_DUCK, ModItem.GOOSE, ModItem.COOKED_GOOSE, ModItem.PHEASANT, ModItem.COOKED_PHEASANT,
-                ModItem.QUAIL, ModItem.COOKED_QUAIL, ModItem.DUCK_EGG, ModItem.GOOSE_EGG, ModItem.PHEASANT_EGG,
+        CreativeTabRegistry.append(FOOD_RESOURCE_KEY, ModItem.VENISON, ModItem.COOKED_VENISON, ModItem.EQUINE,
+                ModItem.COOKED_EQUINE, ModItem.LLAMA, ModItem.COOKED_LLAMA, ModItem.CAMEL, ModItem.COOKED_CAMEL, ModItem.WOLF,
+                ModItem.COOKED_WOLF, ModItem.BEAR, ModItem.COOKED_BEAR, ModItem.BADGER, ModItem.COOKED_BADGER, ModItem.BEAVER,
+                ModItem.COOKED_BEAVER, ModItem.DUCK, ModItem.COOKED_DUCK, ModItem.GOOSE, ModItem.COOKED_GOOSE, ModItem.PHEASANT,
+                ModItem.COOKED_PHEASANT, ModItem.QUAIL, ModItem.COOKED_QUAIL, ModItem.DUCK_EGG, ModItem.GOOSE_EGG, ModItem.PHEASANT_EGG,
                 ModItem.QUAIL_EGG, ModItem.BASS, ModItem.COOKED_BASS, ModItem.CARP, ModItem.COOKED_CARP,
                 ModItem.HALIBUT, ModItem.COOKED_HALIBUT, ModItem.HERRING, ModItem.COOKED_HERRING, ModItem.MACKEREL,
                 ModItem.COOKED_MACKEREL, ModItem.PERCHES, ModItem.COOKED_PERCHES, ModItem.PIKEFISH, ModItem.COOKED_PIKEFISH,
                 ModItem.POLLOCK, ModItem.COOKED_POLLOCK, ModItem.ROACH, ModItem.COOKED_ROACH, ModItem.SARDINE, ModItem.COOKED_SARDINE,
                 ModItem.TROUT, ModItem.COOKED_TROUT, ModItem.ZANDER, ModItem.COOKED_ZANDER, ModItem.EEL, ModItem.COOKED_EEL,
-                ModItem.STURGEON, ModItem.COOKED_STURGEON, ModItem.CATFISH, ModItem.COOKED_CATFISH);
+                ModItem.STURGEON, ModItem.COOKED_STURGEON, ModItem.CATFISH, ModItem.COOKED_CATFISH, ModItem.CALAMARI, ModItem.COOKED_CALAMARI);
         CreativeTabRegistry.append(COMBAT_RESOURCE_KEY, ModItem.YAK_CARPET_WHITE, ModItem.YAK_CARPET_BLACK, ModItem.YAK_CARPET_BLUE,
                 ModItem.YAK_CARPET_BROWN, ModItem.YAK_CARPET_CYAN, ModItem.YAK_CARPET_GRAY, ModItem.YAK_CARPET_GREEN,
                 ModItem.YAK_CARPET_LIGHT_BLUE, ModItem.YAK_CARPET_LIGHT_GRAY, ModItem.YAK_CARPET_LIME, ModItem.YAK_CARPET_MAGENTA,
                 ModItem.YAK_CARPET_ORANGE, ModItem.YAK_CARPET_PINK, ModItem.YAK_CARPET_PURPLE, ModItem.YAK_CARPET_RED,
-                ModItem.YAK_CARPET_YELLOW, ModItem.YAK_CARPET_VILLAGER);
+                ModItem.YAK_CARPET_YELLOW, ModItem.YAK_CARPET_VILLAGER, ModItem.FANG_NECKLACE, ModItem.CLAW_NECKLACE, ModItem.TUSK_NECKLACE);
         CreativeTabRegistry.append(TOOLS_RESOURCE_KEY, ModItem.BASS_BUCKET, ModItem.CARP_BUCKET, ModItem.HALIBUT_BUCKET,
                 ModItem.HERRING_BUCKET, ModItem.MACKEREL_BUCKET, ModItem.PERCHES_BUCKET, ModItem.PIKEFISH_BUCKET,
                 ModItem.POLLOCK_BUCKET, ModItem.ROACH_BUCKET, ModItem.SARDINE_BUCKET, ModItem.TROUT_BUCKET,
-                ModItem.ZANDER_BUCKET);
+                ModItem.ZANDER_BUCKET, ModItem.BONE_COMB, ModItem.BONE_ROSARY, ModItem.HORN_FLASK, ModItem.ANTLER_SEWING_KIT);
+        CreativeTabRegistry.append(NATURAL_RESOURCE_KEY, ModItem.SMALL_ANTLERS_BLOCK, ModItem.MEDIUM_ANTLERS_BLOCK,
+                ModItem.LARGE_ANTLERS_BLOCK);
+        CreativeTabRegistry.append(INGREDIENTS_RESOURCE_KEY, ModItem.FANG, ModItem.CLAW,
+                ModItem.TUSK, ModItem.HORN);
     }
 }

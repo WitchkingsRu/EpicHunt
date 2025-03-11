@@ -8,10 +8,12 @@ import net.epichunt.block.ModBlock;
 import net.epichunt.entity.ModEntities;
 import net.epichunt.entity.animals.*;
 import net.epichunt.entity.animals.fish.*;
+import net.minecraft.client.color.item.ItemColors;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.*;
+import net.minecraft.world.item.alchemy.PotionUtils;
 import net.minecraft.world.level.material.Fluids;
 
 import java.util.Set;
@@ -125,6 +127,22 @@ public class ModItem {
 
     public static final RegistrySupplier<Item> COOKED_BADGER = ITEMS.register("cooked_badger", ()-> new Item(new Item.Properties().food(ModFood.COOKED_BADGER)));
 
+    public static final RegistrySupplier<Item> BEAVER = ITEMS.register("raw_beaver", ()-> new Item(new Item.Properties().food(ModFood.BEAVER)));
+
+    public static final RegistrySupplier<Item> COOKED_BEAVER = ITEMS.register("cooked_beaver", ()-> new Item(new Item.Properties().food(ModFood.COOKED_BEAVER)));
+
+    public static final RegistrySupplier<Item> EQUINE = ITEMS.register("raw_equine", ()-> new Item(new Item.Properties().food(ModFood.EQUINE)));
+
+    public static final RegistrySupplier<Item> COOKED_EQUINE = ITEMS.register("cooked_equine", ()-> new Item(new Item.Properties().food(ModFood.COOKED_EQUINE)));
+
+    public static final RegistrySupplier<Item> LLAMA = ITEMS.register("raw_llama", ()-> new Item(new Item.Properties().food(ModFood.LLAMA)));
+
+    public static final RegistrySupplier<Item> COOKED_LLAMA = ITEMS.register("cooked_llama", ()-> new Item(new Item.Properties().food(ModFood.COOKED_LLAMA)));
+
+    public static final RegistrySupplier<Item> CAMEL = ITEMS.register("raw_camel", ()-> new Item(new Item.Properties().food(ModFood.CAMEL)));
+
+    public static final RegistrySupplier<Item> COOKED_CAMEL = ITEMS.register("cooked_camel", ()-> new Item(new Item.Properties().food(ModFood.COOKED_CAMEL)));
+
 
 
     public static final RegistrySupplier<Item> BASS = ITEMS.register("raw_bass", ()-> new Item(new Item.Properties().food(ModFood.BASS)));
@@ -187,6 +205,9 @@ public class ModItem {
 
     public static final RegistrySupplier<Item> COOKED_EEL = ITEMS.register("cooked_eel", ()-> new Item(new Item.Properties().food(ModFood.COOKED_EEL)));
 
+    public static final RegistrySupplier<Item> CALAMARI = ITEMS.register("raw_calamari", ()-> new Item(new Item.Properties().food(ModFood.CALAMARI)));
+
+    public static final RegistrySupplier<Item> COOKED_CALAMARI = ITEMS.register("cooked_calamari", ()-> new Item(new Item.Properties().food(ModFood.COOKED_CALAMARI)));
 
 
     public static final RegistrySupplier<Item> BASS_BUCKET = ITEMS.register("bass_bucket", () -> new MobBucketItem(BassEntity.BASS.get(), Fluids.WATER, SoundEvents.BUCKET_EMPTY_FISH, (new Item.Properties()).stacksTo(1)));
@@ -234,6 +255,20 @@ public class ModItem {
     public static final RegistrySupplier<Item> YAK_CARPET_YELLOW = ITEMS.register("yellow_yak_carpet", () -> new YakCarpetItem(0, "yellow_carpet", new Item.Properties().stacksTo(1)));
     public static final RegistrySupplier<Item> YAK_CARPET_VILLAGER = ITEMS.register("villager_yak_carpet", () -> new YakCarpetItem(0, "villager_carpet", new Item.Properties().stacksTo(1)));
 
+    public static final RegistrySupplier<Item> FANG = ITEMS.register("fang", () -> new Item(new Item.Properties()));
+    public static final RegistrySupplier<Item> CLAW = ITEMS.register("claw", () -> new Item(new Item.Properties()));
+    public static final RegistrySupplier<Item> TUSK = ITEMS.register("tusk", () -> new Item(new Item.Properties()));
+    public static final RegistrySupplier<Item> HORN = ITEMS.register("horn", () -> new Item(new Item.Properties()));
+
+    public static final RegistrySupplier<Item> FANG_NECKLACE = ITEMS.register("fang_necklace", () -> new Item(new Item.Properties().stacksTo(1)));
+    public static final RegistrySupplier<Item> CLAW_NECKLACE = ITEMS.register("claw_necklace", () -> new Item(new Item.Properties().stacksTo(1)));
+    public static final RegistrySupplier<Item> TUSK_NECKLACE = ITEMS.register("tusk_necklace", () -> new Item(new Item.Properties().stacksTo(1)));
+    public static final RegistrySupplier<Item> HORN_FLASK = ITEMS.register("horn_flask", () -> new HornFlaskItem(new Item.Properties().stacksTo(1)));
+    public static final RegistrySupplier<Item> FILLED_HORN_FLASK = ITEMS.register("filled_horn_flask", () -> new HornFlaskPotionItem(new Item.Properties().stacksTo(1)));
+    public static final RegistrySupplier<Item> BONE_COMB = ITEMS.register("bone_comb", () -> new Item(new Item.Properties()));
+    public static final RegistrySupplier<Item> BONE_ROSARY = ITEMS.register("bone_rosary", () -> new Item(new Item.Properties()));
+    public static final RegistrySupplier<Item> ANTLER_SEWING_KIT = ITEMS.register("antler_sewing_kit", () -> new Item(new Item.Properties()));
+
     public static final RegistrySupplier<Item> DUCK_EGG = ITEMS.register("duck_egg", () -> new DuckEggItem(new Item.Properties().stacksTo(16)));
     public static final RegistrySupplier<Item> GOOSE_EGG = ITEMS.register("goose_egg", () -> new GooseEggItem(new Item.Properties().stacksTo(16)));
     public static final RegistrySupplier<Item> PHEASANT_EGG = ITEMS.register("pheasant_egg", () -> new PheasantEggItem(new Item.Properties().stacksTo(16)));
@@ -247,7 +282,6 @@ public class ModItem {
 
     public static final RegistrySupplier<Item> LARGE_ANTLERS_BLOCK = ITEMS.register("large_antlers", () ->
             new BlockItem(ModBlock.LARGE_ANTLERS.get(), new Item.Properties()));
-
 
 
 
