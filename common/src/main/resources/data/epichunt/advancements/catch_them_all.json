@@ -4,7 +4,7 @@
       "item": "epichunt:bass_bucket"
     },
     "title": "Catch them all!",
-    "description": "Acquire every fish besides the River Monsters!",
+    "description": "Acquire every fish besides the Water Monsters!",
     "frame": "challenge",
     "show_toast": true,
     "announce_to_chat": true

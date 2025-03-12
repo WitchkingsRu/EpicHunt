@@ -1,0 +1,65 @@
+{
+  "parent": "epichunt:root",
+  "display": {
+    "icon": {
+      "item": "epichunt:raw_eel"
+    },
+    "title": "Water Monsters",
+    "description": "Kill a sturgeon, a catfish and an eel",
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "epichunt:sturgeon": {
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "epichunt:sturgeon"
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:player_killed_entity"
+    },
+    "epichunt:catfish": {
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "epichunt:catfish"
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:player_killed_entity"
+    },
+    "epichunt:eel": {
+      "conditions": {
+        "entity": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "epichunt:eel"
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:player_killed_entity"
+    }
+  },
+  "requirements": [
+    [
+      "epichunt:sturgeon"],
+      ["epichunt:catfish"],
+      ["epichunt:eel"
+    ]
+  ],
+  "sends_telemetry_event": true
+}
