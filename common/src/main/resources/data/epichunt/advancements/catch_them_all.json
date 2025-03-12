@@ -1,0 +1,229 @@
+{
+  "display": {
+    "icon": {
+      "item": "epichunt:bass_bucket"
+    },
+    "title": "Catch them all!",
+    "description": "Acquire every fish besides the River Monsters!",
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "parent": "epichunt:root",
+  "criteria": {
+    "cod_bucket": {
+      "conditions": {
+        "item": {
+          "items": [
+            "minecraft:cod_bucket"
+          ]
+        }
+      },
+      "trigger": "minecraft:filled_bucket"
+    },
+    "pufferfish_bucket": {
+      "conditions": {
+        "item": {
+          "items": [
+            "minecraft:pufferfish_bucket"
+          ]
+        }
+      },
+      "trigger": "minecraft:filled_bucket"
+    },
+    "salmon_bucket": {
+      "conditions": {
+        "item": {
+          "items": [
+            "minecraft:salmon_bucket"
+          ]
+        }
+      },
+      "trigger": "minecraft:filled_bucket"
+    },
+    "tropical_fish_bucket": {
+      "conditions": {
+        "item": {
+          "items": [
+            "minecraft:tropical_fish_bucket"
+          ]
+        }
+      },
+      "trigger": "minecraft:filled_bucket"
+    },
+    "pike_bucket": {
+      "conditions": {
+        "item": {
+          "items": [
+            "epichunt:pikefish_bucket"
+          ]
+        }
+      },
+      "trigger": "minecraft:filled_bucket"
+    },
+    "pollock_bucket": {
+      "conditions": {
+        "item": {
+          "items": [
+            "epichunt:pollock_bucket"
+          ]
+        }
+      },
+      "trigger": "minecraft:filled_bucket"
+    },
+    "herring_bucket": {
+      "conditions": {
+        "item": {
+          "items": [
+            "epichunt:herring_bucket"
+          ]
+        }
+      },
+      "trigger": "minecraft:filled_bucket"
+    },
+    "trout_bucket": {
+      "conditions": {
+        "item": {
+          "items": [
+            "epichunt:trout_bucket"
+          ]
+        }
+      },
+      "trigger": "minecraft:filled_bucket"
+    },
+    "carp_bucket": {
+      "conditions": {
+        "item": {
+          "items": [
+            "epichunt:carp_bucket"
+          ]
+        }
+      },
+      "trigger": "minecraft:filled_bucket"
+    },
+    "bass_bucket": {
+      "conditions": {
+        "item": {
+          "items": [
+            "epichunt:bass_bucket"
+          ]
+        }
+      },
+      "trigger": "minecraft:filled_bucket"
+    },
+    "mackerel_bucket": {
+      "conditions": {
+        "item": {
+          "items": [
+            "epichunt:mackerel_bucket"
+          ]
+        }
+      },
+      "trigger": "minecraft:filled_bucket"
+    },
+    "sardine_bucket": {
+      "conditions": {
+        "item": {
+          "items": [
+            "epichunt:sardine_bucket"
+          ]
+        }
+      },
+      "trigger": "minecraft:filled_bucket"
+    },
+    "perches_bucket": {
+      "conditions": {
+        "item": {
+          "items": [
+            "epichunt:perches_bucket"
+          ]
+        }
+      },
+      "trigger": "minecraft:filled_bucket"
+    },
+    "zander_bucket": {
+      "conditions": {
+        "item": {
+          "items": [
+            "epichunt:zander_bucket"
+          ]
+        }
+      },
+      "trigger": "minecraft:filled_bucket"
+    },
+    "roach_bucket": {
+      "conditions": {
+        "item": {
+          "items": [
+            "epichunt:roach_bucket"
+          ]
+        }
+      },
+      "trigger": "minecraft:filled_bucket"
+    },
+    "halibut_bucket": {
+      "conditions": {
+        "item": {
+          "items": [
+            "epichunt:halibut_bucket"
+          ]
+        }
+      },
+      "trigger": "minecraft:filled_bucket"
+    }
+  },
+  "requirements": [
+      [
+        "cod_bucket"
+      ],
+      [
+        "tropical_fish_bucket"
+      ],
+      [
+        "pufferfish_bucket"
+      ],
+      [
+        "salmon_bucket"
+      ],
+      [
+        "pike_bucket"
+      ],
+      [
+        "pollock_bucket"
+      ],
+      [
+        "herring_bucket"
+      ],
+      [
+        "trout_bucket"
+      ],
+      [
+        "carp_bucket"
+      ],
+      [
+        "bass_bucket"
+      ],
+      [
+        "mackerel_bucket"
+      ],
+      [
+        "sardine_bucket"
+      ],
+      [
+        "perches_bucket"
+      ],
+      [
+        "zander_bucket"
+      ],
+      [
+        "roach_bucket"
+      ],
+      [
+        "halibut_bucket"
+      ]
+  ],
+  "rewards": {
+    "experience": 50
+  },
+  "sends_telemetry_event": true
+}

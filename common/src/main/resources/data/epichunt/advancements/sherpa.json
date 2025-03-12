@@ -1,0 +1,50 @@
+{
+  "parent": "epichunt:root",
+  "criteria": {
+    "carpet": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "epichunt:white_yak_carpet",
+              "epichunt:black_yak_carpet",
+              "epichunt:blue_yak_carpet",
+              "epichunt:brown_yak_carpet",
+              "epichunt:cyan_yak_carpet",
+              "epichunt:gray_yak_carpet",
+              "epichunt:green_yak_carpet",
+              "epichunt:light_blue_yak_carpet",
+              "epichunt:light_gray_yak_carpet",
+              "epichunt:lime_yak_carpet",
+              "epichunt:magenta_yak_carpet",
+              "epichunt:orange_yak_carpet",
+              "epichunt:pink_yak_carpet",
+              "epichunt:purple_yak_carpet",
+              "epichunt:red_yak_carpet",
+              "epichunt:yellow_yak_carpet",
+              "epichunt:villager_yak_carpet"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": "Acquire any of the Yak Carpets to ride Yaks like a true Sherpa",
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "epichunt:villager_yak_carpet"
+    },
+    "show_toast": true,
+    "title": "Sherpa"
+  },
+  "requirements": [
+    [
+      "carpet"
+    ]
+  ],
+  "sends_telemetry_event": true
+}
