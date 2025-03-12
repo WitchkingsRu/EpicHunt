@@ -23,6 +23,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.vehicle.DismountHelper;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.ItemUtils;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
@@ -127,28 +128,44 @@ public class YakEntity extends Animal implements Saddleable {
         ItemStack itemstack = player.getItemInHand(hand);
 
         if (isCarpet(itemstack)) {
-            if (!this.level().isClientSide) { // Серверная логика
+            if (!this.level().isClientSide) {
                 ItemStack oldCarpet = this.getCarpet();
-
-                // Дропаем или передаем старый ковер игроку
                 if (!oldCarpet.isEmpty()) {
                     if (!player.getInventory().add(oldCarpet)) {
                         this.spawnAtLocation(oldCarpet);
+
                     }
                 }
-
-                // Устанавливаем новый ковер, используя split(1)
                 this.setCarpet(itemstack.split(1));
-
-                // Обновляем состояние седла
                 this.equipSaddle(SoundSource.NEUTRAL);
             }
 
             return InteractionResult.SUCCESS;
-        } else if (this.isSaddled() && !this.isVehicle()) {
+        }
+        else if (itemstack.is(Items.BUCKET) && !this.isBaby()) {
+            player.playSound(SoundEvents.COW_MILK, 1.0F, 1.0F);
+            ItemStack itemStack2 = ItemUtils.createFilledResult(itemstack, player, Items.MILK_BUCKET.getDefaultInstance());
+            player.setItemInHand(hand, itemStack2);
+            return InteractionResult.sidedSuccess(this.level().isClientSide);
+        }
+        else if (itemstack.isEmpty() && !this.getCarpet().isEmpty() && player.isCrouching()) {
+            ItemStack oldCarpet = this.getCarpet();
+            if (!oldCarpet.isEmpty()) {
+                if (!player.getInventory().add(oldCarpet)) {
+                    this.spawnAtLocation(oldCarpet);
+
+                }
+            }
+            this.setCarpet(ItemStack.EMPTY);
+            this.entityData.set(SADDLED, false);
+            player.playSound(SoundEvents.HORSE_SADDLE, 1.0F, 1.0F);
+            return InteractionResult.SUCCESS;
+        }
+        else if (this.isSaddled() && !this.isVehicle()) {
             this.doPlayerRide(player);
             return InteractionResult.SUCCESS;
         }
+
 
         return super.mobInteract(player, hand);
     }

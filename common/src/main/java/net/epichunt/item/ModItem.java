@@ -263,11 +263,12 @@ public class ModItem {
     public static final RegistrySupplier<Item> FANG_NECKLACE = ITEMS.register("fang_necklace", () -> new Item(new Item.Properties().stacksTo(1)));
     public static final RegistrySupplier<Item> CLAW_NECKLACE = ITEMS.register("claw_necklace", () -> new Item(new Item.Properties().stacksTo(1)));
     public static final RegistrySupplier<Item> TUSK_NECKLACE = ITEMS.register("tusk_necklace", () -> new Item(new Item.Properties().stacksTo(1)));
-    public static final RegistrySupplier<Item> HORN_FLASK = ITEMS.register("horn_flask", () -> new HornFlaskItem(new Item.Properties().stacksTo(1)));
-    public static final RegistrySupplier<Item> FILLED_HORN_FLASK = ITEMS.register("filled_horn_flask", () -> new HornFlaskPotionItem(new Item.Properties().stacksTo(1)));
     public static final RegistrySupplier<Item> BONE_COMB = ITEMS.register("bone_comb", () -> new Item(new Item.Properties()));
     public static final RegistrySupplier<Item> BONE_ROSARY = ITEMS.register("bone_rosary", () -> new Item(new Item.Properties()));
     public static final RegistrySupplier<Item> ANTLER_SEWING_KIT = ITEMS.register("antler_sewing_kit", () -> new Item(new Item.Properties()));
+
+    public static final RegistrySupplier<Item> HORN_FLASK = ITEMS.register("horn_flask", () -> new HornFlaskItem(new Item.Properties().stacksTo(1)));
+    public static final RegistrySupplier<Item> FILLED_HORN_FLASK = ITEMS.register("filled_horn_flask", () -> new HornFlaskPotionItem(new Item.Properties().stacksTo(1)));
 
     public static final RegistrySupplier<Item> DUCK_EGG = ITEMS.register("duck_egg", () -> new DuckEggItem(new Item.Properties().stacksTo(16)));
     public static final RegistrySupplier<Item> GOOSE_EGG = ITEMS.register("goose_egg", () -> new GooseEggItem(new Item.Properties().stacksTo(16)));

@@ -52,6 +52,11 @@ public class ConfigMain implements ConfigData {
     public WolfConfig wild_wolf = new WolfConfig();
 
     @CollapsibleObject
+    public BeaverConfig beaver = new BeaverConfig();
+    @CollapsibleObject
+    public HareConfig hare = new HareConfig();
+
+    @CollapsibleObject
     public EelConfig eel = new EelConfig();
     @CollapsibleObject
     public SturgeonConfig sturgeon = new SturgeonConfig();
@@ -283,6 +288,27 @@ public class ConfigMain implements ConfigData {
         @RequiresRestart
         public int maxAmount = 3;
         public WolfConfig() {
+        }
+    }
+
+    public static class BeaverConfig {
+        @RequiresRestart
+        public int weight = 10;
+        @RequiresRestart
+        public int minAmount = 1;
+        @RequiresRestart
+        public int maxAmount = 3;
+        public BeaverConfig() {
+        }
+    }
+    public static class HareConfig {
+        @RequiresRestart
+        public int weight = 12;
+        @RequiresRestart
+        public int minAmount = 2;
+        @RequiresRestart
+        public int maxAmount = 4;
+        public HareConfig() {
         }
     }
 

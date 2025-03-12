@@ -72,7 +72,7 @@ public class WolfEntity extends Monster implements Enemy {
 
 
     public static AttributeSupplier.Builder createAttributes() {
-        return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 10.0).add(Attributes.MOVEMENT_SPEED, 0.20000000298023224).add(Attributes.ATTACK_DAMAGE, 3.0);
+        return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 10.0).add(Attributes.MOVEMENT_SPEED, 0.50000000298023224).add(Attributes.ATTACK_DAMAGE, 3.0);
     }
 
     protected SoundEvent getAmbientSound() {

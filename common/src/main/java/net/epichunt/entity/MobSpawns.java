@@ -60,6 +60,10 @@ public class MobSpawns {
         addEntitySpawns(context -> ((context.hasTag(BiomeTags.IS_FOREST)) || (context.hasTag(BiomeTags.HAS_VILLAGE_PLAINS))), MobCategory.CREATURE, BADGER_ENTITY::get, CONFIG.badger.weight, CONFIG.badger.minAmount, CONFIG.badger.maxAmount);
         addEntitySpawns(context -> ((context.hasTag(BiomeTags.IS_FOREST)) || (context.hasTag(BiomeTags.IS_TAIGA))), MobCategory.CREATURE, MOOSE_ENTITY::get, CONFIG.moose.weight, CONFIG.moose.minAmount, CONFIG.moose.maxAmount);
 
+        addEntitySpawns(context -> ((context.hasTag(BiomeTags.IS_FOREST)) || (context.hasTag(BiomeTags.IS_TAIGA)) || (context.hasTag(BiomeTags.HAS_CLOSER_WATER_FOG)) || (context.hasTag(BiomeTags.IS_RIVER))), MobCategory.CREATURE, BEAVER_ENTITY::get, CONFIG.beaver.weight, CONFIG.beaver.minAmount, CONFIG.beaver.maxAmount);
+        addEntitySpawns(context -> ((context.hasTag(BiomeTags.IS_FOREST)) || (context.hasTag(BiomeTags.IS_TAIGA)) || (context.hasTag(BiomeTags.HAS_VILLAGE_PLAINS))), MobCategory.CREATURE, HARE_ENTITY::get, CONFIG.hare.weight, CONFIG.hare.minAmount, CONFIG.hare.maxAmount);
+
+
         addEntitySpawns(context -> ((context.hasTag(BiomeTags.IS_OCEAN)) || (context.hasTag(BiomeTags.IS_DEEP_OCEAN)) || (context.hasTag(BiomeTags.HAS_OCEAN_MONUMENT)) || (context.hasTag(BiomeTags.HAS_OCEAN_RUIN_COLD) || (context.hasTag(BiomeTags.HAS_OCEAN_RUIN_WARM)))),
                 MobCategory.WATER_AMBIENT, BASS_ENTITY::get, CONFIG.bass.weight, CONFIG.bass.minAmount, CONFIG.bass.maxAmount);
         addEntitySpawns(context -> ((context.hasTag(BiomeTags.IS_OCEAN)) || (context.hasTag(BiomeTags.IS_DEEP_OCEAN)) || (context.hasTag(BiomeTags.HAS_OCEAN_MONUMENT)) || (context.hasTag(BiomeTags.HAS_OCEAN_RUIN_COLD) || (context.hasTag(BiomeTags.HAS_OCEAN_RUIN_WARM)))),
