@@ -4,10 +4,12 @@ import net.epichunt.EpicHunt;
 import net.epichunt.block.ModBlockEntities;
 import net.epichunt.client.model.block.LargeAntlersModel;
 import net.epichunt.client.model.block.MediumAntlersModel;
+import net.epichunt.client.model.block.MusselBlockModel;
 import net.epichunt.client.model.block.SmallAntlersModel;
 import net.epichunt.client.model.entity.*;
 import net.epichunt.client.render.block.LargeAntlersRender;
 import net.epichunt.client.render.block.MediumAntlersRender;
+import net.epichunt.client.render.block.MusselBlockRender;
 import net.epichunt.client.render.block.SmallAntlersRender;
 import net.epichunt.client.render.entity.*;
 import net.epichunt.entity.ModEntities;
@@ -78,6 +80,7 @@ public class ModModels {
     public static final ModelLayerLocation MEDIUM_ANTLERS_LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(EpicHunt.MOD_ID, "medium_antlers"), "main");
     public static final ModelLayerLocation LARGE_ANTLERS_LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(EpicHunt.MOD_ID, "large_antlers"), "main");
 
+    public static final ModelLayerLocation MUSSEL_LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(EpicHunt.MOD_ID, "mussel_block"), "main");
 
 
     public static void registerLayers(BiConsumer<ModelLayerLocation, Supplier<LayerDefinition> > consumer) {
@@ -123,6 +126,7 @@ public class ModModels {
         consumer.accept(ModModels.SMALL_ANTLERS_LAYER_LOCATION, SmallAntlersModel::createBodyLayer);
         consumer.accept(ModModels.MEDIUM_ANTLERS_LAYER_LOCATION, MediumAntlersModel::createBodyLayer);
         consumer.accept(ModModels.LARGE_ANTLERS_LAYER_LOCATION, LargeAntlersModel::createBodyLayer);
+        consumer.accept(ModModels.MUSSEL_LAYER_LOCATION, MusselBlockModel::createBodyLayer);
     }
 
     public static void renderRegistry() {
@@ -174,5 +178,6 @@ public class ModModels {
         BlockEntityRenderers.register(ModBlockEntities.SMALL_ANTLERS_ENTITY.get(), SmallAntlersRender::new);
         BlockEntityRenderers.register(ModBlockEntities.MEDIUM_ANTLERS_ENTITY.get(), MediumAntlersRender::new);
         BlockEntityRenderers.register(ModBlockEntities.LARGE_ANTLERS_ENTITY.get(), LargeAntlersRender::new);
+        BlockEntityRenderers.register(ModBlockEntities.MUSSEL_BLOCK_ENTITY.get(), MusselBlockRender::new);
     }
 }

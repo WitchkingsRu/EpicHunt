@@ -1,0 +1,52 @@
+{
+  "variants": {
+    "age=0,waterlogged=false": {
+      "model": "epichunt:block/mussel_block"
+    },
+    "age=0,waterlogged=true": {
+      "model": "epichunt:block/mussel_block"
+    },
+    "age=1,waterlogged=false": {
+      "model": "epichunt:block/mussel_block"
+    },
+    "age=1,waterlogged=true": {
+      "model": "epichunt:block/mussel_block"
+    },
+    "age=2,waterlogged=false": {
+      "model": "epichunt:block/mussel_block"
+    },
+    "age=2,waterlogged=true": {
+      "model": "epichunt:block/mussel_block"
+    },
+    "age=3,waterlogged=false": {
+      "model": "epichunt:block/mussel_block"
+    },
+    "age=3,waterlogged=true": {
+      "model": "epichunt:block/mussel_block"
+    },
+    "age=4,waterlogged=false": {
+      "model": "epichunt:block/mussel_block"
+    },
+    "age=4,waterlogged=true": {
+      "model": "epichunt:block/mussel_block"
+    },
+    "age=5,waterlogged=false": {
+      "model": "epichunt:block/mussel_block"
+    },
+    "age=5,waterlogged=true": {
+      "model": "epichunt:block/mussel_block"
+    },
+    "age=6,waterlogged=false": {
+      "model": "epichunt:block/mussel_block"
+    },
+    "age=6,waterlogged=true": {
+      "model": "epichunt:block/mussel_block"
+    },
+    "age=7,waterlogged=false": {
+      "model": "epichunt:block/mussel_block"
+    },
+    "age=7,waterlogged=true": {
+      "model": "epichunt:block/mussel_block"
+    }
+  }
+}

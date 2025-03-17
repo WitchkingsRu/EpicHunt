@@ -209,6 +209,8 @@ public class ModItem {
 
     public static final RegistrySupplier<Item> COOKED_CALAMARI = ITEMS.register("cooked_calamari", ()-> new Item(new Item.Properties().food(ModFood.COOKED_CALAMARI)));
 
+    public static final RegistrySupplier<Item> MUSSEL = ITEMS.register("raw_mussel", ()-> new ItemNameBlockItem(ModBlock.MUSSEL_BLOCK.get(), new Item.Properties()));
+
 
     public static final RegistrySupplier<Item> BASS_BUCKET = ITEMS.register("bass_bucket", () -> new MobBucketItem(BassEntity.BASS.get(), Fluids.WATER, SoundEvents.BUCKET_EMPTY_FISH, (new Item.Properties()).stacksTo(1)));
 
