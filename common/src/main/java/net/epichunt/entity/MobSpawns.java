@@ -30,8 +30,8 @@ public class MobSpawns {
         BiomeModifications.addProperties(
                 context,
                 (context2, mutable) -> mutable.getSpawnProperties().addSpawn(
-                        mobCategory, // Spawn group
-                        new MobSpawnSettings.SpawnerData(entityTypeSupplier.get(), weight, min, max) // Weight, min, max
+                        mobCategory,
+                        new MobSpawnSettings.SpawnerData(entityTypeSupplier.get(), weight, min, max)
                 )
         );
     }
