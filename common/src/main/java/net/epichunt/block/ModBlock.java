@@ -29,11 +29,11 @@ public class ModBlock {
 
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(EpicHunt.MOD_ID, Registries.BLOCK);
     public static final RegistrySupplier<Block> SMALL_ANTLERS = BLOCKS.register("small_antlers", () ->
-            new SmallAntlersBlock(BlockBehaviour.Properties.copy(Blocks.BONE_BLOCK).pushReaction(PushReaction.DESTROY)));
+            new SmallAntlersBlock(BlockBehaviour.Properties.copy(Blocks.STONE_BUTTON).pushReaction(PushReaction.DESTROY)));
     public static final RegistrySupplier<Block> MEDIUM_ANTLERS = BLOCKS.register("medium_antlers", () ->
-            new MediumAntlersBlock(BlockBehaviour.Properties.copy(Blocks.BONE_BLOCK).pushReaction(PushReaction.DESTROY)));
+            new MediumAntlersBlock(BlockBehaviour.Properties.copy(Blocks.STONE_BUTTON).pushReaction(PushReaction.DESTROY)));
     public static final RegistrySupplier<Block> LARGE_ANTLERS = BLOCKS.register("large_antlers", () ->
-            new LargeAntlersBlock(BlockBehaviour.Properties.copy(Blocks.BONE_BLOCK).pushReaction(PushReaction.DESTROY)));
+            new LargeAntlersBlock(BlockBehaviour.Properties.copy(Blocks.STONE_BUTTON).pushReaction(PushReaction.DESTROY)));
     public static final RegistrySupplier<Block> MUSSEL_BLOCK = BLOCKS.register("mussel_block", () ->
             new MusselBlock(BlockBehaviour.Properties.copy(Blocks.BRAIN_CORAL).pushReaction(PushReaction.DESTROY)));
 

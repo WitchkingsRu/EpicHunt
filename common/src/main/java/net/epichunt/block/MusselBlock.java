@@ -41,10 +41,9 @@ public class MusselBlock extends CropBlock implements SimpleWaterloggedBlock, En
         Level level = context.getLevel();
         BlockPos pos = context.getClickedPos();
 
-        // Проверяем, есть ли вода в позиции установки
         boolean isWater = level.getBlockState(pos).getFluidState().is(Fluids.WATER);
         if (!isWater) {
-            return null; // Запрещаем размещение вне воды
+            return null;
         }
 
         return this.defaultBlockState().setValue(WATERLOGGED, true);
@@ -81,10 +80,6 @@ public class MusselBlock extends CropBlock implements SimpleWaterloggedBlock, En
 
     @Override
     public void randomTick(BlockState blockState, ServerLevel serverLevel, BlockPos blockPos, RandomSource randomSource) {
-        if (!blockState.getValue(WATERLOGGED)) {
-            return;
-        }
-
         if (serverLevel.getRawBrightness(blockPos, 0) >= 1) {
             int age = this.getAge(blockState);
             if (age < this.getMaxAge()) {
