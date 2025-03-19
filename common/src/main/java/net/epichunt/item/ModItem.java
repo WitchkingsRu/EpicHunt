@@ -209,7 +209,17 @@ public class ModItem {
 
     public static final RegistrySupplier<Item> COOKED_CALAMARI = ITEMS.register("cooked_calamari", ()-> new Item(new Item.Properties().food(ModFood.COOKED_CALAMARI)));
 
-    public static final RegistrySupplier<Item> MUSSEL = ITEMS.register("raw_mussel", ()-> new ItemNameBlockItem(ModBlock.MUSSEL_BLOCK.get(), new Item.Properties()));
+    public static final RegistrySupplier<Item> MUSSEL = ITEMS.register("raw_mussel", ()-> new ItemNameBlockItem(ModBlock.MUSSEL_BLOCK.get(), new Item.Properties().food(ModFood.MUSSEL)));
+
+    public static final RegistrySupplier<Item> COOKED_MUSSEL = ITEMS.register("cooked_mussel", ()-> new Item(new Item.Properties().food(ModFood.COOKED_MUSSEL)));
+
+    public static final RegistrySupplier<Item> OYSTER = ITEMS.register("raw_oyster", ()-> new ItemNameBlockItem(ModBlock.OYSTER_BLOCK.get(), new Item.Properties().food(ModFood.OYSTER)));
+
+    public static final RegistrySupplier<Item> COOKED_OYSTER = ITEMS.register("cooked_oyster", ()-> new Item(new Item.Properties().food(ModFood.COOKED_OYSTER)));
+
+    public static final RegistrySupplier<Item> CLAM = ITEMS.register("raw_clam", ()-> new ItemNameBlockItem(ModBlock.CLAM_BLOCK.get(), new Item.Properties().food(ModFood.CLAM)));
+
+    public static final RegistrySupplier<Item> COOKED_CLAM = ITEMS.register("cooked_clam", ()-> new Item(new Item.Properties().food(ModFood.COOKED_CLAM)));
 
 
     public static final RegistrySupplier<Item> BASS_BUCKET = ITEMS.register("bass_bucket", () -> new MobBucketItem(BassEntity.BASS.get(), Fluids.WATER, SoundEvents.BUCKET_EMPTY_FISH, (new Item.Properties()).stacksTo(1)));

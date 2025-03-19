@@ -2,15 +2,9 @@ package net.epichunt.client;
 
 import net.epichunt.EpicHunt;
 import net.epichunt.block.ModBlockEntities;
-import net.epichunt.client.model.block.LargeAntlersModel;
-import net.epichunt.client.model.block.MediumAntlersModel;
-import net.epichunt.client.model.block.MusselBlockModel;
-import net.epichunt.client.model.block.SmallAntlersModel;
+import net.epichunt.client.model.block.*;
 import net.epichunt.client.model.entity.*;
-import net.epichunt.client.render.block.LargeAntlersRender;
-import net.epichunt.client.render.block.MediumAntlersRender;
-import net.epichunt.client.render.block.MusselBlockRender;
-import net.epichunt.client.render.block.SmallAntlersRender;
+import net.epichunt.client.render.block.*;
 import net.epichunt.client.render.entity.*;
 import net.epichunt.entity.ModEntities;
 import net.minecraft.client.model.OcelotModel;
@@ -23,6 +17,7 @@ import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.block.Block;
 
 import java.util.function.BiConsumer;
 import java.util.function.Supplier;
@@ -81,7 +76,8 @@ public class ModModels {
     public static final ModelLayerLocation LARGE_ANTLERS_LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(EpicHunt.MOD_ID, "large_antlers"), "main");
 
     public static final ModelLayerLocation MUSSEL_LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(EpicHunt.MOD_ID, "mussel_block"), "main");
-
+    public static final ModelLayerLocation OYSTER_LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(EpicHunt.MOD_ID, "oyster_block"), "main");
+    public static final ModelLayerLocation CLAM_LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(EpicHunt.MOD_ID, "clam_block"), "main");
 
     public static void registerLayers(BiConsumer<ModelLayerLocation, Supplier<LayerDefinition> > consumer) {
         consumer.accept(ModModels.DEER_LAYER_LOCATION, DeerModel::createBodyLayer);
@@ -127,6 +123,8 @@ public class ModModels {
         consumer.accept(ModModels.MEDIUM_ANTLERS_LAYER_LOCATION, MediumAntlersModel::createBodyLayer);
         consumer.accept(ModModels.LARGE_ANTLERS_LAYER_LOCATION, LargeAntlersModel::createBodyLayer);
         consumer.accept(ModModels.MUSSEL_LAYER_LOCATION, MusselBlockModel::createBodyLayer);
+        consumer.accept(ModModels.OYSTER_LAYER_LOCATION, OysterBlockModel::createBodyLayer);
+        consumer.accept(ModModels.CLAM_LAYER_LOCATION, ClamBlockModel::createBodyLayer);
     }
 
     public static void renderRegistry() {
@@ -179,5 +177,7 @@ public class ModModels {
         BlockEntityRenderers.register(ModBlockEntities.MEDIUM_ANTLERS_ENTITY.get(), MediumAntlersRender::new);
         BlockEntityRenderers.register(ModBlockEntities.LARGE_ANTLERS_ENTITY.get(), LargeAntlersRender::new);
         BlockEntityRenderers.register(ModBlockEntities.MUSSEL_BLOCK_ENTITY.get(), MusselBlockRender::new);
+        BlockEntityRenderers.register(ModBlockEntities.OYSTER_BLOCK_ENTITY.get(), OysterBlockRender::new);
+        BlockEntityRenderers.register(ModBlockEntities.CLAM_BLOCK_ENTITY.get(), ClamBlockRender::new);
     }
 }

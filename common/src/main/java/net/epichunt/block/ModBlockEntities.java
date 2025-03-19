@@ -16,6 +16,10 @@ public class ModBlockEntities {
     public static final RegistrySupplier<BlockEntityType<LargeAntlersBlockEntity>> LARGE_ANTLERS_ENTITY = BLOCK_ENTITY_TYPES.register("large_antlers", () -> BlockEntityType.Builder.of(LargeAntlersBlockEntity::new, ModBlock.LARGE_ANTLERS.get()).build(null));
 
     public static final RegistrySupplier<BlockEntityType<MusselBlockEntity>> MUSSEL_BLOCK_ENTITY = BLOCK_ENTITY_TYPES.register("mussel_block", () -> BlockEntityType.Builder.of(MusselBlockEntity::new, ModBlock.MUSSEL_BLOCK.get()).build(null));
+    public static final RegistrySupplier<BlockEntityType<OysterBlockEntity>> OYSTER_BLOCK_ENTITY = BLOCK_ENTITY_TYPES.register("oyster_block", () -> BlockEntityType.Builder.of(OysterBlockEntity::new, ModBlock.OYSTER_BLOCK.get()).build(null));
+    public static final RegistrySupplier<BlockEntityType<ClamBlockEntity>> CLAM_BLOCK_ENTITY = BLOCK_ENTITY_TYPES.register("clam_block", () -> BlockEntityType.Builder.of(ClamBlockEntity::new, ModBlock.CLAM_BLOCK.get()).build(null));
+
+
     public static void init() {
         BLOCK_ENTITY_TYPES.register();
     }

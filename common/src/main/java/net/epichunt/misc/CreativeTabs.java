@@ -36,7 +36,8 @@ public class CreativeTabs {
                 ModItem.COOKED_MACKEREL, ModItem.PERCHES, ModItem.COOKED_PERCHES, ModItem.PIKEFISH, ModItem.COOKED_PIKEFISH,
                 ModItem.POLLOCK, ModItem.COOKED_POLLOCK, ModItem.ROACH, ModItem.COOKED_ROACH, ModItem.SARDINE, ModItem.COOKED_SARDINE,
                 ModItem.TROUT, ModItem.COOKED_TROUT, ModItem.ZANDER, ModItem.COOKED_ZANDER, ModItem.EEL, ModItem.COOKED_EEL,
-                ModItem.STURGEON, ModItem.COOKED_STURGEON, ModItem.CATFISH, ModItem.COOKED_CATFISH, ModItem.CALAMARI, ModItem.COOKED_CALAMARI);
+                ModItem.STURGEON, ModItem.COOKED_STURGEON, ModItem.CATFISH, ModItem.COOKED_CATFISH, ModItem.CALAMARI, ModItem.COOKED_CALAMARI,
+                ModItem.MUSSEL, ModItem.COOKED_MUSSEL, ModItem.OYSTER, ModItem.COOKED_OYSTER, ModItem.CLAM, ModItem.COOKED_CLAM);
         CreativeTabRegistry.append(COMBAT_RESOURCE_KEY, ModItem.YAK_CARPET_WHITE, ModItem.YAK_CARPET_BLACK, ModItem.YAK_CARPET_BLUE,
                 ModItem.YAK_CARPET_BROWN, ModItem.YAK_CARPET_CYAN, ModItem.YAK_CARPET_GRAY, ModItem.YAK_CARPET_GREEN,
                 ModItem.YAK_CARPET_LIGHT_BLUE, ModItem.YAK_CARPET_LIGHT_GRAY, ModItem.YAK_CARPET_LIME, ModItem.YAK_CARPET_MAGENTA,

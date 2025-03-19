@@ -36,6 +36,10 @@ public class ModBlock {
             new LargeAntlersBlock(BlockBehaviour.Properties.copy(Blocks.STONE_BUTTON).pushReaction(PushReaction.DESTROY)));
     public static final RegistrySupplier<Block> MUSSEL_BLOCK = BLOCKS.register("mussel_block", () ->
             new MusselBlock(BlockBehaviour.Properties.copy(Blocks.BRAIN_CORAL).pushReaction(PushReaction.DESTROY)));
+    public static final RegistrySupplier<Block> OYSTER_BLOCK = BLOCKS.register("oyster_block", () ->
+            new OysterBlock(BlockBehaviour.Properties.copy(Blocks.BRAIN_CORAL).pushReaction(PushReaction.DESTROY)));
+    public static final RegistrySupplier<Block> CLAM_BLOCK = BLOCKS.register("clam_block", () ->
+            new ClamBlock(BlockBehaviour.Properties.copy(Blocks.BRAIN_CORAL).pushReaction(PushReaction.DESTROY)));
 
 
 }

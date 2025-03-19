@@ -149,5 +149,17 @@ public class ModFood {
 
     public static final FoodProperties MUSSEL = (new FoodProperties.Builder()).nutrition(2).saturationMod(0.3F).meat().build();
 
+    public static final FoodProperties COOKED_MUSSEL = new FoodProperties.Builder().meat().nutrition(4).saturationMod(0.6f)
+            .build();
+
+    public static final FoodProperties CLAM = (new FoodProperties.Builder()).nutrition(2).saturationMod(0.3F).meat().build();
+
+    public static final FoodProperties COOKED_CLAM = new FoodProperties.Builder().meat().nutrition(4).saturationMod(0.6f)
+            .build();
+
+    public static final FoodProperties OYSTER = (new FoodProperties.Builder()).nutrition(2).saturationMod(0.3F).meat().build();
+
+    public static final FoodProperties COOKED_OYSTER = new FoodProperties.Builder().meat().nutrition(4).saturationMod(0.6f)
+            .build();
 }
 

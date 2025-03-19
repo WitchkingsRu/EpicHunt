@@ -16,18 +16,18 @@
               "type": "minecraft:item",
               "conditions": [
                 {
-                  "block": "epichunt:mussel_block",
+                  "block": "epichunt:oyster_block",
                   "condition": "minecraft:block_state_property",
                   "properties": {
                     "age": "7"
                   }
                 }
               ],
-              "name": "epichunt:raw_mussel"
+              "name": "epichunt:raw_oyster"
             },
             {
               "type": "minecraft:item",
-              "name": "epichunt:raw_mussel"
+              "name": "epichunt:raw_oyster"
             }
           ]
         }
@@ -38,7 +38,7 @@
       "bonus_rolls": 0.0,
       "conditions": [
         {
-          "block": "epichunt:mussel_block",
+          "block": "epichunt:oyster_block",
           "condition": "minecraft:block_state_property",
           "properties": {
             "age": "7"
@@ -54,16 +54,16 @@
               "formula": "minecraft:binomial_with_bonus_count",
               "function": "minecraft:apply_bonus",
               "parameters": {
-                "extra": 5,
+                "extra": 6,
                 "probability": 0.5714286
               }
             }
           ],
-          "name": "epichunt:raw_mussel"
+          "name": "epichunt:raw_oyster"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "epichunt:blocks/mussel_block"
+  "random_sequence": "epichunt:blocks/oyster_block"
 }

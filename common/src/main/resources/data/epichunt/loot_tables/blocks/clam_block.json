@@ -16,18 +16,18 @@
               "type": "minecraft:item",
               "conditions": [
                 {
-                  "block": "epichunt:mussel_block",
+                  "block": "epichunt:clam_block",
                   "condition": "minecraft:block_state_property",
                   "properties": {
                     "age": "7"
                   }
                 }
               ],
-              "name": "epichunt:raw_mussel"
+              "name": "epichunt:raw_clam"
             },
             {
               "type": "minecraft:item",
-              "name": "epichunt:raw_mussel"
+              "name": "epichunt:raw_clam"
             }
           ]
         }
@@ -38,7 +38,7 @@
       "bonus_rolls": 0.0,
       "conditions": [
         {
-          "block": "epichunt:mussel_block",
+          "block": "epichunt:clam_block",
           "condition": "minecraft:block_state_property",
           "properties": {
             "age": "7"
@@ -59,11 +59,11 @@
               }
             }
           ],
-          "name": "epichunt:raw_mussel"
+          "name": "epichunt:raw_clam"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "epichunt:blocks/mussel_block"
+  "random_sequence": "epichunt:blocks/clam_block"
 }

@@ -20,5 +20,23 @@ public class ModWorldGen {
                 }
             });
         });
+        LifecycleEvent.SETUP.register(() -> {
+            BiomeModifications.addProperties((ctx, mutable) -> {
+                if ((ctx.hasTag(BiomeTags.IS_OCEAN)) || (ctx.hasTag(BiomeTags.IS_DEEP_OCEAN))) {
+                    mutable.getGenerationProperties().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
+                            ResourceKey.create(Registries.PLACED_FEATURE,
+                                    new ResourceLocation(EpicHunt.MOD_ID + ":oyster_cluster")));
+                }
+            });
+        });
+        LifecycleEvent.SETUP.register(() -> {
+            BiomeModifications.addProperties((ctx, mutable) -> {
+                if ((ctx.hasTag(BiomeTags.IS_OCEAN)) || (ctx.hasTag(BiomeTags.IS_DEEP_OCEAN))) {
+                    mutable.getGenerationProperties().addFeature(GenerationStep.Decoration.VEGETAL_DECORATION,
+                            ResourceKey.create(Registries.PLACED_FEATURE,
+                                    new ResourceLocation(EpicHunt.MOD_ID + ":clam_cluster")));
+                }
+            });
+        });
     }
 }
