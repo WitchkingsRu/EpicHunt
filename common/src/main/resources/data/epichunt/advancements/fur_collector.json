@@ -2,55 +2,55 @@
   "parent": "epichunt:root",
   "display": {
     "icon": {
-      "item": "epichunt:raw_eel"
+      "item": "minecraft:arrow"
     },
     "title": {
-      "translate": "advancements.epichunt.river_monsters.title"
+      "translate": "advancements.epichunt.fur_collector.title"
     },
     "description": {
-      "translate": "advancements.epichunt.river_monsters.description"
+      "translate": "advancements.epichunt.fur_collector.description"
     },
     "frame": "task",
     "show_toast": true,
     "announce_to_chat": true
   },
   "criteria": {
-    "epichunt:sturgeon": {
+    "epichunt:beaver": {
       "conditions": {
         "entity": [
           {
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "epichunt:sturgeon"
+              "type": "epichunt:beaver"
             }
           }
         ]
       },
       "trigger": "minecraft:player_killed_entity"
     },
-    "epichunt:catfish": {
+    "epichunt:badger": {
       "conditions": {
         "entity": [
           {
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "epichunt:catfish"
+              "type": "epichunt:badger"
             }
           }
         ]
       },
       "trigger": "minecraft:player_killed_entity"
     },
-    "epichunt:eel": {
+    "epichunt:lynx": {
       "conditions": {
         "entity": [
           {
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "epichunt:eel"
+              "type": "epichunt:lynx"
             }
           }
         ]
@@ -60,9 +60,9 @@
   },
   "requirements": [
     [
-      "epichunt:sturgeon"],
-      ["epichunt:catfish"],
-      ["epichunt:eel"
+      "epichunt:beaver"],
+      ["epichunt:badger"],
+      ["epichunt:lynx"
     ]
   ],
   "sends_telemetry_event": true

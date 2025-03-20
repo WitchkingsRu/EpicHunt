@@ -1,0 +1,89 @@
+{
+  "parent": "epichunt:root",
+  "display": {
+    "icon": {
+      "item": "epichunt:goose_egg"
+    },
+    "title": {
+      "translate": "advancements.epichunt.eggs.title"
+    },
+    "description": {
+      "translate": "advancements.epichunt.eggs.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "chicken": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:egg"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "goose": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "epichunt:goose_egg"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "quail": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "epichunt:quail_egg"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "pheasant": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "epichunt:pheasant_egg"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "duck": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "epichunt:duck_egg"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "chicken"],
+      ["goose"],
+      ["pheasant"],
+      ["quail"],
+      ["duck"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

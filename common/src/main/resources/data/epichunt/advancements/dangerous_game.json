@@ -1,56 +1,57 @@
 {
-  "parent": "epichunt:root",
+  "parent": "epichunt:ranger",
   "display": {
     "icon": {
-      "item": "epichunt:raw_eel"
+      "item": "minecraft:tipped_arrow",
+      "nbt": "{Potion:'minecraft:weakness'}"
     },
     "title": {
-      "translate": "advancements.epichunt.river_monsters.title"
+      "translate": "advancements.epichunt.dangerous_game.title"
     },
     "description": {
-      "translate": "advancements.epichunt.river_monsters.description"
+      "translate": "advancements.epichunt.dangerous_game.description"
     },
-    "frame": "task",
+    "frame": "challenge",
     "show_toast": true,
     "announce_to_chat": true
   },
   "criteria": {
-    "epichunt:sturgeon": {
+    "epichunt:bear": {
       "conditions": {
         "entity": [
           {
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "epichunt:sturgeon"
+              "type": "epichunt:bear"
             }
           }
         ]
       },
       "trigger": "minecraft:player_killed_entity"
     },
-    "epichunt:catfish": {
+    "epichunt:wisent": {
       "conditions": {
         "entity": [
           {
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "epichunt:catfish"
+              "type": "epichunt:wisent"
             }
           }
         ]
       },
       "trigger": "minecraft:player_killed_entity"
     },
-    "epichunt:eel": {
+    "epichunt:wolf": {
       "conditions": {
         "entity": [
           {
             "condition": "minecraft:entity_properties",
             "entity": "this",
             "predicate": {
-              "type": "epichunt:eel"
+              "type": "epichunt:wolf"
             }
           }
         ]
@@ -60,9 +61,9 @@
   },
   "requirements": [
     [
-      "epichunt:sturgeon"],
-      ["epichunt:catfish"],
-      ["epichunt:eel"
+      "epichunt:bear"],
+      ["epichunt:wolf"],
+      ["epichunt:wisent"
     ]
   ],
   "sends_telemetry_event": true

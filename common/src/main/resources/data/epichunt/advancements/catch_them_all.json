@@ -3,8 +3,12 @@
     "icon": {
       "item": "epichunt:bass_bucket"
     },
-    "title": "Catch them all!",
-    "description": "Acquire every fish besides the Water Monsters!",
+    "title": {
+      "translate": "advancements.epichunt.catch_them_all.title"
+    },
+    "description": {
+      "translate": "advancements.epichunt.catch_them_all.description"
+    },
     "frame": "challenge",
     "show_toast": true,
     "announce_to_chat": true

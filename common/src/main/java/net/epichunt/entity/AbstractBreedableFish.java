@@ -212,7 +212,6 @@ public abstract class AbstractBreedableFish extends AbstractFish {
     public void spawnChildFromBreeding(ServerLevel serverLevel, AbstractBreedableFish fish) {
         AbstractBreedableFish ageableMob = this.getBreedOffspring(serverLevel, fish);
         if (ageableMob != null) {
-            System.out.println("Спавн малька: " + ageableMob);
             ageableMob.setBaby(true);
             ageableMob.moveTo(this.getX(), this.getY(), this.getZ(), 0.0F, 0.0F);
             this.finalizeSpawnChildFromBreeding(serverLevel, fish, ageableMob);

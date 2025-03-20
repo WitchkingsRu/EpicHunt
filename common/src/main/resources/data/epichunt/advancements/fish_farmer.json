@@ -1,0 +1,37 @@
+{
+  "parent": "epichunt:root",
+  "display": {
+    "icon": {
+      "item": "epichunt:raw_carp"
+    },
+    "title": {
+      "translate": "advancements.epichunt.fish_farmer.title"
+    },
+    "description": {
+      "translate": "advancements.epichunt.fish_farmer.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "epichunt:carp": {
+      "conditions": {
+        "child": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "type": "epichunt:carp"
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:bred_animals"
+    }
+  },
+  "requirements": [
+      ["epichunt:carp"]
+  ],
+  "sends_telemetry_event": true
+}

@@ -32,14 +32,18 @@
   },
   "display": {
     "announce_to_chat": true,
-    "description": "Acquire any of the Yak Carpets to ride Yaks like a true Sherpa",
+    "description": {
+      "translate": "advancements.epichunt.sherpa.description"
+    },
     "frame": "task",
     "hidden": false,
     "icon": {
       "item": "epichunt:villager_yak_carpet"
     },
     "show_toast": true,
-    "title": "Sherpa"
+    "title": {
+      "translate": "advancements.epichunt.sherpa.title"
+    }
   },
   "requirements": [
     [

@@ -1,0 +1,180 @@
+{
+  "parent": "epichunt:root",
+  "display": {
+    "icon": {
+      "item": "minecraft:beef"
+    },
+    "title": {
+      "translate": "advancements.epichunt.meat.title"
+    },
+    "description": {
+      "translate": "advancements.epichunt.meat.description"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "beef": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:beef"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "pork": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:porkchop"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "mutton": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:mutton"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "rabbit": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:rabbit"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "venison": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "epichunt:raw_venison"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "equine": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "epichunt:raw_equine"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "camel": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "epichunt:raw_camel"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "llama": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "epichunt:raw_llama"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "wolf": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "epichunt:raw_wolf"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "bear": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "epichunt:raw_bear"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "badger": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "epichunt:raw_badger"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "beaver": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "epichunt:raw_beaver"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "beef"],
+      ["pork"],
+      ["mutton"],
+      ["rabbit"],
+      ["equine"],
+      ["camel"],
+      ["llama"],
+      ["wolf"],
+      ["bear"],
+      ["badger"],
+      ["beaver"],
+      ["venison"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

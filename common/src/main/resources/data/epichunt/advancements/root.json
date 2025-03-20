@@ -1,10 +1,14 @@
 {
   "display": {
     "icon": {
-      "item": "minecraft:bow"
+      "item": "minecraft:crossbow"
     },
-    "title": "Epic Hunt",
-    "description": "Let the Hunt begin!",
+    "title": {
+      "translate": "advancements.epichunt.root.title"
+    },
+    "description": {
+      "translate": "advancements.epichunt.root.description"
+    },
     "frame": "task",
     "show_toast": true,
     "announce_to_chat": false,
