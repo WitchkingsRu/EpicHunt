@@ -60,23 +60,23 @@ public class NarwhalModel<T extends Entity> extends HierarchicalModel<T> {
 
 		PartDefinition cube_r2 = fin1.addOrReplaceChild("cube_r2", CubeListBuilder.create().texOffs(0, -2).addBox(1.0F, -3.0F, -1.0F, 0.0F, 3.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-1.0F, 3.0F, -1.0F, -0.4363F, -0.4363F, 0.0F));
 
-		PartDefinition body1 = narwhal.addOrReplaceChild("body1", CubeListBuilder.create().texOffs(0, 0).addBox(-3.0F, 0.0F, -2.0F, 6.0F, 6.0F, 11.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -6.0F, -6.0F));
+		PartDefinition body1 = narwhal.addOrReplaceChild("body1", CubeListBuilder.create().texOffs(0, 0).addBox(-3.0F, -3.0F, -2.0F, 6.0F, 6.0F, 11.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -3.0F, -6.0F));
 
-		PartDefinition body2 = body1.addOrReplaceChild("body2", CubeListBuilder.create().texOffs(26, 18).addBox(-2.5F, 0.1F, -2.0F, 5.0F, 5.0F, 6.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 0.0F, 9.0F));
+		PartDefinition body2 = body1.addOrReplaceChild("body2", CubeListBuilder.create().texOffs(26, 18).addBox(-2.5F, -2.9F, -2.0F, 5.0F, 5.0F, 6.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 0.0F, 9.0F));
 
-		PartDefinition body3 = body2.addOrReplaceChild("body3", CubeListBuilder.create().texOffs(23, 0).addBox(-2.0F, 0.2F, -1.0F, 4.0F, 4.0F, 5.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 0.0F, 4.0F));
+		PartDefinition body3 = body2.addOrReplaceChild("body3", CubeListBuilder.create().texOffs(23, 0).addBox(-2.0F, -1.8F, -1.0F, 4.0F, 4.0F, 5.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -1.0F, 4.0F));
 
-		PartDefinition tail = body3.addOrReplaceChild("tail", CubeListBuilder.create().texOffs(48, 25).addBox(-1.5F, 0.3F, -1.0F, 3.0F, 2.0F, 5.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 0.0F, 4.0F));
+		PartDefinition tail = body3.addOrReplaceChild("tail", CubeListBuilder.create().texOffs(48, 25).addBox(-1.5F, -0.7F, -1.0F, 3.0F, 2.0F, 5.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -1.0F, 4.0F));
 
 		PartDefinition tail2 = tail.addOrReplaceChild("tail2", CubeListBuilder.create(), PartPose.offset(0.0F, 0.0F, 4.0F));
 
-		PartDefinition cube_r3 = tail2.addOrReplaceChild("cube_r3", CubeListBuilder.create().texOffs(12, 22).addBox(-2.5F, -1.51F, -1.0F, 2.0F, 1.0F, 5.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(1.0F, 2.0F, -1.0F, 0.0F, 0.7854F, 0.0F));
+		PartDefinition cube_r3 = tail2.addOrReplaceChild("cube_r3", CubeListBuilder.create().texOffs(12, 22).addBox(-2.5F, -1.51F, -1.0F, 2.0F, 1.0F, 5.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(1.0F, 1.0F, -1.0F, 0.0F, 0.7854F, 0.0F));
 
-		PartDefinition cube_r4 = tail2.addOrReplaceChild("cube_r4", CubeListBuilder.create().texOffs(13, 23).addBox(-2.5F, -1.5F, -1.0F, 2.0F, 1.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 2.0F, 2.0F, 0.0F, -0.7854F, 0.0F));
+		PartDefinition cube_r4 = tail2.addOrReplaceChild("cube_r4", CubeListBuilder.create().texOffs(13, 23).addBox(-2.5F, -1.5F, -1.0F, 2.0F, 1.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 1.0F, 2.0F, 0.0F, -0.7854F, 0.0F));
 
-		PartDefinition head = body1.addOrReplaceChild("head", CubeListBuilder.create().texOffs(36, 7).addBox(-2.5F, -0.5F, -5.0F, 5.0F, 5.0F, 5.0F, new CubeDeformation(0.0F))
-		.texOffs(57, 14).addBox(-1.0F, 0.5F, -6.0F, 2.0F, 2.0F, 1.0F, new CubeDeformation(0.0F))
-		.texOffs(0, 21).addBox(-0.5F, 1.0F, -16.0F, 1.0F, 1.0F, 10.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 1.0F, -2.0F));
+		PartDefinition head = body1.addOrReplaceChild("head", CubeListBuilder.create().texOffs(36, 7).addBox(-2.5F, -2.5F, -5.0F, 5.0F, 5.0F, 5.0F, new CubeDeformation(0.0F))
+				.texOffs(57, 14).addBox(-1.0F, -1.5F, -6.0F, 2.0F, 2.0F, 1.0F, new CubeDeformation(0.0F))
+				.texOffs(0, 21).addBox(-0.5F, -1.0F, -16.0F, 1.0F, 1.0F, 10.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 0.0F, -2.0F));
 
 		PartDefinition horn = narwhal.addOrReplaceChild("horn", CubeListBuilder.create(), PartPose.offset(0.0F, 0.0F, 0.0F));
 
