@@ -1,5 +1,6 @@
 package net.epichunt.client;
 
+import dev.architectury.platform.Mod;
 import net.epichunt.EpicHunt;
 import net.epichunt.block.ModBlockEntities;
 import net.epichunt.client.model.block.*;
@@ -79,6 +80,13 @@ public class ModModels {
     public static final ModelLayerLocation OYSTER_LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(EpicHunt.MOD_ID, "oyster_block"), "main");
     public static final ModelLayerLocation CLAM_LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(EpicHunt.MOD_ID, "clam_block"), "main");
 
+    public static final ModelLayerLocation NARWHAL_LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(EpicHunt.MOD_ID, "narwhal"), "main");
+    public static final ModelLayerLocation SHARK_LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(EpicHunt.MOD_ID, "shark"), "main");
+    public static final ModelLayerLocation SWORDFISH_LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(EpicHunt.MOD_ID, "swordfish"), "main");
+    public static final ModelLayerLocation WHALE_LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(EpicHunt.MOD_ID, "whale"), "main");
+
+
+
     public static void registerLayers(BiConsumer<ModelLayerLocation, Supplier<LayerDefinition> > consumer) {
         consumer.accept(ModModels.DEER_LAYER_LOCATION, DeerModel::createBodyLayer);
         consumer.accept(ModModels.DOE_LAYER_LOCATION, DoeModel::createBodyLayer);
@@ -118,6 +126,11 @@ public class ModModels {
         consumer.accept(ModModels.STURGEON_LAYER_LOCATION, SturgeonModel::createBodyLayer);
         consumer.accept(ModModels.TROUT_LAYER_LOCATION, TroutModel::createBodyLayer);
         consumer.accept(ModModels.ZANDER_LAYER_LOCATION, ZanderModel::createBodyLayer);
+
+        consumer.accept(ModModels.NARWHAL_LAYER_LOCATION, NarwhalModel::createBodyLayer);
+        consumer.accept(ModModels.SHARK_LAYER_LOCATION, SharkModel::createBodyLayer);
+        consumer.accept(ModModels.SWORDFISH_LAYER_LOCATION, SwordfishModel::createBodyLayer);
+        consumer.accept(ModModels.WHALE_LAYER_LOCATION, WhaleModel::createBodyLayer);
 
         consumer.accept(ModModels.SMALL_ANTLERS_LAYER_LOCATION, SmallAntlersModel::createBodyLayer);
         consumer.accept(ModModels.MEDIUM_ANTLERS_LAYER_LOCATION, MediumAntlersModel::createBodyLayer);
@@ -170,6 +183,7 @@ public class ModModels {
         EntityRenderers.register(ModEntities.TROUT_ENTITY.get(), TroutRender::new);
         EntityRenderers.register(ModEntities.ZANDER_ENTITY.get(), ZanderRender::new);
 
+        EntityRenderers.register(ModEntities.NARWHAL_ENTITY.get(), NarwhalRender::new);
     }
 
     public static void blockEntityRender() {
