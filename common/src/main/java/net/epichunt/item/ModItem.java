@@ -7,6 +7,7 @@ import net.epichunt.EpicHunt;
 import net.epichunt.block.ModBlock;
 import net.epichunt.entity.ModEntities;
 import net.epichunt.entity.animals.*;
+import net.epichunt.entity.animals.aquatic.NarwhalEntity;
 import net.epichunt.entity.animals.fish.*;
 import net.minecraft.client.color.item.ItemColors;
 import net.minecraft.core.registries.Registries;
@@ -92,6 +93,9 @@ public class ModItem {
             new Item.Properties()));
 
     public static final RegistrySupplier<Item> EEL_SPAWN_EGG = ITEMS.register("eel_spawn_egg", () -> new SpawnEggItem(EelEntity.EEL.get(),0x2C2C2C, 0x555555,
+            new Item.Properties()));
+
+    public static final RegistrySupplier<Item> NARWHAL_SPAWN_EGG = ITEMS.register("narwhal_spawn_egg", () -> new SpawnEggItem(NarwhalEntity.NARWHAL.get(),0x504E5B, 0xD5D0D8,
             new Item.Properties()));
 
 

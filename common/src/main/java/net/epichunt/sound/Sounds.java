@@ -52,6 +52,9 @@ public class Sounds {
     public static final RegistrySupplier<SoundEvent> BEAVER_AMBIENT = registerSound("beaver_ambient");
     public static final RegistrySupplier<SoundEvent> BEAVER_HURT = registerSound("beaver_hurt");
     public static final RegistrySupplier<SoundEvent> BEAVER_DEATH = registerSound("beaver_death");
+    public static final RegistrySupplier<SoundEvent> NARWHAL_AMBIENT = registerSound("narwhal_ambient");
+    public static final RegistrySupplier<SoundEvent> NARWHAL_HURT = registerSound("narwhal_hurt");
+    public static final RegistrySupplier<SoundEvent> NARWHAL_DEATH = registerSound("narwhal_death");
 
     private static RegistrySupplier<SoundEvent> registerSound(String name) {
         return SOUNDS.register(name, ()-> SoundEvent.createVariableRangeEvent(new ResourceLocation(EpicHunt.MOD_ID, name)));

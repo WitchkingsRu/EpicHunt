@@ -244,5 +244,25 @@
     "sounds": [
       "epichunt:beaver_death"
     ]
+  },
+  "narwhal_ambient": {
+    "subtitles": "sounds.epichunt.narwhal_ambient",
+    "sounds": [
+      "epichunt:narwhal_ambient_1",
+      "epichunt:narwhal_ambient_3",
+      "epichunt:narwhal_ambient_2"
+    ]
+  },
+  "narwhal_hurt": {
+    "subtitles": "sounds.epichunt.narwhal_ambient",
+    "sounds": [
+      "epichunt:narwhal_hurt"
+    ]
+  },
+  "narwhal_death": {
+    "subtitles": "sounds.epichunt.narwhal_ambient",
+    "sounds": [
+      "epichunt:narwhal_death"
+    ]
   }
 }

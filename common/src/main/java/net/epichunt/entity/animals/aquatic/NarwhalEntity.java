@@ -2,6 +2,7 @@ package net.epichunt.entity.animals.aquatic;
 
 
 import com.google.common.base.Suppliers;
+import net.epichunt.sound.Sounds;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
@@ -46,7 +47,7 @@ public class NarwhalEntity extends WaterAnimal {
     }
 
     public static final Supplier<EntityType<NarwhalEntity>> NARWHAL = Suppliers.memoize(() -> EntityType.Builder.of(NarwhalEntity::new, MobCategory.WATER_AMBIENT)
-            .sized(1f, 1f).build("narwhal"));
+            .sized(1.3f, 0.8f).build("narwhal"));
 
     public final AnimationState idleAnimationState = new AnimationState();
     private int idleAnimTimeout = 15;
@@ -138,7 +139,7 @@ public class NarwhalEntity extends WaterAnimal {
     protected void registerGoals() {
         this.goalSelector.addGoal(0, new BreathAirGoal(this));
         this.goalSelector.addGoal(0, new TryFindWaterGoal(this));
-        this.goalSelector.addGoal(1, new SurfaceSpoutGoal(this, 60)); // Каждые 20 секунд, если глубже 6 блоков
+        this.goalSelector.addGoal(1, new SurfaceSpoutGoal(this, 400));
         this.goalSelector.addGoal(4, new RandomSwimmingGoal(this, (double)1.0F, 10));
         this.goalSelector.addGoal(4, new RandomLookAroundGoal(this));
         this.goalSelector.addGoal(5, new LookAtPlayerGoal(this, Player.class, 6.0F));
@@ -149,7 +150,7 @@ public class NarwhalEntity extends WaterAnimal {
     }
 
     public static AttributeSupplier.Builder createAttributes() {
-        return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, (double)10.0F).add(Attributes.MOVEMENT_SPEED, (double)0.7F);
+        return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, (double)15.0F).add(Attributes.MOVEMENT_SPEED, (double)0.5F);
     }
 
     protected PathNavigation createNavigation(Level level) {
@@ -165,20 +166,22 @@ public class NarwhalEntity extends WaterAnimal {
         return this.getMaxAirSupply();
     }
 
-
+    protected float getStandingEyeHeight(Pose pose, EntityDimensions entityDimensions) {
+        return 0.4F;
+    }
 
     protected SoundEvent getHurtSound(DamageSource damageSource) {
-        return SoundEvents.DOLPHIN_HURT;
+        return Sounds.NARWHAL_HURT.get();
     }
 
     @Nullable
     protected SoundEvent getDeathSound() {
-        return SoundEvents.DOLPHIN_DEATH;
+        return Sounds.NARWHAL_DEATH.get();
     }
 
     @Nullable
     protected SoundEvent getAmbientSound() {
-        return this.isInWater() ? SoundEvents.DOLPHIN_AMBIENT_WATER : SoundEvents.DOLPHIN_AMBIENT;
+        return Sounds.NARWHAL_AMBIENT.get();
     }
 
     protected SoundEvent getSwimSplashSound() {

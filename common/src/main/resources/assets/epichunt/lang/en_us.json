@@ -135,6 +135,7 @@
   "item.epichunt.sturgeon_spawn_egg": "Sturgeon Spawn Egg",
   "item.epichunt.catfish_spawn_egg": "Catfish Spawn Egg",
   "item.epichunt.eel_spawn_egg": "Eel Spawn Egg",
+  "item.epichunt.narwhal_spawn_egg": "Narwhal Spawn Egg",
 
   "item.epichunt.goose_egg": "Goose Egg",
   "item.epichunt.duck_egg": "Duck Egg",
@@ -177,6 +178,7 @@
   "entity.epichunt.sturgeon": "Sturgeon",
   "entity.epichunt.trout": "Trout",
   "entity.epichunt.zander": "Zander",
+  "entity.epichunt.narwhal": "Narwhal",
 
   "advancements.epichunt.root.title": "Epic Hunt",
   "advancements.epichunt.root.description": "Let the Hunt begin!",
