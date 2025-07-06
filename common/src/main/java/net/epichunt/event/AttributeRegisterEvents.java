@@ -5,6 +5,7 @@ import dev.architectury.registry.client.level.entity.EntityRendererRegistry;
 import dev.architectury.registry.level.entity.EntityAttributeRegistry;
 import net.epichunt.entity.animals.*;
 import net.epichunt.entity.animals.aquatic.NarwhalEntity;
+import net.epichunt.entity.animals.aquatic.WhaleEntity;
 import net.epichunt.entity.animals.fish.*;
 import net.epichunt.client.render.entity.*;
 
@@ -51,6 +52,7 @@ public class AttributeRegisterEvents {
         EntityAttributeRegistry.register(ZANDER_ENTITY, ZanderEntity::createAttributes);
 
         EntityAttributeRegistry.register(NARWHAL_ENTITY, NarwhalEntity::createAttributes);
+        EntityAttributeRegistry.register(WHALE_ENTITY, WhaleEntity::createAttributes);
     }
 
 }

@@ -84,6 +84,7 @@ public class ModModels {
     public static final ModelLayerLocation SHARK_LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(EpicHunt.MOD_ID, "shark"), "main");
     public static final ModelLayerLocation SWORDFISH_LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(EpicHunt.MOD_ID, "swordfish"), "main");
     public static final ModelLayerLocation WHALE_LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(EpicHunt.MOD_ID, "whale"), "main");
+    public static final ModelLayerLocation ORCA_LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(EpicHunt.MOD_ID, "orca"), "main");
 
 
 
@@ -131,6 +132,7 @@ public class ModModels {
         consumer.accept(ModModels.SHARK_LAYER_LOCATION, SharkModel::createBodyLayer);
         consumer.accept(ModModels.SWORDFISH_LAYER_LOCATION, SwordfishModel::createBodyLayer);
         consumer.accept(ModModels.WHALE_LAYER_LOCATION, WhaleModel::createBodyLayer);
+        consumer.accept(ModModels.ORCA_LAYER_LOCATION, OrcaModel::createBodyLayer);
 
         consumer.accept(ModModels.SMALL_ANTLERS_LAYER_LOCATION, SmallAntlersModel::createBodyLayer);
         consumer.accept(ModModels.MEDIUM_ANTLERS_LAYER_LOCATION, MediumAntlersModel::createBodyLayer);
@@ -184,6 +186,7 @@ public class ModModels {
         EntityRenderers.register(ModEntities.ZANDER_ENTITY.get(), ZanderRender::new);
 
         EntityRenderers.register(ModEntities.NARWHAL_ENTITY.get(), NarwhalRender::new);
+        EntityRenderers.register(ModEntities.WHALE_ENTITY.get(), WhaleRender::new);
     }
 
     public static void blockEntityRender() {

@@ -8,6 +8,7 @@ import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.epichunt.EpicHunt;
 import net.epichunt.entity.animals.BoarEntity;
 import net.epichunt.entity.animals.WisentEntity;
+import net.epichunt.entity.animals.aquatic.WhaleEntity;
 import net.epichunt.entity.animals.fish.BassEntity;
 import net.epichunt.entity.animals.fish.SturgeonEntity;
 import net.epichunt.entity.animations.*;
@@ -70,7 +71,7 @@ public class WhaleModel<T extends Entity> extends HierarchicalModel<T> {
 		PartDefinition cube_r4 = tail2.addOrReplaceChild("cube_r4", CubeListBuilder.create().texOffs(0, 71).addBox(-6.5F, -0.5F, -1.0F, 6.0F, 1.0F, 14.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(2.0F, 1.0F, 4.0F, 0.0F, -0.7854F, 0.0F));
 
 		PartDefinition head = body1.addOrReplaceChild("head", CubeListBuilder.create().texOffs(0, 55).addBox(-5.5F, -4.5F, -11.0F, 11.0F, 5.0F, 11.0F, new CubeDeformation(0.0F))
-		.texOffs(0, 37).addBox(-5.5F, 0.5F, -11.0F, 11.0F, 6.0F, 11.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -1.0F, -16.0F));
+				.texOffs(0, 37).addBox(-5.5F, 0.5F, -11.0F, 11.0F, 6.0F, 11.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -1.0F, -16.0F));
 
 		return LayerDefinition.create(meshdefinition, 128, 128);
 	}
@@ -78,7 +79,7 @@ public class WhaleModel<T extends Entity> extends HierarchicalModel<T> {
 	@Override
 	public void setupAnim(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
 		this.root().getAllParts().forEach(ModelPart::resetPose);
-		this.animate(((SturgeonEntity) entity).idleAnimationState, WhaleAnimation.swim, ageInTicks, 1f);
+		this.animate(((WhaleEntity) entity).idleAnimationState, WhaleAnimation.swim, ageInTicks, 1f);
 //		if (!entity.isInWater()) {
 //			this.sturgeon.zRot = (float) Math.toRadians(90.0);
 //		}
