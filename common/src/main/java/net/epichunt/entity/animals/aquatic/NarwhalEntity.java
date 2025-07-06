@@ -228,7 +228,7 @@ public class NarwhalEntity extends WaterAnimal {
     }
 
     static {
-        MOISTNESS_LEVEL = SynchedEntityData.defineId(Dolphin.class, EntityDataSerializers.INT);
+        MOISTNESS_LEVEL = SynchedEntityData.defineId(NarwhalEntity.class, EntityDataSerializers.INT);
     }
     static class SurfaceSpoutGoal extends Goal {
         private final WaterAnimal mob;

@@ -63,14 +63,15 @@ public class WhaleEntity extends WaterAnimal {
         this.lookControl = new SmoothSwimmingLookControl(this, 10);
         this.lvl = level;
 
-        this.head = new WhalePart(this, "head", 4.0F, 4.0F);
+        this.head = new WhalePart(this, "head", 12.0F, 12.0F);
         this.body = new WhalePart(this, "body", 8.0F, 6.0F);
         this.tail = new WhalePart(this, "tail", 6.0F, 4.0F);
         this.whaleParts = new WhalePart[]{this.head, this.body, this.tail};
+        System.out.println("Whale parts created: " + head + ", " + tail);
     }
 
     public static final Supplier<EntityType<WhaleEntity>> WHALE = Suppliers.memoize(() -> EntityType.Builder.of(WhaleEntity::new, MobCategory.WATER_AMBIENT)
-            .sized(2.5f, 1.0f).build("whale"));
+            .sized(2.0f, 1.0f).build("whale"));
 
     public final AnimationState idleAnimationState = new AnimationState();
     private int idleAnimTimeout = 15;
@@ -116,6 +117,9 @@ public class WhaleEntity extends WaterAnimal {
             }
 
         }
+        System.out.println("Head pos: " + head.position());
+        System.out.println("Body pos: " + body.position());
+        System.out.println("Tail pos: " + tail.position());
 //        Vec3[] avector3d = new Vec3[this.whaleParts.length];
 //        for (int j = 0; j < this.whaleParts.length; ++j) {
 //            this.whaleParts[j].collideWithNearbyEntities();
@@ -142,30 +146,13 @@ public class WhaleEntity extends WaterAnimal {
     }
 
     private void updateParts() {
-        // Более логичное позиционирование частей тела
-        float yawRad = this.getYRot() * Mth.DEG_TO_RAD;
-        float pitchRad = this.getXRot() * Mth.DEG_TO_RAD;
+        Vec3 basePos = this.position();
+        float yawRad = this.getYRot() * ((float)Math.PI / 180F);
+        Vec3 forward = new Vec3(-Mth.sin(yawRad), 0, Mth.cos(yawRad));
 
-        // Тело - сразу за головой
-        float bodyX = -Mth.sin(yawRad) * 4.0F;
-        float bodyZ = Mth.cos(yawRad) * 4.0F;
-        this.setPartPosition(this.body, bodyX, 0.0F, bodyZ);
-
-        // Хвост - дальше от тела
-        float tailX = -Mth.sin(yawRad) * 8.0F;
-        float tailZ = Mth.cos(yawRad) * 8.0F;
-        this.setPartPosition(this.tail, tailX, 0.0F, tailZ);
-
-        // Голова - впереди основного ентити
-        float headX = Mth.sin(yawRad) * 4.0F;
-        float headZ = -Mth.cos(yawRad) * 4.0F;
-        this.setPartPosition(this.head, headX, 0.0F, headZ);
-
-        // Обновляем поворот частей
-        for (WhalePart part : whaleParts) {
-            part.setYRot(this.getYRot());
-            part.setXRot(this.getXRot());
-        }
+        head.updatePosition(basePos.add(forward.scale(2.0)));
+        body.updatePosition(basePos);
+        tail.updatePosition(basePos.subtract(forward.scale(2.0)));
     }
 
     private void setupAnimationStates() {
@@ -210,7 +197,7 @@ public class WhaleEntity extends WaterAnimal {
     protected void registerGoals() {
         this.goalSelector.addGoal(0, new BreathAirGoal(this));
         this.goalSelector.addGoal(0, new TryFindWaterGoal(this));
-        this.goalSelector.addGoal(1, new NarwhalEntity.SurfaceSpoutGoal(this, 400));
+        this.goalSelector.addGoal(1, new SurfaceSpoutGoal(this, 400));
         this.goalSelector.addGoal(4, new RandomSwimmingGoal(this, (double) 1.0F, 10));
         this.goalSelector.addGoal(4, new RandomLookAroundGoal(this));
         this.goalSelector.addGoal(5, new LookAtPlayerGoal(this, Player.class, 6.0F));
@@ -229,7 +216,7 @@ public class WhaleEntity extends WaterAnimal {
     }
 
     public boolean isPickable() {
-        return true;
+        return false;
     }
     public void pushEntities() {
     }
@@ -268,35 +255,24 @@ public class WhaleEntity extends WaterAnimal {
         return SoundEvents.DOLPHIN_SWIM;
     }
 
-    protected boolean closeToNextPos() {
-        BlockPos blockPos = this.getNavigation().getTargetPos();
-        return blockPos != null ? blockPos.closerToCenterThan(this.position(), (double) 12.0F) : false;
-    }
-    public boolean hurt(WhalePart enderDragonPart, DamageSource damageSource, float f) {
-            if (enderDragonPart != this.head) {
-                f = f / 4.0F + Math.min(f, 1.0F);
-            }
-
-            if (f < 0.01F) {
-                return false;
-            } else {
-                if (damageSource.getEntity() instanceof Player || damageSource.is(DamageTypeTags.ALWAYS_HURTS_ENDER_DRAGONS)) {
-                    float g = this.getHealth();
-                    this.reallyHurt(damageSource, f);
-                    if (this.isDeadOrDying()) {
-                        this.setHealth(1.0F);
-                    }
-
-                }
-
-                return true;
-            }
-
+    @Override
+    public boolean hurt(DamageSource source, float amount) {
+        return super.hurt(source, amount);
     }
 
-    public boolean hurt(DamageSource damageSource, float f) {
-        return !this.level().isClientSide ? this.hurt(this.body, damageSource, f) : false;
+    public boolean hurt(WhalePart part, DamageSource source, float amount) {
+        // Логика обработки урона от части
+        return this.hurt(source, amount);
     }
+
+    @Override
+    public void remove(RemovalReason reason) {
+        super.remove(reason);
+        for (WhalePart part : whaleParts) {
+            part.discard(); // Удалить части вручную
+        }
+    }
+
 
     protected boolean reallyHurt(DamageSource damageSource, float f) {
         return super.hurt(damageSource, f);
@@ -307,6 +283,11 @@ public class WhaleEntity extends WaterAnimal {
     }
     public WhalePart[] getSubEntities() {
         return this.whaleParts;
+    }
+
+    @Override
+    public Packet<ClientGamePacketListener> getAddEntityPacket() {
+        return new ClientboundAddEntityPacket(this);
     }
 
     public void recreateFromPacket(ClientboundAddEntityPacket clientboundAddEntityPacket) {
@@ -352,7 +333,7 @@ public class WhaleEntity extends WaterAnimal {
     }
 
     static {
-        MOISTNESS_LEVEL = SynchedEntityData.defineId(Dolphin.class, EntityDataSerializers.INT);
+        MOISTNESS_LEVEL = SynchedEntityData.defineId(WhaleEntity.class, EntityDataSerializers.INT);
     }
 
     static class SurfaceSpoutGoal extends Goal {
