@@ -9,6 +9,7 @@ import net.epichunt.EpicHunt;
 import net.epichunt.entity.animals.BoarEntity;
 import net.epichunt.entity.animals.WisentEntity;
 import net.epichunt.entity.animals.aquatic.NarwhalEntity;
+import net.epichunt.entity.animals.aquatic.OrcaEntity;
 import net.epichunt.entity.animals.fish.BassEntity;
 import net.epichunt.entity.animals.fish.SturgeonEntity;
 import net.epichunt.entity.animations.*;
@@ -87,12 +88,13 @@ public class OrcaModel<T extends Entity> extends HierarchicalModel<T> {
 	@Override
 	public void setupAnim(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
 		this.root().getAllParts().forEach(ModelPart::resetPose);
-		this.animate(((NarwhalEntity) entity).idleAnimationState, OrcaAnimation.swim, ageInTicks, 1f);
-		this.animate(((WisentEntity) entity).attackAnimationState, OrcaAnimation.attack, ageInTicks, 1f);
+		this.animate(((OrcaEntity) entity).idleAnimationState, OrcaAnimation.swim, ageInTicks, 1f);
+		this.animate(((OrcaEntity) entity).attackAnimationState, OrcaAnimation.attack, ageInTicks, 1f);
 	}
 
 	@Override
 	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
+		poseStack.translate(0.0F, 0.0F, 1.0F);
 		orca.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
 	}
 

@@ -51,23 +51,15 @@ public class WhaleEntity extends WaterAnimal {
     private static final int TOTAL_MOISTNESS_LEVEL = 2400;
     public static boolean shouldSpawnParticles = false;
     private final Level lvl;
-    public final WhalePart head;
-    public final WhalePart body;
-    public final WhalePart tail;
 
-    public final WhalePart[] whaleParts;
 
     public WhaleEntity(EntityType<? extends WhaleEntity> entityType, Level level) {
         super(entityType, level);
         this.moveControl = new SmoothSwimmingMoveControl(this, 85, 10, 0.02F, 0.1F, true);
         this.lookControl = new SmoothSwimmingLookControl(this, 10);
         this.lvl = level;
+        this.noCulling = true;
 
-        this.head = new WhalePart(this, "head", 12.0F, 12.0F);
-        this.body = new WhalePart(this, "body", 8.0F, 6.0F);
-        this.tail = new WhalePart(this, "tail", 6.0F, 4.0F);
-        this.whaleParts = new WhalePart[]{this.head, this.body, this.tail};
-        System.out.println("Whale parts created: " + head + ", " + tail);
     }
 
     public static final Supplier<EntityType<WhaleEntity>> WHALE = Suppliers.memoize(() -> EntityType.Builder.of(WhaleEntity::new, MobCategory.WATER_AMBIENT)
@@ -117,43 +109,8 @@ public class WhaleEntity extends WaterAnimal {
             }
 
         }
-        System.out.println("Head pos: " + head.position());
-        System.out.println("Body pos: " + body.position());
-        System.out.println("Tail pos: " + tail.position());
-//        Vec3[] avector3d = new Vec3[this.whaleParts.length];
-//        for (int j = 0; j < this.whaleParts.length; ++j) {
-//            this.whaleParts[j].collideWithNearbyEntities();
-//            avector3d[j] = new Vec3(this.whaleParts[j].getX(), this.whaleParts[j].getY(), this.whaleParts[j].getZ());
-//        }
-//        final float f17 = this.getYRot() * Mth.DEG_TO_RAD;
-//        final float pitch = this.getXRot() * Mth.DEG_TO_RAD;
-//        final float xRotDiv90 = Math.abs(this.getXRot() / 90F);
-//        final float f3 = Mth.sin(f17) * (1 - xRotDiv90);
-//        final float f18 = Mth.cos(f17) * (1 - xRotDiv90);
-//
-//        this.setPartPosition(this.body, f3 * 0.5F, -pitch * 0.5F, -f18 * 0.5F);
-//        this.setPartPosition(this.tail, (f3) * -3.5F, -pitch * 3F, (f18) * 3.5F);
-//        this.setPartPosition(this.head, f3 * -7F, -pitch * 5F, -f18 * -7F);
-//        for (int l = 0; l < this.whaleParts.length; ++l) {
-//            this.whaleParts[l].xo = avector3d[l].x;
-//            this.whaleParts[l].yo = avector3d[l].y;
-//            this.whaleParts[l].zo = avector3d[l].z;
-//            this.whaleParts[l].xOld = avector3d[l].x;
-//            this.whaleParts[l].yOld = avector3d[l].y;
-//            this.whaleParts[l].zOld = avector3d[l].z;
-//        }
-        this.updateParts();
     }
 
-    private void updateParts() {
-        Vec3 basePos = this.position();
-        float yawRad = this.getYRot() * ((float)Math.PI / 180F);
-        Vec3 forward = new Vec3(-Mth.sin(yawRad), 0, Mth.cos(yawRad));
-
-        head.updatePosition(basePos.add(forward.scale(2.0)));
-        body.updatePosition(basePos);
-        tail.updatePosition(basePos.subtract(forward.scale(2.0)));
-    }
 
     private void setupAnimationStates() {
         if (this.idleAnimTimeout <= 0) {
@@ -215,11 +172,6 @@ public class WhaleEntity extends WaterAnimal {
         return new WaterBoundPathNavigation(this, level);
     }
 
-    public boolean isPickable() {
-        return false;
-    }
-    public void pushEntities() {
-    }
 
     public int getMaxAirSupply() {
         return 4800;
@@ -255,50 +207,6 @@ public class WhaleEntity extends WaterAnimal {
         return SoundEvents.DOLPHIN_SWIM;
     }
 
-    @Override
-    public boolean hurt(DamageSource source, float amount) {
-        return super.hurt(source, amount);
-    }
-
-    public boolean hurt(WhalePart part, DamageSource source, float amount) {
-        // Логика обработки урона от части
-        return this.hurt(source, amount);
-    }
-
-    @Override
-    public void remove(RemovalReason reason) {
-        super.remove(reason);
-        for (WhalePart part : whaleParts) {
-            part.discard(); // Удалить части вручную
-        }
-    }
-
-
-    protected boolean reallyHurt(DamageSource damageSource, float f) {
-        return super.hurt(damageSource, f);
-    }
-
-    private void setPartPosition(WhalePart part, double offsetX, double offsetY, double offsetZ) {
-        part.setPos(this.getX() + offsetX, this.getY() + offsetY, this.getZ() + offsetZ);
-    }
-    public WhalePart[] getSubEntities() {
-        return this.whaleParts;
-    }
-
-    @Override
-    public Packet<ClientGamePacketListener> getAddEntityPacket() {
-        return new ClientboundAddEntityPacket(this);
-    }
-
-    public void recreateFromPacket(ClientboundAddEntityPacket clientboundAddEntityPacket) {
-        super.recreateFromPacket(clientboundAddEntityPacket);
-        WhalePart[] enderDragonParts = this.getSubEntities();
-
-        for(int i = 0; i < enderDragonParts.length; ++i) {
-            enderDragonParts[i].setId(i + clientboundAddEntityPacket.getId());
-        }
-
-    }
 
     public void travel(Vec3 vec3) {
         if (this.isEffectiveAi() && this.isInWater()) {
@@ -353,7 +261,7 @@ public class WhaleEntity extends WaterAnimal {
 
         @Override
         public boolean canUse() {
-            return true; // постоянная цель, но сама управляет частотой
+            return true;
         }
 
         @Override
@@ -373,7 +281,7 @@ public class WhaleEntity extends WaterAnimal {
             BlockPos headPos = BlockPos.containing(mob.getX(), mob.getEyeY(), mob.getZ());
 
             if (isAtWaterSurface(headPos)) {
-                mob.setDeltaMovement(mob.getDeltaMovement().add(0, 0.1, 0));
+//                mob.setDeltaMovement(mob.getDeltaMovement().add(0, 0.1, 0));
                 flashTimer = 15;
             } else {
                 BlockPos target = findSurfaceAbove(mob.blockPosition(), 16);
@@ -393,7 +301,7 @@ public class WhaleEntity extends WaterAnimal {
             for (int dy = 0; dy < maxDistance; dy++) {
                 pos.move(0, 1, 0);
                 if (level.getBlockState(pos).isAir() && level.getFluidState(pos.below()).is(FluidTags.WATER)) {
-                    return pos.below(); // Вода под воздухом — значит, поверхность
+                    return pos.below();
                 }
             }
             return null;

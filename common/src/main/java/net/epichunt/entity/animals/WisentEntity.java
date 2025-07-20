@@ -208,7 +208,7 @@ public class WisentEntity extends Animal implements NeutralMob{
     class WisentMeleeAttackGoal extends MeleeAttackGoal {
         private final WisentEntity entity;
         private int attackDelay = 5;
-        private int ticksUntilNextAttack = 10;
+        private int ticksUntilNextAttack = 5;
         private boolean shouldCountTillNextAttack = false;
 
         public WisentMeleeAttackGoal(PathfinderMob pMob, double pSpeedModifier, boolean pFollowingTargetEvenIfNotSeen) {
@@ -220,7 +220,7 @@ public class WisentEntity extends Animal implements NeutralMob{
         public void start() {
             super.start();
             attackDelay = 5;
-            ticksUntilNextAttack = 10;
+            ticksUntilNextAttack = 5;
         }
 
         @Override

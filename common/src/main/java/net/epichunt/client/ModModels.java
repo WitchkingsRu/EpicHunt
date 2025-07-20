@@ -187,6 +187,7 @@ public class ModModels {
 
         EntityRenderers.register(ModEntities.NARWHAL_ENTITY.get(), NarwhalRender::new);
         EntityRenderers.register(ModEntities.WHALE_ENTITY.get(), WhaleRender::new);
+        EntityRenderers.register(ModEntities.ORCA_ENTITY.get(), OrcaRender::new);
     }
 
     public static void blockEntityRender() {

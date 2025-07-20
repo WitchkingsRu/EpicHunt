@@ -86,6 +86,7 @@ public class WhaleModel<T extends Entity> extends HierarchicalModel<T> {
 	}
 	@Override
 	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
+		poseStack.translate(0.0F, 0.0F, 1.0F);
 		whale.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
 	}
 
