@@ -136,6 +136,10 @@
   "item.epichunt.catfish_spawn_egg": "Catfish Spawn Egg",
   "item.epichunt.eel_spawn_egg": "Eel Spawn Egg",
   "item.epichunt.narwhal_spawn_egg": "Narwhal Spawn Egg",
+  "item.epichunt.whale_spawn_egg": "Whale Spawn Egg",
+  "item.epichunt.orca_spawn_egg": "Orca Spawn Egg",
+  "item.epichunt.white_shark_spawn_egg": "White Shark Spawn Egg",
+
 
   "item.epichunt.goose_egg": "Goose Egg",
   "item.epichunt.duck_egg": "Duck Egg",
@@ -179,6 +183,9 @@
   "entity.epichunt.trout": "Trout",
   "entity.epichunt.zander": "Zander",
   "entity.epichunt.narwhal": "Narwhal",
+  "entity.epichunt.whale": "Whale",
+  "entity.epichunt.orca": "Orca",
+  "entity.epichunt.white_shark": "White Shark",
 
   "advancements.epichunt.root.title": "Epic Hunt",
   "advancements.epichunt.root.description": "Let the Hunt begin!",

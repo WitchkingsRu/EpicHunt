@@ -8,6 +8,9 @@ import net.epichunt.block.ModBlock;
 import net.epichunt.entity.ModEntities;
 import net.epichunt.entity.animals.*;
 import net.epichunt.entity.animals.aquatic.NarwhalEntity;
+import net.epichunt.entity.animals.aquatic.OrcaEntity;
+import net.epichunt.entity.animals.aquatic.WhaleEntity;
+import net.epichunt.entity.animals.aquatic.WhiteSharkEntity;
 import net.epichunt.entity.animals.fish.*;
 import net.minecraft.client.color.item.ItemColors;
 import net.minecraft.core.registries.Registries;
@@ -96,6 +99,15 @@ public class ModItem {
             new Item.Properties()));
 
     public static final RegistrySupplier<Item> NARWHAL_SPAWN_EGG = ITEMS.register("narwhal_spawn_egg", () -> new SpawnEggItem(NarwhalEntity.NARWHAL.get(),0x504E5B, 0xD5D0D8,
+            new Item.Properties()));
+
+    public static final RegistrySupplier<Item> WHALE_SPAWN_EGG = ITEMS.register("whale_spawn_egg", () -> new SpawnEggItem(WhaleEntity.WHALE.get(),0x3B4856, 0x1E252B,
+            new Item.Properties()));
+
+    public static final RegistrySupplier<Item> ORCA_SPAWN_EGG = ITEMS.register("orca_spawn_egg", () -> new SpawnEggItem(OrcaEntity.ORCA.get(),0x1D1D1D, 0xDADADA,
+            new Item.Properties()));
+
+    public static final RegistrySupplier<Item> WHITE_SHARK_SPAWN_EGG = ITEMS.register("white_shark_spawn_egg", () -> new SpawnEggItem(WhiteSharkEntity.WHITE_SHARK.get(),0x4B4B4B, 0xE2E2E2,
             new Item.Properties()));
 
 
