@@ -3,6 +3,7 @@ package net.epichunt.entity.animals.aquatic;
 
 import com.google.common.base.Suppliers;
 import net.epichunt.entity.animals.WisentEntity;
+import net.epichunt.entity.animals.fish.SturgeonEntity;
 import net.epichunt.sound.Sounds;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
@@ -28,6 +29,7 @@ import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.ai.navigation.PathNavigation;
 import net.minecraft.world.entity.ai.navigation.WaterBoundPathNavigation;
+import net.minecraft.world.entity.animal.Dolphin;
 import net.minecraft.world.entity.animal.WaterAnimal;
 import net.minecraft.world.entity.monster.Enemy;
 import net.minecraft.world.entity.monster.Guardian;
@@ -38,6 +40,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
@@ -213,18 +216,15 @@ public class OrcaEntity extends WaterAnimal implements NeutralMob {
     protected void registerGoals() {
         this.goalSelector.addGoal(0, new BreathAirGoal(this));
         this.goalSelector.addGoal(0, new TryFindWaterGoal(this));
-        this.goalSelector.addGoal(1, new OrcaMeleeAttackGoal(this, 1.0D, true));
-        this.goalSelector.addGoal(2, new SurfaceSpoutGoal(this, 400));
+        this.goalSelector.addGoal(1, new OrcaMeleeAttackGoal(this, 1.2D));
+        this.goalSelector.addGoal(2, new SurfaceSpoutGoal(this, 500));
         this.goalSelector.addGoal(4, new RandomSwimmingGoal(this, (double)1.0F, 10));
         this.goalSelector.addGoal(4, new RandomLookAroundGoal(this));
         this.goalSelector.addGoal(5, new LookAtPlayerGoal(this, Player.class, 6.0F));
-        this.goalSelector.addGoal(6, new MeleeAttackGoal(this, (double)1.2F, true));
         this.goalSelector.addGoal(8, new FollowBoatGoal(this));
         this.goalSelector.addGoal(9, new AvoidEntityGoal(this, Guardian.class, 8.0F, (double)1.0F, (double)1.0F));
-        this.targetSelector.addGoal(1, (new HurtByTargetGoal(this, new Class[]{Guardian.class})).setAlertOthers(new Class[0]));
         this.targetSelector.addGoal(1, new HurtByTargetGoal(this, new Class[0]));
-        this.targetSelector.addGoal(1, new OrcaAttackPlayersGoal());
-        this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, 5, true, false, this::isAngryAt));
+        this.targetSelector.addGoal(1, new OrcaAttackEntitiesGoal(this));
     }
     @Override
     public boolean isAngryAt(LivingEntity entity) {
@@ -320,7 +320,7 @@ public class OrcaEntity extends WaterAnimal implements NeutralMob {
     protected void spawnSpoutParticles() {
         Vec3 look = this.getLookAngle();
         Vec3 base = new Vec3(this.getX(), this.getEyeY(), this.getZ()).add(look.scale(1)); // вершина хитбокса
-        for (int i = 0; i < 30; i++) {
+        for (int i = 0; i < 40; i++) {
             double x = base.x + this.getRandom().nextGaussian() * 0.15;
             double y = base.y + i * 0.25;
             double z = base.z + this.getRandom().nextGaussian() * 0.15;
@@ -402,115 +402,121 @@ public class OrcaEntity extends WaterAnimal implements NeutralMob {
         }
 
     }
-    class OrcaMeleeAttackGoal extends MeleeAttackGoal {
-        private final OrcaEntity entity;
-        private int attackDelay = 10;
-        private int ticksUntilNextAttack = 10;
-        private boolean shouldCountTillNextAttack = false;
+    class OrcaMeleeAttackGoal extends Goal {
+        private final OrcaEntity orca;
+        private LivingEntity target;
+        private final double speed;
+        private int ticksUntilNextAttack = 20;
+        private final int attackDelay = 20;
+        private boolean countingAttack = false;
 
-        public OrcaMeleeAttackGoal(PathfinderMob pMob, double pSpeedModifier, boolean pFollowingTargetEvenIfNotSeen) {
-            super(pMob, pSpeedModifier, pFollowingTargetEvenIfNotSeen);
-            entity = ((OrcaEntity) pMob);
+        public OrcaMeleeAttackGoal(OrcaEntity orca, double speed) {
+            this.orca = orca;
+            this.speed = speed;
+        }
+
+        @Override
+        public boolean canUse() {
+            LivingEntity target = this.orca.getTarget();
+            return target != null && target.isAlive();
+        }
+
+        @Override
+        public boolean canContinueToUse() {
+            return canUse();
         }
 
         @Override
         public void start() {
-            super.start();
-            attackDelay = 10;
-            ticksUntilNextAttack = 10;
-        }
-
-        @Override
-        protected void checkAndPerformAttack(LivingEntity pEnemy, double pDistToEnemySqr) {
-            if (isEnemyWithinAttackDistance(pEnemy, pDistToEnemySqr)) {
-                shouldCountTillNextAttack = true;
-
-                if(isTimeToStartAttackAnimation()) {
-                    entity.setAttacking(true);
-                }
-
-                if(isTimeToAttack()) {
-                    this.mob.getLookControl().setLookAt(pEnemy.getX(), pEnemy.getEyeY(), pEnemy.getZ());
-                    performAttack(pEnemy);
-                }
-            } else {
-                resetAttackCooldown();
-                shouldCountTillNextAttack = false;
-                entity.setAttacking(false);
-                entity.attackAnimationTimeout = 0;
-            }
-        }
-
-        private boolean isEnemyWithinAttackDistance(LivingEntity pEnemy, double pDistToEnemySqr) {
-            return pDistToEnemySqr <= this.getAttackReachSqr(pEnemy);
-        }
-
-        protected void resetAttackCooldown() {
-            this.ticksUntilNextAttack = this.adjustedTickDelay(attackDelay * 2);
-        }
-
-        protected boolean isTimeToAttack() {
-            return this.ticksUntilNextAttack <= 0;
-        }
-
-        protected boolean isTimeToStartAttackAnimation() {
-            return this.ticksUntilNextAttack <= attackDelay;
-        }
-
-        protected int getTicksUntilNextAttack() {
-            return this.ticksUntilNextAttack;
-        }
-
-
-        protected void performAttack(LivingEntity pEnemy) {
+            this.target = this.orca.getTarget();
             this.resetAttackCooldown();
-//            this.mob.swing(InteractionHand.MAIN_HAND);
-            this.mob.doHurtTarget(pEnemy);
-        }
-
-        @Override
-        public void tick() {
-            super.tick();
-            if(shouldCountTillNextAttack) {
-                this.ticksUntilNextAttack = Math.max(this.ticksUntilNextAttack - 1, 0);
-            }
+            this.countingAttack = false;
         }
 
         @Override
         public void stop() {
-            entity.setAttacking(false);
-            super.stop();
-        }
-    }
-    private class OrcaAttackPlayersGoal extends NearestAttackableTargetGoal<Player> {
-        public OrcaAttackPlayersGoal() {
-            super(OrcaEntity.this, Player.class, 10, true, true, (Predicate)null);
+            this.target = null;
+            this.orca.getNavigation().stop();
+            this.orca.setAttacking(false);
+            this.orca.attackAnimationTimeout = 0;
+            this.countingAttack = false;
         }
 
-        public boolean canUse() {
-            if (OrcaEntity.this.isBaby()) {
-                return false;
-            } else {
-                if (super.canUse()) {
-                    List<OrcaEntity> list = OrcaEntity.this.level().getEntitiesOfClass(OrcaEntity.class, OrcaEntity.this.getBoundingBox().inflate(8.0, 4.0, 8.0));
-                    Iterator var2 = list.iterator();
+        @Override
+        public void tick() {
+            if (this.target == null) return;
 
-                    while(var2.hasNext()) {
-                        OrcaEntity goose = (OrcaEntity)var2.next();
-                        if (goose.isBaby()) {
-                            return true;
-                        }
+            double distanceSqr = this.orca.distanceToSqr(this.target);
+            double attackReach = (this.orca.getBbWidth() + this.target.getBbWidth()) * 2.0F;
+            double attackReachSqr = attackReach * attackReach;
+
+            Vec3 direction = new Vec3(
+                    this.target.getX() - this.orca.getX(),
+                    this.target.getY() - this.orca.getY(),
+                    this.target.getZ() - this.orca.getZ()
+            ).normalize();
+
+            double moveSpeed = 0.1D;
+
+            this.orca.setDeltaMovement(
+                    this.orca.getDeltaMovement().scale(0.5).add(direction.scale(moveSpeed))
+            );
+            this.orca.setYRot((float)(Mth.atan2(direction.z, direction.x) * (180F / Math.PI)) - 90.0F);
+            this.orca.yBodyRot = this.orca.getYRot();
+            this.orca.yHeadRot = this.orca.getYRot();
+            this.orca.getNavigation().stop();
+
+            if (distanceSqr <= attackReachSqr) {
+                if (!countingAttack) {
+                    countingAttack = true;
+                    ticksUntilNextAttack = adjustedTickDelay(attackDelay * 2);
+                    this.orca.setAttacking(true);
+                } else {
+                    ticksUntilNextAttack = Math.max(ticksUntilNextAttack - 1, 0);
+
+                    if (ticksUntilNextAttack == attackDelay) {
+                        this.orca.setAttacking(true);
+                    }
+
+                    if (ticksUntilNextAttack == 0) {
+                        this.orca.doHurtTarget(this.target);
+                        this.orca.setAttacking(false);
+                        countingAttack = false;
                     }
                 }
-
-                return false;
+            } else {
+                countingAttack = false;
+                ticksUntilNextAttack = adjustedTickDelay(attackDelay * 2);
+                this.orca.setAttacking(false);
+                this.orca.attackAnimationTimeout = 0;
             }
         }
 
-        protected double getFollowDistance() {
-            return super.getFollowDistance() * 0.5;
+        private void resetAttackCooldown() {
+            this.ticksUntilNextAttack = adjustedTickDelay(attackDelay * 2);
+        }
+
+        protected int adjustedTickDelay(int ticks) {
+            return ticks;
         }
     }
+    public class OrcaAttackEntitiesGoal extends NearestAttackableTargetGoal<LivingEntity> {
+        private static final Set<Class<? extends LivingEntity>> TARGET_CLASSES = Set.of(
+                Dolphin.class,
+                SturgeonEntity.class
+        );
 
+        public OrcaAttackEntitiesGoal(OrcaEntity orca) {
+            super(orca, LivingEntity.class, 10, true, true, entity -> {
+                return TARGET_CLASSES.stream().anyMatch(clazz -> clazz.isInstance(entity));
+            });
+        }
+
+        @Override
+        public boolean canUse() {
+            if (this.mob.isBaby()) return false;
+            return super.canUse();
+        }
+    }
 
 }

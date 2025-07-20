@@ -154,7 +154,7 @@ public class WhaleEntity extends WaterAnimal {
     protected void registerGoals() {
         this.goalSelector.addGoal(0, new BreathAirGoal(this));
         this.goalSelector.addGoal(0, new TryFindWaterGoal(this));
-        this.goalSelector.addGoal(1, new SurfaceSpoutGoal(this, 400));
+        this.goalSelector.addGoal(1, new SurfaceSpoutGoal(this,  650));
         this.goalSelector.addGoal(4, new RandomSwimmingGoal(this, (double) 1.0F, 10));
         this.goalSelector.addGoal(4, new RandomLookAroundGoal(this));
         this.goalSelector.addGoal(5, new LookAtPlayerGoal(this, Player.class, 6.0F));
@@ -225,7 +225,7 @@ public class WhaleEntity extends WaterAnimal {
     protected void spawnSpoutParticles() {
         Vec3 look = this.getLookAngle();
         Vec3 base = new Vec3(this.getX(), this.getEyeY(), this.getZ()).add(look.scale(1)); // вершина хитбокса
-        for (int i = 0; i < 30; i++) {
+        for (int i = 0; i < 50; i++) {
             double x = base.x + this.getRandom().nextGaussian() * 0.15;
             double y = base.y + i * 0.25;
             double z = base.z + this.getRandom().nextGaussian() * 0.15;
@@ -281,7 +281,7 @@ public class WhaleEntity extends WaterAnimal {
             BlockPos headPos = BlockPos.containing(mob.getX(), mob.getEyeY(), mob.getZ());
 
             if (isAtWaterSurface(headPos)) {
-//                mob.setDeltaMovement(mob.getDeltaMovement().add(0, 0.1, 0));
+                mob.setDeltaMovement(mob.getDeltaMovement().add(0, 0.1, 0));
                 flashTimer = 15;
             } else {
                 BlockPos target = findSurfaceAbove(mob.blockPosition(), 16);
