@@ -7,6 +7,7 @@ import net.epichunt.entity.animals.*;
 import net.epichunt.entity.animals.aquatic.NarwhalEntity;
 import net.epichunt.entity.animals.aquatic.OrcaEntity;
 import net.epichunt.entity.animals.aquatic.WhaleEntity;
+import net.epichunt.entity.animals.aquatic.WhiteSharkEntity;
 import net.epichunt.entity.animals.fish.*;
 import net.epichunt.item.ThrownDuckEgg;
 import net.epichunt.item.ThrownGooseEgg;
@@ -68,4 +69,5 @@ public class ModEntities {
     public static final RegistrySupplier<EntityType<NarwhalEntity>> NARWHAL_ENTITY = ENTITY_TYPES.register("narwhal", NarwhalEntity.NARWHAL);
     public static final RegistrySupplier<EntityType<WhaleEntity>> WHALE_ENTITY = ENTITY_TYPES.register("whale", WhaleEntity.WHALE);
     public static final RegistrySupplier<EntityType<OrcaEntity>> ORCA_ENTITY = ENTITY_TYPES.register("orca", OrcaEntity.ORCA);
+    public static final RegistrySupplier<EntityType<WhiteSharkEntity>> WHITE_SHARK_ENTITY = ENTITY_TYPES.register("white_shark", WhiteSharkEntity.WHITE_SHARK);
 }

@@ -81,7 +81,7 @@ public class ModModels {
     public static final ModelLayerLocation CLAM_LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(EpicHunt.MOD_ID, "clam_block"), "main");
 
     public static final ModelLayerLocation NARWHAL_LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(EpicHunt.MOD_ID, "narwhal"), "main");
-    public static final ModelLayerLocation SHARK_LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(EpicHunt.MOD_ID, "shark"), "main");
+    public static final ModelLayerLocation SHARK_LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(EpicHunt.MOD_ID, "white_shark"), "main");
     public static final ModelLayerLocation SWORDFISH_LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(EpicHunt.MOD_ID, "swordfish"), "main");
     public static final ModelLayerLocation WHALE_LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(EpicHunt.MOD_ID, "whale"), "main");
     public static final ModelLayerLocation ORCA_LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(EpicHunt.MOD_ID, "orca"), "main");
@@ -188,6 +188,7 @@ public class ModModels {
         EntityRenderers.register(ModEntities.NARWHAL_ENTITY.get(), NarwhalRender::new);
         EntityRenderers.register(ModEntities.WHALE_ENTITY.get(), WhaleRender::new);
         EntityRenderers.register(ModEntities.ORCA_ENTITY.get(), OrcaRender::new);
+        EntityRenderers.register(ModEntities.WHITE_SHARK_ENTITY.get(), WhiteSharkRender::new);
     }
 
     public static void blockEntityRender() {

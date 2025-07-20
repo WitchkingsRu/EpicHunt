@@ -7,6 +7,7 @@ import net.epichunt.entity.animals.*;
 import net.epichunt.entity.animals.aquatic.NarwhalEntity;
 import net.epichunt.entity.animals.aquatic.OrcaEntity;
 import net.epichunt.entity.animals.aquatic.WhaleEntity;
+import net.epichunt.entity.animals.aquatic.WhiteSharkEntity;
 import net.epichunt.entity.animals.fish.*;
 import net.epichunt.client.render.entity.*;
 
@@ -55,6 +56,7 @@ public class AttributeRegisterEvents {
         EntityAttributeRegistry.register(NARWHAL_ENTITY, NarwhalEntity::createAttributes);
         EntityAttributeRegistry.register(WHALE_ENTITY, WhaleEntity::createAttributes);
         EntityAttributeRegistry.register(ORCA_ENTITY, OrcaEntity::createAttributes);
+        EntityAttributeRegistry.register(WHITE_SHARK_ENTITY, WhiteSharkEntity::createAttributes);
     }
 
 }

@@ -8,6 +8,7 @@ import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.epichunt.EpicHunt;
 import net.epichunt.entity.animals.BoarEntity;
 import net.epichunt.entity.animals.WisentEntity;
+import net.epichunt.entity.animals.aquatic.WhiteSharkEntity;
 import net.epichunt.entity.animals.fish.BassEntity;
 import net.epichunt.entity.animals.fish.SturgeonEntity;
 import net.epichunt.entity.animations.*;
@@ -100,8 +101,8 @@ public class SharkModel<T extends Entity> extends HierarchicalModel<T> {
 	@Override
 	public void setupAnim(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
 		this.root().getAllParts().forEach(ModelPart::resetPose);
-		this.animate(((SturgeonEntity) entity).idleAnimationState, SharkAnimation.swim, ageInTicks, 1f);
-		this.animate(((WisentEntity) entity).attackAnimationState, SharkAnimation.attack, ageInTicks, 1f);
+		this.animate(((WhiteSharkEntity) entity).idleAnimationState, SharkAnimation.swim, ageInTicks, 1f);
+		this.animate(((WhiteSharkEntity) entity).attackAnimationState, SharkAnimation.attack, ageInTicks, 1f);
 //		if (!entity.isInWater()) {
 //			this.sturgeon.zRot = (float) Math.toRadians(90.0);
 //		}
@@ -109,6 +110,7 @@ public class SharkModel<T extends Entity> extends HierarchicalModel<T> {
 
 	@Override
 	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
+		poseStack.translate(0.0F, 0.0F, 0.5F);
 		shark.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
 	}
 
