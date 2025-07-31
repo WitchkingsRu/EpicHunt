@@ -4,10 +4,8 @@ import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
 import net.epichunt.EpicHunt;
 import net.epichunt.entity.animals.*;
-import net.epichunt.entity.animals.aquatic.NarwhalEntity;
-import net.epichunt.entity.animals.aquatic.OrcaEntity;
-import net.epichunt.entity.animals.aquatic.WhaleEntity;
-import net.epichunt.entity.animals.aquatic.WhiteSharkEntity;
+import net.epichunt.entity.animals.aerial.EagleEntity;
+import net.epichunt.entity.animals.aquatic.*;
 import net.epichunt.entity.animals.fish.*;
 import net.epichunt.item.ThrownDuckEgg;
 import net.epichunt.item.ThrownGooseEgg;
@@ -70,4 +68,7 @@ public class ModEntities {
     public static final RegistrySupplier<EntityType<WhaleEntity>> WHALE_ENTITY = ENTITY_TYPES.register("whale", WhaleEntity.WHALE);
     public static final RegistrySupplier<EntityType<OrcaEntity>> ORCA_ENTITY = ENTITY_TYPES.register("orca", OrcaEntity.ORCA);
     public static final RegistrySupplier<EntityType<WhiteSharkEntity>> WHITE_SHARK_ENTITY = ENTITY_TYPES.register("white_shark", WhiteSharkEntity.WHITE_SHARK);
+    public static final RegistrySupplier<EntityType<SwordfishEntity>> SWORDFISH_ENTITY = ENTITY_TYPES.register("swordfish", SwordfishEntity.SWORDFISH);
+
+    public static final RegistrySupplier<EntityType<EagleEntity>> EAGLE_ENTITY = ENTITY_TYPES.register("eagle", EagleEntity.EAGLE);
 }

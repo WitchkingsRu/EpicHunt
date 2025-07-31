@@ -86,6 +86,8 @@ public class ModModels {
     public static final ModelLayerLocation WHALE_LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(EpicHunt.MOD_ID, "whale"), "main");
     public static final ModelLayerLocation ORCA_LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(EpicHunt.MOD_ID, "orca"), "main");
 
+    public static final ModelLayerLocation EAGLE_LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(EpicHunt.MOD_ID, "eagle"), "main");
+
 
 
     public static void registerLayers(BiConsumer<ModelLayerLocation, Supplier<LayerDefinition> > consumer) {
@@ -133,6 +135,8 @@ public class ModModels {
         consumer.accept(ModModels.SWORDFISH_LAYER_LOCATION, SwordfishModel::createBodyLayer);
         consumer.accept(ModModels.WHALE_LAYER_LOCATION, WhaleModel::createBodyLayer);
         consumer.accept(ModModels.ORCA_LAYER_LOCATION, OrcaModel::createBodyLayer);
+
+        consumer.accept(ModModels.EAGLE_LAYER_LOCATION, EagleModel::createBodyLayer);
 
         consumer.accept(ModModels.SMALL_ANTLERS_LAYER_LOCATION, SmallAntlersModel::createBodyLayer);
         consumer.accept(ModModels.MEDIUM_ANTLERS_LAYER_LOCATION, MediumAntlersModel::createBodyLayer);
@@ -189,6 +193,9 @@ public class ModModels {
         EntityRenderers.register(ModEntities.WHALE_ENTITY.get(), WhaleRender::new);
         EntityRenderers.register(ModEntities.ORCA_ENTITY.get(), OrcaRender::new);
         EntityRenderers.register(ModEntities.WHITE_SHARK_ENTITY.get(), WhiteSharkRender::new);
+        EntityRenderers.register(ModEntities.SWORDFISH_ENTITY.get(), SwordfishRender::new);
+
+        EntityRenderers.register(ModEntities.EAGLE_ENTITY.get(), EagleRender::new);
     }
 
     public static void blockEntityRender() {

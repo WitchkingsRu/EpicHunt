@@ -8,6 +8,7 @@ import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.epichunt.EpicHunt;
 import net.epichunt.entity.animals.BoarEntity;
 import net.epichunt.entity.animals.WisentEntity;
+import net.epichunt.entity.animals.aquatic.SwordfishEntity;
 import net.epichunt.entity.animals.fish.BassEntity;
 import net.epichunt.entity.animals.fish.SturgeonEntity;
 import net.epichunt.entity.animations.*;
@@ -91,7 +92,7 @@ public class SwordfishModel<T extends Entity> extends HierarchicalModel<T> {
 	@Override
 	public void setupAnim(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
 		this.root().getAllParts().forEach(ModelPart::resetPose);
-		this.animate(((SturgeonEntity) entity).idleAnimationState, SwordfishAnimation.swim, ageInTicks, 1f);
+		this.animate(((SwordfishEntity) entity).idleAnimationState, SwordfishAnimation.swim, ageInTicks, 1f);
 //		if (!entity.isInWater()) {
 //			this.sturgeon.zRot = (float) Math.toRadians(90.0);
 //		}
