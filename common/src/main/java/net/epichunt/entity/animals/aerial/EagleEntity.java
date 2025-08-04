@@ -60,17 +60,24 @@ public class EagleEntity extends FlyingMob {
         this.goalSelector.addGoal(1, new EagleAttackStrategyGoal(this));
         this.goalSelector.addGoal(2, new EagleSweepAttackGoal(this));
         this.goalSelector.addGoal(3, new EagleCircleAroundAnchorGoal(this));
-        //this.targetSelector.addGoal(1, new EagleAttackTargetGoal(this));
+        this.targetSelector.addGoal(1, new EagleAttackTargetGoal(this));
     }
 
     protected boolean shouldDespawnInPeaceful() {
         return false;
     }
 
+    private int flyAnimTimeout = 35;
+
     public final AnimationState flyAnimationState = new AnimationState();
     private void setupAnimationStates() {
         if (!this.isInWater() && !this.onGround()) {
-            this.flyAnimationState.start(this.tickCount);
+            if(this.flyAnimTimeout <= 0) {
+                this.flyAnimTimeout = this.random.nextInt(400) + 1100;
+                this.flyAnimationState.start(this.tickCount);
+            } else {
+                --this.flyAnimTimeout;
+            }
         }
     }
 
@@ -92,7 +99,7 @@ public class EagleEntity extends FlyingMob {
 
     public static AttributeSupplier.Builder createAttributes() {
         return Animal.createLivingAttributes().add(Attributes.MAX_HEALTH, 10D).add(Attributes.MOVEMENT_SPEED, 0.3000000298023224)
-                .add(Attributes.FOLLOW_RANGE, 25D).add(Attributes.ATTACK_DAMAGE, 10D);
+                .add(Attributes.FOLLOW_RANGE, 25D).add(Attributes.ATTACK_DAMAGE, 10D).add(Attributes.ATTACK_KNOCKBACK, 1);
     }
 
     public SpawnGroupData finalizeSpawn(ServerLevelAccessor serverLevelAccessor, DifficultyInstance difficultyInstance, MobSpawnType mobSpawnType, @Nullable SpawnGroupData spawnGroupData, @Nullable CompoundTag compoundTag) {
@@ -227,14 +234,14 @@ public class EagleEntity extends FlyingMob {
 
         public void start() {
             this.distance = 5.0F + EagleEntity.this.random.nextFloat() * 10.0F;
-            this.height = -4.0F + EagleEntity.this.random.nextFloat() * 9.0F;
+            this.height = 4.0F + EagleEntity.this.random.nextFloat() * 6.0F;
             this.clockwise = EagleEntity.this.random.nextBoolean() ? 1.0F : -1.0F;
             this.selectNext();
         }
 
         public void tick() {
             if (EagleEntity.this.random.nextInt(this.adjustedTickDelay(350)) == 0) {
-                this.height = -4.0F + EagleEntity.this.random.nextFloat() * 9.0F;
+                this.height = 4.0F + EagleEntity.this.random.nextFloat() * 6.0F;
             }
 
             if (EagleEntity.this.random.nextInt(this.adjustedTickDelay(250)) == 0) {
@@ -331,11 +338,44 @@ public class EagleEntity extends FlyingMob {
         }
 
         public void tick() {
-            LivingEntity livingEntity = EagleEntity.this.getTarget();
-            if (livingEntity != null) {
-                EagleEntity.this.moveTargetPoint = new Vec3(livingEntity.getX(), livingEntity.getY((double)0.5F), livingEntity.getZ());
-                if (EagleEntity.this.getBoundingBox().inflate((double)0.2F).intersects(livingEntity.getBoundingBox())) {
-                    EagleEntity.this.doHurtTarget(livingEntity);
+//            LivingEntity livingEntity = EagleEntity.this.getTarget();
+//            if (livingEntity != null) {
+//                EagleEntity.this.moveTargetPoint = new Vec3(livingEntity.getX(), livingEntity.getY((double)0.5F), livingEntity.getZ());
+//                if (EagleEntity.this.getBoundingBox().inflate((double)0.2F).intersects(livingEntity.getBoundingBox())) {
+//                    EagleEntity.this.doHurtTarget(livingEntity);
+//                    EagleEntity.this.attackPhase = AttackPhase.CIRCLE;
+//                    if (!EagleEntity.this.isSilent()) {
+//                        EagleEntity.this.level().levelEvent(1039, EagleEntity.this.blockPosition(), 0);
+//                    }
+//                } else if (EagleEntity.this.horizontalCollision || EagleEntity.this.hurtTime > 0) {
+//                    EagleEntity.this.attackPhase = AttackPhase.CIRCLE;
+//                }
+//
+//            }
+//        }
+            LivingEntity target = EagleEntity.this.getTarget();
+            if (target != null) {
+                Vec3 targetPos = new Vec3(
+                        target.getX(),
+                        target.getY(0.5), // чуть выше центра
+                        target.getZ()
+                );
+
+                EagleEntity.this.moveTargetPoint = targetPos;
+
+                // ▶️ Управление наклоном (pitch) во время SWOOP
+                Vec3 motion = EagleEntity.this.getDeltaMovement();
+                double dx = motion.x;
+                double dy = motion.y;
+                double dz = motion.z;
+
+                float horizontalSpeed = Mth.sqrt((float) (dx * dx + dz * dz));
+                float pitch = (float)(Mth.atan2(dy, horizontalSpeed) * (180F / Math.PI));
+                EagleEntity.this.setXRot(pitch); // наклоняем орла
+
+                // ⚔️ Атака при соприкосновении
+                if (EagleEntity.this.getBoundingBox().inflate(0.2).intersects(target.getBoundingBox())) {
+                    EagleEntity.this.doHurtTarget(target);
                     EagleEntity.this.attackPhase = AttackPhase.CIRCLE;
                     if (!EagleEntity.this.isSilent()) {
                         EagleEntity.this.level().levelEvent(1039, EagleEntity.this.blockPosition(), 0);
@@ -343,9 +383,8 @@ public class EagleEntity extends FlyingMob {
                 } else if (EagleEntity.this.horizontalCollision || EagleEntity.this.hurtTime > 0) {
                     EagleEntity.this.attackPhase = AttackPhase.CIRCLE;
                 }
-
             }
-        }
+            }
     }
 
     class EagleAttackStrategyGoal extends Goal {
@@ -383,46 +422,60 @@ public class EagleEntity extends FlyingMob {
         }
 
         private void setAnchorAboveTarget() {
-            EagleEntity.this.anchorPoint = EagleEntity.this.getTarget().blockPosition().above(20 + EagleEntity.this.random.nextInt(20));
-            if (EagleEntity.this.anchorPoint.getY() < EagleEntity.this.level().getSeaLevel()) {
-                EagleEntity.this.anchorPoint = new BlockPos(EagleEntity.this.anchorPoint.getX(), EagleEntity.this.level().getSeaLevel() + 1, EagleEntity.this.anchorPoint.getZ());
-            }
+            BlockPos targetPos = EagleEntity.this.getTarget().blockPosition();
+            int heightAbove = 15 + EagleEntity.this.random.nextInt(10);
+            EagleEntity.this.anchorPoint = targetPos.above(heightAbove);
 
+            if (EagleEntity.this.anchorPoint.getY() < EagleEntity.this.level().getSeaLevel()) {
+                EagleEntity.this.anchorPoint = new BlockPos(
+                        EagleEntity.this.anchorPoint.getX(),
+                        EagleEntity.this.level().getSeaLevel() + 10,
+                        EagleEntity.this.anchorPoint.getZ()
+                );
+            }
         }
     }
-//    class EagleAttackTargetGoal extends Goal {
-//        private final TargetingConditions attackTargeting = TargetingConditions.forCombat().range((double)64.0F);
-//        private int nextScanTick = reducedTickDelay(20);
-//
-//        EagleAttackTargetGoal(EagleEntity phantom) {
-//        }
-//
-//        public boolean canUse() {
-//            if (this.nextScanTick > 0) {
-//                --this.nextScanTick;
-//                return false;
-//            } else {
-//                this.nextScanTick = reducedTickDelay(60);
-//                List<Rabbit> list = EagleEntity.this.level().getNearbyPlayers(this.attackTargeting, EagleEntity.this, EagleEntity.this.getBoundingBox().inflate((double)16.0F, (double)64.0F, (double)16.0F));
-//                if (!list.isEmpty()) {
-//                    list.sort(Comparator.comparing(Entity::getY).reversed());
-//
-//                    for(Rabbit player : list) {
-//                        if (EagleEntity.this.canAttack(player, TargetingConditions.DEFAULT)) {
-//                            EagleEntity.this.setTarget(player);
-//                            return true;
-//                        }
-//                    }
-//                }
-//
-//                return false;
-//            }
-//        }
-//
-//        public boolean canContinueToUse() {
-//            LivingEntity livingEntity = EagleEntity.this.getTarget();
-//            return livingEntity != null ? EagleEntity.this.canAttack(livingEntity, TargetingConditions.DEFAULT) : false;
-//        }
-//    }
+    class EagleAttackTargetGoal extends Goal {
+        private static final TargetingConditions ATTACK_TARGETING = TargetingConditions.forCombat().range(64.0);
+        private final EagleEntity eagle;
+        private int nextScanTick = reducedTickDelay(20);
+
+        public EagleAttackTargetGoal(EagleEntity eagle) {
+            this.eagle = eagle;
+        }
+
+        @Override
+        public boolean canUse() {
+            if (nextScanTick > 0) {
+                --nextScanTick;
+                return false;
+            } else {
+                nextScanTick = reducedTickDelay(60);
+
+                List<Rabbit> rabbits = eagle.level().getEntitiesOfClass(
+                        Rabbit.class,
+                        eagle.getBoundingBox().inflate(16.0, 64.0, 16.0),
+                        rabbit -> rabbit.isAlive() && eagle.canAttack(rabbit, ATTACK_TARGETING)
+                );
+
+                if (!rabbits.isEmpty()) {
+                    for (Rabbit rabbit : rabbits) {
+                        if (eagle.canAttack(rabbit, ATTACK_TARGETING)) {
+                            eagle.setTarget(rabbit);
+                            return true;
+                        }
+                    }
+                }
+
+                return false;
+            }
+        }
+
+        @Override
+        public boolean canContinueToUse() {
+            LivingEntity target = eagle.getTarget();
+            return target instanceof Rabbit && eagle.canAttack(target, ATTACK_TARGETING) && target.isAlive();
+        }
+    }
 
 }

@@ -95,6 +95,7 @@ public class EagleModel<T extends Entity> extends HierarchicalModel<T> {
 	public void setupAnim(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
 		this.root().getAllParts().forEach(ModelPart::resetPose);
 		this.animate(((EagleEntity) entity).flyAnimationState, EagleAnimation.fly, ageInTicks, 1f);
+		this.eagle.xRot = -headPitch * ((float)Math.PI / 180F); // Наклон тела
 	}
 
 	@Override
