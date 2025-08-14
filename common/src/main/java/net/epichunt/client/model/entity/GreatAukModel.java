@@ -1,11 +1,20 @@
-// Made with Blockbench 4.12.5
-// Exported for Minecraft version 1.17 or later with Mojang mappings
-// Paste this class into your mod and generate all required imports
+package net.epichunt.client.model.entity;
 
+import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.blaze3d.vertex.VertexConsumer;
+import net.epichunt.EpicHunt;
+import net.epichunt.entity.animals.DoeEntity;
+import net.epichunt.entity.animals.DuckEntity;
+import net.epichunt.entity.animals.GooseEntity;
+import net.epichunt.entity.animations.*;
+import net.minecraft.client.model.HierarchicalModel;
+import net.minecraft.client.model.geom.ModelPart;
+import net.minecraft.client.model.geom.PartPose;
+import net.minecraft.client.model.geom.builders.*;
+import net.minecraft.util.Mth;
+import net.minecraft.world.entity.Entity;
 
-public class GreatAuk<T extends Entity> extends EntityModel<T> {
-	// This layer location should be baked with EntityRendererProvider.Context in the entity renderer and passed into this model's constructor
-	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation("modid", "greatauk"), "main");
+public class GreatAukModel<T extends Entity> extends HierarchicalModel<T> {
 	private final ModelPart great_auk;
 	private final ModelPart body;
 	private final ModelPart head;
@@ -15,7 +24,7 @@ public class GreatAuk<T extends Entity> extends EntityModel<T> {
 	private final ModelPart leg1;
 	private final ModelPart leg2;
 
-	public GreatAuk(ModelPart root) {
+	public GreatAukModel(ModelPart root) {
 		this.great_auk = root.getChild("great_auk");
 		this.body = this.great_auk.getChild("body");
 		this.head = this.body.getChild("head");
@@ -74,11 +83,25 @@ public class GreatAuk<T extends Entity> extends EntityModel<T> {
 
 	@Override
 	public void setupAnim(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+		this.root().getAllParts().forEach(ModelPart::resetPose);
+		this.applyHeadRotation(netHeadYaw, headPitch, ageInTicks);
+		this.animateWalk(GreatAukAnimation.walk, limbSwing, limbSwingAmount, 2f, 2.5f);
+	}
+	private void applyHeadRotation(float pNetHeadYaw, float pHeadPitch, float pAgeInTicks) {
+		pNetHeadYaw = Mth.clamp(pNetHeadYaw, -30.0F, 30.0F);
+		pHeadPitch = Mth.clamp(pHeadPitch, -25.0F, 45.0F);
 
+		this.head.yRot = pNetHeadYaw * ((float)Math.PI / 180F);
+		this.head.xRot = pHeadPitch * ((float)Math.PI / 180F);
 	}
 
 	@Override
 	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
 		great_auk.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+	}
+
+	@Override
+	public ModelPart root() {
+		return great_auk;
 	}
 }

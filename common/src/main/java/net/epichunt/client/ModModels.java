@@ -87,6 +87,19 @@ public class ModModels {
     public static final ModelLayerLocation ORCA_LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(EpicHunt.MOD_ID, "orca"), "main");
 
     public static final ModelLayerLocation EAGLE_LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(EpicHunt.MOD_ID, "eagle"), "main");
+    public static final ModelLayerLocation BULLFINCH_LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(EpicHunt.MOD_ID, "bullfinch"), "main");
+    public static final ModelLayerLocation COMMON_CRANE_LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(EpicHunt.MOD_ID, "crane"), "main");
+    public static final ModelLayerLocation GREAT_AUK_LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(EpicHunt.MOD_ID, "great_auk"), "main");
+    public static final ModelLayerLocation HAWK_LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(EpicHunt.MOD_ID, "hawk"), "main");
+    public static final ModelLayerLocation KESTREL_LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(EpicHunt.MOD_ID, "kestrel"), "main");
+    public static final ModelLayerLocation LOON_LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(EpicHunt.MOD_ID, "loon"), "main");
+    public static final ModelLayerLocation NIGHTINGALE_LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(EpicHunt.MOD_ID, "nightingale"), "main");
+    public static final ModelLayerLocation OWL_LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(EpicHunt.MOD_ID, "owl"), "main");
+    public static final ModelLayerLocation PARTRIDGE_LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(EpicHunt.MOD_ID, "partridge"), "main");
+    public static final ModelLayerLocation PIGEON_LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(EpicHunt.MOD_ID, "pigeon"), "main");
+    public static final ModelLayerLocation RAVEN_LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(EpicHunt.MOD_ID, "raven"), "main");
+    public static final ModelLayerLocation RAZORBILL_LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(EpicHunt.MOD_ID, "razorbill"), "main");
+    public static final ModelLayerLocation WHITE_STORK_LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(EpicHunt.MOD_ID, "stork"), "main");
 
 
 
@@ -137,6 +150,19 @@ public class ModModels {
         consumer.accept(ModModels.ORCA_LAYER_LOCATION, OrcaModel::createBodyLayer);
 
         consumer.accept(ModModels.EAGLE_LAYER_LOCATION, EagleModel::createBodyLayer);
+        consumer.accept(ModModels.BULLFINCH_LAYER_LOCATION, BullfinchModel::createBodyLayer);
+        consumer.accept(ModModels.COMMON_CRANE_LAYER_LOCATION, CommonCraneModel::createBodyLayer);
+        consumer.accept(ModModels.GREAT_AUK_LAYER_LOCATION, GreatAukModel::createBodyLayer);
+        consumer.accept(ModModels.HAWK_LAYER_LOCATION, HawkModel::createBodyLayer);
+        consumer.accept(ModModels.KESTREL_LAYER_LOCATION, KestrelModel::createBodyLayer);
+        consumer.accept(ModModels.LOON_LAYER_LOCATION, LoonModel::createBodyLayer);
+        consumer.accept(ModModels.NIGHTINGALE_LAYER_LOCATION, NightingaleModel::createBodyLayer);
+        consumer.accept(ModModels.OWL_LAYER_LOCATION, OwlModel::createBodyLayer);
+        consumer.accept(ModModels.PARTRIDGE_LAYER_LOCATION, PartridgeModel::createBodyLayer);
+        consumer.accept(ModModels.PIGEON_LAYER_LOCATION, PigeonModel::createBodyLayer);
+        consumer.accept(ModModels.RAVEN_LAYER_LOCATION, RavenModel::createBodyLayer);
+        consumer.accept(ModModels.RAZORBILL_LAYER_LOCATION, RazorbillModel::createBodyLayer);
+        consumer.accept(ModModels.WHITE_STORK_LAYER_LOCATION, WhiteStorkModel::createBodyLayer);
 
         consumer.accept(ModModels.SMALL_ANTLERS_LAYER_LOCATION, SmallAntlersModel::createBodyLayer);
         consumer.accept(ModModels.MEDIUM_ANTLERS_LAYER_LOCATION, MediumAntlersModel::createBodyLayer);

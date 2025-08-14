@@ -1,11 +1,23 @@
-// Made with Blockbench 4.12.5
-// Exported for Minecraft version 1.17 or later with Mojang mappings
-// Paste this class into your mod and generate all required imports
+package net.epichunt.client.model.entity;
+
+import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.blaze3d.vertex.VertexConsumer;
+import net.epichunt.EpicHunt;
+import net.epichunt.entity.animals.DoeEntity;
+import net.epichunt.entity.animals.DuckEntity;
+import net.epichunt.entity.animals.GooseEntity;
+import net.epichunt.entity.animations.DoeAnimation;
+import net.epichunt.entity.animations.DuckAnimation;
+import net.epichunt.entity.animations.GooseAnimation;
+import net.minecraft.client.model.HierarchicalModel;
+import net.minecraft.client.model.geom.ModelPart;
+import net.minecraft.client.model.geom.PartPose;
+import net.minecraft.client.model.geom.builders.*;
+import net.minecraft.util.Mth;
+import net.minecraft.world.entity.Entity;
 
 
-public class Hawk<T extends Entity> extends EntityModel<T> {
-	// This layer location should be baked with EntityRendererProvider.Context in the entity renderer and passed into this model's constructor
-	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation("modid", "hawk"), "main");
+public class KestrelModel<T extends Entity> extends HierarchicalModel<T> {
 	private final ModelPart kestrel;
 	private final ModelPart head;
 	private final ModelPart body;
@@ -17,7 +29,7 @@ public class Hawk<T extends Entity> extends EntityModel<T> {
 	private final ModelPart wing2;
 	private final ModelPart wing2_2;
 
-	public Hawk(ModelPart root) {
+	public KestrelModel(ModelPart root) {
 		this.kestrel = root.getChild("kestrel");
 		this.head = this.kestrel.getChild("head");
 		this.body = this.kestrel.getChild("body");
@@ -87,5 +99,10 @@ public class Hawk<T extends Entity> extends EntityModel<T> {
 	@Override
 	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
 		kestrel.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+	}
+
+	@Override
+	public ModelPart root() {
+		return kestrel;
 	}
 }

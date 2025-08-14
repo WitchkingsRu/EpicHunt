@@ -1,11 +1,21 @@
-// Made with Blockbench 4.12.5
-// Exported for Minecraft version 1.17 or later with Mojang mappings
-// Paste this class into your mod and generate all required imports
+package net.epichunt.client.model.entity;
+
+import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.blaze3d.vertex.VertexConsumer;
+import net.epichunt.EpicHunt;
+import net.epichunt.entity.animals.DoeEntity;
+import net.epichunt.entity.animals.DuckEntity;
+import net.epichunt.entity.animals.GooseEntity;
+import net.epichunt.entity.animations.*;
+import net.minecraft.client.model.HierarchicalModel;
+import net.minecraft.client.model.geom.ModelPart;
+import net.minecraft.client.model.geom.PartPose;
+import net.minecraft.client.model.geom.builders.*;
+import net.minecraft.util.Mth;
+import net.minecraft.world.entity.Entity;
 
 
-public class Duck<T extends Entity> extends EntityModel<T> {
-	// This layer location should be baked with EntityRendererProvider.Context in the entity renderer and passed into this model's constructor
-	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation("modid", "duck"), "main");
+public class LoonModel<T extends Entity> extends HierarchicalModel<T> {
 	private final ModelPart loon;
 	private final ModelPart head;
 	private final ModelPart body;
@@ -14,7 +24,7 @@ public class Duck<T extends Entity> extends EntityModel<T> {
 	private final ModelPart leftleg;
 	private final ModelPart rightleg;
 
-	public Duck(ModelPart root) {
+	public LoonModel(ModelPart root) {
 		this.loon = root.getChild("loon");
 		this.head = this.loon.getChild("head");
 		this.body = this.loon.getChild("body");
@@ -57,11 +67,29 @@ public class Duck<T extends Entity> extends EntityModel<T> {
 
 	@Override
 	public void setupAnim(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+		this.root().getAllParts().forEach(ModelPart::resetPose);
+		this.applyHeadRotation(netHeadYaw, headPitch, ageInTicks);
+		this.animateWalk(LoonAnimation.walk, limbSwing, limbSwingAmount, 2f, 2.5f);
+		this.animate(((DuckEntity) entity).flyAnimationState, LoonAnimation.fly, ageInTicks, 1f);
+		if (entity.isInWater()) {
+			this.animate(((DuckEntity) entity).swimAnimationState, LoonAnimation.swim, ageInTicks, 1f);
+		}
+	}
+	private void applyHeadRotation(float pNetHeadYaw, float pHeadPitch, float pAgeInTicks) {
+		pNetHeadYaw = Mth.clamp(pNetHeadYaw, -30.0F, 30.0F);
+		pHeadPitch = Mth.clamp(pHeadPitch, -25.0F, 45.0F);
 
+		this.head.yRot = pNetHeadYaw * ((float)Math.PI / 180F);
+		this.head.xRot = pHeadPitch * ((float)Math.PI / 180F);
 	}
 
 	@Override
 	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
 		loon.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+	}
+
+	@Override
+	public ModelPart root() {
+		return loon;
 	}
 }
