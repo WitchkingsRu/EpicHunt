@@ -1,0 +1,84 @@
+// Made with Blockbench 4.12.5
+// Exported for Minecraft version 1.17 or later with Mojang mappings
+// Paste this class into your mod and generate all required imports
+
+
+public class GreatAuk<T extends Entity> extends EntityModel<T> {
+	// This layer location should be baked with EntityRendererProvider.Context in the entity renderer and passed into this model's constructor
+	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation("modid", "greatauk"), "main");
+	private final ModelPart razorbill;
+	private final ModelPart body;
+	private final ModelPart head;
+	private final ModelPart tail;
+	private final ModelPart wing2;
+	private final ModelPart wing1;
+	private final ModelPart leg1;
+	private final ModelPart leg2;
+
+	public GreatAuk(ModelPart root) {
+		this.razorbill = root.getChild("razorbill");
+		this.body = this.razorbill.getChild("body");
+		this.head = this.body.getChild("head");
+		this.tail = this.body.getChild("tail");
+		this.wing2 = this.body.getChild("wing2");
+		this.wing1 = this.body.getChild("wing1");
+		this.leg1 = this.razorbill.getChild("leg1");
+		this.leg2 = this.razorbill.getChild("leg2");
+	}
+
+	public static LayerDefinition createBodyLayer() {
+		MeshDefinition meshdefinition = new MeshDefinition();
+		PartDefinition partdefinition = meshdefinition.getRoot();
+
+		PartDefinition razorbill = partdefinition.addOrReplaceChild("razorbill", CubeListBuilder.create(), PartPose.offset(0.0F, 15.0F, -1.0F));
+
+		PartDefinition body = razorbill.addOrReplaceChild("body", CubeListBuilder.create().texOffs(0, 11).addBox(-1.49F, -0.6913F, -0.5245F, 2.0F, 2.0F, 3.0F, new CubeDeformation(0.0F))
+		.texOffs(2, 11).addBox(0.49F, -0.6913F, -0.5245F, 1.0F, 2.0F, 3.0F, new CubeDeformation(0.0F))
+		.texOffs(0, 17).addBox(-1.49F, -0.1606F, -1.22F, 3.0F, 1.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 1.0F, -1.0F));
+
+		PartDefinition cube_r1 = body.addOrReplaceChild("cube_r1", CubeListBuilder.create().texOffs(0, 19).addBox(-1.5F, -1.0F, -1.033F, 3.0F, 1.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 0.6586F, -0.6464F, -0.9599F, 0.0F, 0.0F));
+
+		PartDefinition cube_r2 = body.addOrReplaceChild("cube_r2", CubeListBuilder.create().texOffs(0, 0).addBox(-1.5F, -6.0F, -1.0F, 3.0F, 6.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 6.0F, 2.0F, 0.3927F, 0.0F, 0.0F));
+
+		PartDefinition head = body.addOrReplaceChild("head", CubeListBuilder.create().texOffs(0, 24).addBox(-1.0F, 0.5F, -1.5F, 2.0F, 1.0F, 2.0F, new CubeDeformation(0.0F))
+		.texOffs(0, 27).addBox(-1.0F, -1.5F, -2.0F, 2.0F, 2.0F, 3.0F, new CubeDeformation(0.0F))
+		.texOffs(13, 29).addBox(-0.5F, -0.5F, -3.5F, 1.0F, 1.0F, 2.0F, new CubeDeformation(0.0F))
+		.texOffs(14, 30).addBox(-0.49F, -1.0F, -2.5F, 1.0F, 1.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -2.0F, 1.0F));
+
+		PartDefinition tail = body.addOrReplaceChild("tail", CubeListBuilder.create(), PartPose.offset(0.0F, 4.0F, 4.0F));
+
+		PartDefinition cube_r3 = tail.addOrReplaceChild("cube_r3", CubeListBuilder.create().texOffs(25, 4).addBox(-1.0F, -2.0F, -1.0F, 2.0F, 2.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 2.5195F, 3.1749F, 0.8727F, 0.0F, 0.0F));
+
+		PartDefinition cube_r4 = tail.addOrReplaceChild("cube_r4", CubeListBuilder.create().texOffs(24, 0).addBox(-1.0F, -2.0F, -1.0F, 2.0F, 2.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 2.0F, 1.0F, 0.8727F, 0.0F, 0.0F));
+
+		PartDefinition wing2 = body.addOrReplaceChild("wing2", CubeListBuilder.create(), PartPose.offsetAndRotation(-2.0F, 1.0F, 1.0F, 0.5672F, 0.0F, 0.0F));
+
+		PartDefinition cube_r5 = wing2.addOrReplaceChild("cube_r5", CubeListBuilder.create().texOffs(14, 17).mirror().addBox(-0.2F, -5.0F, -1.0F, 1.0F, 5.0F, 1.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-0.01F, 3.7239F, -1.3738F, -0.0436F, 0.0F, 0.0F));
+
+		PartDefinition cube_r6 = wing2.addOrReplaceChild("cube_r6", CubeListBuilder.create().texOffs(18, 15).mirror().addBox(-0.19F, -3.0F, -1.0F, 1.0F, 3.0F, 3.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offsetAndRotation(-0.01F, 1.5382F, 1.1041F, 1.2654F, 0.0F, 0.0F));
+
+		PartDefinition wing1 = body.addOrReplaceChild("wing1", CubeListBuilder.create(), PartPose.offsetAndRotation(2.0F, 1.0F, 1.0F, 0.5672F, 0.0F, 0.0F));
+
+		PartDefinition cube_r7 = wing1.addOrReplaceChild("cube_r7", CubeListBuilder.create().texOffs(14, 17).addBox(-0.8F, -5.0F, -1.0F, 1.0F, 5.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.01F, 3.7239F, -1.3738F, -0.0436F, 0.0F, 0.0F));
+
+		PartDefinition cube_r8 = wing1.addOrReplaceChild("cube_r8", CubeListBuilder.create().texOffs(18, 15).addBox(-0.81F, -3.0F, -1.0F, 1.0F, 3.0F, 3.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.01F, 1.5382F, 1.1041F, 1.2654F, 0.0F, 0.0F));
+
+		PartDefinition leg1 = razorbill.addOrReplaceChild("leg1", CubeListBuilder.create().texOffs(27, 25).addBox(-0.51F, -1.0F, 0.0F, 1.0F, 3.0F, 1.0F, new CubeDeformation(0.0F))
+		.texOffs(22, 21).addBox(-1.0F, 2.0F, -2.5F, 3.0F, 0.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(1.0F, 7.0F, 1.0F));
+
+		PartDefinition leg2 = razorbill.addOrReplaceChild("leg2", CubeListBuilder.create().texOffs(27, 25).mirror().addBox(-0.49F, -1.0F, 0.0F, 1.0F, 3.0F, 1.0F, new CubeDeformation(0.0F)).mirror(false)
+		.texOffs(22, 21).mirror().addBox(-2.0F, 2.0F, -2.5F, 3.0F, 0.0F, 4.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(-1.0F, 7.0F, 1.0F));
+
+		return LayerDefinition.create(meshdefinition, 32, 32);
+	}
+
+	@Override
+	public void setupAnim(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+
+	}
+
+	@Override
+	public void renderToBuffer(PoseStack poseStack, VertexConsumer vertexConsumer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
+		razorbill.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
+	}
+}
