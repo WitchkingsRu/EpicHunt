@@ -4,6 +4,7 @@ import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
 import net.epichunt.EpicHunt;
 import net.epichunt.entity.animals.*;
+import net.epichunt.entity.animals.aerial.AbstractPreyBirdEntity;
 import net.epichunt.entity.animals.aerial.EagleEntity;
 import net.epichunt.entity.animals.aquatic.*;
 import net.epichunt.entity.animals.fish.*;

@@ -2,18 +2,13 @@ package net.epichunt.client.model.entity;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
-import net.epichunt.EpicHunt;
-import net.epichunt.entity.animals.DoeEntity;
-import net.epichunt.entity.animals.DuckEntity;
+import net.epichunt.entity.animals.aerial.AbstractPreyBirdEntity;
 import net.epichunt.entity.animals.aerial.EagleEntity;
-import net.epichunt.entity.animations.DoeAnimation;
-import net.epichunt.entity.animations.DuckAnimation;
 import net.epichunt.entity.animations.EagleAnimation;
 import net.minecraft.client.model.HierarchicalModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
-import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
 
 public class EagleModel<T extends Entity> extends HierarchicalModel<T> {
@@ -95,7 +90,8 @@ public class EagleModel<T extends Entity> extends HierarchicalModel<T> {
 	public void setupAnim(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
 		this.root().getAllParts().forEach(ModelPart::resetPose);
 		this.animate(((EagleEntity) entity).flyAnimationState, EagleAnimation.fly, ageInTicks, 1f);
-		this.eagle.xRot = -headPitch * ((float)Math.PI / 180F); // Наклон тела
+		this.eagle.xRot = -headPitch * ((float)Math.PI / 180F);
+
 	}
 
 	@Override

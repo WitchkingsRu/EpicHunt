@@ -1,13 +1,12 @@
 package net.epichunt.event;
 
 
-import dev.architectury.registry.client.level.entity.EntityRendererRegistry;
 import dev.architectury.registry.level.entity.EntityAttributeRegistry;
 import net.epichunt.entity.animals.*;
+import net.epichunt.entity.animals.aerial.AbstractPreyBirdEntity;
 import net.epichunt.entity.animals.aerial.EagleEntity;
 import net.epichunt.entity.animals.aquatic.*;
 import net.epichunt.entity.animals.fish.*;
-import net.epichunt.client.render.entity.*;
 
 import static net.epichunt.entity.ModEntities.*;
 
