@@ -6,9 +6,9 @@ import net.epichunt.EpicHunt;
 import net.epichunt.entity.animals.DoeEntity;
 import net.epichunt.entity.animals.DuckEntity;
 import net.epichunt.entity.animals.GooseEntity;
-import net.epichunt.entity.animations.DoeAnimation;
-import net.epichunt.entity.animations.DuckAnimation;
-import net.epichunt.entity.animations.GooseAnimation;
+import net.epichunt.entity.animals.aerial.EagleEntity;
+import net.epichunt.entity.animals.aerial.HawkEntity;
+import net.epichunt.entity.animations.*;
 import net.minecraft.client.model.HierarchicalModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
@@ -93,6 +93,9 @@ public class HawkModel<T extends Entity> extends HierarchicalModel<T> {
 
 	@Override
 	public void setupAnim(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+		this.root().getAllParts().forEach(ModelPart::resetPose);
+		this.animate(((HawkEntity) entity).flyAnimationState, HawkAnimation.fly, ageInTicks, 1f);
+		this.hawk.xRot = -headPitch * ((float)Math.PI / 180F);
 
 	}
 

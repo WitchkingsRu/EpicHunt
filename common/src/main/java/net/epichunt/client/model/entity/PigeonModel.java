@@ -6,6 +6,7 @@ import net.epichunt.EpicHunt;
 import net.epichunt.entity.animals.DoeEntity;
 import net.epichunt.entity.animals.DuckEntity;
 import net.epichunt.entity.animals.GooseEntity;
+import net.epichunt.entity.animals.PigeonEntity;
 import net.epichunt.entity.animations.*;
 import net.minecraft.client.model.HierarchicalModel;
 import net.minecraft.client.model.geom.ModelPart;
@@ -77,7 +78,7 @@ public class PigeonModel<T extends Entity> extends HierarchicalModel<T> {
 		this.root().getAllParts().forEach(ModelPart::resetPose);
 		this.applyHeadRotation(netHeadYaw, headPitch, ageInTicks);
 		this.animateWalk(PigeonAnimation.walk, limbSwing, limbSwingAmount, 2f, 2.5f);
-		this.animate(((DuckEntity) entity).flyAnimationState, PigeonAnimation.fly, ageInTicks, 1f);
+		this.animate(((PigeonEntity) entity).flyAnimationState, PigeonAnimation.fly, ageInTicks, 1f);
 	}
 	private void applyHeadRotation(float pNetHeadYaw, float pHeadPitch, float pAgeInTicks) {
 		pNetHeadYaw = Mth.clamp(pNetHeadYaw, -30.0F, 30.0F);

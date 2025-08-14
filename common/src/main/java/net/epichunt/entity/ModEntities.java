@@ -6,6 +6,8 @@ import net.epichunt.EpicHunt;
 import net.epichunt.entity.animals.*;
 import net.epichunt.entity.animals.aerial.AbstractPreyBirdEntity;
 import net.epichunt.entity.animals.aerial.EagleEntity;
+import net.epichunt.entity.animals.aerial.HawkEntity;
+import net.epichunt.entity.animals.aerial.KestrelEntity;
 import net.epichunt.entity.animals.aquatic.*;
 import net.epichunt.entity.animals.fish.*;
 import net.epichunt.item.ThrownDuckEgg;
@@ -72,4 +74,13 @@ public class ModEntities {
     public static final RegistrySupplier<EntityType<SwordfishEntity>> SWORDFISH_ENTITY = ENTITY_TYPES.register("swordfish", SwordfishEntity.SWORDFISH);
 
     public static final RegistrySupplier<EntityType<EagleEntity>> EAGLE_ENTITY = ENTITY_TYPES.register("eagle", EagleEntity.EAGLE);
+    public static final RegistrySupplier<EntityType<HawkEntity>> HAWK_ENTITY = ENTITY_TYPES.register("hawk", HawkEntity.HAWK);
+    public static final RegistrySupplier<EntityType<KestrelEntity>> KESTREL_ENTITY = ENTITY_TYPES.register("kestrel", KestrelEntity.KESTREL);
+    public static final RegistrySupplier<EntityType<LoonEntity>> LOON_ENTITY = ENTITY_TYPES.register("loon", LoonEntity.LOON);
+    public static final RegistrySupplier<EntityType<PartridgeEntity>> PARTRIDGE_ENTITY = ENTITY_TYPES.register("partridge", PartridgeEntity.PARTRIDGE);
+    public static final RegistrySupplier<EntityType<PigeonEntity>> PIGEON_ENTITY = ENTITY_TYPES.register("pigeon", PigeonEntity.PIGEON);
+    public static final RegistrySupplier<EntityType<WhiteStorkEntity>> WHITE_STORK_ENTITY = ENTITY_TYPES.register("white_stork", WhiteStorkEntity.WHITE_STORK);
+    public static final RegistrySupplier<EntityType<CommonCraneEntity>> COMMON_CRANE_ENTITY = ENTITY_TYPES.register("common_crane", CommonCraneEntity.COMMON_CRANE);
+
+
 }

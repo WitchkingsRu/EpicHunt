@@ -222,6 +222,13 @@ public class ModModels {
         EntityRenderers.register(ModEntities.SWORDFISH_ENTITY.get(), SwordfishRender::new);
 
         EntityRenderers.register(ModEntities.EAGLE_ENTITY.get(), EagleRender::new);
+        EntityRenderers.register(ModEntities.HAWK_ENTITY.get(), HawkRender::new);
+        EntityRenderers.register(ModEntities.KESTREL_ENTITY.get(), KestrelRender::new);
+        EntityRenderers.register(ModEntities.LOON_ENTITY.get(), LoonRender::new);
+        EntityRenderers.register(ModEntities.PARTRIDGE_ENTITY.get(), PartridgeRender::new);
+        EntityRenderers.register(ModEntities.PIGEON_ENTITY.get(), PigeonRender::new);
+        EntityRenderers.register(ModEntities.WHITE_STORK_ENTITY.get(), WhiteStorkRender::new);
+        EntityRenderers.register(ModEntities.COMMON_CRANE_ENTITY.get(), CommonCraneRender::new);
     }
 
     public static void blockEntityRender() {

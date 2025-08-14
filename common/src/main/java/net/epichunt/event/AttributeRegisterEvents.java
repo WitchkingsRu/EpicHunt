@@ -5,6 +5,8 @@ import dev.architectury.registry.level.entity.EntityAttributeRegistry;
 import net.epichunt.entity.animals.*;
 import net.epichunt.entity.animals.aerial.AbstractPreyBirdEntity;
 import net.epichunt.entity.animals.aerial.EagleEntity;
+import net.epichunt.entity.animals.aerial.HawkEntity;
+import net.epichunt.entity.animals.aerial.KestrelEntity;
 import net.epichunt.entity.animals.aquatic.*;
 import net.epichunt.entity.animals.fish.*;
 
@@ -55,7 +57,15 @@ public class AttributeRegisterEvents {
         EntityAttributeRegistry.register(ORCA_ENTITY, OrcaEntity::createAttributes);
         EntityAttributeRegistry.register(WHITE_SHARK_ENTITY, WhiteSharkEntity::createAttributes);
         EntityAttributeRegistry.register(SWORDFISH_ENTITY, SwordfishEntity::createAttributes);
+
         EntityAttributeRegistry.register(EAGLE_ENTITY, EagleEntity::createAttributes);
+        EntityAttributeRegistry.register(HAWK_ENTITY, HawkEntity::createAttributes);
+        EntityAttributeRegistry.register(KESTREL_ENTITY, KestrelEntity::createAttributes);
+        EntityAttributeRegistry.register(LOON_ENTITY, LoonEntity::createAttributes);
+        EntityAttributeRegistry.register(PARTRIDGE_ENTITY, PartridgeEntity::createAttributes);
+        EntityAttributeRegistry.register(PIGEON_ENTITY, PigeonEntity::createAttributes);
+        EntityAttributeRegistry.register(WHITE_STORK_ENTITY, WhiteStorkEntity::createAttributes);
+        EntityAttributeRegistry.register(COMMON_CRANE_ENTITY, CommonCraneEntity::createAttributes);
     }
 
 }
