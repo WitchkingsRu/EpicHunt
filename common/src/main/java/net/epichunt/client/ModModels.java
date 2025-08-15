@@ -229,6 +229,9 @@ public class ModModels {
         EntityRenderers.register(ModEntities.PIGEON_ENTITY.get(), PigeonRender::new);
         EntityRenderers.register(ModEntities.WHITE_STORK_ENTITY.get(), WhiteStorkRender::new);
         EntityRenderers.register(ModEntities.COMMON_CRANE_ENTITY.get(), CommonCraneRender::new);
+        EntityRenderers.register(ModEntities.GREAT_AUK_ENTITY.get(), GreatAukRender::new);
+        EntityRenderers.register(ModEntities.RAZORBILL_ENTITY.get(), RazorbillRender::new);
+        EntityRenderers.register(ModEntities.RAVEN_ENTITY.get(), RavenRender::new);
     }
 
     public static void blockEntityRender() {

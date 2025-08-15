@@ -27,5 +27,8 @@
     "minecraft": ">=1.20.1",
     "architectury": ">=9.1.12"
   },
+  "mixins": [
+    "mixins.epichunt.json"
+  ],
   "accessWidener": "epichunt.accesswidener"
 }

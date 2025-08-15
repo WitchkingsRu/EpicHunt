@@ -6,13 +6,18 @@ import net.epichunt.EpicHunt;
 import net.epichunt.entity.animals.DoeEntity;
 import net.epichunt.entity.animals.DuckEntity;
 import net.epichunt.entity.animals.GooseEntity;
+import net.epichunt.entity.animals.RavenEntity;
 import net.epichunt.entity.animations.*;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.client.model.HierarchicalModel;
+import net.minecraft.client.model.ParrotModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.animal.Parrot;
 
 
 public class RavenModel<T extends Entity> extends HierarchicalModel<T> {
@@ -80,7 +85,7 @@ public class RavenModel<T extends Entity> extends HierarchicalModel<T> {
 		this.root().getAllParts().forEach(ModelPart::resetPose);
 		this.applyHeadRotation(netHeadYaw, headPitch, ageInTicks);
 		this.animateWalk(RavenAnimation.walk, limbSwing, limbSwingAmount, 2f, 2.5f);
-		this.animate(((DuckEntity) entity).flyAnimationState, RavenAnimation.fly, ageInTicks, 1f);
+		this.animate(((RavenEntity) entity).flyAnimationState, RavenAnimation.fly, ageInTicks, 1f);
 	}
 	private void applyHeadRotation(float pNetHeadYaw, float pHeadPitch, float pAgeInTicks) {
 		pNetHeadYaw = Mth.clamp(pNetHeadYaw, -30.0F, 30.0F);
@@ -95,8 +100,109 @@ public class RavenModel<T extends Entity> extends HierarchicalModel<T> {
 		raven.render(poseStack, vertexConsumer, packedLight, packedOverlay, red, green, blue, alpha);
 	}
 
+	public void prepareMobModel(RavenEntity raven, float f, float g, float h) {
+		this.prepare(getState(raven));
+	}
+
+	public void renderOnShoulder(PoseStack poseStack, VertexConsumer vertexConsumer, int i, int j, float f, float g, float h, float k, int l) {
+		this.prepare(RavenModel.State.ON_SHOULDER);
+		this.setupAnim(RavenModel.State.ON_SHOULDER, l, f, g, 0.0F, h, k);
+		this.root().render(poseStack, vertexConsumer, i, j);
+	}
+
+	private void setupAnim(State state, int i, float f, float g, float h, float j, float k) {
+		this.head.xRot = k * ((float)Math.PI / 180F);
+		this.head.yRot = j * ((float)Math.PI / 180F);
+		this.head.zRot = 0.0F;
+		this.head.x = 0.0F;
+		this.body.x = 0.0F;
+		this.tail.x = 0.0F;
+		this.wing1.x = -1.5F;
+		this.wing2.x = 1.5F;
+		switch (state) {
+			case SITTING:
+				break;
+			case STANDING:
+				ModelPart var10000 = this.leg1;
+				var10000.xRot += Mth.cos(f * 0.6662F) * 1.4F * g;
+				var10000 = this.leg2;
+				var10000.xRot += Mth.cos(f * 0.6662F + (float)Math.PI) * 1.4F * g;
+			case FLYING:
+			case ON_SHOULDER:
+			default:
+				float n = h * 0.3F;
+				this.head.y = 15.69F + n;
+				this.tail.xRot = 1.015F + Mth.cos(f * 0.6662F) * 0.3F * g;
+				this.tail.y = 21.07F + n;
+				this.body.y = 16.5F + n;
+				this.wing2.zRot = -0.0873F - h;
+				this.wing2.y = 16.94F + n;
+				this.wing1.zRot = 0.0873F + h;
+				this.wing1.y = 16.94F + n;
+				this.leg1.y = 22.0F + n;
+				this.leg2.y = 22.0F + n;
+		}
+
+	}
+
+	private void prepare(State state) {
+		this.body.xRot = 0.4937F;
+		this.wing2.xRot = -0.6981F;
+		this.wing2.yRot = -(float)Math.PI;
+		this.wing1.xRot = -0.6981F;
+		this.wing1.yRot = -(float)Math.PI;
+		this.leg1.xRot = -0.0299F;
+		this.leg2.xRot = -0.0299F;
+		this.leg1.y = 22.0F;
+		this.leg2.y = 22.0F;
+		this.leg1.zRot = 0.0F;
+		this.leg2.zRot = 0.0F;
+		switch (state) {
+			case SITTING:
+				float f = 1.9F;
+				this.head.y = 17.59F;
+				this.tail.xRot = 1.5388988F;
+				this.tail.y = 22.97F;
+				this.body.y = 18.4F;
+				this.wing2.zRot = -0.0873F;
+				this.wing2.y = 18.84F;
+				this.wing1.zRot = 0.0873F;
+				this.wing1.y = 18.84F;
+				++this.leg1.y;
+				++this.leg2.y;
+				++this.leg1.xRot;
+				++this.leg2.xRot;
+				break;
+			case STANDING:
+			case ON_SHOULDER:
+			default:
+				break;
+			case FLYING:
+				ModelPart var10000 = this.leg1;
+				var10000.xRot += 0.6981317F;
+				var10000 = this.leg2;
+				var10000.xRot += 0.6981317F;
+		}
+
+	}
+	private static State getState(RavenEntity raven) {
+		if (raven.isInSittingPose()) {
+			return State.SITTING;
+		} else {
+			return raven.isFlying() ? State.FLYING : State.STANDING;
+		}
+	}
+
 	@Override
 	public ModelPart root() {
 		return raven;
+	}
+
+	@Environment(EnvType.CLIENT)
+	public static enum State {
+		FLYING,
+		STANDING,
+		SITTING,
+		ON_SHOULDER;
 	}
 }
