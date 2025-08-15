@@ -12,9 +12,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public abstract class PlayerRendererMixin {
     @Inject(method = "<init>", at = @At("TAIL"))
     private void addRavenLayer(EntityRendererProvider.Context context, boolean slim, CallbackInfo ci) {
-        PlayerRenderer self = (PlayerRenderer)(Object)this;
-        ((LivingEntityRendererAccessor)self).invokeAddLayer(
-                new RavenOnShoulderLayer<>(self, context.getModelSet())
+        ((LivingEntityRendererAccessor)(Object)this).addLayer(
+                new RavenOnShoulderLayer<>((PlayerRenderer)(Object)this, context.getModelSet())
         );
     }
 }
