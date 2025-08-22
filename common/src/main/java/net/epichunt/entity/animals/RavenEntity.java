@@ -2,14 +2,19 @@ package net.epichunt.entity.animals;
 
 import com.google.common.base.Suppliers;
 import com.google.common.collect.Sets;
+import net.epichunt.EpicHunt;
+import net.epichunt.config.ConfigMain;
+import net.epichunt.config.GiftManager;
 import net.epichunt.sound.Sounds;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.util.Mth;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.damagesource.DamageSource;
@@ -27,6 +32,7 @@ import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.animal.FlyingAnimal;
 import net.minecraft.world.entity.animal.Parrot;
 import net.minecraft.world.entity.animal.ShoulderRidingEntity;
+import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -38,6 +44,7 @@ import net.minecraft.world.level.pathfinder.BlockPathTypes;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.List;
 import java.util.Set;
 import java.util.function.Supplier;
 
@@ -108,6 +115,7 @@ public class RavenEntity extends ShoulderRidingEntity implements FlyingAnimal {
         this.goalSelector.addGoal(2, new RavenWanderGoal(this, (double)1.0F));
         this.goalSelector.addGoal(3, new LandOnOwnersShoulderGoal(this));
         this.goalSelector.addGoal(3, new FollowMobGoal(this, (double)1.0F, 3.0F, 7.0F));
+        this.goalSelector.addGoal(3, new ReceiveGiftGoal(this));
     }
 
     public static AttributeSupplier.Builder createAttributes() {
@@ -237,6 +245,104 @@ public class RavenEntity extends ShoulderRidingEntity implements FlyingAnimal {
             }
 
             return null;
+        }
+    }
+    public class ReceiveGiftGoal extends Goal {
+        private final RavenEntity raven;
+        public static final ConfigMain CONFIG = EpicHunt.CONFIG;
+        private Player owner;
+        private int cooldown; // Таймер кулдауна между подарками
+        private int giftCooldown; // Интервал между подарками (в тиках)
+
+        public ReceiveGiftGoal(RavenEntity raven) {
+            this.raven = raven;
+            this.giftCooldown = CONFIG.gift_list.cooldown * 20; // Конвертируем секунды в тики
+            this.cooldown = this.giftCooldown;
+        }
+
+        @Override
+        public boolean canUse() {
+            // Проверяем, можно ли использовать цель
+            if (this.cooldown > 0) {
+                this.cooldown--;
+                return false;
+            }
+
+            // Ищем владельца (игрока, который приручил соловья)
+            this.owner = (Player) this.raven.getOwner();
+            return this.owner != null
+                    && this.owner.distanceToSqr(this.raven) < 100.0D // Проверяем расстояние
+                    && !this.owner.isSleeping() // Игрок не спит
+                    && this.raven.getRandom().nextFloat() < 0.05F; // 5% шанс каждый тик
+
+        }
+
+        @Override
+        public boolean canContinueToUse() {
+            // Продолжаем выполнение, если игрок все еще рядом и не спит
+            return this.owner != null
+                    && this.owner.distanceToSqr(this.raven) < 144.0D
+                    && !this.owner.isSleeping()
+                    && this.cooldown <= 0;
+        }
+
+        @Override
+        public void start() {
+            // Начинаем выполнение цели
+            this.raven.getNavigation().stop(); // Останавливаем движение
+        }
+
+        @Override
+        public void stop() {
+            // Завершаем выполнение цели
+            this.owner = null;
+            this.raven.getNavigation().stop();
+            this.cooldown = this.giftCooldown; // Устанавливаем кулдаун
+        }
+
+        @Override
+        public void tick() {
+            // Вызывается каждый тик во время выполнения цели
+            if (this.owner != null && this.raven.distanceToSqr(this.owner) < 16.0D) {
+                // Игрок достаточно близко - вручаем подарок!
+                this.giveGift();
+                this.stop(); // Завершаем после выдачи подарка
+            } else if (this.owner != null) {
+                // Двигаемся к игроку
+                this.raven.getNavigation().moveTo(this.owner, 1.0D);
+            }
+        }
+
+        private void giveGift() {
+            if (this.owner == null || this.owner.level().isClientSide) return;
+
+            // Создаем предмет-подарок
+            ItemStack gift = GiftManager.getRandomGift(this.raven.getRandom());
+            if (gift == null || gift.isEmpty()) {
+                return;
+            }
+
+            // Спавним предмет в мире
+            ItemEntity itemEntity = new ItemEntity(
+                    this.owner.level(),
+                    this.raven.getX(),
+                    this.raven.getY() + 0.5D,
+                    this.raven.getZ(),
+                    gift
+            );
+
+            // Задаем небольшую случайную скорость
+            itemEntity.setDeltaMovement(
+                    (this.raven.getRandom().nextFloat() - 0.5F) * 0.2F,
+                    this.raven.getRandom().nextFloat() * 0.4F,
+                    (this.raven.getRandom().nextFloat() - 0.5F) * 0.2F
+            );
+
+            this.owner.level().addFreshEntity(itemEntity);
+
+            // Воспроизводим звук и частицы
+            this.owner.level().playSound(null, this.raven.blockPosition(),
+                    SoundEvents.ITEM_PICKUP, SoundSource.NEUTRAL, 0.5F, 1.0F);
         }
     }
 }

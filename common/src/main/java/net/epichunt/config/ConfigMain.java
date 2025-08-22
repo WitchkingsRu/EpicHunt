@@ -5,6 +5,10 @@ import me.shedaniel.autoconfig.annotation.Config;
 import me.shedaniel.autoconfig.annotation.ConfigEntry.Gui.CollapsibleObject;
 import me.shedaniel.autoconfig.annotation.ConfigEntry.Gui.RequiresRestart;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 
 @Config(name = "epichunt")
 public class ConfigMain implements ConfigData {
@@ -90,6 +94,9 @@ public class ConfigMain implements ConfigData {
     public HalibutConfig halibut = new HalibutConfig();
     @CollapsibleObject
     public CatfishConfig catfish = new CatfishConfig();
+
+    @CollapsibleObject
+    public GiftsConfig gift_list = new GiftsConfig();
 
 
     public static class DeerConfig {
@@ -460,6 +467,19 @@ public class ConfigMain implements ConfigData {
         @RequiresRestart
         public int maxAmount = 1;
         public CatfishConfig() {
+        }
+    }
+    public static class GiftsConfig {
+        @RequiresRestart
+        public List<? extends String> gifts = Arrays.asList(
+                "minecraft:feather;1;0.3",
+                "minecraft:music_disc_13;1;0.1",
+                "minecraft:gold_nugget;1-3;0.2",
+                "minecraft:emerald;1;0.05"
+        );
+        @RequiresRestart
+        public int cooldown = 3600;
+        public GiftsConfig() {
         }
     }
     public ConfigMain() {

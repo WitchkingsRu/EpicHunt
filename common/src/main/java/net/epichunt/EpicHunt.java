@@ -5,6 +5,7 @@ import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.serializer.GsonConfigSerializer;
 import net.epichunt.block.ModBlockEntities;
 import net.epichunt.config.ConfigMain;
+import net.epichunt.config.GiftManager;
 import net.epichunt.entity.MobSpawns;
 import net.epichunt.event.AttributeRegisterEvents;
 import net.epichunt.misc.CreativeTabs;
@@ -21,7 +22,7 @@ import static net.epichunt.sound.Sounds.SOUNDS;
 
 public class EpicHunt {
     public static final String MOD_ID = "epichunt";
-    private static final Logger LOGGER = LogUtils.getLogger();
+    public static final Logger LOGGER = LogUtils.getLogger();
     public static ConfigMain CONFIG;
     public static void init() {
         ENTITY_TYPES.register();
@@ -31,6 +32,7 @@ public class EpicHunt {
         ITEMS.register();
         AutoConfig.register(ConfigMain.class, GsonConfigSerializer::new);
         CONFIG = AutoConfig.getConfigHolder(ConfigMain.class).getConfig();
+        GiftManager.loadGifts();
         LOGGER.info("Config loaded");
         MobSpawns.placementRegistry(CONFIG);
         TABS.register();
