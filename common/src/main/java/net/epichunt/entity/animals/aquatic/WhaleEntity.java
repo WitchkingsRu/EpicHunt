@@ -165,7 +165,7 @@ public class WhaleEntity extends WaterAnimal {
     }
 
     public static AttributeSupplier.Builder createAttributes() {
-        return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, (double) 15.0F).add(Attributes.MOVEMENT_SPEED, (double) 0.5F);
+        return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, (double) 40.0F).add(Attributes.MOVEMENT_SPEED, (double) 0.6F);
     }
 
     protected PathNavigation createNavigation(Level level) {
@@ -186,17 +186,17 @@ public class WhaleEntity extends WaterAnimal {
     }
 
     protected SoundEvent getHurtSound(DamageSource damageSource) {
-        return Sounds.NARWHAL_HURT.get();
+        return Sounds.WHALE_HURT.get();
     }
 
     @Nullable
     protected SoundEvent getDeathSound() {
-        return Sounds.NARWHAL_DEATH.get();
+        return Sounds.WHALE_DEATH.get();
     }
 
     @Nullable
     protected SoundEvent getAmbientSound() {
-        return Sounds.NARWHAL_AMBIENT.get();
+        return Sounds.WHALE_AMBIENT.get();
     }
 
     protected SoundEvent getSwimSplashSound() {

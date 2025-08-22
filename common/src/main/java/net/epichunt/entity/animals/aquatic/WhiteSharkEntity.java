@@ -134,8 +134,8 @@ public class WhiteSharkEntity extends Monster implements Enemy {
     }
     
     public static AttributeSupplier.Builder createAttributes() {
-        return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, (double)15.0F).add(Attributes.MOVEMENT_SPEED, (double)0.5F)
-                .add(Attributes.FOLLOW_RANGE, 25D).add(Attributes.ATTACK_DAMAGE, 10D).add(Attributes.ATTACK_KNOCKBACK, 1);
+        return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, (double)20.0F).add(Attributes.MOVEMENT_SPEED, (double)0.5F)
+                .add(Attributes.FOLLOW_RANGE, 25D).add(Attributes.ATTACK_DAMAGE, 7D).add(Attributes.ATTACK_KNOCKBACK, 1);
     }
     
     public boolean canBreatheUnderwater() {
@@ -156,17 +156,17 @@ public class WhiteSharkEntity extends Monster implements Enemy {
     }
 
     protected SoundEvent getHurtSound(DamageSource damageSource) {
-        return Sounds.NARWHAL_HURT.get();
+        return SoundEvents.COD_HURT;
     }
 
     @Nullable
     protected SoundEvent getDeathSound() {
-        return Sounds.NARWHAL_DEATH.get();
+        return SoundEvents.COD_DEATH;
     }
 
     @Nullable
     protected SoundEvent getAmbientSound() {
-        return Sounds.NARWHAL_AMBIENT.get();
+        return SoundEvents.COD_AMBIENT;
     }
 
     protected SoundEvent getSwimSplashSound() {

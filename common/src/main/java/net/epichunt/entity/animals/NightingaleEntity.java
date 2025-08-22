@@ -3,30 +3,40 @@ package net.epichunt.entity.animals;
 import com.google.common.base.Suppliers;
 import net.epichunt.item.ModItem;
 import net.epichunt.sound.Sounds;
+import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.syncher.EntityDataAccessor;
+import net.minecraft.network.syncher.EntityDataSerializers;
+import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.Mth;
+import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.animal.Animal;
+import net.minecraft.world.entity.animal.Parrot;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.Random;
 import java.util.function.Supplier;
 
 public class NightingaleEntity extends Animal {
+    private static final EntityDataAccessor<Integer> DATA_SONG_PITCH;
     public static final Ingredient FOOD_ITEMS;
     public float flap;
     public float flapSpeed;
@@ -39,7 +49,6 @@ public class NightingaleEntity extends Animal {
 
     public NightingaleEntity(EntityType<? extends Animal> entityType, Level level) {
         super(entityType, level);
-
     }
 
     public static final Supplier<EntityType<NightingaleEntity>> NIGHTINGALE = Suppliers.memoize(() -> EntityType.Builder.of(NightingaleEntity::new, MobCategory.CREATURE)
@@ -98,6 +107,19 @@ public class NightingaleEntity extends Animal {
                 .add(Attributes.FOLLOW_RANGE, 25D);
     }
 
+    @Nullable
+    public SpawnGroupData finalizeSpawn(ServerLevelAccessor serverLevelAccessor, DifficultyInstance difficultyInstance, MobSpawnType mobSpawnType, @Nullable SpawnGroupData spawnGroupData, @Nullable CompoundTag compoundTag) {
+
+        int randomPitchValue = serverLevelAccessor.getRandom().nextInt(6);
+        this.setSongPitch(randomPitchValue);
+
+        if (spawnGroupData == null) {
+            spawnGroupData = new AgeableMob.AgeableMobGroupData(false);
+        }
+
+        return super.finalizeSpawn(serverLevelAccessor, difficultyInstance, mobSpawnType, spawnGroupData, compoundTag);
+    }
+
     @Override
     public void aiStep() {
         super.aiStep();
@@ -140,6 +162,32 @@ public class NightingaleEntity extends Animal {
         }
     }
 
+    public int getSongPitch() {
+        return this.entityData.get(DATA_SONG_PITCH);
+    }
+
+    public void setSongPitch(int pitch) {
+        this.entityData.set(DATA_SONG_PITCH, pitch);
+    }
+
+    @Override
+    public void addAdditionalSaveData(CompoundTag nbt) {
+        super.addAdditionalSaveData(nbt);
+        nbt.putInt("SongPitch", this.getSongPitch());
+    }
+
+    @Override
+    public void readAdditionalSaveData(CompoundTag nbt) {
+        super.readAdditionalSaveData(nbt);
+        this.setSongPitch(nbt.getInt("SongPitch"));
+    }
+
+    @Override
+    protected void defineSynchedData() {
+        super.defineSynchedData();
+        this.entityData.define(DATA_SONG_PITCH, random.nextInt(6));
+    }
+
     @Nullable
     @Override
     public AgeableMob getBreedOffspring(ServerLevel serverLevel, AgeableMob ageableMob) {
@@ -149,7 +197,16 @@ public class NightingaleEntity extends Animal {
     @Nullable
     @Override
     protected SoundEvent getAmbientSound() {
-        return Sounds.QUAIL_AMBIENT.get();
+        int a = this.getSongPitch();
+        return switch (a) {
+            case 0 -> Sounds.NIGHTINGALE_AMBIENT1.get();
+            case 1 -> Sounds.NIGHTINGALE_AMBIENT2.get();
+            case 2 -> Sounds.NIGHTINGALE_AMBIENT3.get();
+            case 3 -> Sounds.NIGHTINGALE_AMBIENT4.get();
+            case 4 -> Sounds.NIGHTINGALE_AMBIENT5.get();
+            case 5 -> Sounds.NIGHTINGALE_AMBIENT6.get();
+            default -> Sounds.NIGHTINGALE_AMBIENT1.get();
+        };
     }
 
     @Nullable
@@ -179,5 +236,6 @@ public class NightingaleEntity extends Animal {
 
     static {
         FOOD_ITEMS = Ingredient.of(Items.WHEAT_SEEDS);
+        DATA_SONG_PITCH = SynchedEntityData.defineId(NightingaleEntity.class, EntityDataSerializers.INT);
     }
 }

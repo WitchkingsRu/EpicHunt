@@ -55,6 +55,18 @@ public class Sounds {
     public static final RegistrySupplier<SoundEvent> NARWHAL_AMBIENT = registerSound("narwhal_ambient");
     public static final RegistrySupplier<SoundEvent> NARWHAL_HURT = registerSound("narwhal_hurt");
     public static final RegistrySupplier<SoundEvent> NARWHAL_DEATH = registerSound("narwhal_death");
+    public static final RegistrySupplier<SoundEvent> WHALE_AMBIENT = registerSound("whale_ambient");
+    public static final RegistrySupplier<SoundEvent> WHALE_HURT = registerSound("whale_hurt");
+    public static final RegistrySupplier<SoundEvent> WHALE_DEATH = registerSound("whale_death");
+    public static final RegistrySupplier<SoundEvent> ORCA_AMBIENT = registerSound("orca_ambient");
+    public static final RegistrySupplier<SoundEvent> NIGHTINGALE_AMBIENT1 = registerSound("nightingale1_ambient");
+    public static final RegistrySupplier<SoundEvent> NIGHTINGALE_AMBIENT2 = registerSound("nightingale2_ambient");
+    public static final RegistrySupplier<SoundEvent> NIGHTINGALE_AMBIENT3 = registerSound("nightingale3_ambient");
+    public static final RegistrySupplier<SoundEvent> NIGHTINGALE_AMBIENT4 = registerSound("nightingale4_ambient");
+    public static final RegistrySupplier<SoundEvent> NIGHTINGALE_AMBIENT5 = registerSound("nightingale5_ambient");
+    public static final RegistrySupplier<SoundEvent> NIGHTINGALE_AMBIENT6 = registerSound("nightingale6_ambient");
+
+
 
     private static RegistrySupplier<SoundEvent> registerSound(String name) {
         return SOUNDS.register(name, ()-> SoundEvent.createVariableRangeEvent(new ResourceLocation(EpicHunt.MOD_ID, name)));

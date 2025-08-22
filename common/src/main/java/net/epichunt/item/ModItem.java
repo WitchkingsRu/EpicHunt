@@ -7,10 +7,8 @@ import net.epichunt.EpicHunt;
 import net.epichunt.block.ModBlock;
 import net.epichunt.entity.ModEntities;
 import net.epichunt.entity.animals.*;
-import net.epichunt.entity.animals.aquatic.NarwhalEntity;
-import net.epichunt.entity.animals.aquatic.OrcaEntity;
-import net.epichunt.entity.animals.aquatic.WhaleEntity;
-import net.epichunt.entity.animals.aquatic.WhiteSharkEntity;
+import net.epichunt.entity.animals.aquatic.*;
+import net.epichunt.entity.animals.aerial.*;
 import net.epichunt.entity.animals.fish.*;
 import net.minecraft.client.color.item.ItemColors;
 import net.minecraft.core.registries.Registries;
@@ -109,6 +107,52 @@ public class ModItem {
 
     public static final RegistrySupplier<Item> WHITE_SHARK_SPAWN_EGG = ITEMS.register("white_shark_spawn_egg", () -> new SpawnEggItem(WhiteSharkEntity.WHITE_SHARK.get(),0x4B4B4B, 0xE2E2E2,
             new Item.Properties()));
+
+    public static final RegistrySupplier<Item> SWORDFISH_SPAWN_EGG = ITEMS.register("swordfish_spawn_egg", () -> new SpawnEggItem(SwordfishEntity.SWORDFISH.get(),0x29293C, 0xEFECDF,
+            new Item.Properties()));
+
+    public static final RegistrySupplier<Item> PIGEON_SPAWN_EGG = ITEMS.register("pigeon_spawn_egg", () -> new SpawnEggItem(PigeonEntity.PIGEON.get(),0x494D62, 0x63566E,
+            new Item.Properties()));
+
+    public static final RegistrySupplier<Item> GREAT_AUK_SPAWN_EGG = ITEMS.register("great_auk_spawn_egg", () -> new SpawnEggItem(GreatAukEntity.GREAT_AUK.get(),0x242424, 0xD1D1D1,
+            new Item.Properties()));
+
+    public static final RegistrySupplier<Item> RAZORBILL_SPAWN_EGG = ITEMS.register("razorbill_spawn_egg", () -> new SpawnEggItem(RazorbillEntity.RAZORBILL.get(),0x000000, 0xE8E8E8,
+            new Item.Properties()));
+
+    public static final RegistrySupplier<Item> WHITE_STORK_SPAWN_EGG = ITEMS.register("white_stork_spawn_egg", () -> new SpawnEggItem(WhiteStorkEntity.WHITE_STORK.get(),0xC6C6C6, 0xC34650,
+            new Item.Properties()));
+
+    public static final RegistrySupplier<Item> CRANE_SPAWN_EGG = ITEMS.register("crane_spawn_egg", () -> new SpawnEggItem(CommonCraneEntity.COMMON_CRANE.get(),0xBEBEBE, 0x343434,
+            new Item.Properties()));
+
+    public static final RegistrySupplier<Item> KESTREL_SPAWN_EGG = ITEMS.register("kestrel_spawn_egg", () -> new SpawnEggItem(KestrelEntity.KESTREL.get(),0x8D400D, 0x995C33,
+            new Item.Properties()));
+
+    public static final RegistrySupplier<Item> LOON_SPAWN_EGG = ITEMS.register("loon_spawn_egg", () -> new SpawnEggItem(LoonEntity.LOON.get(),0x121418, 0x88898B,
+            new Item.Properties()));
+
+    public static final RegistrySupplier<Item> PARTRIDGE_SPAWN_EGG = ITEMS.register("partridge_spawn_egg", () -> new SpawnEggItem(PartridgeEntity.PARTRIDGE.get(),0x4B4741, 0x4E3521,
+            new Item.Properties()));
+
+    public static final RegistrySupplier<Item> NIGHTINGALE_SPAWN_EGG = ITEMS.register("nightingale_spawn_egg", () -> new SpawnEggItem(NightingaleEntity.NIGHTINGALE.get(),0x5A4738, 0x94876F,
+            new Item.Properties()));
+
+    public static final RegistrySupplier<Item> RAVEN_SPAWN_EGG = ITEMS.register("raven_spawn_egg", () -> new SpawnEggItem(RavenEntity.RAVEN.get(),0x090910, 0x15151C,
+            new Item.Properties()));
+
+    public static final RegistrySupplier<Item> HAWK_SPAWN_EGG = ITEMS.register("hawk_spawn_egg", () -> new SpawnEggItem(HawkEntity.HAWK.get(),0x86522F, 0xDCC7B4,
+            new Item.Properties()));
+
+    public static final RegistrySupplier<Item> EAGLE_SPAWN_EGG = ITEMS.register("eagle_spawn_egg", () -> new SpawnEggItem(EagleEntity.EAGLE.get(),0x432F28, 0x634941,
+            new Item.Properties()));
+
+    public static final RegistrySupplier<Item> OWL_SPAWN_EGG = ITEMS.register("owl_spawn_egg", () -> new SpawnEggItem(OwlEntity.OWL.get(),0x2C2624, 0xB0927B,
+            new Item.Properties()));
+
+    public static final RegistrySupplier<Item> BULLFINCH_SPAWN_EGG = ITEMS.register("bullfinch_spawn_egg", () -> new SpawnEggItem(BullfinchEntity.BULLFINCH.get(),0x1E1E1E, 0xF15133,
+            new Item.Properties()));
+
 
 
     public static final RegistrySupplier<Item> VENISON = ITEMS.register("raw_venison", ()-> new Item(new Item.Properties().food(ModFood.VENISON)));

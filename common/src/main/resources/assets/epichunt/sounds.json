@@ -264,5 +264,84 @@
     "sounds": [
       "epichunt:narwhal_death"
     ]
+  },
+  "whale_ambient": {
+    "subtitles": "sounds.epichunt.whale_ambient",
+    "sounds": [
+      "epichunt:whale_ambient_1",
+      "epichunt:whale_ambient_2",
+      "epichunt:whale_ambient_3",
+      "epichunt:whale_ambient_4",
+      "epichunt:whale_ambient_5",
+      "epichunt:whale_ambient_6"
+    ]
+  },
+  "whale_hurt": {
+    "subtitles": "sounds.epichunt.whale_ambient",
+    "sounds": [
+      "epichunt:whale_hurt"
+    ]
+  },
+  "whale_death": {
+    "subtitles": "sounds.epichunt.whale_ambient",
+    "sounds": [
+      "epichunt:whale_death"
+    ]
+  },
+  "orca_ambient": {
+    "subtitles": "sounds.epichunt.orca_ambient",
+    "sounds": [
+      "epichunt:orca_ambient_1",
+      "epichunt:orca_ambient_3",
+      "epichunt:orca_ambient_2"
+    ]
+  },
+  "nightingale1_ambient": {
+    "subtitles": "sounds.epichunt.nightingale_ambient",
+    "sounds": [
+      "epichunt:nightingale1_ambient_1",
+      "epichunt:nightingale1_ambient_2",
+      "epichunt:nightingale1_ambient_3"
+    ]
+  },
+  "nightingale2_ambient": {
+    "subtitles": "sounds.epichunt.nightingale_ambient",
+    "sounds": [
+      "epichunt:nightingale2_ambient_1",
+      "epichunt:nightingale2_ambient_2",
+      "epichunt:nightingale2_ambient_3"
+    ]
+  },
+  "nightingale3_ambient": {
+    "subtitles": "sounds.epichunt.nightingale_ambient",
+    "sounds": [
+      "epichunt:nightingale3_ambient_1",
+      "epichunt:nightingale3_ambient_2",
+      "epichunt:nightingale3_ambient_3"
+    ]
+  },
+  "nightingale4_ambient": {
+    "subtitles": "sounds.epichunt.nightingale_ambient",
+    "sounds": [
+      "epichunt:nightingale1_ambient_4",
+      "epichunt:nightingale1_ambient_5",
+      "epichunt:nightingale2_ambient_4"
+    ]
+  },
+  "nightingale5_ambient": {
+    "subtitles": "sounds.epichunt.nightingale_ambient",
+    "sounds": [
+      "epichunt:nightingale3_ambient_4",
+      "epichunt:nightingale3_ambient_5",
+      "epichunt:nightingale1_ambient_3"
+    ]
+  },
+  "nightingale6_ambient": {
+    "subtitles": "sounds.epichunt.nightingale_ambient",
+    "sounds": [
+      "epichunt:nightingale2_ambient_1",
+      "epichunt:nightingale3_ambient_2",
+      "epichunt:nightingale1_ambient_3"
+    ]
   }
 }

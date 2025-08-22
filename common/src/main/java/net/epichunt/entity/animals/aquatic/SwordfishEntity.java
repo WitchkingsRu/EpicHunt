@@ -130,17 +130,17 @@ public class SwordfishEntity extends Dolphin {
     }
 
     protected SoundEvent getHurtSound(DamageSource damageSource) {
-        return Sounds.NARWHAL_HURT.get();
+        return SoundEvents.COD_HURT;
     }
 
     @Nullable
     protected SoundEvent getDeathSound() {
-        return Sounds.NARWHAL_DEATH.get();
+        return SoundEvents.COD_DEATH;
     }
 
     @Nullable
     protected SoundEvent getAmbientSound() {
-        return Sounds.NARWHAL_AMBIENT.get();
+        return SoundEvents.COD_AMBIENT;
     }
 
     protected SoundEvent getSwimSplashSound() {
