@@ -118,8 +118,8 @@ public class RavenModel<T extends Entity> extends HierarchicalModel<T> {
 		this.head.x = 0.0F;
 		this.body.x = 0.0F;
 		this.tail.x = 0.0F;
-		this.wing1.x = -1.5F;
-		this.wing2.x = 1.5F;
+		this.wing1.x = -1.0F;
+		this.wing2.x = 1.0F;
 		switch (state) {
 			case SITTING:
 				break;
@@ -130,38 +130,33 @@ public class RavenModel<T extends Entity> extends HierarchicalModel<T> {
 				var10000.xRot += Mth.cos(f * 0.6662F + (float)Math.PI) * 1.4F * g;
 			case FLYING:
 			case ON_SHOULDER:
-				// Поза для сидения на плече
-				// Основное тело: немного наклонено вперед
 				this.body.xRot = 0.3F;
-				// Смещаем всё тело выше (так как raven является корневой частью для всех остальных)
-				this.raven.y = 21.0F; // Поэкспериментируйте с этим значением (20.0F - стандартная высота из createBodyLayer)
-				this.raven.z = -3.0F; // Стандартное смещение из createBodyLayer
+				this.raven.y = 21.0F;
+				this.raven.z = -3.5F;
 
-				// Голова: приподнята и слегка повернута назад для более естественного вида
-				this.head.xRot = -0.4F;
-				this.head.y = -2.5F; // Опускаем голову относительно тела (отрицательное значение = вниз)
-				this.head.z = -1.5F; // Слегка выдвигаем голову вперед
+				this.head.xRot = -0.1F;
+				this.head.y = -2.0F;
+				this.head.z = -1.5F;
 
-				// Крылья: прижаты к телу, можно слегка развернуть для баланса
-				this.wing1.xRot = 110.5F;
-				this.wing1.zRot = -0.2F; // Левое крыло слегка вниз
-				this.wing2.xRot = 110.5F;
-				this.wing2.zRot = 0.2F;  // Правое крыло слегка вниз
+				this.wing1.xRot = -0.1F;
+				this.wing1.yRot = -0.0F;
+				this.wing1.zRot = 0.0F;
 
-				// Хвост: подобран, чтобы не торчать в сторону
-				this.tail.xRot = 0.8F;
-				this.tail.y = 1.0F;  // Смещаем хвост вниз относительно тела
-				this.tail.z = 4.5F;  // И немного назад
+				this.wing2.xRot = -0.1F;
+				this.wing2.yRot = 0.0F;
+				this.wing2.zRot = -0.0F;
 
-				// Ноги: согнуты и "обхватывают" плечо
-				// Ноги являются дочерними элементами raven, поэтому смещаем их значительно
-				this.leg1.xRot = -1.0F;  // Сильно согнуты в колене
-				this.leg1.y = 2.5F;      // Опускаем вниз
-				this.leg1.z = 1.5F;      // Сдвигаем вперед
+				this.tail.xRot = -0.4F;
+				this.tail.y = 1.0F;
+				this.tail.z = 4.5F;
 
-				this.leg2.xRot = -1.0F;
-				this.leg2.y = 2.5F;
-				this.leg2.z = 1.5F;
+				this.leg1.xRot = -0.0F;
+				this.leg1.y = 0.9F;
+				this.leg1.z = 2.5F;
+
+				this.leg2.xRot = -0.0F;
+				this.leg2.y = 0.9F;
+				this.leg2.z = 2.5F;
 				break;
 			default:
 				float n = h * 0.3F;
