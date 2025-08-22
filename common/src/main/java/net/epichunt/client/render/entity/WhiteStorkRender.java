@@ -26,9 +26,9 @@ public class WhiteStorkRender extends MobRenderer<WhiteStorkEntity, WhiteStorkMo
 
     @Override
     public void render(WhiteStorkEntity mob, float f, float g, PoseStack poseStack, MultiBufferSource multiBufferSource, int i) {
-        poseStack.scale(1.6f, 1.6f, 1.6f);
+        poseStack.scale(1.2f, 1.2f, 1.2f);
         if(mob.isBaby()) {
-            poseStack.scale(1.0f, 1.0f, 1.0f);
+            poseStack.scale(0.7f, 0.7f, 0.7f);
         }
 
         super.render(mob, f, g, poseStack, multiBufferSource, i);

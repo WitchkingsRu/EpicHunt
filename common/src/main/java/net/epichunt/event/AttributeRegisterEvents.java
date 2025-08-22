@@ -69,6 +69,9 @@ public class AttributeRegisterEvents {
         EntityAttributeRegistry.register(GREAT_AUK_ENTITY, GreatAukEntity::createAttributes);
         EntityAttributeRegistry.register(RAZORBILL_ENTITY, RazorbillEntity::createAttributes);
         EntityAttributeRegistry.register(RAVEN_ENTITY, RavenEntity::createAttributes);
+        EntityAttributeRegistry.register(OWL_ENTITY, OwlEntity::createAttributes);
+        EntityAttributeRegistry.register(NIGHTINGALE_ENTITY, NightingaleEntity::createAttributes);
+        EntityAttributeRegistry.register(BULLFINCH_ENTITY, BullfinchEntity::createAttributes);
     }
 
 }

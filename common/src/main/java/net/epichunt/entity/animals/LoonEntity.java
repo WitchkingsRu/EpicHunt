@@ -280,7 +280,7 @@ public class LoonEntity extends Animal {
     }
 
     static {
-        IS_SWIMMING = SynchedEntityData.defineId(DuckEntity.class, EntityDataSerializers.BOOLEAN);
+        IS_SWIMMING = SynchedEntityData.defineId(LoonEntity.class, EntityDataSerializers.BOOLEAN);
         FOOD_ITEMS = Ingredient.of(Items.WHEAT_SEEDS);
     }
 }

@@ -3,6 +3,7 @@ package net.epichunt.client.model.entity;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.epichunt.EpicHunt;
+import net.epichunt.entity.animals.BullfinchEntity;
 import net.epichunt.entity.animals.DuckEntity;
 import net.epichunt.entity.animations.DuckAnimation;
 import net.epichunt.entity.animations.NightingaleAnimation;
@@ -67,7 +68,7 @@ public class BullfinchModel<T extends Entity> extends HierarchicalModel<T> {
 		this.root().getAllParts().forEach(ModelPart::resetPose);
 		this.applyHeadRotation(netHeadYaw, headPitch, ageInTicks);
 		this.animateWalk(NightingaleAnimation.walk, limbSwing, limbSwingAmount, 2f, 2.5f);
-		this.animate(((DuckEntity) entity).flyAnimationState, NightingaleAnimation.fly, ageInTicks, 1f);
+		this.animate(((BullfinchEntity) entity).flyAnimationState, NightingaleAnimation.fly, ageInTicks, 1f);
 	}
 	private void applyHeadRotation(float pNetHeadYaw, float pHeadPitch, float pAgeInTicks) {
 		pNetHeadYaw = Mth.clamp(pNetHeadYaw, -30.0F, 30.0F);

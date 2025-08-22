@@ -6,6 +6,7 @@ import net.epichunt.EpicHunt;
 import net.epichunt.entity.animals.DoeEntity;
 import net.epichunt.entity.animals.DuckEntity;
 import net.epichunt.entity.animals.GooseEntity;
+import net.epichunt.entity.animals.NightingaleEntity;
 import net.epichunt.entity.animations.DoeAnimation;
 import net.epichunt.entity.animations.DuckAnimation;
 import net.epichunt.entity.animations.GooseAnimation;
@@ -71,7 +72,7 @@ public class NightingaleModel<T extends Entity> extends HierarchicalModel<T> {
 		this.root().getAllParts().forEach(ModelPart::resetPose);
 		this.applyHeadRotation(netHeadYaw, headPitch, ageInTicks);
 		this.animateWalk(NightingaleAnimation.walk, limbSwing, limbSwingAmount, 2f, 2.5f);
-		this.animate(((DuckEntity) entity).flyAnimationState, NightingaleAnimation.fly, ageInTicks, 1f);
+		this.animate(((NightingaleEntity) entity).flyAnimationState, NightingaleAnimation.fly, ageInTicks, 1f);
 	}
 	private void applyHeadRotation(float pNetHeadYaw, float pHeadPitch, float pAgeInTicks) {
 		pNetHeadYaw = Mth.clamp(pNetHeadYaw, -30.0F, 30.0F);

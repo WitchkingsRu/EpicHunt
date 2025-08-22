@@ -84,6 +84,9 @@ public class ModEntities {
     public static final RegistrySupplier<EntityType<GreatAukEntity>> GREAT_AUK_ENTITY = ENTITY_TYPES.register("great_auk", GreatAukEntity.GREAT_AUK);
     public static final RegistrySupplier<EntityType<RazorbillEntity>> RAZORBILL_ENTITY = ENTITY_TYPES.register("razorbill", RazorbillEntity.RAZORBILL);
     public static final RegistrySupplier<EntityType<RavenEntity>> RAVEN_ENTITY = ENTITY_TYPES.register("raven", RavenEntity.RAVEN);
+    public static final RegistrySupplier<EntityType<OwlEntity>> OWL_ENTITY = ENTITY_TYPES.register("owl", OwlEntity.OWL);
+    public static final RegistrySupplier<EntityType<NightingaleEntity>> NIGHTINGALE_ENTITY = ENTITY_TYPES.register("nightingale", NightingaleEntity.NIGHTINGALE);
+    public static final RegistrySupplier<EntityType<BullfinchEntity>> BULLFINCH_ENTITY = ENTITY_TYPES.register("bullfinch", BullfinchEntity.BULLFINCH);
 
 
 }

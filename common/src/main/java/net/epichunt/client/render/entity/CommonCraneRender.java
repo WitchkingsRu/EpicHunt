@@ -26,9 +26,9 @@ public class CommonCraneRender extends MobRenderer<CommonCraneEntity, CommonCran
 
     @Override
     public void render(CommonCraneEntity mob, float f, float g, PoseStack poseStack, MultiBufferSource multiBufferSource, int i) {
-        poseStack.scale(1.5f, 1.5f, 1.5f);
+        poseStack.scale(1.1f, 1.1f, 1.1f);
         if(mob.isBaby()) {
-            poseStack.scale(1.0f, 1.0f, 1.0f);
+            poseStack.scale(0.6f, 0.6f, 0.6f);
         }
 
         super.render(mob, f, g, poseStack, multiBufferSource, i);

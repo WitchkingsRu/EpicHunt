@@ -164,6 +164,7 @@ public class ModModels {
         consumer.accept(ModModels.RAZORBILL_LAYER_LOCATION, RazorbillModel::createBodyLayer);
         consumer.accept(ModModels.WHITE_STORK_LAYER_LOCATION, WhiteStorkModel::createBodyLayer);
 
+
         consumer.accept(ModModels.SMALL_ANTLERS_LAYER_LOCATION, SmallAntlersModel::createBodyLayer);
         consumer.accept(ModModels.MEDIUM_ANTLERS_LAYER_LOCATION, MediumAntlersModel::createBodyLayer);
         consumer.accept(ModModels.LARGE_ANTLERS_LAYER_LOCATION, LargeAntlersModel::createBodyLayer);
@@ -232,6 +233,9 @@ public class ModModels {
         EntityRenderers.register(ModEntities.GREAT_AUK_ENTITY.get(), GreatAukRender::new);
         EntityRenderers.register(ModEntities.RAZORBILL_ENTITY.get(), RazorbillRender::new);
         EntityRenderers.register(ModEntities.RAVEN_ENTITY.get(), RavenRender::new);
+        EntityRenderers.register(ModEntities.OWL_ENTITY.get(), OwlRender::new);
+        EntityRenderers.register(ModEntities.NIGHTINGALE_ENTITY.get(), NightingaleRender::new);
+        EntityRenderers.register(ModEntities.BULLFINCH_ENTITY.get(), BullfinchRender::new);
     }
 
     public static void blockEntityRender() {
