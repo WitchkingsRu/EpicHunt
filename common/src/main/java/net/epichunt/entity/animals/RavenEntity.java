@@ -59,7 +59,7 @@ public class RavenEntity extends ShoulderRidingEntity implements FlyingAnimal {
     @Override
     protected void updateWalkAnimation(float partialTick) {
         float f;
-        if(this.getPose() == Pose.STANDING) {
+        if(this.getPose() == Pose.STANDING && this.onGround()) {
             f = Math.min(partialTick * 6F, 1f);
         }
         else {

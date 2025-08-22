@@ -108,6 +108,7 @@ public class RavenModel<T extends Entity> extends HierarchicalModel<T> {
 		this.prepare(RavenModel.State.ON_SHOULDER);
 		this.setupAnim(RavenModel.State.ON_SHOULDER, l, f, g, 0.0F, h, k);
 		this.root().render(poseStack, vertexConsumer, i, j);
+
 	}
 
 	private void setupAnim(State state, int i, float f, float g, float h, float j, float k) {
@@ -129,6 +130,39 @@ public class RavenModel<T extends Entity> extends HierarchicalModel<T> {
 				var10000.xRot += Mth.cos(f * 0.6662F + (float)Math.PI) * 1.4F * g;
 			case FLYING:
 			case ON_SHOULDER:
+				// Поза для сидения на плече
+				// Основное тело: немного наклонено вперед
+				this.body.xRot = 0.3F;
+				// Смещаем всё тело выше (так как raven является корневой частью для всех остальных)
+				this.raven.y = 21.0F; // Поэкспериментируйте с этим значением (20.0F - стандартная высота из createBodyLayer)
+				this.raven.z = -3.0F; // Стандартное смещение из createBodyLayer
+
+				// Голова: приподнята и слегка повернута назад для более естественного вида
+				this.head.xRot = -0.4F;
+				this.head.y = -2.5F; // Опускаем голову относительно тела (отрицательное значение = вниз)
+				this.head.z = -1.5F; // Слегка выдвигаем голову вперед
+
+				// Крылья: прижаты к телу, можно слегка развернуть для баланса
+				this.wing1.xRot = 110.5F;
+				this.wing1.zRot = -0.2F; // Левое крыло слегка вниз
+				this.wing2.xRot = 110.5F;
+				this.wing2.zRot = 0.2F;  // Правое крыло слегка вниз
+
+				// Хвост: подобран, чтобы не торчать в сторону
+				this.tail.xRot = 0.8F;
+				this.tail.y = 1.0F;  // Смещаем хвост вниз относительно тела
+				this.tail.z = 4.5F;  // И немного назад
+
+				// Ноги: согнуты и "обхватывают" плечо
+				// Ноги являются дочерними элементами raven, поэтому смещаем их значительно
+				this.leg1.xRot = -1.0F;  // Сильно согнуты в колене
+				this.leg1.y = 2.5F;      // Опускаем вниз
+				this.leg1.z = 1.5F;      // Сдвигаем вперед
+
+				this.leg2.xRot = -1.0F;
+				this.leg2.y = 2.5F;
+				this.leg2.z = 1.5F;
+				break;
 			default:
 				float n = h * 0.3F;
 				this.head.y = 15.69F + n;
@@ -175,13 +209,21 @@ public class RavenModel<T extends Entity> extends HierarchicalModel<T> {
 				break;
 			case STANDING:
 			case ON_SHOULDER:
-			default:
+				// Подготовка для плеча
+				this.body.xRot = 0.3F;
+				this.wing1.xRot = -0.2F;
+				this.wing2.xRot = -0.2F;
+				this.leg1.xRot = -0.8F;
+				this.leg2.xRot = -0.8F;
+				this.tail.xRot = 0.5F;
 				break;
 			case FLYING:
 				ModelPart var10000 = this.leg1;
 				var10000.xRot += 0.6981317F;
 				var10000 = this.leg2;
 				var10000.xRot += 0.6981317F;
+			default:
+				break;
 		}
 
 	}

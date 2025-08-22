@@ -15,7 +15,7 @@ import net.minecraft.resources.ResourceLocation;
 
 @Environment(EnvType.CLIENT)
 public class RavenRender extends MobRenderer<RavenEntity, RavenModel<RavenEntity>> {
-    public static final ResourceLocation RAVEN_LOCATION = new ResourceLocation(EpicHunt.MOD_ID,"textures/entity/raven/raven.png");
+    public static final ResourceLocation RAVEN_LOCATION = new ResourceLocation(EpicHunt.MOD_ID,"textures/entity/raven/raven_new.png");
     public RavenRender(EntityRendererProvider.Context context) {
         super(context,new RavenModel<>(context.bakeLayer(ModModels.RAVEN_LAYER_LOCATION)), 0.3f);
     }
