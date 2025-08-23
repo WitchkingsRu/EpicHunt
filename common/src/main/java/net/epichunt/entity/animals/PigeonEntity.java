@@ -4,6 +4,7 @@ import com.google.common.base.Suppliers;
 import com.mojang.serialization.Codec;
 import net.epichunt.item.ModItem;
 import net.epichunt.sound.Sounds;
+import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -15,6 +16,7 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.ByIdMap;
 import net.minecraft.util.Mth;
 import net.minecraft.util.StringRepresentable;
+import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
@@ -27,6 +29,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.Vec3;
@@ -96,6 +99,16 @@ public class PigeonEntity extends Animal {
 
     public void setVariant(Variant variant) {
         this.entityData.set(DATA_VARIANT_ID, variant.id);
+    }
+
+    @Nullable
+    public SpawnGroupData finalizeSpawn(ServerLevelAccessor serverLevelAccessor, DifficultyInstance difficultyInstance, MobSpawnType mobSpawnType, @Nullable SpawnGroupData spawnGroupData, @Nullable CompoundTag compoundTag) {
+        this.setVariant((Variant) Util.getRandom(Variant.values(), serverLevelAccessor.getRandom()));
+        if (spawnGroupData == null) {
+            spawnGroupData = new AgeableMob.AgeableMobGroupData(false);
+        }
+
+        return super.finalizeSpawn(serverLevelAccessor, difficultyInstance, mobSpawnType, spawnGroupData, compoundTag);
     }
 
     protected void defineSynchedData() {
