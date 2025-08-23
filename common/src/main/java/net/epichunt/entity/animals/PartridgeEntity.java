@@ -133,19 +133,19 @@ public class PartridgeEntity extends Animal {
     @Nullable
     @Override
     protected SoundEvent getAmbientSound() {
-        return Sounds.PHEASANT_AMBIENT.get();
+        return Sounds.PARTRIDGE_AMBIENT.get();
     }
 
     @Nullable
     @Override
     protected SoundEvent getHurtSound(DamageSource damageSource) {
-        return Sounds.PHEASANT_HURT.get();
+        return Sounds.PARTRIDGE_HURT.get();
     }
 
     @Nullable
     @Override
     protected SoundEvent getDeathSound() {
-        return Sounds.PHEASANT_DEATH.get();
+        return Sounds.PARTRIDGE_DEATH.get();
     }
 
     protected void playStepSound(BlockPos blockPos, BlockState blockState) {

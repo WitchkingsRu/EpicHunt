@@ -412,5 +412,66 @@
     "sounds": [
       "epichunt:eagle_death"
     ]
+  },
+  "hawk_ambient": {
+    "subtitles": "sounds.epichunt.hawk_ambient",
+    "sounds": [
+      "epichunt:hawk_ambient_1",
+      "epichunt:hawk_ambient_2",
+      "epichunt:hawk_ambient_3"
+    ]
+  },
+  "hawk_hurt": {
+    "subtitles": "sounds.epichunt.hawk_ambient",
+    "sounds": [
+      "epichunt:hawk_hurt"
+    ]
+  },
+  "hawk_death": {
+    "subtitles": "sounds.epichunt.hawk_ambient",
+    "sounds": [
+      "epichunt:hawk_death"
+    ]
+  },
+  "loon_ambient": {
+    "subtitles": "sounds.epichunt.loon_ambient",
+    "sounds": [
+      "epichunt:loon_ambient_1",
+      "epichunt:loon_ambient_2",
+      "epichunt:loon_ambient_3",
+      "epichunt:loon_ambient_4"
+    ]
+  },
+  "loon_hurt": {
+    "subtitles": "sounds.epichunt.loon_ambient",
+    "sounds": [
+      "epichunt:loon_hurt"
+    ]
+  },
+  "loon_death": {
+    "subtitles": "sounds.epichunt.loon_ambient",
+    "sounds": [
+      "epichunt:loon_death"
+    ]
+  },
+  "partridge_ambient": {
+    "subtitles": "sounds.epichunt.partridge_ambient",
+    "sounds": [
+      "epichunt:partridge_ambient_1",
+      "epichunt:partridge_ambient_2",
+      "epichunt:partridge_ambient_3"
+    ]
+  },
+  "partridge_hurt": {
+    "subtitles": "sounds.epichunt.partridge_ambient",
+    "sounds": [
+      "epichunt:partridge_hurt"
+    ]
+  },
+  "partridge_death": {
+    "subtitles": "sounds.epichunt.partridge_ambient",
+    "sounds": [
+      "epichunt:partridge_death"
+    ]
   }
 }

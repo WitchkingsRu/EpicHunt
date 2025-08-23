@@ -256,19 +256,19 @@ public class LoonEntity extends Animal {
     @Nullable
     @Override
     protected SoundEvent getAmbientSound() {
-        return Sounds.DUCK_AMBIENT.get();
+        return Sounds.LOON_AMBIENT.get();
     }
 
     @Nullable
     @Override
     protected SoundEvent getHurtSound(DamageSource damageSource) {
-        return Sounds.DUCK_HURT.get();
+        return Sounds.LOON_HURT.get();
     }
 
     @Nullable
     @Override
     protected SoundEvent getDeathSound() {
-        return Sounds.DUCK_DEATH.get();
+        return Sounds.LOON_DEATH.get();
     }
 
     protected void playStepSound(BlockPos blockPos, BlockState blockState) {
