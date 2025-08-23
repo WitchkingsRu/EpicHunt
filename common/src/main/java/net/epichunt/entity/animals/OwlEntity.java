@@ -140,15 +140,15 @@ public class OwlEntity extends Animal implements FlyingAnimal {
     }
 
     protected SoundEvent getAmbientSound() {
-        return Sounds.BEAVER_AMBIENT.get();
+        return Sounds.OWL_AMBIENT.get();
     }
 
     protected SoundEvent getHurtSound(DamageSource damageSource) {
-        return Sounds.BEAVER_HURT.get();
+        return Sounds.OWL_HURT.get();
     }
 
     protected SoundEvent getDeathSound() {
-        return Sounds.BEAVER_DEATH.get();
+        return Sounds.OWL_DEATH.get();
     }
 
     protected float getSoundVolume() {

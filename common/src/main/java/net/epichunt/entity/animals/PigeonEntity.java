@@ -166,19 +166,19 @@ public class PigeonEntity extends Animal {
     @Nullable
     @Override
     protected SoundEvent getAmbientSound() {
-        return Sounds.PHEASANT_AMBIENT.get();
+        return Sounds.PIGEON_AMBIENT.get();
     }
 
     @Nullable
     @Override
     protected SoundEvent getHurtSound(DamageSource damageSource) {
-        return Sounds.PHEASANT_HURT.get();
+        return Sounds.PIGEON_HURT.get();
     }
 
     @Nullable
     @Override
     protected SoundEvent getDeathSound() {
-        return Sounds.PHEASANT_DEATH.get();
+        return Sounds.PIGEON_DEATH.get();
     }
 
     protected void playStepSound(BlockPos blockPos, BlockState blockState) {

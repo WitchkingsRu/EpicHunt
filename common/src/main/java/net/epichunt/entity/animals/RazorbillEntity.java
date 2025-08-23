@@ -58,15 +58,15 @@ public class RazorbillEntity extends Animal {
     }
 
     protected SoundEvent getAmbientSound() {
-        return Sounds.BEAVER_AMBIENT.get();
+        return Sounds.RAZORBILL_AMBIENT.get();
     }
 
     protected SoundEvent getHurtSound(DamageSource damageSource) {
-        return Sounds.BEAVER_HURT.get();
+        return Sounds.RAZORBILL_HURT.get();
     }
 
     protected SoundEvent getDeathSound() {
-        return Sounds.BEAVER_DEATH.get();
+        return Sounds.RAZORBILL_DEATH.get();
     }
 
     protected float getSoundVolume() {

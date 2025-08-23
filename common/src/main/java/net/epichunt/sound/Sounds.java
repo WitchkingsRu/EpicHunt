@@ -83,7 +83,21 @@ public class Sounds {
     public static final RegistrySupplier<SoundEvent> PARTRIDGE_AMBIENT = registerSound("partridge_ambient");
     public static final RegistrySupplier<SoundEvent> PARTRIDGE_HURT = registerSound("partridge_hurt");
     public static final RegistrySupplier<SoundEvent> PARTRIDGE_DEATH = registerSound("partridge_death");
-
+    public static final RegistrySupplier<SoundEvent> RAZORBILL_AMBIENT = registerSound("razorbill_ambient");
+    public static final RegistrySupplier<SoundEvent> RAZORBILL_HURT = registerSound("razorbill_hurt");
+    public static final RegistrySupplier<SoundEvent> RAZORBILL_DEATH = registerSound("razorbill_death");
+    public static final RegistrySupplier<SoundEvent> CRANE_AMBIENT = registerSound("crane_ambient");
+    public static final RegistrySupplier<SoundEvent> CRANE_HURT = registerSound("crane_hurt");
+    public static final RegistrySupplier<SoundEvent> CRANE_DEATH = registerSound("crane_death");
+    public static final RegistrySupplier<SoundEvent> STORK_AMBIENT = registerSound("stork_ambient");
+    public static final RegistrySupplier<SoundEvent> STORK_HURT = registerSound("stork_hurt");
+    public static final RegistrySupplier<SoundEvent> STORK_DEATH = registerSound("stork_death");
+    public static final RegistrySupplier<SoundEvent> PIGEON_AMBIENT = registerSound("pigeon_ambient");
+    public static final RegistrySupplier<SoundEvent> PIGEON_HURT = registerSound("pigeon_hurt");
+    public static final RegistrySupplier<SoundEvent> PIGEON_DEATH = registerSound("pigeon_death");
+    public static final RegistrySupplier<SoundEvent> OWL_AMBIENT = registerSound("owl_ambient");
+    public static final RegistrySupplier<SoundEvent> OWL_HURT = registerSound("owl_hurt");
+    public static final RegistrySupplier<SoundEvent> OWL_DEATH = registerSound("owl_death");
 
     private static RegistrySupplier<SoundEvent> registerSound(String name) {
         return SOUNDS.register(name, ()-> SoundEvent.createVariableRangeEvent(new ResourceLocation(EpicHunt.MOD_ID, name)));

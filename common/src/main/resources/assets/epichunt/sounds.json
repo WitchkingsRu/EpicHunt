@@ -473,5 +473,114 @@
     "sounds": [
       "epichunt:partridge_death"
     ]
+  },
+  "razorbill_ambient": {
+    "subtitles": "sounds.epichunt.razorbill_ambient",
+    "sounds": [
+      "epichunt:razorbill_ambient_1",
+      "epichunt:razorbill_ambient_2",
+      "epichunt:razorbill_ambient_3",
+      "epichunt:razorbill_ambient_4",
+      "epichunt:razorbill_ambient_5",
+      "epichunt:razorbill_ambient_6",
+      "epichunt:razorbill_ambient_7"
+      ]
+  },
+  "razorbill_hurt": {
+    "subtitles": "sounds.epichunt.razorbill_ambient",
+    "sounds": [
+      "epichunt:razorbill_hurt"
+    ]
+  },
+  "razorbill_death": {
+    "subtitles": "sounds.epichunt.razorbill_ambient",
+    "sounds": [
+      "epichunt:razorbill_death"
+    ]
+  },
+  "crane_ambient": {
+    "subtitles": "sounds.epichunt.crane_ambient",
+    "sounds": [
+      "epichunt:crane_ambient_1",
+      "epichunt:crane_ambient_2",
+      "epichunt:crane_ambient_3",
+      "epichunt:crane_ambient_4",
+      "epichunt:crane_ambient_5"
+    ]
+  },
+  "crane_hurt": {
+    "subtitles": "sounds.epichunt.crane_ambient",
+    "sounds": [
+      "epichunt:crane_hurt"
+    ]
+  },
+  "crane_death": {
+    "subtitles": "sounds.epichunt.crane_ambient",
+    "sounds": [
+      "epichunt:crane_death"
+    ]
+  },
+  "stork_ambient": {
+    "subtitles": "sounds.epichunt.stork_ambient",
+    "sounds": [
+      "epichunt:stork_ambient_1",
+      "epichunt:stork_ambient_2",
+      "epichunt:stork_ambient_3"
+    ]
+  },
+  "stork_hurt": {
+    "subtitles": "sounds.epichunt.stork_ambient",
+    "sounds": [
+      "epichunt:stork_hurt"
+    ]
+  },
+  "stork_death": {
+    "subtitles": "sounds.epichunt.stork_ambient",
+    "sounds": [
+      "epichunt:stork_death"
+    ]
+  },
+  "pigeon_ambient": {
+    "subtitles": "sounds.epichunt.pigeon_ambient",
+    "sounds": [
+      "epichunt:pigeon_ambient_1",
+      "epichunt:pigeon_ambient_2",
+      "epichunt:pigeon_ambient_3",
+      "epichunt:pigeon_ambient_4"
+    ]
+  },
+  "pigeon_hurt": {
+    "subtitles": "sounds.epichunt.pigeon_ambient",
+    "sounds": [
+      "epichunt:pigeon_hurt"
+    ]
+  },
+  "pigeon_death": {
+    "subtitles": "sounds.epichunt.pigeon_ambient",
+    "sounds": [
+      "epichunt:pigeon_death"
+    ]
+  },
+  "owl_ambient": {
+    "subtitles": "sounds.epichunt.owl_ambient",
+    "sounds": [
+      "epichunt:owl_ambient_1",
+      "epichunt:owl_ambient_2",
+      "epichunt:owl_ambient_3",
+      "epichunt:owl_ambient_4",
+      "epichunt:owl_ambient_5"
+    ]
+  },
+  "owl_hurt": {
+    "subtitles": "sounds.epichunt.owl_ambient",
+    "sounds": [
+      "epichunt:owl_hurt"
+    ]
+  },
+  "owl_death": {
+    "subtitles": "sounds.epichunt.owl_ambient",
+    "sounds": [
+      "epichunt:owl_death"
+    ]
   }
 }
