@@ -65,7 +65,10 @@ public class Sounds {
     public static final RegistrySupplier<SoundEvent> NIGHTINGALE_AMBIENT4 = registerSound("nightingale4_ambient");
     public static final RegistrySupplier<SoundEvent> NIGHTINGALE_AMBIENT5 = registerSound("nightingale5_ambient");
     public static final RegistrySupplier<SoundEvent> NIGHTINGALE_AMBIENT6 = registerSound("nightingale6_ambient");
-
+    public static final RegistrySupplier<SoundEvent> RAVEN_AMBIENT = registerSound("raven_ambient");
+    public static final RegistrySupplier<SoundEvent> VASYA_AMBIENT = registerSound("vasya_ambient");
+    public static final RegistrySupplier<SoundEvent> RAVEN_HURT = registerSound("raven_hurt");
+    public static final RegistrySupplier<SoundEvent> RAVEN_DEATH = registerSound("raven_death");
 
 
     private static RegistrySupplier<SoundEvent> registerSound(String name) {

@@ -156,6 +156,15 @@ public class RavenEntity extends ShoulderRidingEntity implements FlyingAnimal {
         }
     }
 
+    private boolean hasEasterEggName() {
+        if (!hasCustomName()) return false;
+
+        String name = getCustomName().getString().toLowerCase();
+        return name.equals("vasya") ||
+                name.equals("вася") ||
+                name.contains("вася ворон");
+    }
+
     public boolean isFood(ItemStack itemStack) {
         return false;
     }
@@ -179,15 +188,15 @@ public class RavenEntity extends ShoulderRidingEntity implements FlyingAnimal {
     }
 
     protected SoundEvent getAmbientSound() {
-        return Sounds.BEAVER_AMBIENT.get();
+        return hasEasterEggName() ? Sounds.VASYA_AMBIENT.get() : Sounds.RAVEN_AMBIENT.get();
     }
 
     protected SoundEvent getHurtSound(DamageSource damageSource) {
-        return Sounds.BEAVER_HURT.get();
+        return Sounds.RAVEN_HURT.get();
     }
 
     protected SoundEvent getDeathSound() {
-        return Sounds.BEAVER_DEATH.get();
+        return Sounds.RAVEN_DEATH.get();
     }
 
     protected float getSoundVolume() {
@@ -251,35 +260,31 @@ public class RavenEntity extends ShoulderRidingEntity implements FlyingAnimal {
         private final RavenEntity raven;
         public static final ConfigMain CONFIG = EpicHunt.CONFIG;
         private Player owner;
-        private int cooldown; // Таймер кулдауна между подарками
-        private int giftCooldown; // Интервал между подарками (в тиках)
+        private int cooldown;
+        private int giftCooldown;
 
         public ReceiveGiftGoal(RavenEntity raven) {
             this.raven = raven;
-            this.giftCooldown = CONFIG.gift_list.cooldown * 20; // Конвертируем секунды в тики
+            this.giftCooldown = CONFIG.gift_list.cooldown * 20;
             this.cooldown = this.giftCooldown;
         }
 
         @Override
         public boolean canUse() {
-            // Проверяем, можно ли использовать цель
             if (this.cooldown > 0) {
                 this.cooldown--;
                 return false;
             }
-
-            // Ищем владельца (игрока, который приручил соловья)
             this.owner = (Player) this.raven.getOwner();
             return this.owner != null
-                    && this.owner.distanceToSqr(this.raven) < 100.0D // Проверяем расстояние
-                    && !this.owner.isSleeping() // Игрок не спит
-                    && this.raven.getRandom().nextFloat() < 0.05F; // 5% шанс каждый тик
+                    && this.owner.distanceToSqr(this.raven) < 100.0D
+                    && !this.owner.isSleeping()
+                    && this.raven.getRandom().nextFloat() < 0.05F;
 
         }
 
         @Override
         public boolean canContinueToUse() {
-            // Продолжаем выполнение, если игрок все еще рядом и не спит
             return this.owner != null
                     && this.owner.distanceToSqr(this.raven) < 144.0D
                     && !this.owner.isSleeping()
@@ -288,41 +293,32 @@ public class RavenEntity extends ShoulderRidingEntity implements FlyingAnimal {
 
         @Override
         public void start() {
-            // Начинаем выполнение цели
-            this.raven.getNavigation().stop(); // Останавливаем движение
+            this.raven.getNavigation().stop();
         }
 
         @Override
         public void stop() {
-            // Завершаем выполнение цели
             this.owner = null;
             this.raven.getNavigation().stop();
-            this.cooldown = this.giftCooldown; // Устанавливаем кулдаун
+            this.cooldown = this.giftCooldown;
         }
 
         @Override
         public void tick() {
-            // Вызывается каждый тик во время выполнения цели
             if (this.owner != null && this.raven.distanceToSqr(this.owner) < 16.0D) {
-                // Игрок достаточно близко - вручаем подарок!
                 this.giveGift();
-                this.stop(); // Завершаем после выдачи подарка
+                this.stop();
             } else if (this.owner != null) {
-                // Двигаемся к игроку
                 this.raven.getNavigation().moveTo(this.owner, 1.0D);
             }
         }
 
         private void giveGift() {
             if (this.owner == null || this.owner.level().isClientSide) return;
-
-            // Создаем предмет-подарок
             ItemStack gift = GiftManager.getRandomGift(this.raven.getRandom());
             if (gift == null || gift.isEmpty()) {
                 return;
             }
-
-            // Спавним предмет в мире
             ItemEntity itemEntity = new ItemEntity(
                     this.owner.level(),
                     this.raven.getX(),
@@ -331,7 +327,6 @@ public class RavenEntity extends ShoulderRidingEntity implements FlyingAnimal {
                     gift
             );
 
-            // Задаем небольшую случайную скорость
             itemEntity.setDeltaMovement(
                     (this.raven.getRandom().nextFloat() - 0.5F) * 0.2F,
                     this.raven.getRandom().nextFloat() * 0.4F,
@@ -339,8 +334,6 @@ public class RavenEntity extends ShoulderRidingEntity implements FlyingAnimal {
             );
 
             this.owner.level().addFreshEntity(itemEntity);
-
-            // Воспроизводим звук и частицы
             this.owner.level().playSound(null, this.raven.blockPosition(),
                     SoundEvents.ITEM_PICKUP, SoundSource.NEUTRAL, 0.5F, 1.0F);
         }

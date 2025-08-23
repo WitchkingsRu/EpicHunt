@@ -343,5 +343,35 @@
       "epichunt:nightingale3_ambient_2",
       "epichunt:nightingale1_ambient_3"
     ]
+  },
+  "raven_ambient": {
+    "subtitles": "sounds.epichunt.raven_ambient",
+    "sounds": [
+      "epichunt:raven_ambient1",
+      "epichunt:raven_ambient2",
+      "epichunt:raven_ambient3",
+      "epichunt:raven_ambient4",
+      "epichunt:raven_ambient5"
+    ]
+  },
+  "raven_hurt": {
+    "subtitles": "sounds.epichunt.raven_ambient",
+    "sounds": [
+      "epichunt:raven_hurt"
+    ]
+  },
+  "raven_death": {
+    "subtitles": "sounds.epichunt.raven_ambient",
+    "sounds": [
+      "epichunt:raven_death"
+    ]
+  },
+  "vasya_ambient": {
+    "subtitles": "sounds.epichunt.raven_ambient",
+    "sounds": [
+      "epichunt:vasya_ambient_1",
+      "epichunt:vasya_ambient_2",
+      "epichunt:vasya_ambient_3"
+    ]
   }
 }
