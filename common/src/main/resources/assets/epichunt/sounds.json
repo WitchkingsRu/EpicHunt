@@ -373,5 +373,44 @@
       "epichunt:vasya_ambient_2",
       "epichunt:vasya_ambient_3"
     ]
+  },
+  "bullfinch_ambient": {
+    "subtitles": "sounds.epichunt.bullfinch_ambient",
+    "sounds": [
+      "epichunt:bullfinch_ambient_1",
+      "epichunt:bullfinch_ambient_2",
+      "epichunt:bullfinch_ambient_3",
+      "epichunt:bullfinch_ambient_4"
+    ]
+  },
+  "kestrel_ambient": {
+    "subtitles": "sounds.epichunt.kestrel_ambient",
+    "sounds": [
+      "epichunt:kestrel_ambient_1",
+      "epichunt:kestrel_ambient_2",
+      "epichunt:kestrel_ambient_3",
+      "epichunt:kestrel_ambient_4"
+    ]
+  },
+  "eagle_ambient": {
+    "subtitles": "sounds.epichunt.eagle_ambient",
+    "sounds": [
+      "epichunt:eagle_ambient_1",
+      "epichunt:eagle_ambient_2",
+      "epichunt:eagle_ambient_3",
+      "epichunt:eagle_ambient_4"
+    ]
+  },
+  "eagle_hurt": {
+    "subtitles": "sounds.epichunt.eagle_ambient",
+    "sounds": [
+      "epichunt:eagle_hurt"
+    ]
+  },
+  "eagle_death": {
+    "subtitles": "sounds.epichunt.eagle_ambient",
+    "sounds": [
+      "epichunt:eagle_death"
+    ]
   }
 }

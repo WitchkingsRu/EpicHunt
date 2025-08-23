@@ -1,6 +1,7 @@
 package net.epichunt.entity.animals.aerial;
 
 import com.google.common.base.Suppliers;
+import net.epichunt.sound.Sounds;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -43,15 +44,15 @@ public class EagleEntity extends AbstractPreyBirdEntity {
     }
 
     protected SoundEvent getAmbientSound() {
-        return SoundEvents.PHANTOM_AMBIENT;
+        return Sounds.EAGLE_AMBIENT.get();
     }
 
     protected SoundEvent getHurtSound(DamageSource damageSource) {
-        return SoundEvents.PHANTOM_HURT;
+        return Sounds.EAGLE_HURT.get();
     }
 
     protected SoundEvent getDeathSound() {
-        return SoundEvents.PHANTOM_DEATH;
+        return Sounds.EAGLE_DEATH.get();
     }
 
     protected float getSoundVolume() {

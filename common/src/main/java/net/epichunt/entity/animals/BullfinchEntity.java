@@ -147,7 +147,7 @@ public class BullfinchEntity extends Animal {
     @Nullable
     @Override
     protected SoundEvent getAmbientSound() {
-        return Sounds.QUAIL_AMBIENT.get();
+        return Sounds.BULLFINCH_AMBIENT.get();
     }
 
     @Nullable
