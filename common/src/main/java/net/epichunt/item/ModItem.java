@@ -159,21 +159,21 @@ public class ModItem {
 
     public static final RegistrySupplier<Item> COOKED_VENISON = ITEMS.register("cooked_venison", ()-> new Item(new Item.Properties().food(ModFood.COOKED_VENISON)));
 
-    public static final RegistrySupplier<Item> DUCK = ITEMS.register("raw_duck", ()-> new Item(new Item.Properties().food(ModFood.DUCK)));
+    public static final RegistrySupplier<Item> WHALE = ITEMS.register("raw_whale", ()-> new Item(new Item.Properties().food(ModFood.WHALE)));
 
-    public static final RegistrySupplier<Item> COOKED_DUCK = ITEMS.register("cooked_duck", ()-> new Item(new Item.Properties().food(ModFood.COOKED_DUCK)));
+    public static final RegistrySupplier<Item> COOKED_WHALE = ITEMS.register("cooked_whale", ()-> new Item(new Item.Properties().food(ModFood.COOKED_WHALE)));
 
-    public static final RegistrySupplier<Item> GOOSE = ITEMS.register("raw_goose", ()-> new Item(new Item.Properties().food(ModFood.GOOSE)));
+    public static final RegistrySupplier<Item> SHARK = ITEMS.register("raw_shark", ()-> new Item(new Item.Properties().food(ModFood.SHARK)));
 
-    public static final RegistrySupplier<Item> COOKED_GOOSE = ITEMS.register("cooked_goose", ()-> new Item(new Item.Properties().food(ModFood.COOKED_GOOSE)));
+    public static final RegistrySupplier<Item> COOKED_SHARK = ITEMS.register("cooked_shark", ()-> new Item(new Item.Properties().food(ModFood.COOKED_SHARK)));
 
-    public static final RegistrySupplier<Item> PHEASANT = ITEMS.register("raw_pheasant", ()-> new Item(new Item.Properties().food(ModFood.PHEASANT)));
+    public static final RegistrySupplier<Item> SWORDFISH = ITEMS.register("raw_swordfish", ()-> new Item(new Item.Properties().food(ModFood.SWORDFISH)));
 
-    public static final RegistrySupplier<Item> COOKED_PHEASANT = ITEMS.register("cooked_pheasant", ()-> new Item(new Item.Properties().food(ModFood.COOKED_PHEASANT)));
+    public static final RegistrySupplier<Item> COOKED_SWORDFISH = ITEMS.register("cooked_swordfish", ()-> new Item(new Item.Properties().food(ModFood.COOKED_SWORDFISH)));
 
-    public static final RegistrySupplier<Item> QUAIL = ITEMS.register("raw_quail", ()-> new Item(new Item.Properties().food(ModFood.QUAIL)));
+    public static final RegistrySupplier<Item> BIRD = ITEMS.register("raw_bird", ()-> new Item(new Item.Properties().food(ModFood.BIRD)));
 
-    public static final RegistrySupplier<Item> COOKED_QUAIL = ITEMS.register("cooked_quail", ()-> new Item(new Item.Properties().food(ModFood.COOKED_QUAIL)));
+    public static final RegistrySupplier<Item> COOKED_BIRD = ITEMS.register("cooked_bird", ()-> new Item(new Item.Properties().food(ModFood.COOKED_BIRD)));
 
     public static final RegistrySupplier<Item> WOLF = ITEMS.register("raw_wolf", ()-> new Item(new Item.Properties().food(ModFood.WOLF)));
 
@@ -331,6 +331,7 @@ public class ModItem {
     public static final RegistrySupplier<Item> CLAW = ITEMS.register("claw", () -> new Item(new Item.Properties()));
     public static final RegistrySupplier<Item> TUSK = ITEMS.register("tusk", () -> new Item(new Item.Properties()));
     public static final RegistrySupplier<Item> HORN = ITEMS.register("horn", () -> new Item(new Item.Properties()));
+    public static final RegistrySupplier<Item> BLUBBER = ITEMS.register("blubber", () -> new Item(new Item.Properties()));
 
     public static final RegistrySupplier<Item> FANG_NECKLACE = ITEMS.register("fang_necklace", () -> new Item(new Item.Properties().stacksTo(1)));
     public static final RegistrySupplier<Item> CLAW_NECKLACE = ITEMS.register("claw_necklace", () -> new Item(new Item.Properties().stacksTo(1)));

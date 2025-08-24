@@ -34,15 +34,15 @@ public class CreativeTabs {
         CreativeTabRegistry.append(FOOD_RESOURCE_KEY, ModItem.VENISON, ModItem.COOKED_VENISON, ModItem.EQUINE,
                 ModItem.COOKED_EQUINE, ModItem.LLAMA, ModItem.COOKED_LLAMA, ModItem.CAMEL, ModItem.COOKED_CAMEL, ModItem.WOLF,
                 ModItem.COOKED_WOLF, ModItem.BEAR, ModItem.COOKED_BEAR, ModItem.BADGER, ModItem.COOKED_BADGER, ModItem.BEAVER,
-                ModItem.COOKED_BEAVER, ModItem.DUCK, ModItem.COOKED_DUCK, ModItem.GOOSE, ModItem.COOKED_GOOSE, ModItem.PHEASANT,
-                ModItem.COOKED_PHEASANT, ModItem.QUAIL, ModItem.COOKED_QUAIL, ModItem.DUCK_EGG, ModItem.GOOSE_EGG, ModItem.PHEASANT_EGG,
+                ModItem.COOKED_BEAVER, ModItem.WHALE, ModItem.COOKED_WHALE, ModItem.BIRD, ModItem.COOKED_BIRD, ModItem.DUCK_EGG, ModItem.GOOSE_EGG, ModItem.PHEASANT_EGG,
                 ModItem.QUAIL_EGG, ModItem.BASS, ModItem.COOKED_BASS, ModItem.CARP, ModItem.COOKED_CARP,
                 ModItem.HALIBUT, ModItem.COOKED_HALIBUT, ModItem.HERRING, ModItem.COOKED_HERRING, ModItem.MACKEREL,
                 ModItem.COOKED_MACKEREL, ModItem.PERCHES, ModItem.COOKED_PERCHES, ModItem.PIKEFISH, ModItem.COOKED_PIKEFISH,
                 ModItem.POLLOCK, ModItem.COOKED_POLLOCK, ModItem.ROACH, ModItem.COOKED_ROACH, ModItem.SARDINE, ModItem.COOKED_SARDINE,
                 ModItem.TROUT, ModItem.COOKED_TROUT, ModItem.ZANDER, ModItem.COOKED_ZANDER, ModItem.EEL, ModItem.COOKED_EEL,
-                ModItem.STURGEON, ModItem.COOKED_STURGEON, ModItem.CATFISH, ModItem.COOKED_CATFISH, ModItem.CALAMARI, ModItem.COOKED_CALAMARI,
-                ModItem.MUSSEL, ModItem.COOKED_MUSSEL, ModItem.OYSTER, ModItem.COOKED_OYSTER, ModItem.CLAM, ModItem.COOKED_CLAM);
+                ModItem.STURGEON, ModItem.COOKED_STURGEON, ModItem.CATFISH, ModItem.COOKED_CATFISH, ModItem.SWORDFISH, ModItem.COOKED_SWORDFISH,
+                ModItem.SHARK, ModItem.COOKED_SHARK, ModItem.CALAMARI, ModItem.COOKED_CALAMARI, ModItem.MUSSEL, ModItem.COOKED_MUSSEL,
+                ModItem.OYSTER, ModItem.COOKED_OYSTER, ModItem.CLAM, ModItem.COOKED_CLAM);
         CreativeTabRegistry.append(COMBAT_RESOURCE_KEY, ModItem.YAK_CARPET_WHITE, ModItem.YAK_CARPET_BLACK, ModItem.YAK_CARPET_BLUE,
                 ModItem.YAK_CARPET_BROWN, ModItem.YAK_CARPET_CYAN, ModItem.YAK_CARPET_GRAY, ModItem.YAK_CARPET_GREEN,
                 ModItem.YAK_CARPET_LIGHT_BLUE, ModItem.YAK_CARPET_LIGHT_GRAY, ModItem.YAK_CARPET_LIME, ModItem.YAK_CARPET_MAGENTA,
@@ -55,6 +55,6 @@ public class CreativeTabs {
         CreativeTabRegistry.append(NATURAL_RESOURCE_KEY, ModItem.SMALL_ANTLERS_BLOCK, ModItem.MEDIUM_ANTLERS_BLOCK,
                 ModItem.LARGE_ANTLERS_BLOCK);
         CreativeTabRegistry.append(INGREDIENTS_RESOURCE_KEY, ModItem.FANG, ModItem.CLAW,
-                ModItem.TUSK, ModItem.HORN);
+                ModItem.TUSK, ModItem.HORN, ModItem.BLUBBER);
     }
 }
