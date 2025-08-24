@@ -1,6 +1,7 @@
 package net.epichunt;
 
 import com.mojang.logging.LogUtils;
+import dev.architectury.registry.fuel.FuelRegistry;
 import me.shedaniel.autoconfig.AutoConfig;
 import me.shedaniel.autoconfig.serializer.GsonConfigSerializer;
 import net.epichunt.block.ModBlockEntities;
@@ -8,6 +9,7 @@ import net.epichunt.config.ConfigMain;
 import net.epichunt.config.GiftManager;
 import net.epichunt.entity.MobSpawns;
 import net.epichunt.event.AttributeRegisterEvents;
+import net.epichunt.item.ModItem;
 import net.epichunt.misc.CreativeTabs;
 import net.epichunt.worldgen.ModWorldGen;
 import net.minecraft.client.renderer.ItemModelShaper;

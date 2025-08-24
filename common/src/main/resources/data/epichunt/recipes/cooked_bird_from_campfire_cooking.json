@@ -4,7 +4,7 @@
   "cookingtime": 600,
   "experience": 0.35,
   "ingredient": {
-    "item": "epichunt:raw_duck"
+    "item": "epichunt:raw_bird"
   },
-  "result": "epichunt:cooked_duck"
+  "result": "epichunt:cooked_bird"
 }

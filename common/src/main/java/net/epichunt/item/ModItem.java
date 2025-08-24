@@ -1,5 +1,6 @@
 package net.epichunt.item;
 
+import dev.architectury.registry.fuel.FuelRegistry;
 import dev.architectury.registry.item.ItemPropertiesRegistry;
 import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
@@ -16,9 +17,11 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.alchemy.PotionUtils;
+import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.material.Fluids;
 
 import java.util.Set;
+import java.util.function.Supplier;
 
 public class ModItem {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(EpicHunt.MOD_ID, Registries.ITEM);
@@ -281,7 +284,6 @@ public class ModItem {
 
     public static final RegistrySupplier<Item> COOKED_CLAM = ITEMS.register("cooked_clam", ()-> new Item(new Item.Properties().food(ModFood.COOKED_CLAM)));
 
-
     public static final RegistrySupplier<Item> BASS_BUCKET = ITEMS.register("bass_bucket", () -> new MobBucketItem(BassEntity.BASS.get(), Fluids.WATER, SoundEvents.BUCKET_EMPTY_FISH, (new Item.Properties()).stacksTo(1)));
 
     public static final RegistrySupplier<Item> CARP_BUCKET = ITEMS.register("carp_bucket", () -> new MobBucketItem(CarpEntity.CARP.get(), Fluids.WATER, SoundEvents.BUCKET_EMPTY_FISH, (new Item.Properties()).stacksTo(1)));
@@ -331,7 +333,8 @@ public class ModItem {
     public static final RegistrySupplier<Item> CLAW = ITEMS.register("claw", () -> new Item(new Item.Properties()));
     public static final RegistrySupplier<Item> TUSK = ITEMS.register("tusk", () -> new Item(new Item.Properties()));
     public static final RegistrySupplier<Item> HORN = ITEMS.register("horn", () -> new Item(new Item.Properties()));
-    public static final RegistrySupplier<Item> BLUBBER = ITEMS.register("blubber", () -> new Item(new Item.Properties()));
+
+
 
     public static final RegistrySupplier<Item> FANG_NECKLACE = ITEMS.register("fang_necklace", () -> new Item(new Item.Properties().stacksTo(1)));
     public static final RegistrySupplier<Item> CLAW_NECKLACE = ITEMS.register("claw_necklace", () -> new Item(new Item.Properties().stacksTo(1)));
@@ -357,6 +360,13 @@ public class ModItem {
     public static final RegistrySupplier<Item> LARGE_ANTLERS_BLOCK = ITEMS.register("large_antlers", () ->
             new BlockItem(ModBlock.LARGE_ANTLERS.get(), new Item.Properties()));
 
-
+    private static RegistrySupplier<Item> registerFuel(String name, Supplier<Item> supplier, int fuelValue) {
+        return ITEMS.register(name, () -> {
+            Item item = supplier.get();
+            FuelRegistry.register(fuelValue, item);
+            return item;
+        });
+    }
+    public static final RegistrySupplier<Item> BLUBBER = registerFuel("blubber", () -> new Item(new Item.Properties()), 400);
 
 }

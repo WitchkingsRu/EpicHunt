@@ -11,37 +11,8 @@
               "add": false,
               "count": {
                 "type": "minecraft:uniform",
-                "max": 3.0,
-                "min": 0.0
-              },
-              "function": "minecraft:set_count"
-            },
-            {
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 1.0,
-                "min": 0.0
-              },
-              "function": "minecraft:looting_enchant"
-            }
-          ],
-          "name": "minecraft:feather"
-        }
-      ],
-      "rolls": 1.0
-    },
-    {
-      "bonus_rolls": 0.0,
-      "entries": [
-        {
-          "type": "minecraft:item",
-          "functions": [
-            {
-              "add": false,
-              "count": {
-                "type": "minecraft:uniform",
-                "max": 1.0,
-                "min": 1.0
+                "max": 8.0,
+                "min": 6.0
               },
               "function": "minecraft:set_count"
             },
@@ -68,11 +39,40 @@
               "function": "minecraft:looting_enchant"
             }
           ],
-          "name": "epichunt:raw_bird"
+          "name": "epichunt:raw_whale"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 7.0,
+                "min": 5.0
+              },
+              "function": "minecraft:set_count"
+            },
+            {
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 1.0,
+                "min": 0.0
+              },
+              "function": "minecraft:looting_enchant"
+            }
+          ],
+          "name": "epichunt:blubber"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "epichunt:entities/drake"
+  "random_sequence": "epichunt:entities/orca"
 }
