@@ -71,7 +71,7 @@ public class OrcaEntity extends WaterAnimal implements NeutralMob {
         this.noCulling = true;
     }
 
-    public static final Supplier<EntityType<OrcaEntity>> ORCA = Suppliers.memoize(() -> EntityType.Builder.of(OrcaEntity::new, MobCategory.WATER_AMBIENT)
+    public static final Supplier<EntityType<OrcaEntity>> ORCA = Suppliers.memoize(() -> EntityType.Builder.of(OrcaEntity::new, MobCategory.WATER_CREATURE)
             .sized(1.8f, 1.0f).build("orca"));
 
     public final AnimationState idleAnimationState = new AnimationState();

@@ -62,7 +62,7 @@ public class WhaleEntity extends WaterAnimal {
 
     }
 
-    public static final Supplier<EntityType<WhaleEntity>> WHALE = Suppliers.memoize(() -> EntityType.Builder.of(WhaleEntity::new, MobCategory.WATER_AMBIENT)
+    public static final Supplier<EntityType<WhaleEntity>> WHALE = Suppliers.memoize(() -> EntityType.Builder.of(WhaleEntity::new, MobCategory.WATER_CREATURE)
             .sized(2.0f, 1.0f).build("whale"));
 
     public final AnimationState idleAnimationState = new AnimationState();

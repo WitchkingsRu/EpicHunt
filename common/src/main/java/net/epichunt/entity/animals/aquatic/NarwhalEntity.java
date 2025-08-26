@@ -46,7 +46,7 @@ public class NarwhalEntity extends WaterAnimal {
         this.lvl = level;
     }
 
-    public static final Supplier<EntityType<NarwhalEntity>> NARWHAL = Suppliers.memoize(() -> EntityType.Builder.of(NarwhalEntity::new, MobCategory.WATER_AMBIENT)
+    public static final Supplier<EntityType<NarwhalEntity>> NARWHAL = Suppliers.memoize(() -> EntityType.Builder.of(NarwhalEntity::new, MobCategory.WATER_CREATURE)
             .sized(1.3f, 0.8f).build("narwhal"));
 
     public final AnimationState idleAnimationState = new AnimationState();

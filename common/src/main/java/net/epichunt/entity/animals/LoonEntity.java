@@ -59,7 +59,7 @@ public class LoonEntity extends Animal {
         this.moveControl = new LoonMoveControl(this);
         this.setMaxUpStep(1.0F);
     }
-    public static final Supplier<EntityType<LoonEntity>> LOON = Suppliers.memoize(() -> EntityType.Builder.of(LoonEntity::new, MobCategory.CREATURE)
+    public static final Supplier<EntityType<LoonEntity>> LOON = Suppliers.memoize(() -> EntityType.Builder.of(LoonEntity::new, MobCategory.AMBIENT)
             .sized(0.7f, 0.7f).build("loon"));
 
     @Override

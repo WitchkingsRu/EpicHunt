@@ -96,6 +96,46 @@ public class ConfigMain implements ConfigData {
     public CatfishConfig catfish = new CatfishConfig();
 
     @CollapsibleObject
+    public NarwhalConfig narwhal = new NarwhalConfig();
+    @CollapsibleObject
+    public WhaleConfig whale = new WhaleConfig();
+    @CollapsibleObject
+    public OrcaConfig orca = new OrcaConfig();
+    @CollapsibleObject
+    public WhiteSharkConfig white_shark = new WhiteSharkConfig();
+    @CollapsibleObject
+    public SwordfishConfig swordfish = new SwordfishConfig();
+
+    @CollapsibleObject
+    public GreatAukConfig great_auk = new GreatAukConfig();
+    @CollapsibleObject
+    public RazorbillConfig razorbill = new RazorbillConfig();
+    @CollapsibleObject
+    public PigeonConfig pigeon = new PigeonConfig();
+    @CollapsibleObject
+    public WhiteStorkConfig stork = new WhiteStorkConfig();
+    @CollapsibleObject
+    public CraneConfig crane = new CraneConfig();
+    @CollapsibleObject
+    public KestrelConfig kestrel = new KestrelConfig();
+    @CollapsibleObject
+    public LoonConfig loon = new LoonConfig();
+    @CollapsibleObject
+    public PartridgeConfig partridge = new PartridgeConfig();
+    @CollapsibleObject
+    public BullfinchConfig bullfinch = new BullfinchConfig();
+    @CollapsibleObject
+    public NightingaleConfig nightingale = new NightingaleConfig();
+    @CollapsibleObject
+    public RavenConfig raven = new RavenConfig();
+    @CollapsibleObject
+    public HawkConfig hawk = new HawkConfig();
+    @CollapsibleObject
+    public EagleConfig eagle = new EagleConfig();
+    @CollapsibleObject
+    public OwlConfig owl = new OwlConfig();
+
+    @CollapsibleObject
     public GiftsConfig gift_list = new GiftsConfig();
 
 
@@ -319,6 +359,8 @@ public class ConfigMain implements ConfigData {
         }
     }
 
+
+
     public static class EelConfig {
         @RequiresRestart
         public int weight = 60;
@@ -467,6 +509,198 @@ public class ConfigMain implements ConfigData {
         @RequiresRestart
         public int maxAmount = 1;
         public CatfishConfig() {
+        }
+    }
+    public static class NarwhalConfig {
+        @RequiresRestart
+        public int weight = 12;
+        @RequiresRestart
+        public int minAmount = 2;
+        @RequiresRestart
+        public int maxAmount = 4;
+        public NarwhalConfig() {
+        }
+    }
+    public static class WhaleConfig {
+        @RequiresRestart
+        public int weight = 12;
+        @RequiresRestart
+        public int minAmount = 2;
+        @RequiresRestart
+        public int maxAmount = 4;
+        public WhaleConfig() {
+        }
+    }
+    public static class OrcaConfig {
+        @RequiresRestart
+        public int weight = 12;
+        @RequiresRestart
+        public int minAmount = 2;
+        @RequiresRestart
+        public int maxAmount = 4;
+        public OrcaConfig() {
+        }
+    }
+    public static class WhiteSharkConfig {
+        @RequiresRestart
+        public int weight = 12;
+        @RequiresRestart
+        public int minAmount = 2;
+        @RequiresRestart
+        public int maxAmount = 4;
+        public WhiteSharkConfig() {
+        }
+    }
+    public static class SwordfishConfig {
+        @RequiresRestart
+        public int weight = 12;
+        @RequiresRestart
+        public int minAmount = 2;
+        @RequiresRestart
+        public int maxAmount = 4;
+        public SwordfishConfig() {
+        }
+    }
+
+
+    public static class GreatAukConfig {
+        @RequiresRestart
+        public int weight = 12;
+        @RequiresRestart
+        public int minAmount = 2;
+        @RequiresRestart
+        public int maxAmount = 4;
+        public GreatAukConfig() {
+        }
+    }
+    public static class RazorbillConfig {
+        @RequiresRestart
+        public int weight = 12;
+        @RequiresRestart
+        public int minAmount = 2;
+        @RequiresRestart
+        public int maxAmount = 4;
+        public RazorbillConfig() {
+        }
+    }
+    public static class PigeonConfig {
+        @RequiresRestart
+        public int weight = 12;
+        @RequiresRestart
+        public int minAmount = 2;
+        @RequiresRestart
+        public int maxAmount = 4;
+        public PigeonConfig() {
+        }
+    }
+    public static class WhiteStorkConfig {
+        @RequiresRestart
+        public int weight = 12;
+        @RequiresRestart
+        public int minAmount = 2;
+        @RequiresRestart
+        public int maxAmount = 4;
+        public WhiteStorkConfig() {
+        }
+    }
+    public static class CraneConfig {
+        @RequiresRestart
+        public int weight = 12;
+        @RequiresRestart
+        public int minAmount = 2;
+        @RequiresRestart
+        public int maxAmount = 4;
+        public CraneConfig() {
+        }
+    }
+    public static class KestrelConfig {
+        @RequiresRestart
+        public int weight = 12;
+        @RequiresRestart
+        public int minAmount = 2;
+        @RequiresRestart
+        public int maxAmount = 4;
+        public KestrelConfig() {
+        }
+    }
+    public static class LoonConfig {
+        @RequiresRestart
+        public int weight = 12;
+        @RequiresRestart
+        public int minAmount = 2;
+        @RequiresRestart
+        public int maxAmount = 4;
+        public LoonConfig() {
+        }
+    }
+    public static class PartridgeConfig {
+        @RequiresRestart
+        public int weight = 12;
+        @RequiresRestart
+        public int minAmount = 2;
+        @RequiresRestart
+        public int maxAmount = 4;
+        public PartridgeConfig() {
+        }
+    }
+    public static class BullfinchConfig {
+        @RequiresRestart
+        public int weight = 12;
+        @RequiresRestart
+        public int minAmount = 2;
+        @RequiresRestart
+        public int maxAmount = 4;
+        public BullfinchConfig() {
+        }
+    }
+    public static class NightingaleConfig {
+        @RequiresRestart
+        public int weight = 12;
+        @RequiresRestart
+        public int minAmount = 2;
+        @RequiresRestart
+        public int maxAmount = 4;
+        public NightingaleConfig() {
+        }
+    }
+    public static class RavenConfig {
+        @RequiresRestart
+        public int weight = 12;
+        @RequiresRestart
+        public int minAmount = 2;
+        @RequiresRestart
+        public int maxAmount = 4;
+        public RavenConfig() {
+        }
+    }
+    public static class HawkConfig {
+        @RequiresRestart
+        public int weight = 12;
+        @RequiresRestart
+        public int minAmount = 2;
+        @RequiresRestart
+        public int maxAmount = 4;
+        public HawkConfig() {
+        }
+    }
+    public static class EagleConfig {
+        @RequiresRestart
+        public int weight = 12;
+        @RequiresRestart
+        public int minAmount = 2;
+        @RequiresRestart
+        public int maxAmount = 4;
+        public EagleConfig() {
+        }
+    }
+    public static class OwlConfig {
+        @RequiresRestart
+        public int weight = 12;
+        @RequiresRestart
+        public int minAmount = 2;
+        @RequiresRestart
+        public int maxAmount = 4;
+        public OwlConfig() {
         }
     }
     public static class GiftsConfig {

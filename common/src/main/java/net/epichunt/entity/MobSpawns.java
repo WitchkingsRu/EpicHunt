@@ -39,6 +39,7 @@ public class MobSpawns {
 
 
     public static void spawnsInit(ConfigMain SPAWN_CONFIG) {
+        //ANIMALS
         addEntitySpawns(context -> ((context.hasTag(BiomeTags.IS_FOREST)) || (context.hasTag(BiomeTags.IS_TAIGA))), MobCategory.CREATURE, DEER_ENTITY::get, CONFIG.deer.weight, CONFIG.deer.minAmount, CONFIG.deer.maxAmount);
         addEntitySpawns(context -> ((context.hasTag(BiomeTags.IS_FOREST)) || (context.hasTag(BiomeTags.IS_TAIGA))), MobCategory.CREATURE, DOE_ENTITY::get, CONFIG.doe.weight, CONFIG.doe.minAmount, CONFIG.doe.maxAmount);
         addEntitySpawns(context -> ((context.hasTag(BiomeTags.HAS_IGLOO)) || (context.hasTag(BiomeTags.IS_TAIGA))), MobCategory.CREATURE, CARIBOU_ENTITY::get, CONFIG.caribou.weight, CONFIG.caribou.minAmount, CONFIG.caribou.maxAmount);
@@ -63,8 +64,10 @@ public class MobSpawns {
 
         addEntitySpawns(context -> ((context.hasTag(BiomeTags.IS_FOREST)) || (context.hasTag(BiomeTags.IS_TAIGA)) || (context.hasTag(BiomeTags.HAS_CLOSER_WATER_FOG)) || (context.hasTag(BiomeTags.IS_RIVER))), MobCategory.CREATURE, BEAVER_ENTITY::get, CONFIG.beaver.weight, CONFIG.beaver.minAmount, CONFIG.beaver.maxAmount);
         addEntitySpawns(context -> ((context.hasTag(BiomeTags.IS_FOREST)) || (context.hasTag(BiomeTags.IS_TAIGA)) || (context.hasTag(BiomeTags.HAS_VILLAGE_PLAINS))), MobCategory.CREATURE, HARE_ENTITY::get, CONFIG.hare.weight, CONFIG.hare.minAmount, CONFIG.hare.maxAmount);
+        //BIRDS
+        addEntitySpawns(context -> ((context.hasTag(BiomeTags.IS_FOREST)) || (context.hasTag(BiomeTags.IS_TAIGA)) || (context.hasTag(BiomeTags.HAS_VILLAGE_PLAINS))), MobCategory.AMBIENT, GREAT_AUK_ENTITY::get, CONFIG.hare.weight, CONFIG.hare.minAmount, CONFIG.hare.maxAmount);
 
-
+        //FISH
         addEntitySpawns(context -> ((context.hasTag(BiomeTags.IS_OCEAN) || context.hasTag(BiomeTags.IS_BEACH) || context.hasTag(BiomeTags.IS_DEEP_OCEAN))),
                 MobCategory.WATER_AMBIENT, BASS_ENTITY::get, CONFIG.bass.weight, CONFIG.bass.minAmount, CONFIG.bass.maxAmount);
         addEntitySpawns(context -> ((context.hasTag(BiomeTags.IS_OCEAN) || context.hasTag(BiomeTags.IS_BEACH) || context.hasTag(BiomeTags.IS_DEEP_OCEAN))),

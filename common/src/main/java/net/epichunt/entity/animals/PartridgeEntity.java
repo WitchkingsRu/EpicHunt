@@ -41,7 +41,7 @@ public class PartridgeEntity extends Animal {
 
     }
 
-    public static final Supplier<EntityType<PartridgeEntity>> PARTRIDGE = Suppliers.memoize(() -> EntityType.Builder.of(PartridgeEntity::new, MobCategory.CREATURE)
+    public static final Supplier<EntityType<PartridgeEntity>> PARTRIDGE = Suppliers.memoize(() -> EntityType.Builder.of(PartridgeEntity::new, MobCategory.AMBIENT)
             .sized(0.7f, 0.7f).build("partridge"));
 
     @Override

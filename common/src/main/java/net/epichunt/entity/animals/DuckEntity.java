@@ -62,7 +62,7 @@ public class DuckEntity extends Animal {
     }
 
 
-    public static final Supplier<EntityType<DuckEntity>> DUCK = Suppliers.memoize(() -> EntityType.Builder.of(DuckEntity::new, MobCategory.CREATURE)
+    public static final Supplier<EntityType<DuckEntity>> DUCK = Suppliers.memoize(() -> EntityType.Builder.of(DuckEntity::new, MobCategory.AMBIENT)
             .sized(0.7f, 0.7f).build("duck"));
 
     @Override

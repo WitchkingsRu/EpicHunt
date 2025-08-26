@@ -46,7 +46,7 @@ public class WhiteSharkEntity extends Monster implements Enemy {
         this.lookControl = new SmoothSwimmingLookControl(this, 10);
         this.xpReward = 5;
     }
-    public static final Supplier<EntityType<WhiteSharkEntity>> WHITE_SHARK = Suppliers.memoize(() -> EntityType.Builder.of(WhiteSharkEntity::new, MobCategory.WATER_AMBIENT)
+    public static final Supplier<EntityType<WhiteSharkEntity>> WHITE_SHARK = Suppliers.memoize(() -> EntityType.Builder.of(WhiteSharkEntity::new, MobCategory.MONSTER)
             .sized(1.1f, 0.8f).build("white_shark"));
 
     public final AnimationState idleAnimationState = new AnimationState();

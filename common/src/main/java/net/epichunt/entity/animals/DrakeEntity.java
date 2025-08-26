@@ -60,7 +60,7 @@ public class DrakeEntity extends Animal {
 
     }
 
-    public static final Supplier<EntityType<DrakeEntity>> DRAKE = Suppliers.memoize(() -> EntityType.Builder.of(DrakeEntity::new, MobCategory.CREATURE)
+    public static final Supplier<EntityType<DrakeEntity>> DRAKE = Suppliers.memoize(() -> EntityType.Builder.of(DrakeEntity::new, MobCategory.AMBIENT)
             .sized(0.7f, 0.7f).build("drake"));
 
     @Override

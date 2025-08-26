@@ -23,7 +23,7 @@ public class WhiteStorkEntity extends Animal {
     public WhiteStorkEntity(EntityType<? extends Animal> entityType, Level level) {
         super(entityType, level);
     }
-    public static final Supplier<EntityType<WhiteStorkEntity>> WHITE_STORK = Suppliers.memoize(() -> EntityType.Builder.of(WhiteStorkEntity::new, MobCategory.CREATURE)
+    public static final Supplier<EntityType<WhiteStorkEntity>> WHITE_STORK = Suppliers.memoize(() -> EntityType.Builder.of(WhiteStorkEntity::new, MobCategory.AMBIENT)
             .sized(0.7f, 0.7f).build("white_stork"));
 
     @Override
