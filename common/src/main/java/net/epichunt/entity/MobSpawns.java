@@ -65,29 +65,29 @@ public class MobSpawns {
         addEntitySpawns(context -> ((context.hasTag(BiomeTags.IS_FOREST)) || (context.hasTag(BiomeTags.IS_TAIGA)) || (context.hasTag(BiomeTags.HAS_VILLAGE_PLAINS))), MobCategory.CREATURE, HARE_ENTITY::get, CONFIG.hare.weight, CONFIG.hare.minAmount, CONFIG.hare.maxAmount);
 
 
-        addEntitySpawns(context -> ((context.hasTag(BiomeTags.IS_OCEAN)) || (context.hasTag(BiomeTags.IS_DEEP_OCEAN)) || (context.hasTag(BiomeTags.HAS_OCEAN_MONUMENT)) || (context.hasTag(BiomeTags.HAS_OCEAN_RUIN_COLD) || (context.hasTag(BiomeTags.HAS_OCEAN_RUIN_WARM)))),
+        addEntitySpawns(context -> ((context.hasTag(BiomeTags.IS_OCEAN) || context.hasTag(BiomeTags.IS_BEACH) || context.hasTag(BiomeTags.IS_DEEP_OCEAN))),
                 MobCategory.WATER_AMBIENT, BASS_ENTITY::get, CONFIG.bass.weight, CONFIG.bass.minAmount, CONFIG.bass.maxAmount);
-        addEntitySpawns(context -> ((context.hasTag(BiomeTags.IS_OCEAN)) || (context.hasTag(BiomeTags.IS_DEEP_OCEAN)) || (context.hasTag(BiomeTags.HAS_OCEAN_MONUMENT)) || (context.hasTag(BiomeTags.HAS_OCEAN_RUIN_COLD) || (context.hasTag(BiomeTags.HAS_OCEAN_RUIN_WARM)))),
+        addEntitySpawns(context -> ((context.hasTag(BiomeTags.IS_OCEAN) || context.hasTag(BiomeTags.IS_BEACH) || context.hasTag(BiomeTags.IS_DEEP_OCEAN))),
                 MobCategory.WATER_AMBIENT, HALIBUT_ENTITY::get, CONFIG.halibut.weight, CONFIG.halibut.minAmount, CONFIG.halibut.maxAmount);
-        addEntitySpawns(context -> ((context.hasTag(BiomeTags.IS_OCEAN)) || (context.hasTag(BiomeTags.IS_DEEP_OCEAN)) || (context.hasTag(BiomeTags.HAS_OCEAN_MONUMENT)) || (context.hasTag(BiomeTags.HAS_OCEAN_RUIN_COLD) || (context.hasTag(BiomeTags.HAS_OCEAN_RUIN_WARM)))),
+        addEntitySpawns(context -> ((context.hasTag(BiomeTags.IS_OCEAN) || context.hasTag(BiomeTags.IS_BEACH) || context.hasTag(BiomeTags.IS_DEEP_OCEAN))),
                 MobCategory.WATER_AMBIENT, MACKEREL_ENTITY::get, CONFIG.mackerel.weight, CONFIG.mackerel.minAmount, CONFIG.mackerel.maxAmount);
-        addEntitySpawns(context -> ((context.hasTag(BiomeTags.IS_OCEAN)) || (context.hasTag(BiomeTags.IS_DEEP_OCEAN)) || (context.hasTag(BiomeTags.HAS_OCEAN_MONUMENT)) || (context.hasTag(BiomeTags.HAS_OCEAN_RUIN_COLD) || (context.hasTag(BiomeTags.HAS_OCEAN_RUIN_WARM)))),
+        addEntitySpawns(context -> ((context.hasTag(BiomeTags.IS_OCEAN) || context.hasTag(BiomeTags.IS_BEACH) || context.hasTag(BiomeTags.IS_DEEP_OCEAN))),
                 MobCategory.WATER_AMBIENT, HERRING_ENTITY::get, CONFIG.herring.weight, CONFIG.herring.minAmount, CONFIG.herring.maxAmount);
-        addEntitySpawns(context -> ((context.hasTag(BiomeTags.IS_OCEAN)) || (context.hasTag(BiomeTags.IS_DEEP_OCEAN)) || (context.hasTag(BiomeTags.HAS_OCEAN_MONUMENT)) || (context.hasTag(BiomeTags.HAS_OCEAN_RUIN_COLD) || (context.hasTag(BiomeTags.HAS_OCEAN_RUIN_WARM)))),
+        addEntitySpawns(context -> ((context.hasTag(BiomeTags.IS_OCEAN) || context.hasTag(BiomeTags.IS_BEACH) || context.hasTag(BiomeTags.IS_DEEP_OCEAN))),
                 MobCategory.WATER_AMBIENT, SARDINE_ENTITY::get, CONFIG.sardine.weight, CONFIG.sardine.minAmount, CONFIG.sardine.maxAmount);
-        addEntitySpawns(context -> ((context.hasTag(BiomeTags.IS_OCEAN)) || (context.hasTag(BiomeTags.IS_DEEP_OCEAN)) || (context.hasTag(BiomeTags.HAS_OCEAN_MONUMENT)) || (context.hasTag(BiomeTags.HAS_OCEAN_RUIN_COLD) || (context.hasTag(BiomeTags.HAS_OCEAN_RUIN_WARM)))),
+        addEntitySpawns(context -> ((context.hasTag(BiomeTags.IS_OCEAN) || context.hasTag(BiomeTags.IS_BEACH) || context.hasTag(BiomeTags.IS_DEEP_OCEAN))),
                 MobCategory.WATER_AMBIENT, POLLOCK_ENTITY::get, CONFIG.pollock.weight, CONFIG.pollock.minAmount, CONFIG.pollock.maxAmount);
-        addEntitySpawns(context -> ((context.hasTag(BiomeTags.IS_OCEAN)) || (context.hasTag(BiomeTags.IS_DEEP_OCEAN)) || (context.hasTag(BiomeTags.HAS_OCEAN_MONUMENT)) || (context.hasTag(BiomeTags.HAS_OCEAN_RUIN_COLD) || (context.hasTag(BiomeTags.HAS_OCEAN_RUIN_WARM)))),
+        addEntitySpawns(context -> ((context.hasTag(BiomeTags.IS_OCEAN) || context.hasTag(BiomeTags.IS_BEACH) || context.hasTag(BiomeTags.IS_DEEP_OCEAN))),
                 MobCategory.WATER_AMBIENT, STURGEON_ENTITY::get, CONFIG.sturgeon.weight, CONFIG.sturgeon.minAmount, CONFIG.sturgeon.maxAmount);
 
-        addEntitySpawns(context -> ((context.hasTag(BiomeTags.IS_RIVER))), MobCategory.WATER_AMBIENT, CARP_ENTITY::get, CONFIG.carp.weight, CONFIG.carp.minAmount, CONFIG.carp.maxAmount);
-        addEntitySpawns(context -> ((context.hasTag(BiomeTags.IS_RIVER))), MobCategory.WATER_AMBIENT, EEL_ENTITY::get, CONFIG.eel.weight, CONFIG.eel.minAmount, CONFIG.eel.maxAmount);
-        addEntitySpawns(context -> ((context.hasTag(BiomeTags.IS_RIVER))), MobCategory.WATER_AMBIENT, PERCHES_ENTITY::get, CONFIG.perches.weight, CONFIG.perches.minAmount, CONFIG.perches.maxAmount);
-        addEntitySpawns(context -> ((context.hasTag(BiomeTags.IS_RIVER))), MobCategory.WATER_AMBIENT, PIKEFISH_ENTITY::get, CONFIG.pike_fish.weight, CONFIG.pike_fish.minAmount, CONFIG.pike_fish.maxAmount);
-        addEntitySpawns(context -> ((context.hasTag(BiomeTags.IS_RIVER))), MobCategory.WATER_AMBIENT, ROACH_ENTITY::get, CONFIG.roach.weight, CONFIG.roach.minAmount, CONFIG.roach.maxAmount);
-        addEntitySpawns(context -> ((context.hasTag(BiomeTags.IS_RIVER))), MobCategory.WATER_AMBIENT, ZANDER_ENTITY::get, CONFIG.zander.weight, CONFIG.zander.minAmount, CONFIG.zander.maxAmount);
-        addEntitySpawns(context -> ((context.hasTag(BiomeTags.IS_RIVER))), MobCategory.WATER_AMBIENT, TROUT_ENTITY::get, CONFIG.trout.weight, CONFIG.trout.minAmount, CONFIG.trout.maxAmount);
-        addEntitySpawns(context -> ((context.hasTag(BiomeTags.IS_RIVER))), MobCategory.WATER_AMBIENT, CATFISH_ENTITY::get, CONFIG.catfish.weight, CONFIG.catfish.minAmount, CONFIG.catfish.maxAmount);
+        addEntitySpawns(context -> ((context.hasTag(BiomeTags.IS_OVERWORLD) && !context.hasTag(BiomeTags.IS_OCEAN) && !context.hasTag(BiomeTags.IS_DEEP_OCEAN))), MobCategory.WATER_AMBIENT, CARP_ENTITY::get, CONFIG.carp.weight, CONFIG.carp.minAmount, CONFIG.carp.maxAmount);
+        addEntitySpawns(context -> ((context.hasTag(BiomeTags.IS_OVERWORLD) && !context.hasTag(BiomeTags.IS_OCEAN) && !context.hasTag(BiomeTags.IS_DEEP_OCEAN))), MobCategory.WATER_AMBIENT, EEL_ENTITY::get, CONFIG.eel.weight, CONFIG.eel.minAmount, CONFIG.eel.maxAmount);
+        addEntitySpawns(context -> ((context.hasTag(BiomeTags.IS_OVERWORLD) && !context.hasTag(BiomeTags.IS_OCEAN) && !context.hasTag(BiomeTags.IS_DEEP_OCEAN))), MobCategory.WATER_AMBIENT, PERCHES_ENTITY::get, CONFIG.perches.weight, CONFIG.perches.minAmount, CONFIG.perches.maxAmount);
+        addEntitySpawns(context -> ((context.hasTag(BiomeTags.IS_OVERWORLD) && !context.hasTag(BiomeTags.IS_OCEAN) && !context.hasTag(BiomeTags.IS_DEEP_OCEAN))), MobCategory.WATER_AMBIENT, PIKEFISH_ENTITY::get, CONFIG.pike_fish.weight, CONFIG.pike_fish.minAmount, CONFIG.pike_fish.maxAmount);
+        addEntitySpawns(context -> ((context.hasTag(BiomeTags.IS_OVERWORLD) && !context.hasTag(BiomeTags.IS_OCEAN) && !context.hasTag(BiomeTags.IS_DEEP_OCEAN))), MobCategory.WATER_AMBIENT, ROACH_ENTITY::get, CONFIG.roach.weight, CONFIG.roach.minAmount, CONFIG.roach.maxAmount);
+        addEntitySpawns(context -> ((context.hasTag(BiomeTags.IS_OVERWORLD) && !context.hasTag(BiomeTags.IS_OCEAN) && !context.hasTag(BiomeTags.IS_DEEP_OCEAN))), MobCategory.WATER_AMBIENT, ZANDER_ENTITY::get, CONFIG.zander.weight, CONFIG.zander.minAmount, CONFIG.zander.maxAmount);
+        addEntitySpawns(context -> ((context.hasTag(BiomeTags.IS_OVERWORLD) && !context.hasTag(BiomeTags.IS_OCEAN) && !context.hasTag(BiomeTags.IS_DEEP_OCEAN))), MobCategory.WATER_AMBIENT, TROUT_ENTITY::get, CONFIG.trout.weight, CONFIG.trout.minAmount, CONFIG.trout.maxAmount);
+        addEntitySpawns(context -> ((context.hasTag(BiomeTags.IS_OVERWORLD) && !context.hasTag(BiomeTags.IS_OCEAN) && !context.hasTag(BiomeTags.IS_DEEP_OCEAN))), MobCategory.WATER_AMBIENT, CATFISH_ENTITY::get, CONFIG.catfish.weight, CONFIG.catfish.minAmount, CONFIG.catfish.maxAmount);
     }
 
     public static void placementRegistry(ConfigMain SPAWN_CONFIG) {

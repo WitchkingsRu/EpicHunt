@@ -321,7 +321,7 @@ public class ConfigMain implements ConfigData {
 
     public static class EelConfig {
         @RequiresRestart
-        public int weight = 20;
+        public int weight = 60;
         @RequiresRestart
         public int minAmount = 1;
         @RequiresRestart
@@ -331,7 +331,7 @@ public class ConfigMain implements ConfigData {
     }
     public static class SturgeonConfig {
         @RequiresRestart
-        public int weight = 10;
+        public int weight = 20;
         @RequiresRestart
         public int minAmount = 1;
         @RequiresRestart
@@ -341,7 +341,7 @@ public class ConfigMain implements ConfigData {
     }
     public static class PikefishConfig {
         @RequiresRestart
-        public int weight = 20;
+        public int weight = 70;
         @RequiresRestart
         public int minAmount = 3;
         @RequiresRestart
@@ -351,7 +351,7 @@ public class ConfigMain implements ConfigData {
     }
     public static class PollockConfig {
         @RequiresRestart
-        public int weight = 20;
+        public int weight = 70;
         @RequiresRestart
         public int minAmount = 3;
         @RequiresRestart
@@ -361,17 +361,17 @@ public class ConfigMain implements ConfigData {
     }
     public static class HerringConfig {
         @RequiresRestart
-        public int weight = 30;
+        public int weight = 80;
         @RequiresRestart
-        public int minAmount = 4;
+        public int minAmount = 7;
         @RequiresRestart
-        public int maxAmount = 7;
+        public int maxAmount = 10;
         public HerringConfig() {
         }
     }
     public static class TroutConfig {
         @RequiresRestart
-        public int weight = 20;
+        public int weight = 70;
         @RequiresRestart
         public int minAmount = 3;
         @RequiresRestart
@@ -381,7 +381,7 @@ public class ConfigMain implements ConfigData {
     }
     public static class CarpConfig {
         @RequiresRestart
-        public int weight = 20;
+        public int weight = 70;
         @RequiresRestart
         public int minAmount = 3;
         @RequiresRestart
@@ -391,7 +391,7 @@ public class ConfigMain implements ConfigData {
     }
     public static class BassConfig {
         @RequiresRestart
-        public int weight = 20;
+        public int weight = 70;
         @RequiresRestart
         public int minAmount = 3;
         @RequiresRestart
@@ -401,27 +401,27 @@ public class ConfigMain implements ConfigData {
     }
     public static class MackerelConfig {
         @RequiresRestart
-        public int weight = 30;
+        public int weight = 80;
         @RequiresRestart
-        public int minAmount = 4;
+        public int minAmount = 8;
         @RequiresRestart
-        public int maxAmount = 7;
+        public int maxAmount = 10;
         public MackerelConfig() {
         }
     }
     public static class SardineConfig {
         @RequiresRestart
-        public int weight = 30;
+        public int weight = 80;
         @RequiresRestart
-        public int minAmount = 4;
+        public int minAmount = 8;
         @RequiresRestart
-        public int maxAmount = 7;
+        public int maxAmount = 10;
         public SardineConfig() {
         }
     }
     public static class PerchesConfig {
         @RequiresRestart
-        public int weight = 20;
+        public int weight = 70;
         @RequiresRestart
         public int minAmount = 3;
         @RequiresRestart
@@ -431,7 +431,7 @@ public class ConfigMain implements ConfigData {
     }
     public static class ZanderConfig {
         @RequiresRestart
-        public int weight = 20;
+        public int weight = 70;
         @RequiresRestart
         public int minAmount = 3;
         @RequiresRestart
@@ -441,7 +441,7 @@ public class ConfigMain implements ConfigData {
     }
     public static class RoachConfig {
         @RequiresRestart
-        public int weight = 20;
+        public int weight = 80;
         @RequiresRestart
         public int minAmount = 3;
         @RequiresRestart
@@ -451,7 +451,7 @@ public class ConfigMain implements ConfigData {
     }
     public static class HalibutConfig {
         @RequiresRestart
-        public int weight = 20;
+        public int weight = 70;
         @RequiresRestart
         public int minAmount = 3;
         @RequiresRestart
@@ -461,7 +461,7 @@ public class ConfigMain implements ConfigData {
     }
     public static class CatfishConfig {
         @RequiresRestart
-        public int weight = 10;
+        public int weight = 20;
         @RequiresRestart
         public int minAmount = 1;
         @RequiresRestart
@@ -473,9 +473,9 @@ public class ConfigMain implements ConfigData {
         @RequiresRestart
         public List<? extends String> gifts = Arrays.asList(
                 "minecraft:feather;1;0.3",
-                "minecraft:music_disc_13;1;0.1",
-                "minecraft:gold_nugget;1-3;0.2",
-                "minecraft:emerald;1;0.05"
+                "minecraft:iron_nugget;1;0.1",
+                "minecraft:gold_nugget;1;0.2",
+                "minecraft:stick;1;0.05"
         );
         @RequiresRestart
         public int cooldown = 3600;
