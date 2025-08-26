@@ -15,6 +15,7 @@ import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.entity.SpawnPlacements;
 import net.minecraft.world.entity.animal.AbstractFish;
 import net.minecraft.world.entity.animal.Animal;
+import net.minecraft.world.entity.animal.Dolphin;
 import net.minecraft.world.entity.animal.WaterAnimal;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.biome.MobSpawnSettings;
@@ -64,8 +65,26 @@ public class MobSpawns {
 
         addEntitySpawns(context -> ((context.hasTag(BiomeTags.IS_FOREST)) || (context.hasTag(BiomeTags.IS_TAIGA)) || (context.hasTag(BiomeTags.HAS_CLOSER_WATER_FOG)) || (context.hasTag(BiomeTags.IS_RIVER))), MobCategory.CREATURE, BEAVER_ENTITY::get, CONFIG.beaver.weight, CONFIG.beaver.minAmount, CONFIG.beaver.maxAmount);
         addEntitySpawns(context -> ((context.hasTag(BiomeTags.IS_FOREST)) || (context.hasTag(BiomeTags.IS_TAIGA)) || (context.hasTag(BiomeTags.HAS_VILLAGE_PLAINS))), MobCategory.CREATURE, HARE_ENTITY::get, CONFIG.hare.weight, CONFIG.hare.minAmount, CONFIG.hare.maxAmount);
+
+
+
         //BIRDS
-        addEntitySpawns(context -> ((context.hasTag(BiomeTags.IS_FOREST)) || (context.hasTag(BiomeTags.IS_TAIGA)) || (context.hasTag(BiomeTags.HAS_VILLAGE_PLAINS))), MobCategory.AMBIENT, GREAT_AUK_ENTITY::get, CONFIG.hare.weight, CONFIG.hare.minAmount, CONFIG.hare.maxAmount);
+//        addEntitySpawns(context -> ((context.hasTag(BiomeTags.IS_FOREST)) || (context.hasTag(BiomeTags.IS_TAIGA)) || (context.hasTag(BiomeTags.HAS_VILLAGE_PLAINS))), MobCategory.AMBIENT, GREAT_AUK_ENTITY::get, CONFIG.great_auk.weight, CONFIG.great_auk.minAmount, CONFIG.great_auk.maxAmount);
+//        addEntitySpawns(context -> ((context.hasTag(BiomeTags.IS_FOREST)) || (context.hasTag(BiomeTags.IS_TAIGA)) || (context.hasTag(BiomeTags.HAS_VILLAGE_PLAINS))), MobCategory.AMBIENT, GREAT_AUK_ENTITY::get, CONFIG.great_auk.weight, CONFIG.great_auk.minAmount, CONFIG.great_auk.maxAmount);
+//        addEntitySpawns(context -> ((context.hasTag(BiomeTags.IS_FOREST)) || (context.hasTag(BiomeTags.IS_TAIGA)) || (context.hasTag(BiomeTags.HAS_VILLAGE_PLAINS))), MobCategory.AMBIENT, GREAT_AUK_ENTITY::get, CONFIG.great_auk.weight, CONFIG.great_auk.minAmount, CONFIG.great_auk.maxAmount);
+//        addEntitySpawns(context -> ((context.hasTag(BiomeTags.IS_FOREST)) || (context.hasTag(BiomeTags.IS_TAIGA)) || (context.hasTag(BiomeTags.HAS_VILLAGE_PLAINS))), MobCategory.AMBIENT, GREAT_AUK_ENTITY::get, CONFIG.great_auk.weight, CONFIG.great_auk.minAmount, CONFIG.great_auk.maxAmount);
+//        addEntitySpawns(context -> ((context.hasTag(BiomeTags.IS_FOREST)) || (context.hasTag(BiomeTags.IS_TAIGA)) || (context.hasTag(BiomeTags.HAS_VILLAGE_PLAINS))), MobCategory.AMBIENT, GREAT_AUK_ENTITY::get, CONFIG.great_auk.weight, CONFIG.great_auk.minAmount, CONFIG.great_auk.maxAmount);
+//        addEntitySpawns(context -> ((context.hasTag(BiomeTags.IS_FOREST)) || (context.hasTag(BiomeTags.IS_TAIGA)) || (context.hasTag(BiomeTags.HAS_VILLAGE_PLAINS))), MobCategory.AMBIENT, GREAT_AUK_ENTITY::get, CONFIG.great_auk.weight, CONFIG.great_auk.minAmount, CONFIG.great_auk.maxAmount);
+//        addEntitySpawns(context -> ((context.hasTag(BiomeTags.IS_FOREST)) || (context.hasTag(BiomeTags.IS_TAIGA)) || (context.hasTag(BiomeTags.HAS_VILLAGE_PLAINS))), MobCategory.AMBIENT, GREAT_AUK_ENTITY::get, CONFIG.great_auk.weight, CONFIG.great_auk.minAmount, CONFIG.great_auk.maxAmount);
+//        addEntitySpawns(context -> ((context.hasTag(BiomeTags.IS_FOREST)) || (context.hasTag(BiomeTags.IS_TAIGA)) || (context.hasTag(BiomeTags.HAS_VILLAGE_PLAINS))), MobCategory.AMBIENT, GREAT_AUK_ENTITY::get, CONFIG.great_auk.weight, CONFIG.great_auk.minAmount, CONFIG.great_auk.maxAmount);
+//        addEntitySpawns(context -> ((context.hasTag(BiomeTags.IS_FOREST)) || (context.hasTag(BiomeTags.IS_TAIGA)) || (context.hasTag(BiomeTags.HAS_VILLAGE_PLAINS))), MobCategory.AMBIENT, GREAT_AUK_ENTITY::get, CONFIG.great_auk.weight, CONFIG.great_auk.minAmount, CONFIG.great_auk.maxAmount);
+//        addEntitySpawns(context -> ((context.hasTag(BiomeTags.IS_FOREST)) || (context.hasTag(BiomeTags.IS_TAIGA)) || (context.hasTag(BiomeTags.HAS_VILLAGE_PLAINS))), MobCategory.AMBIENT, GREAT_AUK_ENTITY::get, CONFIG.great_auk.weight, CONFIG.great_auk.minAmount, CONFIG.great_auk.maxAmount);
+//        addEntitySpawns(context -> ((context.hasTag(BiomeTags.IS_FOREST)) || (context.hasTag(BiomeTags.IS_TAIGA)) || (context.hasTag(BiomeTags.HAS_VILLAGE_PLAINS))), MobCategory.AMBIENT, GREAT_AUK_ENTITY::get, CONFIG.great_auk.weight, CONFIG.great_auk.minAmount, CONFIG.great_auk.maxAmount);
+//        addEntitySpawns(context -> ((context.hasTag(BiomeTags.IS_FOREST)) || (context.hasTag(BiomeTags.IS_TAIGA)) || (context.hasTag(BiomeTags.HAS_VILLAGE_PLAINS))), MobCategory.AMBIENT, GREAT_AUK_ENTITY::get, CONFIG.great_auk.weight, CONFIG.great_auk.minAmount, CONFIG.great_auk.maxAmount);
+//        addEntitySpawns(context -> ((context.hasTag(BiomeTags.IS_FOREST)) || (context.hasTag(BiomeTags.IS_TAIGA)) || (context.hasTag(BiomeTags.HAS_VILLAGE_PLAINS))), MobCategory.AMBIENT, GREAT_AUK_ENTITY::get, CONFIG.great_auk.weight, CONFIG.great_auk.minAmount, CONFIG.great_auk.maxAmount);
+//        addEntitySpawns(context -> ((context.hasTag(BiomeTags.IS_FOREST)) || (context.hasTag(BiomeTags.IS_TAIGA)) || (context.hasTag(BiomeTags.HAS_VILLAGE_PLAINS))), MobCategory.AMBIENT, GREAT_AUK_ENTITY::get, CONFIG.great_auk.weight, CONFIG.great_auk.minAmount, CONFIG.great_auk.maxAmount);
+
+
 
         //FISH
         addEntitySpawns(context -> ((context.hasTag(BiomeTags.IS_OCEAN) || context.hasTag(BiomeTags.IS_BEACH) || context.hasTag(BiomeTags.IS_DEEP_OCEAN))),
@@ -91,6 +110,14 @@ public class MobSpawns {
         addEntitySpawns(context -> ((context.hasTag(BiomeTags.IS_OVERWORLD) && !context.hasTag(BiomeTags.IS_OCEAN) && !context.hasTag(BiomeTags.IS_DEEP_OCEAN))), MobCategory.WATER_AMBIENT, ZANDER_ENTITY::get, CONFIG.zander.weight, CONFIG.zander.minAmount, CONFIG.zander.maxAmount);
         addEntitySpawns(context -> ((context.hasTag(BiomeTags.IS_OVERWORLD) && !context.hasTag(BiomeTags.IS_OCEAN) && !context.hasTag(BiomeTags.IS_DEEP_OCEAN))), MobCategory.WATER_AMBIENT, TROUT_ENTITY::get, CONFIG.trout.weight, CONFIG.trout.minAmount, CONFIG.trout.maxAmount);
         addEntitySpawns(context -> ((context.hasTag(BiomeTags.IS_OVERWORLD) && !context.hasTag(BiomeTags.IS_OCEAN) && !context.hasTag(BiomeTags.IS_DEEP_OCEAN))), MobCategory.WATER_AMBIENT, CATFISH_ENTITY::get, CONFIG.catfish.weight, CONFIG.catfish.minAmount, CONFIG.catfish.maxAmount);
+
+        addEntitySpawns(context -> ((context.hasTag(BiomeTags.IS_OCEAN) || context.hasTag(BiomeTags.IS_DEEP_OCEAN))), MobCategory.WATER_CREATURE, NARWHAL_ENTITY::get, CONFIG.narwhal.weight, CONFIG.narwhal.minAmount, CONFIG.narwhal.maxAmount);
+        addEntitySpawns(context -> ((context.hasTag(BiomeTags.IS_OCEAN) || context.hasTag(BiomeTags.IS_DEEP_OCEAN))), MobCategory.WATER_CREATURE, WHALE_ENTITY::get, CONFIG.whale.weight, CONFIG.whale.minAmount, CONFIG.whale.maxAmount);
+        addEntitySpawns(context -> ((context.hasTag(BiomeTags.IS_OCEAN) || context.hasTag(BiomeTags.IS_DEEP_OCEAN))), MobCategory.WATER_CREATURE, ORCA_ENTITY::get, CONFIG.orca.weight, CONFIG.orca.minAmount, CONFIG.orca.maxAmount);
+        addEntitySpawns(context -> ((context.hasTag(BiomeTags.IS_OCEAN) || context.hasTag(BiomeTags.IS_DEEP_OCEAN))), MobCategory.MONSTER, WHITE_SHARK_ENTITY::get, CONFIG.white_shark.weight, CONFIG.white_shark.minAmount, CONFIG.white_shark.maxAmount);
+        addEntitySpawns(context -> ((context.hasTag(BiomeTags.IS_OCEAN) || context.hasTag(BiomeTags.IS_DEEP_OCEAN))), MobCategory.WATER_AMBIENT, SWORDFISH_ENTITY::get, CONFIG.swordfish.weight, CONFIG.swordfish.minAmount, CONFIG.swordfish.maxAmount);
+
+
     }
 
     public static void placementRegistry(ConfigMain SPAWN_CONFIG) {
@@ -129,6 +156,12 @@ public class MobSpawns {
         SpawnPlacementsRegistry.register(STURGEON_ENTITY, SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING, WaterAnimal::checkMobSpawnRules);
         SpawnPlacementsRegistry.register(TROUT_ENTITY, SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING, AbstractFish::checkMobSpawnRules);
         SpawnPlacementsRegistry.register(ZANDER_ENTITY, SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING, AbstractFish::checkMobSpawnRules);
+
+        SpawnPlacementsRegistry.register(NARWHAL_ENTITY, SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING, WaterAnimal::checkMobSpawnRules);
+        SpawnPlacementsRegistry.register(WHALE_ENTITY, SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING, WaterAnimal::checkMobSpawnRules);
+        SpawnPlacementsRegistry.register(ORCA_ENTITY, SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING, WaterAnimal::checkMobSpawnRules);
+        SpawnPlacementsRegistry.register(WHITE_SHARK_ENTITY, SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING, WaterAnimal::checkMobSpawnRules);
+        SpawnPlacementsRegistry.register(SWORDFISH_ENTITY, SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING, WaterAnimal::checkMobSpawnRules);
 
     }
 }

@@ -18,6 +18,7 @@ import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.util.Mth;
+import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
@@ -35,9 +36,13 @@ import net.minecraft.world.entity.boss.enderdragon.phases.EnderDragonPhase;
 import net.minecraft.world.entity.monster.Guardian;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelReader;
+import net.minecraft.world.level.ServerLevelAccessor;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.pathfinder.BinaryHeap;
 import net.minecraft.world.level.pathfinder.Node;
+import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.Nullable;
@@ -152,9 +157,9 @@ public class WhaleEntity extends WaterAnimal {
     }
 
     protected void registerGoals() {
-        this.goalSelector.addGoal(0, new BreathAirGoal(this));
+        this.goalSelector.addGoal(0, new WhaleBreathAirGoal(this));
         this.goalSelector.addGoal(0, new TryFindWaterGoal(this));
-        this.goalSelector.addGoal(1, new SurfaceSpoutGoal(this,  650));
+        //this.goalSelector.addGoal(1, new SurfaceSpoutGoal(this,  650));
         this.goalSelector.addGoal(4, new RandomSwimmingGoal(this, (double) 1.0F, 10));
         this.goalSelector.addGoal(4, new RandomLookAroundGoal(this));
         this.goalSelector.addGoal(5, new LookAtPlayerGoal(this, Player.class, 6.0F));
@@ -166,6 +171,13 @@ public class WhaleEntity extends WaterAnimal {
 
     public static AttributeSupplier.Builder createAttributes() {
         return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, (double) 40.0F).add(Attributes.MOVEMENT_SPEED, (double) 0.6F);
+    }
+
+    @Nullable
+    public SpawnGroupData finalizeSpawn(ServerLevelAccessor serverLevelAccessor, DifficultyInstance difficultyInstance, MobSpawnType mobSpawnType, @Nullable SpawnGroupData spawnGroupData, @Nullable CompoundTag compoundTag) {
+        this.setAirSupply(this.getMaxAirSupply());
+        this.setXRot(0.0F);
+        return super.finalizeSpawn(serverLevelAccessor, difficultyInstance, mobSpawnType, spawnGroupData, compoundTag);
     }
 
     protected PathNavigation createNavigation(Level level) {
@@ -308,4 +320,40 @@ public class WhaleEntity extends WaterAnimal {
         }
 
     }
+    public class WhaleBreathAirGoal extends BreathAirGoal {
+        private final WhaleEntity whale;
+
+        public WhaleBreathAirGoal(WhaleEntity whale) {
+            super(whale);
+            this.whale = whale;
+        }
+
+        @Override
+        public void tick() {
+            super.tick();
+
+            // Проверка: кит в воздухе (над водой или в пузырьке)
+            BlockPos pos = this.whale.blockPosition().above();
+            if (givesAir(this.whale.level(), pos)) {
+                // кит реально восполняет воздух
+                if (this.whale.getAirSupply() < this.whale.getMaxAirSupply()) {
+                    this.whale.setAirSupply(Math.min(
+                            this.whale.getAirSupply() + 5, // скорость восстановления
+                            this.whale.getMaxAirSupply()
+                    ));
+
+                    // эффектный фонтан
+                    this.whale.spawnSpoutParticles();
+                }
+            }
+        }
+
+        private boolean givesAir(LevelReader levelReader, BlockPos blockPos) {
+            BlockState blockState = levelReader.getBlockState(blockPos);
+            return (levelReader.getFluidState(blockPos).isEmpty() || blockState.is(Blocks.BUBBLE_COLUMN))
+                    && blockState.isPathfindable(levelReader, blockPos, PathComputationType.LAND);
+        }
+    }
+
+
 }
