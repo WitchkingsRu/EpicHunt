@@ -29,18 +29,24 @@ import net.minecraft.world.entity.animal.WaterAnimal;
 import net.minecraft.world.entity.monster.Guardian;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.ServerLevelAccessor;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.phys.Vec3;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.EnumSet;
 import java.util.function.Supplier;
 
 public class NarwhalEntity extends WaterAnimal {
     private static final EntityDataAccessor<Integer> MOISTNESS_LEVEL;
     public static final int TOTAL_AIR_SUPPLY = 4800;
     private static final int TOTAL_MOISTNESS_LEVEL = 2400;
-    public static boolean shouldSpawnParticles = false;
     private final Level lvl;
+    private int spoutCooldown = 600;
+
     public NarwhalEntity(EntityType<? extends NarwhalEntity> entityType, Level level) {
         super(entityType, level);
         this.moveControl = new SmoothSwimmingMoveControl(this, 85, 10, 0.02F, 0.1F, true);
@@ -59,9 +65,6 @@ public class NarwhalEntity extends WaterAnimal {
         super.tick();
         if(this.level().isClientSide()) {
             this.setupAnimationStates();
-            if (shouldSpawnParticles) {
-                spawnSpoutParticles();
-            }
         }
         if (this.isNoAi()) {
             this.setAirSupply(this.getMaxAirSupply());
@@ -95,11 +98,13 @@ public class NarwhalEntity extends WaterAnimal {
             }
 
         }
+        this.spoutCooldown--;
+
         BlockPos aboveHead = new BlockPos((int) this.getX(), (int) (this.getEyeY() + 1.0), (int) this.getZ());
 
         if (this.isInWater() && this.level().getBlockState(aboveHead).isAir()) {
             spawnSpoutParticles();
-
+            this.setSpoutCooldown(600);
         }
 
 
@@ -147,7 +152,7 @@ public class NarwhalEntity extends WaterAnimal {
     protected void registerGoals() {
         //this.goalSelector.addGoal(0, new BreathAirGoal(this));
         this.goalSelector.addGoal(0, new TryFindWaterGoal(this));
-        this.goalSelector.addGoal(1, new SurfaceSpoutGoal(this, 400));
+        this.goalSelector.addGoal(1, new SurfaceSpoutGoal(this));
         this.goalSelector.addGoal(4, new RandomSwimmingGoal(this, (double)1.0F, 10));
         this.goalSelector.addGoal(4, new RandomLookAroundGoal(this));
         this.goalSelector.addGoal(5, new LookAtPlayerGoal(this, Player.class, 6.0F));
@@ -242,71 +247,68 @@ public class NarwhalEntity extends WaterAnimal {
         return true;
     }
 
+    public int getSpoutCooldown() {
+        return spoutCooldown;
+    }
+
+    public void setSpoutCooldown(int spoutCooldown) {
+        this.spoutCooldown = spoutCooldown;
+    }
+
     static {
         MOISTNESS_LEVEL = SynchedEntityData.defineId(NarwhalEntity.class, EntityDataSerializers.INT);
     }
     static class SurfaceSpoutGoal extends Goal {
-        private final WaterAnimal mob;
-        private final Level level;
-        private final int interval;
-        private int cooldown;
-        private int flashTimer = 0;
+        private final NarwhalEntity mob;
 
-
-        public SurfaceSpoutGoal(WaterAnimal mob, int interval) {
-            this.mob = mob;
-            this.level = mob.level();
-            this.interval = interval;
-            this.cooldown = mob.getRandom().nextInt(interval);
+        public SurfaceSpoutGoal(NarwhalEntity pathfinderMob) {
+            this.mob = pathfinderMob;
+            this.setFlags(EnumSet.of(Flag.MOVE, Flag.LOOK));
         }
 
-        @Override
         public boolean canUse() {
-            return true;
+            return this.mob.getSpoutCooldown() <= 100;
         }
 
-        @Override
+        public boolean canContinueToUse() {
+            return this.canUse();
+        }
+
+        public boolean isInterruptable() {
+            return false;
+        }
+
+        public void start() {
+            this.findAirPosition();
+        }
+
+        private void findAirPosition() {
+            Iterable<BlockPos> iterable = BlockPos.betweenClosed(Mth.floor(this.mob.getX() - (double)1.0F), this.mob.getBlockY(), Mth.floor(this.mob.getZ() - (double)1.0F), Mth.floor(this.mob.getX() + (double)1.0F), Mth.floor(this.mob.getY() + (double)8.0F), Mth.floor(this.mob.getZ() + (double)1.0F));
+            BlockPos blockPos = null;
+
+            for(BlockPos blockPos2 : iterable) {
+                if (this.givesAir(this.mob.level(), blockPos2)) {
+                    blockPos = blockPos2;
+                    break;
+                }
+            }
+
+            if (blockPos == null) {
+                blockPos = BlockPos.containing(this.mob.getX(), this.mob.getY() + (double)8.0F, this.mob.getZ());
+            }
+
+            this.mob.getNavigation().moveTo((double)blockPos.getX(), (double)(blockPos.getY() + 1), (double)blockPos.getZ(), (double)1.0F);
+        }
+
         public void tick() {
-            if (flashTimer > 0) {
-                flashTimer--;
-                shouldSpawnParticles = true;
-                return;
-            } else {
-                shouldSpawnParticles = false;
-            }
-
-            cooldown--;
-            if (cooldown > 0) return;
-            cooldown = interval;
-
-            BlockPos headPos = BlockPos.containing(mob.getX(), mob.getEyeY(), mob.getZ());
-
-            if (isAtWaterSurface(headPos)) {
-                mob.setDeltaMovement(mob.getDeltaMovement().add(0, 0.1, 0));
-                flashTimer = 15;
-            } else {
-                BlockPos target = findSurfaceAbove(mob.blockPosition(), 16);
-                if (target != null) {
-                    mob.getNavigation().moveTo(target.getX(), target.getY(), target.getZ(), 1.0);
-                }
-            }
+            this.findAirPosition();
+            this.mob.moveRelative(0.02F, new Vec3((double)this.mob.xxa, (double)this.mob.yya, (double)this.mob.zza));
+            this.mob.move(MoverType.SELF, this.mob.getDeltaMovement());
         }
 
-        public boolean isAtWaterSurface(BlockPos headPos) {
-            return level.getFluidState(headPos).is(FluidTags.WATER)
-                    && level.getBlockState(headPos.above()).isAir();
+        private boolean givesAir(LevelReader levelReader, BlockPos blockPos) {
+            BlockState blockState = levelReader.getBlockState(blockPos);
+            return (levelReader.getFluidState(blockPos).isEmpty() || blockState.is(Blocks.BUBBLE_COLUMN)) && blockState.isPathfindable(levelReader, blockPos, PathComputationType.LAND);
         }
-
-        private BlockPos findSurfaceAbove(BlockPos start, int maxDistance) {
-            BlockPos.MutableBlockPos pos = new BlockPos.MutableBlockPos(start.getX(), start.getY(), start.getZ());
-            for (int dy = 0; dy < maxDistance; dy++) {
-                pos.move(0, 1, 0);
-                if (level.getBlockState(pos).isAir() && level.getFluidState(pos.below()).is(FluidTags.WATER)) {
-                    return pos.below();
-                }
-            }
-            return null;
-        }
-
     }
 }
