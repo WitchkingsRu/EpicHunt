@@ -95,6 +95,12 @@ public class NarwhalEntity extends WaterAnimal {
             }
 
         }
+        BlockPos aboveHead = new BlockPos((int) this.getX(), (int) (this.getEyeY() + 1.0), (int) this.getZ());
+
+        if (this.isInWater() && this.level().getBlockState(aboveHead).isAir()) {
+            spawnSpoutParticles();
+
+        }
 
 
     }
@@ -132,14 +138,14 @@ public class NarwhalEntity extends WaterAnimal {
     }
 
     public boolean canBreatheUnderwater() {
-        return false;
+        return true;
     }
 
     protected void handleAirSupply(int i) {
     }
 
     protected void registerGoals() {
-        this.goalSelector.addGoal(0, new BreathAirGoal(this));
+        //this.goalSelector.addGoal(0, new BreathAirGoal(this));
         this.goalSelector.addGoal(0, new TryFindWaterGoal(this));
         this.goalSelector.addGoal(1, new SurfaceSpoutGoal(this, 400));
         this.goalSelector.addGoal(4, new RandomSwimmingGoal(this, (double)1.0F, 10));

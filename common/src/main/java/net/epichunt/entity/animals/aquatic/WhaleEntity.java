@@ -78,9 +78,6 @@ public class WhaleEntity extends WaterAnimal {
         super.tick();
         if (this.level().isClientSide()) {
             this.setupAnimationStates();
-            if (shouldSpawnParticles) {
-                spawnSpoutParticles();
-            }
         }
         if (this.isNoAi()) {
             this.setAirSupply(this.getMaxAirSupply());
@@ -112,6 +109,12 @@ public class WhaleEntity extends WaterAnimal {
                     this.level().addParticle(ParticleTypes.DOLPHIN, this.getX() - vec3.x * (double) h - (double) f, this.getY() - vec3.y, this.getZ() - vec3.z * (double) h - (double) g, (double) 0.0F, (double) 0.0F, (double) 0.0F);
                 }
             }
+
+        }
+        BlockPos aboveHead = new BlockPos((int) this.getX(), (int) (this.getEyeY() + 1.0), (int) this.getZ());
+
+        if (this.isInWater() && this.level().getBlockState(aboveHead).isAir()) {
+            spawnSpoutParticles();
 
         }
     }
@@ -150,16 +153,16 @@ public class WhaleEntity extends WaterAnimal {
     }
 
     public boolean canBreatheUnderwater() {
-        return false;
+        return true;
     }
 
     protected void handleAirSupply(int i) {
     }
 
     protected void registerGoals() {
-        this.goalSelector.addGoal(0, new WhaleBreathAirGoal(this));
+        //this.goalSelector.addGoal(0, new BreathAirGoal(this));
         this.goalSelector.addGoal(0, new TryFindWaterGoal(this));
-        //this.goalSelector.addGoal(1, new SurfaceSpoutGoal(this,  650));
+        this.goalSelector.addGoal(1, new SurfaceSpoutGoal(this,  600));
         this.goalSelector.addGoal(4, new RandomSwimmingGoal(this, (double) 1.0F, 10));
         this.goalSelector.addGoal(4, new RandomLookAroundGoal(this));
         this.goalSelector.addGoal(5, new LookAtPlayerGoal(this, Player.class, 6.0F));
@@ -194,7 +197,7 @@ public class WhaleEntity extends WaterAnimal {
     }
 
     protected float getStandingEyeHeight(Pose pose, EntityDimensions entityDimensions) {
-        return 0.7F;
+        return 0.9F;
     }
 
     protected SoundEvent getHurtSound(DamageSource damageSource) {
@@ -320,40 +323,7 @@ public class WhaleEntity extends WaterAnimal {
         }
 
     }
-    public class WhaleBreathAirGoal extends BreathAirGoal {
-        private final WhaleEntity whale;
 
-        public WhaleBreathAirGoal(WhaleEntity whale) {
-            super(whale);
-            this.whale = whale;
-        }
-
-        @Override
-        public void tick() {
-            super.tick();
-
-            // Проверка: кит в воздухе (над водой или в пузырьке)
-            BlockPos pos = this.whale.blockPosition().above();
-            if (givesAir(this.whale.level(), pos)) {
-                // кит реально восполняет воздух
-                if (this.whale.getAirSupply() < this.whale.getMaxAirSupply()) {
-                    this.whale.setAirSupply(Math.min(
-                            this.whale.getAirSupply() + 5, // скорость восстановления
-                            this.whale.getMaxAirSupply()
-                    ));
-
-                    // эффектный фонтан
-                    this.whale.spawnSpoutParticles();
-                }
-            }
-        }
-
-        private boolean givesAir(LevelReader levelReader, BlockPos blockPos) {
-            BlockState blockState = levelReader.getBlockState(blockPos);
-            return (levelReader.getFluidState(blockPos).isEmpty() || blockState.is(Blocks.BUBBLE_COLUMN))
-                    && blockState.isPathfindable(levelReader, blockPos, PathComputationType.LAND);
-        }
-    }
 
 
 }

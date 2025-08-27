@@ -152,7 +152,12 @@ public class OrcaEntity extends WaterAnimal implements NeutralMob {
             this.updatePersistentAnger((ServerLevel)this.level(), true);
         }
         updateProximityTimer();
+        BlockPos aboveHead = new BlockPos((int) this.getX(), (int) (this.getEyeY() + 1.0), (int) this.getZ());
 
+        if (this.isInWater() && this.level().getBlockState(aboveHead).isAir()) {
+            spawnSpoutParticles();
+
+        }
 
     }
 
@@ -209,14 +214,14 @@ public class OrcaEntity extends WaterAnimal implements NeutralMob {
     }
 
     public boolean canBreatheUnderwater() {
-        return false;
+        return true;
     }
 
     protected void handleAirSupply(int i) {
     }
 
     protected void registerGoals() {
-        this.goalSelector.addGoal(0, new BreathAirGoal(this));
+        //this.goalSelector.addGoal(0, new BreathAirGoal(this));
         this.goalSelector.addGoal(0, new TryFindWaterGoal(this));
         this.goalSelector.addGoal(1, new OrcaMeleeAttackGoal(this, 1.2D));
         this.goalSelector.addGoal(2, new SurfaceSpoutGoal(this, 500));
