@@ -55,7 +55,7 @@ public class PheasantEntity extends Animal {
 
     }
 
-    public static final Supplier<EntityType<PheasantEntity>> PHEASANT = Suppliers.memoize(() -> EntityType.Builder.of(PheasantEntity::new, MobCategory.AMBIENT)
+    public static final Supplier<EntityType<PheasantEntity>> PHEASANT = Suppliers.memoize(() -> EntityType.Builder.of(PheasantEntity::new, MobCategory.CREATURE)
             .sized(0.7f, 0.7f).build("pheasant"));
 
     @Override

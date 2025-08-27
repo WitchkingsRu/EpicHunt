@@ -20,7 +20,7 @@ public class CommonCraneEntity extends Animal {
     public CommonCraneEntity(EntityType<? extends Animal> entityType, Level level) {
         super(entityType, level);
     }
-    public static final Supplier<EntityType<CommonCraneEntity>> COMMON_CRANE = Suppliers.memoize(() -> EntityType.Builder.of(CommonCraneEntity::new, MobCategory.AMBIENT)
+    public static final Supplier<EntityType<CommonCraneEntity>> COMMON_CRANE = Suppliers.memoize(() -> EntityType.Builder.of(CommonCraneEntity::new, MobCategory.CREATURE)
             .sized(0.7f, 0.7f).build("common_crane"));
 
     @Override

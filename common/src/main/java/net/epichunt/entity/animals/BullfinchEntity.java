@@ -40,7 +40,7 @@ public class BullfinchEntity extends Animal {
 
     }
 
-    public static final Supplier<EntityType<BullfinchEntity>> BULLFINCH = Suppliers.memoize(() -> EntityType.Builder.of(BullfinchEntity::new, MobCategory.AMBIENT)
+    public static final Supplier<EntityType<BullfinchEntity>> BULLFINCH = Suppliers.memoize(() -> EntityType.Builder.of(BullfinchEntity::new, MobCategory.CREATURE)
             .sized(0.7f, 0.7f).build("bullfinch"));
 
     @Override

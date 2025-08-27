@@ -24,7 +24,7 @@ public class EagleEntity extends AbstractPreyBirdEntity {
     public EagleEntity(EntityType<? extends AbstractPreyBirdEntity> entityType, Level level) {
         super(entityType, level);
     }
-    public static final Supplier<EntityType<EagleEntity>> EAGLE = Suppliers.memoize(() -> EntityType.Builder.of(EagleEntity::new, MobCategory.AMBIENT)
+    public static final Supplier<EntityType<EagleEntity>> EAGLE = Suppliers.memoize(() -> EntityType.Builder.of(EagleEntity::new, MobCategory.CREATURE)
             .sized(0.7f, 0.7f).build("eagle"));
 
     protected void registerGoals() {

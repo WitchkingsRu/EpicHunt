@@ -51,7 +51,7 @@ public class NightingaleEntity extends Animal {
         super(entityType, level);
     }
 
-    public static final Supplier<EntityType<NightingaleEntity>> NIGHTINGALE = Suppliers.memoize(() -> EntityType.Builder.of(NightingaleEntity::new, MobCategory.AMBIENT)
+    public static final Supplier<EntityType<NightingaleEntity>> NIGHTINGALE = Suppliers.memoize(() -> EntityType.Builder.of(NightingaleEntity::new, MobCategory.CREATURE)
             .sized(0.7f, 0.7f).build("nightingale"));
 
     @Override

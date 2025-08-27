@@ -20,7 +20,7 @@ public class GreatAukEntity extends Animal {
     public GreatAukEntity(EntityType<? extends Animal> entityType, Level level) {
         super(entityType, level);
     }
-    public static final Supplier<EntityType<GreatAukEntity>> GREAT_AUK = Suppliers.memoize(() -> EntityType.Builder.of(GreatAukEntity::new, MobCategory.AMBIENT)
+    public static final Supplier<EntityType<GreatAukEntity>> GREAT_AUK = Suppliers.memoize(() -> EntityType.Builder.of(GreatAukEntity::new, MobCategory.CREATURE)
             .sized(0.7f, 0.7f).build("great_auk"));
 
     @Override

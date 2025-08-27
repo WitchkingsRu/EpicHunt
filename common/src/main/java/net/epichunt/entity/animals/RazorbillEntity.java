@@ -20,7 +20,7 @@ public class RazorbillEntity extends Animal {
     public RazorbillEntity(EntityType<? extends Animal> entityType, Level level) {
         super(entityType, level);
     }
-    public static final Supplier<EntityType<RazorbillEntity>> RAZORBILL = Suppliers.memoize(() -> EntityType.Builder.of(RazorbillEntity::new, MobCategory.AMBIENT)
+    public static final Supplier<EntityType<RazorbillEntity>> RAZORBILL = Suppliers.memoize(() -> EntityType.Builder.of(RazorbillEntity::new, MobCategory.CREATURE)
             .sized(0.7f, 0.7f).build("razorbill"));
 
     @Override

@@ -49,7 +49,7 @@ public class OwlEntity extends Animal implements FlyingAnimal {
         this.setPathfindingMalus(BlockPathTypes.DAMAGE_FIRE, -1.0F);
     }
 
-    public static final Supplier<EntityType<OwlEntity>> OWL = Suppliers.memoize(() -> EntityType.Builder.of(OwlEntity::new, MobCategory.AMBIENT)
+    public static final Supplier<EntityType<OwlEntity>> OWL = Suppliers.memoize(() -> EntityType.Builder.of(OwlEntity::new, MobCategory.CREATURE)
             .sized(0.7f, 0.7f).build("owl"));
 
 
