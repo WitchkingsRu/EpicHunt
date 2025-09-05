@@ -28,7 +28,7 @@
     "architectury": ">=9.1.12"
   },
   "mixins": [
-    "mixins.epichunt.json"
+    "epichunt.mixins.json"
   ],
   "accessWidener": "epichunt.accesswidener"
 }

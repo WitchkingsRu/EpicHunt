@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "epichunt:cooked_clam",
+    "epichunt:cooked_oyster",
+    "epichunt:cooked_mussel",
+    "epichunt:cooked_calamari"
+  ]
+}

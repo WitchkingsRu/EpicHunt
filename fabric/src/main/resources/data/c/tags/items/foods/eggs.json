@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:egg",
+    "epichunt:duck_egg",
+    "epichunt:goose_egg",
+    "epichunt:pheasant_egg",
+    "epichunt:quail_egg"
+  ]
+}

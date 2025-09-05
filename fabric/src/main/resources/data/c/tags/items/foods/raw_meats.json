@@ -1,0 +1,15 @@
+{
+  "replace": false,
+  "values": [
+    "epichunt:raw_venison",
+    "epichunt:raw_equine",
+    "epichunt:raw_llama",
+    "epichunt:raw_camel",
+    "epichunt:raw_wolf",
+    "epichunt:raw_bear",
+    "epichunt:raw_badger",
+    "epichunt:raw_beaver",
+    "epichunt:raw_whale",
+    "epichunt:raw_bird"
+  ]
+}

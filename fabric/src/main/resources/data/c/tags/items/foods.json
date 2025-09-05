@@ -1,0 +1,12 @@
+{
+  "replace": false,
+  "values": [
+    "#c:foods/raw_meats",
+    "#c:foods/raw_fishes",
+    "#c:foods/cooked_meats",
+    "#c:foods/cooked_fishes",
+    "#c:foods/raw_mollusks",
+    "#c:foods/cooked_mollusks",
+    "#c:foods/eggs"
+  ]
+}

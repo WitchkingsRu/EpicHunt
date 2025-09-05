@@ -1,0 +1,23 @@
+{
+  "replace": false,
+  "values": [
+    "epichunt:cooked_bass",
+    "epichunt:cooked_pikefish",
+    "epichunt:cooked_eel",
+    "epichunt:cooked_pollock",
+    "epichunt:cooked_herring",
+    "epichunt:cooked_carp",
+    "epichunt:cooked_sturgeon",
+    "epichunt:cooked_catfish",
+    "epichunt:cooked_mackerel",
+    "epichunt:cooked_sardine",
+    "epichunt:cooked_swordfish",
+    "epichunt:cooked_shark",
+    "epichunt:cooked_perches",
+    "epichunt:cooked_zander",
+    "epichunt:cooked_trout",
+    "epichunt:cooked_halibut",
+    "epichunt:cooked_roach",
+    "epichunt:cooked_calamari"
+  ]
+}

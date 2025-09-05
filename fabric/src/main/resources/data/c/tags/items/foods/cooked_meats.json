@@ -1,0 +1,15 @@
+{
+  "replace": false,
+  "values": [
+    "epichunt:cooked_venison",
+    "epichunt:cooked_equine",
+    "epichunt:cooked_llama",
+    "epichunt:cooked_camel",
+    "epichunt:cooked_wolf",
+    "epichunt:cooked_bear",
+    "epichunt:cooked_badger",
+    "epichunt:cooked_beaver",
+    "epichunt:cooked_whale",
+    "epichunt:cooked_bird"
+  ]
+}

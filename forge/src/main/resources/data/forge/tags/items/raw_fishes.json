@@ -1,0 +1,23 @@
+{
+  "replace": false,
+  "values": [
+    "epichunt:raw_bass",
+    "epichunt:raw_pikefish",
+    "epichunt:raw_eel",
+    "epichunt:raw_pollock",
+    "epichunt:raw_herring",
+    "epichunt:raw_carp",
+    "epichunt:raw_sturgeon",
+    "epichunt:raw_catfish",
+    "epichunt:raw_mackerel",
+    "epichunt:raw_sardine",
+    "epichunt:raw_swordfish",
+    "epichunt:raw_shark",
+    "epichunt:raw_perches",
+    "epichunt:raw_zander",
+    "epichunt:raw_trout",
+    "epichunt:raw_halibut",
+    "epichunt:raw_roach",
+    "epichunt:raw_calamari"
+  ]
+}

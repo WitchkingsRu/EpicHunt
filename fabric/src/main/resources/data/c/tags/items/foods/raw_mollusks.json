@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "epichunt:raw_clam",
+    "epichunt:raw_oyster",
+    "epichunt:raw_mussel",
+    "epichunt:raw_calamari"
+  ]
+}
