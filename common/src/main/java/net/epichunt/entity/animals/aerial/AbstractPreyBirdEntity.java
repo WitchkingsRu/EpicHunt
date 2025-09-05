@@ -20,6 +20,7 @@ import net.minecraft.world.entity.ai.goal.Goal;
 import net.minecraft.world.entity.ai.targeting.TargetingConditions;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.animal.Cat;
+import net.minecraft.world.entity.animal.FlyingAnimal;
 import net.minecraft.world.entity.animal.Rabbit;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.BlockAndTintGetter;
@@ -35,7 +36,7 @@ import java.util.EnumSet;
 import java.util.List;
 import java.util.function.Supplier;
 
-public class AbstractPreyBirdEntity extends FlyingMob {
+public class AbstractPreyBirdEntity extends FlyingMob implements FlyingAnimal {
     Vec3 moveTargetPoint;
     BlockPos anchorPoint;
     AttackPhase attackPhase;
@@ -97,11 +98,13 @@ public class AbstractPreyBirdEntity extends FlyingMob {
     }
 
     public SpawnGroupData finalizeSpawn(ServerLevelAccessor serverLevelAccessor, DifficultyInstance difficultyInstance, MobSpawnType mobSpawnType, @Nullable SpawnGroupData spawnGroupData, @Nullable CompoundTag compoundTag) {
-        this.anchorPoint = this.blockPosition().above(10);
+        this.anchorPoint = this.blockPosition().above(20);
+        this.setPos(this.getX(), this.anchorPoint.getY() - 2, this.getZ());
         return super.finalizeSpawn(serverLevelAccessor, difficultyInstance, mobSpawnType, spawnGroupData, compoundTag);
     }
 
-    public static boolean checkBirdSpawnRules(EntityType<? extends Mob> entityType, LevelAccessor levelAccessor, MobSpawnType mobSpawnType, BlockPos blockPos, RandomSource randomSource) {
+    public static boolean checkBirdSpawnRules(EntityType<? extends AbstractPreyBirdEntity> entityType, LevelAccessor levelAccessor, MobSpawnType mobSpawnType, BlockPos blockPos, RandomSource randomSource) {
+
         return isBrightEnoughToSpawn(levelAccessor, blockPos);
     }
     protected static boolean isBrightEnoughToSpawn(BlockAndTintGetter blockAndTintGetter, BlockPos blockPos) {
@@ -113,6 +116,11 @@ public class AbstractPreyBirdEntity extends FlyingMob {
 
     public boolean canAttackType(EntityType<?> entityType) {
         return true;
+    }
+
+    @Override
+    public boolean isFlying() {
+        return !this.onGround();
     }
 
     static enum AttackPhase {

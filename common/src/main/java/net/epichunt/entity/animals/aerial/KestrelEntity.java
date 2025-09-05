@@ -19,7 +19,7 @@ public class KestrelEntity extends AbstractPreyBirdEntity {
     public KestrelEntity(EntityType<? extends AbstractPreyBirdEntity> entityType, Level level) {
         super(entityType, level);
     }
-    public static final Supplier<EntityType<KestrelEntity>> KESTREL = Suppliers.memoize(() -> EntityType.Builder.of(KestrelEntity::new, MobCategory.CREATURE)
+    public static final Supplier<EntityType<KestrelEntity>> KESTREL = Suppliers.memoize(() -> EntityType.Builder.of(KestrelEntity::new, MobCategory.AMBIENT)
             .sized(0.7f, 0.7f).build("kestrel"));
 
     protected void registerGoals() {

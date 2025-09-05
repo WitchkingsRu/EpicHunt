@@ -517,27 +517,27 @@ public class ConfigMain implements ConfigData {
         @RequiresRestart
         public int minAmount = 2;
         @RequiresRestart
-        public int maxAmount = 4;
+        public int maxAmount = 5;
         public NarwhalConfig() {
         }
     }
     public static class WhaleConfig {
         @RequiresRestart
-        public int weight = 12;
+        public int weight = 10;
         @RequiresRestart
-        public int minAmount = 2;
+        public int minAmount = 1;
         @RequiresRestart
-        public int maxAmount = 4;
+        public int maxAmount = 5;
         public WhaleConfig() {
         }
     }
     public static class OrcaConfig {
         @RequiresRestart
-        public int weight = 12;
+        public int weight = 10;
         @RequiresRestart
-        public int minAmount = 2;
+        public int minAmount = 1;
         @RequiresRestart
-        public int maxAmount = 4;
+        public int maxAmount = 2;
         public OrcaConfig() {
         }
     }
@@ -545,19 +545,19 @@ public class ConfigMain implements ConfigData {
         @RequiresRestart
         public int weight = 12;
         @RequiresRestart
-        public int minAmount = 2;
+        public int minAmount = 1;
         @RequiresRestart
-        public int maxAmount = 4;
+        public int maxAmount = 2;
         public WhiteSharkConfig() {
         }
     }
     public static class SwordfishConfig {
         @RequiresRestart
-        public int weight = 12;
+        public int weight = 20;
         @RequiresRestart
-        public int minAmount = 2;
+        public int minAmount = 1;
         @RequiresRestart
-        public int maxAmount = 4;
+        public int maxAmount = 2;
         public SwordfishConfig() {
         }
     }
@@ -585,11 +585,11 @@ public class ConfigMain implements ConfigData {
     }
     public static class PigeonConfig {
         @RequiresRestart
-        public int weight = 12;
+        public int weight = 20;
         @RequiresRestart
-        public int minAmount = 2;
+        public int minAmount = 4;
         @RequiresRestart
-        public int maxAmount = 4;
+        public int maxAmount = 6;
         public PigeonConfig() {
         }
     }
@@ -599,7 +599,7 @@ public class ConfigMain implements ConfigData {
         @RequiresRestart
         public int minAmount = 2;
         @RequiresRestart
-        public int maxAmount = 4;
+        public int maxAmount = 2;
         public WhiteStorkConfig() {
         }
     }
@@ -609,7 +609,7 @@ public class ConfigMain implements ConfigData {
         @RequiresRestart
         public int minAmount = 2;
         @RequiresRestart
-        public int maxAmount = 4;
+        public int maxAmount = 2;
         public CraneConfig() {
         }
     }
@@ -617,9 +617,9 @@ public class ConfigMain implements ConfigData {
         @RequiresRestart
         public int weight = 12;
         @RequiresRestart
-        public int minAmount = 2;
+        public int minAmount = 1;
         @RequiresRestart
-        public int maxAmount = 4;
+        public int maxAmount = 2;
         public KestrelConfig() {
         }
     }
@@ -655,21 +655,21 @@ public class ConfigMain implements ConfigData {
     }
     public static class NightingaleConfig {
         @RequiresRestart
-        public int weight = 12;
+        public int weight = 15;
         @RequiresRestart
-        public int minAmount = 2;
+        public int minAmount = 3;
         @RequiresRestart
-        public int maxAmount = 4;
+        public int maxAmount = 5;
         public NightingaleConfig() {
         }
     }
     public static class RavenConfig {
         @RequiresRestart
-        public int weight = 12;
+        public int weight = 10;
         @RequiresRestart
-        public int minAmount = 2;
+        public int minAmount = 1;
         @RequiresRestart
-        public int maxAmount = 4;
+        public int maxAmount = 3;
         public RavenConfig() {
         }
     }
@@ -677,9 +677,9 @@ public class ConfigMain implements ConfigData {
         @RequiresRestart
         public int weight = 12;
         @RequiresRestart
-        public int minAmount = 2;
+        public int minAmount = 1;
         @RequiresRestart
-        public int maxAmount = 4;
+        public int maxAmount = 1;
         public HawkConfig() {
         }
     }
@@ -687,9 +687,9 @@ public class ConfigMain implements ConfigData {
         @RequiresRestart
         public int weight = 12;
         @RequiresRestart
-        public int minAmount = 2;
+        public int minAmount = 1;
         @RequiresRestart
-        public int maxAmount = 4;
+        public int maxAmount = 1;
         public EagleConfig() {
         }
     }
@@ -697,9 +697,9 @@ public class ConfigMain implements ConfigData {
         @RequiresRestart
         public int weight = 12;
         @RequiresRestart
-        public int minAmount = 2;
+        public int minAmount = 1;
         @RequiresRestart
-        public int maxAmount = 4;
+        public int maxAmount = 2;
         public OwlConfig() {
         }
     }

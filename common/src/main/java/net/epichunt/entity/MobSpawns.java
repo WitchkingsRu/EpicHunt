@@ -12,6 +12,7 @@ import net.epichunt.entity.animals.WolfEntity;
 import net.epichunt.entity.animals.aerial.AbstractPreyBirdEntity;
 import net.minecraft.tags.BiomeTags;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.entity.SpawnPlacements;
 import net.minecraft.world.entity.animal.AbstractFish;
@@ -75,9 +76,9 @@ public class MobSpawns {
         addEntitySpawns(context -> ((!(context.hasTag(BiomeTags.HAS_IGLOO)) && !(context.hasTag(BiomeTags.IS_TAIGA)) && !(context.hasTag(BiomeTags.SPAWNS_SNOW_FOXES))) && (context.hasTag(BiomeTags.IS_OVERWORLD))), MobCategory.CREATURE, PIGEON_ENTITY::get, CONFIG.pigeon.weight, CONFIG.pigeon.minAmount, CONFIG.pigeon.maxAmount);
         addEntitySpawns(context -> ((context.hasTag(BiomeTags.IS_RIVER)) || (context.hasTag(BiomeTags.HAS_CLOSER_WATER_FOG)) || (context.hasTag(BiomeTags.ALLOWS_SURFACE_SLIME_SPAWNS))), MobCategory.CREATURE, WHITE_STORK_ENTITY::get, CONFIG.stork.weight, CONFIG.stork.minAmount, CONFIG.stork.maxAmount);
         addEntitySpawns(context -> ((context.hasTag(BiomeTags.IS_RIVER)) || (context.hasTag(BiomeTags.HAS_CLOSER_WATER_FOG)) || (context.hasTag(BiomeTags.ALLOWS_SURFACE_SLIME_SPAWNS))), MobCategory.CREATURE, COMMON_CRANE_ENTITY::get, CONFIG.crane.weight, CONFIG.crane.minAmount, CONFIG.crane.maxAmount);
-        addEntitySpawns(context -> ((!(context.hasTag(BiomeTags.HAS_IGLOO)) && !(context.hasTag(BiomeTags.SPAWNS_SNOW_FOXES))) && (context.hasTag(BiomeTags.IS_OVERWORLD))), MobCategory.CREATURE, KESTREL_ENTITY::get, CONFIG.kestrel.weight, CONFIG.kestrel.minAmount, CONFIG.kestrel.maxAmount);
-        addEntitySpawns(context -> ((!(context.hasTag(BiomeTags.HAS_IGLOO)) && !(context.hasTag(BiomeTags.SPAWNS_SNOW_FOXES))) && (context.hasTag(BiomeTags.IS_OVERWORLD))), MobCategory.CREATURE, EAGLE_ENTITY::get, CONFIG.eagle.weight, CONFIG.eagle.minAmount, CONFIG.eagle.maxAmount);
-        addEntitySpawns(context -> ((!(context.hasTag(BiomeTags.HAS_IGLOO)) && !(context.hasTag(BiomeTags.SPAWNS_SNOW_FOXES))) && (context.hasTag(BiomeTags.IS_OVERWORLD))), MobCategory.CREATURE, HAWK_ENTITY::get, CONFIG.hawk.weight, CONFIG.hawk.minAmount, CONFIG.hawk.maxAmount);
+        addEntitySpawns(context -> ((!(context.hasTag(BiomeTags.HAS_IGLOO)) && !(context.hasTag(BiomeTags.SPAWNS_SNOW_FOXES))) && !(context.hasTag(BiomeTags.IS_OCEAN)) && (context.hasTag(BiomeTags.IS_OVERWORLD))), MobCategory.AMBIENT, KESTREL_ENTITY::get, CONFIG.kestrel.weight, CONFIG.kestrel.minAmount, CONFIG.kestrel.maxAmount);
+        addEntitySpawns(context -> ((!(context.hasTag(BiomeTags.HAS_IGLOO)) && !(context.hasTag(BiomeTags.SPAWNS_SNOW_FOXES))) && !(context.hasTag(BiomeTags.IS_OCEAN)) && (context.hasTag(BiomeTags.IS_OVERWORLD))), MobCategory.AMBIENT, EAGLE_ENTITY::get, CONFIG.eagle.weight, CONFIG.eagle.minAmount, CONFIG.eagle.maxAmount);
+        addEntitySpawns(context -> ((!(context.hasTag(BiomeTags.HAS_IGLOO)) && !(context.hasTag(BiomeTags.SPAWNS_SNOW_FOXES))) && !(context.hasTag(BiomeTags.IS_OCEAN)) && (context.hasTag(BiomeTags.IS_OVERWORLD))), MobCategory.AMBIENT, HAWK_ENTITY::get, CONFIG.hawk.weight, CONFIG.hawk.minAmount, CONFIG.hawk.maxAmount);
         addEntitySpawns(context -> ((context.hasTag(BiomeTags.IS_RIVER)) || (context.hasTag(BiomeTags.HAS_CLOSER_WATER_FOG)) || (context.hasTag(BiomeTags.ALLOWS_SURFACE_SLIME_SPAWNS))|| (context.hasTag(BiomeTags.HAS_VILLAGE_PLAINS))), MobCategory.CREATURE, LOON_ENTITY::get, CONFIG.loon.weight, CONFIG.loon.minAmount, CONFIG.loon.maxAmount);
         addEntitySpawns(context -> ((context.hasTag(BiomeTags.IS_TAIGA)) || (context.hasTag(BiomeTags.HAS_VILLAGE_PLAINS))), MobCategory.CREATURE, PARTRIDGE_ENTITY::get, CONFIG.partridge.weight, CONFIG.partridge.minAmount, CONFIG.partridge.maxAmount);
         addEntitySpawns(context -> ((context.hasTag(BiomeTags.HAS_IGLOO)) || (context.hasTag(BiomeTags.IS_TAIGA))), MobCategory.CREATURE, BULLFINCH_ENTITY::get, CONFIG.bullfinch.weight, CONFIG.bullfinch.minAmount, CONFIG.bullfinch.maxAmount);
@@ -169,14 +170,14 @@ public class MobSpawns {
         SpawnPlacementsRegistry.register(PIGEON_ENTITY, SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Animal::checkAnimalSpawnRules);
         SpawnPlacementsRegistry.register(WHITE_STORK_ENTITY, SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Animal::checkAnimalSpawnRules);
         SpawnPlacementsRegistry.register(COMMON_CRANE_ENTITY, SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Animal::checkAnimalSpawnRules);
-        SpawnPlacementsRegistry.register(KESTREL_ENTITY, SpawnPlacements.Type.NO_RESTRICTIONS, Heightmap.Types.WORLD_SURFACE_WG, AbstractPreyBirdEntity::checkBirdSpawnRules);
+        SpawnPlacementsRegistry.register(KESTREL_ENTITY, SpawnPlacements.Type.NO_RESTRICTIONS, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Mob::checkMobSpawnRules);
         SpawnPlacementsRegistry.register(LOON_ENTITY, SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Animal::checkAnimalSpawnRules);
         SpawnPlacementsRegistry.register(PARTRIDGE_ENTITY, SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Animal::checkAnimalSpawnRules);
         SpawnPlacementsRegistry.register(BULLFINCH_ENTITY, SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Animal::checkAnimalSpawnRules);
         SpawnPlacementsRegistry.register(NIGHTINGALE_ENTITY, SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Animal::checkAnimalSpawnRules);
         SpawnPlacementsRegistry.register(RAVEN_ENTITY, SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Animal::checkAnimalSpawnRules);
-        SpawnPlacementsRegistry.register(HAWK_ENTITY, SpawnPlacements.Type.NO_RESTRICTIONS, Heightmap.Types.WORLD_SURFACE_WG, AbstractPreyBirdEntity::checkBirdSpawnRules);
-        SpawnPlacementsRegistry.register(EAGLE_ENTITY, SpawnPlacements.Type.NO_RESTRICTIONS, Heightmap.Types.WORLD_SURFACE_WG, AbstractPreyBirdEntity::checkBirdSpawnRules);
+        SpawnPlacementsRegistry.register(HAWK_ENTITY, SpawnPlacements.Type.NO_RESTRICTIONS, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Mob::checkMobSpawnRules);
+        SpawnPlacementsRegistry.register(EAGLE_ENTITY, SpawnPlacements.Type.NO_RESTRICTIONS, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Mob::checkMobSpawnRules);
         SpawnPlacementsRegistry.register(OWL_ENTITY, SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Animal::checkAnimalSpawnRules);
     }
 }
