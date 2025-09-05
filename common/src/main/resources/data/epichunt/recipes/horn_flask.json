@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "b",
+    "a",
+    "b"
+  ],
+  "key": {
+    "a": {
+      "item": "epichunt:horn"
+    },
+    "b": {
+      "item": "minecraft:iron_nugget"
+    }
+  },
+  "result": {
+    "item": "epichunt:horn_flask",
+    "count": 1
+  }
+}

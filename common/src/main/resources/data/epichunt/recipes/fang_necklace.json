@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "b",
+    "a"
+  ],
+  "key": {
+    "a": {
+      "item": "epichunt:fang"
+    },
+    "b": {
+      "item": "minecraft:string"
+    }
+  },
+  "result": {
+    "item": "epichunt:fang_necklace",
+    "count": 1
+  }
+}

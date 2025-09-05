@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "b",
+    "a"
+  ],
+  "key": {
+    "a": {
+      "item": "epichunt:tusk"
+    },
+    "b": {
+      "item": "minecraft:string"
+    }
+  },
+  "result": {
+    "item": "epichunt:tusk_necklace",
+    "count": 1
+  }
+}
