@@ -5,6 +5,7 @@ import com.google.common.collect.Sets;
 import net.epichunt.sound.Sounds;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
@@ -154,6 +155,7 @@ public class OwlEntity extends Animal implements FlyingAnimal {
     protected float getSoundVolume() {
         return 0.4F;
     }
+
 
     static {
     }

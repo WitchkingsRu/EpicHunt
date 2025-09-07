@@ -3,6 +3,7 @@ package net.epichunt.entity.animals.aerial;
 import com.google.common.base.Suppliers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -86,6 +87,11 @@ public class AbstractPreyBirdEntity extends FlyingMob implements FlyingAnimal {
 
     public void aiStep() {
         super.aiStep();
+    }
+
+    @Override
+    public boolean isInWall() {
+        return false;
     }
 
     protected void customServerAiStep() {

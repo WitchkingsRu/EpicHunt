@@ -7,6 +7,7 @@ import net.epichunt.sound.Sounds;
 import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.chat.Component;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
 import net.minecraft.network.syncher.SynchedEntityData;
@@ -206,6 +207,7 @@ public class PigeonEntity extends Animal {
     protected float getSoundVolume() {
         return 0.3F;
     }
+
 
     static {
         FOOD_ITEMS = Ingredient.of(Items.WHEAT_SEEDS, Items.BREAD);
