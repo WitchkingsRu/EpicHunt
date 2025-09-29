@@ -1,21 +1,21 @@
 package net.epichunt.mixin;
 
+import dev.architectury.platform.Platform;
 import net.epichunt.item.ModItem;
 import net.minecraft.world.entity.animal.Cat;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Overwrite;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
 @Mixin(Cat.class)
-public class CatMixin {
+public class CatFoodMixin {
+
     @Redirect(
             method = "<clinit>",
             at = @At(
@@ -24,6 +24,10 @@ public class CatMixin {
             )
     )
     private static Ingredient redirectTemptIngredient(ItemLike[] items) {
+        if (!Platform.isForge()) {
+            return Ingredient.of(items);
+        }
+
         List<ItemLike> newItems = new ArrayList<>(Arrays.asList(items));
         newItems.add(Items.COD);
         newItems.add(Items.SALMON);
