@@ -80,7 +80,11 @@ public class WolfEntity extends Monster implements Enemy {
     }
 
     public static boolean checkWolfSpawnRules(EntityType<? extends WolfEntity> entityType, LevelAccessor levelAccessor, MobSpawnType mobSpawnType, BlockPos blockPos, RandomSource randomSource) {
-        return levelAccessor.getBlockState(blockPos.below()).is(BlockTags.ANIMALS_SPAWNABLE_ON);
+        return levelAccessor.getBlockState(blockPos.below()).is(BlockTags.ANIMALS_SPAWNABLE_ON) && isBrightEnoughToSpawn(levelAccessor, blockPos);
+    }
+
+    protected static boolean isBrightEnoughToSpawn(BlockAndTintGetter blockAndTintGetter, BlockPos blockPos) {
+        return blockAndTintGetter.getRawBrightness(blockPos, 0) > 8 && blockAndTintGetter.getRawBrightness(blockPos, 0) < 14;
     }
 
     protected SoundEvent getAmbientSound() {

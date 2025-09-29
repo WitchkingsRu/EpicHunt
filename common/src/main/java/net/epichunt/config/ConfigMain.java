@@ -133,6 +133,8 @@ public class ConfigMain implements ConfigData {
     @CollapsibleObject
     public EagleConfig eagle = new EagleConfig();
     @CollapsibleObject
+    public DesertEagleConfig deagle = new DesertEagleConfig();
+    @CollapsibleObject
     public OwlConfig owl = new OwlConfig();
 
     @CollapsibleObject
@@ -615,11 +617,11 @@ public class ConfigMain implements ConfigData {
     }
     public static class KestrelConfig {
         @RequiresRestart
-        public int weight = 12;
+        public int weight = 4;
         @RequiresRestart
         public int minAmount = 1;
         @RequiresRestart
-        public int maxAmount = 2;
+        public int maxAmount = 1;
         public KestrelConfig() {
         }
     }
@@ -675,7 +677,7 @@ public class ConfigMain implements ConfigData {
     }
     public static class HawkConfig {
         @RequiresRestart
-        public int weight = 12;
+        public int weight = 4;
         @RequiresRestart
         public int minAmount = 1;
         @RequiresRestart
@@ -685,12 +687,22 @@ public class ConfigMain implements ConfigData {
     }
     public static class EagleConfig {
         @RequiresRestart
-        public int weight = 12;
+        public int weight = 4;
         @RequiresRestart
         public int minAmount = 1;
         @RequiresRestart
         public int maxAmount = 1;
         public EagleConfig() {
+        }
+    }
+    public static class DesertEagleConfig {
+        @RequiresRestart
+        public int weight = 1;
+        @RequiresRestart
+        public int minAmount = 1;
+        @RequiresRestart
+        public int maxAmount = 1;
+        public DesertEagleConfig() {
         }
     }
     public static class OwlConfig {

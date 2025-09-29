@@ -39,10 +39,6 @@ public class EagleEntity extends AbstractPreyBirdEntity {
                 .add(Attributes.FOLLOW_RANGE, 25D).add(Attributes.ATTACK_DAMAGE, 10D).add(Attributes.ATTACK_KNOCKBACK, 1);
     }
 
-    public SoundSource getSoundSource() {
-        return SoundSource.AMBIENT;
-    }
-
     protected SoundEvent getAmbientSound() {
         return Sounds.EAGLE_AMBIENT.get();
     }

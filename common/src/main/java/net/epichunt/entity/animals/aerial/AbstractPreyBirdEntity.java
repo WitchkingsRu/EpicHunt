@@ -1,6 +1,7 @@
 package net.epichunt.entity.animals.aerial;
 
 import com.google.common.base.Suppliers;
+import net.epichunt.sound.Sounds;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
@@ -278,10 +279,6 @@ public class AbstractPreyBirdEntity extends FlyingMob implements FlyingAnimal {
     }
 
     class AbstractPreyBirdSweepAttackGoal extends AbstractPreyBirdMoveTargetGoal {
-        private static final int CAT_SEARCH_TICK_DELAY = 20;
-        private boolean isScaredOfCat;
-        private int catSearchTick;
-
         AbstractPreyBirdSweepAttackGoal(AbstractPreyBirdEntity phantom) {
             super(phantom);
         }
@@ -303,22 +300,10 @@ public class AbstractPreyBirdEntity extends FlyingMob implements FlyingAnimal {
                         return false;
                     }
                 }
-
                 if (!this.canUse()) {
                     return false;
                 } else {
-                    if (AbstractPreyBirdEntity.this.tickCount > this.catSearchTick) {
-                        this.catSearchTick = AbstractPreyBirdEntity.this.tickCount + 20;
-                        List<Cat> list = AbstractPreyBirdEntity.this.level().getEntitiesOfClass(Cat.class, AbstractPreyBirdEntity.this.getBoundingBox().inflate((double)16.0F), EntitySelector.ENTITY_STILL_ALIVE);
-
-                        for(Cat cat : list) {
-                            cat.hiss();
-                        }
-
-                        this.isScaredOfCat = !list.isEmpty();
-                    }
-
-                    return !this.isScaredOfCat;
+                    return true;
                 }
             }
         }
@@ -392,7 +377,7 @@ public class AbstractPreyBirdEntity extends FlyingMob implements FlyingAnimal {
                     AbstractPreyBirdEntity.this.attackPhase = AbstractPreyBirdEntity.AttackPhase.SWOOP;
                     this.setAnchorAboveTarget();
                     this.nextSweepTick = this.adjustedTickDelay((8 + AbstractPreyBirdEntity.this.random.nextInt(4)) * 20);
-                    AbstractPreyBirdEntity.this.playSound(SoundEvents.PHANTOM_SWOOP, 10.0F, 0.95F + AbstractPreyBirdEntity.this.random.nextFloat() * 0.1F);
+                    AbstractPreyBirdEntity.this.playSound(Sounds.EAGLE_AMBIENT.get(), 10.0F, 0.95F + AbstractPreyBirdEntity.this.random.nextFloat() * 0.1F);
                 }
             }
 
